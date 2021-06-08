@@ -1,0 +1,11 @@
+*.pbo
+*.biprivatekey
+releases/
+keys/
+hemtt\.exe
+.hemtt/local
+*.pdb
+*.exe
+*.sqfc
+*.bat
+*.dll

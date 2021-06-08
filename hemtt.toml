@@ -1,0 +1,25 @@
+name = "Crows TFAR Jamming"
+prefix = "crowsTJ"
+author = "Crowdedlight"
+mainprefix = "z"
+files = [
+    "mod.cpp",
+    "logo_crow.paa",
+    "README.md",
+]
+include = ["./include"]
+exclude = [
+  "*.psd",
+  "*.png",
+  "*.tga"
+]
+  
+key_name = "{{prefix}}_{{version}}"
+authority = "{{prefix}}_{{version}}-{{git \"id 8\"}}"
+  
+releasebuild = [
+    "@zip @crowsTJ_{{version}}"
+]
+  
+[header_exts]
+version = "{{git \"id 8\"}}"

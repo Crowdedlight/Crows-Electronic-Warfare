@@ -1,0 +1,10 @@
+name = "Crows TFAR Jamming";
+dir = "@crowsTJ";
+author = "Crowdedlight";
+picture = "logo_crow.paa";
+description = "Crows TFAR Jamming";
+logo = "logo_crow.paa";
+logoOver = "logo_crow.paa";
+tooltip = "Crows TFAR Jamming";
+overview = "Crows TFAR Jamming, is an Arma 3 mod that enables Zeus to utilize jamming on the TFAR radio mod.";
+overviewPicture = "logo_crow.paa";
