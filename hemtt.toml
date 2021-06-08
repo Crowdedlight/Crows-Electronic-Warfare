@@ -1,11 +1,14 @@
 name = "Crows TFAR Jamming"
+modname = "crowsTJ"
 prefix = "crowsTJ"
 author = "Crowdedlight"
 mainprefix = "z"
+sig_version = 3
+reuse_private_key = false
 files = [
-    "mod.cpp",
-    "logo_crow.paa",
-    "README.md",
+  "mod.cpp",
+  "logo_crow.paa",
+  "README.md",
 ]
 include = ["./include"]
 exclude = [
@@ -18,8 +21,9 @@ key_name = "{{prefix}}_{{version}}"
 authority = "{{prefix}}_{{version}}-{{git \"id 8\"}}"
   
 releasebuild = [
-    "@zip @crowsTJ_{{version}}"
+  "@zip @crowsTJ_{{version}}"
 ]
   
 [header_exts]
 version = "{{git \"id 8\"}}"
+author = "Crowdedlight"

@@ -1,0 +1,1 @@
+#include "\z\CrowsTJ\addons\main\script_component.hpp"

@@ -1,7 +1,7 @@
 *.pbo
 *.biprivatekey
-releases/
-keys/
+releases/*
+keys/*
 hemtt\.exe
 .hemtt/local
 *.pdb
