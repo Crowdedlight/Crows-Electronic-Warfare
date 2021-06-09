@@ -14,7 +14,7 @@ Using the same setup method as JShock in JSHK contamination mod.
 private _hasZen = isClass (configFile >> "CfgPatches" >> "zen_custom_modules");
 if !(_hasZen) exitWith
 {
-	diag_log "******CBA and/or ZEN not detected. They are required for Crows Zeus Additions.";
+	diag_log "******CBA and/or ZEN not detected. They are required for Crows TFAR Jamming.";
 };
 
 //only load for zeus
@@ -29,7 +29,7 @@ private _wait = [player] spawn
 	{
 		if (_timeout >= 10) exitWith 
 		{
-			diag_log format ["CrowTJ:%1: Timed out!!!", "fnc_zeusRegister"];
+			diag_log format ["CrowsTJ:%1: Timed out!!!", "fnc_zeusRegister"];
 			true;
 		};
 		sleep 1;
@@ -46,11 +46,11 @@ private _wait = [player] spawn
 	{
 		private _reg = 
 		[
-			"Crows TFAR Jamming", 
+			"Crows Zeus Modules", // using same name as zeus mod for now, as we add the module to that category
 			(_x select 0), 
 			(_x select 1),
 			(_x select 2)
 		] call zen_custom_modules_fnc_register;
 	} forEach _moduleList;
 };
-diag_log format ["CrowTJ:fnc_zeusRegister: Zeus initialization complete. Zeus Enhanced Detected: %2",_hasZen];
+diag_log format ["CrowsTJ:fnc_zeusRegister: Zeus initialization complete. Zeus Enhanced Detected: %2",_hasZen];

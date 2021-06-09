@@ -11,7 +11,4 @@
     #define DEBUG_SETTINGS DEBUG_SETTINGS_MAIN
 #endif
 
-// EVENT names
-
-
 #include "\z\crowsTJ\addons\main\script_macros.hpp"

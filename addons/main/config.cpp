@@ -6,9 +6,10 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"cba_main", "zen_main", "task_force_radio"};
+        requiredAddons[] = {"cba_main", "zen_main", "tfar_core"};
         author = "Crowdedlight";
         VERSION_CONFIG;
     };
 };
-#include "CfgFactionClasses.hpp"
+
+#include "CfgEventhandlers.hpp"

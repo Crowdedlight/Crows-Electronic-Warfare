@@ -14,4 +14,14 @@ params ["_unit", "_rad", "_strength"];
 // if object is null, exitwith. Can happen if we get event as JIP but object has been removed
 if (_unit == objNull) exitWith {};
 
-// else set jammer vars and add to local array
+// set jammer vars
+_unit setVariable [QGVAR(jamming_enabled), true];
+_unit setVariable [QGVAR(jamming_radius), _rad];
+_unit setVariable [QGVAR(jamming_strength), _strength];
+
+// add action 
+_unit addAction ["<t color=""#FFFF00"">Enable Jammer", FUNC(actionJamToggle), [], 7, true, true, "", {!(_target getVariable [QGVAR(jamming_enabled), false])}, 6];
+_unit addAction ["<t color=""#FFFF00"">Disable Jammer", FUNC(actionJamToggle), [], 7, true, true, "", {(_target getVariable [QGVAR(jamming_enabled), false])}, 6];
+
+// add to array
+GVAR(jamlist) pushBack _unit;

@@ -2,3 +2,5 @@
 #include "XEH_PREP.hpp"
 
 ADDON = true;
+
+GVAR(jamlist) = [];
