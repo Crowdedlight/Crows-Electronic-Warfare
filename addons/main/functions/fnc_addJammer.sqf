@@ -11,3 +11,7 @@ Called upon event, adds the jammer to local gvar array and starts while loop, if
 *///////////////////////////////////////////////
 params ["_unit", "_rad", "_strength"];
 
+// if object is null, exitwith. Can happen if we get event as JIP but object has been removed
+if (_unit == objNull) exitWith {};
+
+// else set jammer vars and add to local array
