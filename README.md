@@ -1,10 +1,13 @@
 # Crows-Electronic-Warfare
-arma 3 mod, for zeus enabled tfar jamming
+A arma 3 mod that allows zeus to add additional eletronic measures available for the players. 
 
+### Requirements
+This mod requires Zeus Enhanced (ZEN), CBA3 and Taskforce Radio (TFAR) Beta. 
 
-The vision is create a way for Zeus to add jammers to their senarios and potentially in future allow player-carried or vehicle carried jammers that could work against remote-detonation and potentially against LAMBS AI. Potentially also add Electronic Support Measures for help fight against jamming. 
+### Features
 
-Vision might also be to add spectrum device for tracking points placed in zeus
+**The wiki for the features is availble at:** *insert wiki* 
 
-MSP - Zeus be able to set objects as jammers, and players will get jammed the closer to center of radius they get. 
+* **Set TFAR Jammer:** Allows Zeus to select a object that will work as a TFAR jammer with the chosen settings, until death or removal. Zeus has a continuous updated map marker showing the area it is active in.
+* **Set Spectrum Signal Source:** Allows Zeus to select a object that can be tracked by the spectrum analyzer with selected frequency and range it can be tracked from. Frequency has to be unique due to game limitations. 
 

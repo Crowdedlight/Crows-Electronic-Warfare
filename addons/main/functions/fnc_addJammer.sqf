@@ -20,8 +20,12 @@ _unit setVariable [QGVAR(jamming_radius), _rad];
 _unit setVariable [QGVAR(jamming_strength), _strength];
 
 // add action 
-_unit addAction ["<t color=""#FFFF00"">Enable Jammer", FUNC(actionJamToggle), [], 7, true, true, "", {!(_target getVariable [QGVAR(jamming_enabled), false])}, 6];
-_unit addAction ["<t color=""#FFFF00"">Disable Jammer", FUNC(actionJamToggle), [], 7, true, true, "", {(_target getVariable [QGVAR(jamming_enabled), false])}, 6];
+_unit addAction ["<t color=""#FFFF00"">Pull Out Wires", FUNC(actionJamToggle), [], 7, true, true, "", "!(_target getVariable [QGVAR(jamming_enabled), false])", 6];
+_unit addAction ["<t color=""#FFFF00"">Gaffa Wires Back In", FUNC(actionJamToggle), [], 7, true, true, "", "(_target getVariable [QGVAR(jamming_enabled), false])", 6];
 
 // add to array
 GVAR(jamlist) pushBack _unit;
+
+
+// _this addAction ["<t color=""#FFFF00"">Enable Jammer", crowsEW_main_fnc_actionJamToggle, [], 7, true, true, "", '(_target getVariable ["crowsEW_main_fnc_jamming_enabled", false])', 6];
+// _this addAction ["<t color=""#FFFF00"">Disable Jammer", crowsEW_main_fnc_actionJamToggle, [], 7, true, true, "", '!(_target getVariable ["crowsEW_main_fnc_jamming_enabled", false])', 6];

@@ -32,14 +32,14 @@ private _removeArr = [];
 GVAR(beacons) = GVAR(beacons) - _removeArr;
 
 
-// for each beacon calculate direction, and strength based on distance. Range is hardcoded to 300m
-// TODO SET SCANRANGE BASED ON VARIABLE, SO ZEUS CAN SET TRACKABLE RANGE FROM OBJECT
-private _scanRange = 300;
+// for each beacon calculate direction, and strength based on distance.
 private _sigsArray = [];
 private _tracker = player;
-
 {
-	_x params ["_target", "_frequency"];
+	_x params [["_target",objNull,[objNull]], ["_frequency", 0], ["_scanRange",300]];
+
+    // if for safety 
+    if (_target == objNull || _frequency == 0) then {continue};
 
 	// calculate direction
 	private _dirTargetFromTracker = _tracker getDir _target;
@@ -56,8 +56,8 @@ private _tracker = player;
     // direction strength, get abs value
     private _dirStrength = abs round((100 / 180) * (180 - _dirDiff));
 
-    // sig strength is 100 - average of dir and dist strength and then negated from positive. 
-    private _sigStrength = (100 - ((_distStrength + _dirStrength) / 2)) * (-1);
+    // sig strength is 100 - average of dir and dist strength and then negated from positive. Dir is made to count for 75% of the strength as directional is much more important than distance
+    private _sigStrength = (100 - (_distStrength/0.25 + _dirStrength/0.75)) * (-1);
 
     // push to sig array
     _sigsArray append [_frequency, _sigStrength];
@@ -70,51 +70,3 @@ missionNamespace setVariable ["#EM_Values", _sigsArray];
 if (true) then {	
 	systemChat format ["Sigs: %1", _sigsArray];
 };
-
-
-
-
-// private _tracker = player;
-// private _scanRange = 300;
-// private _sigsArray = [];
-// {
-// 	_x params ["_target", "_frequency"];
-
-//     diag_log _target;
-//     diag_log _frequency;
-
-// 	private _dirTargetFromTracker = _tracker getDir _target;
-//     diag_log _dirTargetFromTracker;
-
-//     private _trackerFacingDir = direction _tracker;
-//     diag_log _trackerFacingDir;
-
-//     private _dirDiff = abs (_dirTargetFromTracker - _trackerFacingDir);    
-//     diag_log _dirDiff;
-
-//     private _distance = _tracker distance _target;
-//     diag_log _distance;
-
-//     private _distStrength = round((100 / _scanRange) * (_scanRange - _distance));
-//     diag_log _distStrength;
-
-//     private _dirStrength = abs round((100 / 180) * (180 - _dirDiff));
-//     diag_log _dirStrength;
-
-//     private _sigStrength = (100 - ((_distStrength + _dirStrength) / 2)) * (-1);
-//     diag_log _sigStrength;
-
-//     _sigsArray pushBack [_frequency, _sigStrength];
-//     diag_log _sigsArray;
-//     systemChat str(_sigsArray);
-// } forEach crowsEW_spectrum_beacons;
-
-// 20:22:08 21b0a3b9600# 1813963: satelliteantenna_01_f.p3d REMOTE
-// 20:22:08 213.985
-// 20:22:08 234.325
-// 20:22:08 20.3402
-// 20:22:08 177.081
-// 20:22:08 41
-// 20:22:08 89
-// 20:22:08 -35
-// 20:22:08 [[any,-35]]
