@@ -12,6 +12,6 @@ removes local marker for the jammer to show on map. Only called for zeus, so onl
 params ["_jammer"];
 
 private _markArea = _jammer getVariable [QGVAR(mark_area), netId _jammer];
-private _markPos = _jammer getVariable [QGVAR(mark_pos), netId _jammer];
+// private _markPos = _jammer getVariable [QGVAR(mark_pos), netId _jammer];
 deletemarkerLocal _markArea;
-deletemarkerLocal _markPos;
+// deletemarkerLocal _markPos;

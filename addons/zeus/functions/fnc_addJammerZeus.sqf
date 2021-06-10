@@ -37,7 +37,7 @@ private _onConfirm =
 	if (_unit == objNull) exitWith {hint "You have to put jammer on a object";};
 
 	// broadcast event to all clients and JIP
-	[QGVAR(addJammer), [_unit, _rad, _strength]] call CBA_fnc_globalEventJIP;
+	[QEGVAR(main,addJammer), [_unit, _rad, _strength]] call CBA_fnc_globalEventJIP;
 };
 [
 	"TFAR Jammer", 

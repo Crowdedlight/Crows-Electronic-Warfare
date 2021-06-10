@@ -23,7 +23,7 @@ private _jamRemoveList = [];
 		// remove
 		_jamRemoveList pushBack _x;
 
-		// remove marker from map, if zeus 
+		// remove marker from map, if zeus. TODO if its deleted the marker doesn't get removed as obj is null, and thus the variable for the markers aren't there... Consider adding marker var to array as [_jammer, _marker] instead. 
 		if (call FUNC(isZeus)) then {
 			[_x] call FUNC(removeJamMarker);
 		};
@@ -34,7 +34,7 @@ private _jamRemoveList = [];
 GVAR(jamlist) = GVAR(jamlist) - _jamRemoveList;
 
 //IF ZEUS, DON'T JAM...update markers and skip.
-if (call FUNC(isZeus)) then {
+if (call EFUNC(zeus,isZeus)) then {
 	// update markers 
 	{
 		[_x, true] call FUNC(updateJamMarker);
@@ -93,7 +93,7 @@ player setVariable ["tf_sendingDistanceMultiplicator", _txInterference];
 
 //Debugging loaned for now from "Jam Radios script for TFAR created by Asherion and Rebel"
 if (true) then {	
-	systemChat format ["Distance: %1, Percent: %2", _distJammer,  100 * _distPercent];
+	// systemChat format ["Distance: %1, Percent: %2", _distJammer,  100 * _distPercent];
 	systemChat format ["tfar_rx: %1, tfar_tx: %2", _rxInterference, _txInterference];
-	systemChat format ["Closest Jammer: %1", _nearestJammer];
+	// systemChat format ["Closest Jammer: %1", _nearestJammer];
 };
