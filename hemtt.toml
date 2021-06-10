@@ -1,6 +1,6 @@
-name = "Crows TFAR Jamming"
-modname = "crowsTJ"
-prefix = "crowsTJ"
+name = "Crows Electronic Warfare"
+modname = "crowsEW"
+prefix = "crowsEW"
 author = "Crowdedlight"
 mainprefix = "z"
 sig_version = 3
@@ -21,7 +21,7 @@ key_name = "{{prefix}}_{{version}}"
 authority = "{{prefix}}_{{version}}-{{git \"id 8\"}}"
   
 releasebuild = [
-  "@zip @crowsTJ_{{version}}"
+  "@zip @crowsEW_{{version}}"
 ]
   
 [header_exts]

@@ -96,5 +96,4 @@ if (true) then {
 	systemChat format ["Distance: %1, Percent: %2", _distJammer,  100 * _distPercent];
 	systemChat format ["tfar_rx: %1, tfar_tx: %2", _rxInterference, _txInterference];
 	systemChat format ["Closest Jammer: %1", _nearestJammer];
-	//copyToClipboard (str(Format ["Distance: %1, Percent: %2, Interference: %3", _dist,  100 * _distPercent, _interference]));
 };

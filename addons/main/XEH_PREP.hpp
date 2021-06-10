@@ -1,4 +1,3 @@
-PREP(zeusRegister);
 PREP(addJammerZeus);
 PREP(addJammer);
 PREP(actionJamToggle);

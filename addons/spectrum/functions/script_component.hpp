@@ -1,0 +1,1 @@
+#include "\z\CrowsEW\addons\spectrum\script_component.hpp"

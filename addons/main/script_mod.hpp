@@ -1,5 +1,5 @@
 #define MAINPREFIX z
-#define PREFIX crowsTJ
+#define PREFIX crowsEW
 
 #include "script_version.hpp"
 

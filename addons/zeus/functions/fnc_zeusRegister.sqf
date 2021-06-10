@@ -14,7 +14,7 @@ Using the same setup method as JShock in JSHK contamination mod.
 private _hasZen = isClass (configFile >> "CfgPatches" >> "zen_custom_modules");
 if !(_hasZen) exitWith
 {
-	diag_log "******CBA and/or ZEN not detected. They are required for Crows TFAR Jamming.";
+	diag_log "******CBA and/or ZEN not detected. They are required for Crows Electronic Warfare.";
 };
 
 //only load for zeus
@@ -29,7 +29,7 @@ private _wait = [player] spawn
 	{
 		if (_timeout >= 10) exitWith 
 		{
-			diag_log format ["CrowsTJ:%1: Timed out!!!", "fnc_zeusRegister"];
+			diag_log format ["CrowsEW:%1: Timed out!!!", "fnc_zeusRegister"];
 			true;
 		};
 		sleep 1;
@@ -39,18 +39,18 @@ private _wait = [player] spawn
 	};
 
 	private _moduleList = [
-		["Set TFAR Jammer",{_this call FUNC(addJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"] 
+		["Set TFAR Jammer",{_this call EFUNC(main, addJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"] 
 	];
 
 	//registering ZEN custom modules
 	{
 		private _reg = 
 		[
-			"Crows Zeus Modules", // using same name as zeus mod for now, as we add the module to that category
+			"Crows Electronic Warfare",
 			(_x select 0), 
 			(_x select 1),
 			(_x select 2)
 		] call zen_custom_modules_fnc_register;
 	} forEach _moduleList;
 };
-diag_log format ["CrowsTJ:fnc_zeusRegister: Zeus initialization complete. Zeus Enhanced Detected: %2",_hasZen];
+diag_log format ["CrowsEW:fnc_zeusRegister: Zeus initialization complete. Zeus Enhanced Detected: %2",_hasZen];

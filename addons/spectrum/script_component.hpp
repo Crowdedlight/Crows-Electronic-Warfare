@@ -1,4 +1,4 @@
-#define COMPONENT main
+#define COMPONENT spectrum
 #include "\z\crowsEW\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL

@@ -1,4 +1,4 @@
-# Crows-TFAR-Jamming
+# Crows-Electronic-Warfare
 arma 3 mod, for zeus enabled tfar jamming
 
 
