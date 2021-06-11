@@ -50,15 +50,14 @@ private _tracker = player;
 	// calculate strength based on distance
     private _distance = _tracker distance _target;
 
-    // distance strength is procentage divided into our scanRange and then multiplied by how far we are to the scanrange.
-    private _distStrength = round((100 / _scanRange) * (_scanRange - _distance));
+    // distance strength. 60 is max value when at 0 distance
+    private _distStrength = round((60 / _scanRange) * (_scanRange - _distance));
 
-    // direction strength, get abs value
-    private _dirStrength = abs round((100 / 180) * (180 - _dirDiff));
+    // direction strength, 120 is max value when looking straight at it
+    private _dirStrength = abs round((160 / 180) * (180 - _dirDiff));
 
-    // sig strength is 100 - average of dir and dist strength and then negated from positive. Dir is made to count for 75% of the strength as directional is much more important than distance
-    private _sigStrength = (100 - ((_distStrength + _dirStrength) / 2)) * (-1);
-    // TODO, that doesn't work, we are blowing the scale.... go back to what we had before and try and do some manual calculations to figure out whats going wrong. 
+    // sig strength is max signal, 120, subtracted half the combined strength of dist and dir strength
+    private _sigStrength = (120 - ((_distStrength + _dirStrength) / 2)) * (-1);
 
     // push to sig array
     _sigsArray append [_frequency, _sigStrength];
@@ -76,8 +75,8 @@ if (true) then {
 // 20:22:08 234.325 => _trackerFacingDir
 // 20:22:08 20.3402 => dirDiff
 // 20:22:08 177.081 => distance
-// 20:22:08 41      => dist strength
-// 20:22:08 89      => dir strength
+// 20:22:08 41      => dist strength, 3 --> 95,7
+// 20:22:08 89      => dir strength,    --> 118
 // 20:22:08 -35     => sig strength
 
 
