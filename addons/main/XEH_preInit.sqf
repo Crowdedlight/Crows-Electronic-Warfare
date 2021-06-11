@@ -3,4 +3,5 @@
 
 ADDON = true;
 
-GVAR(jamlist) = [];
+// hashmap for the objects
+GVAR(jamMap) = createHashMap;

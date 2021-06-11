@@ -3,15 +3,12 @@
 Author: Crowdedlight
 			   
 File: fnc_removeJamMarker.sqf
-Parameters: _jammer, _updating
+Parameters: _netId
 Return: none
 
 removes local marker for the jammer to show on map. Only called for zeus, so only zeus can see the jammer radius
 
 *///////////////////////////////////////////////
-params ["_jammer"];
+params ["_netID"];
 
-private _markArea = _jammer getVariable [QGVAR(mark_area), netId _jammer];
-// private _markPos = _jammer getVariable [QGVAR(mark_pos), netId _jammer];
-deletemarkerLocal _markArea;
-// deletemarkerLocal _markPos;
+deletemarkerLocal _netId;
