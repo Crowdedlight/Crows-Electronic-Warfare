@@ -50,14 +50,14 @@ private _tracker = player;
 	// calculate strength based on distance
     private _distance = _tracker distance _target;
 
-    // distance strength. 60 is max value when at 0 distance
-    private _distStrength = round((60 / _scanRange) * (_scanRange - _distance));
+    // distance strength. 50 is max value when at 0 distance
+    private _distStrength = round((50 / _scanRange) * (_scanRange - _distance));
 
-    // direction strength, 120 is max value when looking straight at it
-    private _dirStrength = abs round((160 / 180) * (180 - _dirDiff));
+    // direction strength, 150 is max value when looking straight at it
+    private _dirStrength = abs round((150 / 180) * (180 - _dirDiff));
 
-    // sig strength is max signal, 120, subtracted half the combined strength of dist and dir strength
-    private _sigStrength = (120 - ((_distStrength + _dirStrength) / 2)) * (-1);
+    // sig strength is max signal, 100, subtracted half the combined strength of dist and dir strength
+    private _sigStrength = (100 - ((_distStrength + _dirStrength) / 2)) * (-1);
 
     // push to sig array
     _sigsArray append [_frequency, _sigStrength];

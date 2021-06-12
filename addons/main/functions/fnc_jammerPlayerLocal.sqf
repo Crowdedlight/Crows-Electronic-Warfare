@@ -55,7 +55,7 @@ if (call EFUNC(zeus,isZeus)) then {
 };
 
 // find nearest jammer within range
-private _nearestJammer = objNull;
+private _nearestJammer = [objNull];
 private _distJammer = -1;
 private _distRad = -1;
 {
@@ -78,13 +78,14 @@ private _distRad = -1;
 	};
 } forEach GVAR(jamMap);
 
-_nearestJammerObject = _nearestJammer select 0;
+diag_log _nearestJammer;
+private _nearestJammerObject = (_nearestJammer select 0);
 
-// if no jammer are within range, go sleep and repeat
-if (_nearestJammerObject == objNull) then {
+// if no jammer are within range, reset tfar vars and exit
+if (isNull _nearestJammerObject) then {
 	// reset values of TFAR, if they are degraded
 	[player] call FUNC(resetTfarIfDegraded);
-	continue; //skip jamming calcs
+	exit; //skip jamming calcs
 };
 
 // we now got distance, and nearest jammer, time to calculate jamming

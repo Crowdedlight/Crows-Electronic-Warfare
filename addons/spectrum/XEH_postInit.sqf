@@ -7,10 +7,10 @@ if (!hasInterface) exitWith {};
 { missionNamespace setVariable _x} forEach [
     ["#EM_FMin",390], 					// Minimum of frequency in MHz
 	["#EM_FMax",500],					// Maximum of frequency in MHz
-	["#EM_SMin",-120],					// Minimum of signal value, in RSSI -120 to 0, with 0 being the strongest
+	["#EM_SMin",-100],					// Minimum of signal value, in RSSI -120 to 0, with 0 being the strongest
 	["#EM_SMax",0],						// Maximum of signal value, in RSSI
 	["#EM_SelMin",141.6],				// currently selected frequency band that you scroll back and forth
-	["#EM_SelMax",141.9],				// currently selected frequency band that you scroll back and forth
+	["#EM_SelMax",142.6],				// currently selected frequency band that you scroll back and forth
 	["#EM_Values",[]],					// signal values in array
 	["#EM_Transmit",false],				// boolean if you are transmitting, Affects the background of the graph and the icon on the device.
 	["#EM_Progress",0]					// progress of transmission, between 0 and 1
