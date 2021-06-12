@@ -21,3 +21,6 @@ Crowdedlight
 
 ### License 
 Crows Electronic Warfare is licensed under the GPL-3.0 license.
+
+### Fonts used in texture
+Digital 7 by Sizenko Alexander, Style-7, http://www.styleseven.com

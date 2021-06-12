@@ -15,6 +15,18 @@ _arguments params ["_netId"];
 // get current value
 private _jammer = GVAR(jamMap) get _netId;
 private _enabled = _jammer select 3;
+private _jamObj = _jammer select 0;
+
+// if dataterminal do animation 
+if (typeof _jamObj == "Land_DataTerminal_01_F") then {
+	
+	// if enabled == true, then we are closing the jammer, so do close animation, otherwise do open
+	if (_enabled) then {
+		[_jamObj,0] call BIS_fnc_dataTerminalAnimate;
+	} else {
+		[_jamObj,3] call BIS_fnc_dataTerminalAnimate;
+	};
+};
 
 // broadcast event to set the jammer with this key as disabled
 [QGVAR(actionToggleJam), [_netId, !_enabled]] call CBA_fnc_globalEventJIP;

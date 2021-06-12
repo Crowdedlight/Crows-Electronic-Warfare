@@ -6,3 +6,4 @@ PREP(resetTfarIfDegraded);
 PREP(isJammerActive);
 PREP(actionJamToggle);
 PREP(actionJamToggleListener);
+PREP(removeJammer);

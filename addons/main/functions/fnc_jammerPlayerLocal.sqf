@@ -22,12 +22,12 @@ private _removeList = [];
     _y params ["_jamObj"];
 
 	// if object not alive, add to deletion list 
-	if (_jamObj == objNull || !alive _jamObj) then {
+	if (isNull _jamObj || !alive _jamObj) then {
 		// add key to remove list 
 		_removeList pushBack _x;
 		
 		// remove marker from map, if zeus. TODO if its deleted the marker doesn't get removed as obj is null, and thus the variable for the markers aren't there... Consider adding marker var to array as [_jammer, _marker] instead. 
-		if (call FUNC(isZeus)) then {
+		if (call EFUNC(zeus,isZeus)) then {
 			// remove marker based on netID
 			[_x] call FUNC(removeJamMarker);
 		};
@@ -39,9 +39,8 @@ private _removeList = [];
 	GVAR(jamMap) deleteAt _x;
 } forEach _removeList;
 
-
 //IF ZEUS, DON'T JAM...update markers and skip.
-if (call EFUNC(zeus,isZeus)) then {
+if (call EFUNC(zeus,isZeus)) then { //TODO replace with exitWith to avoid jamming zeus
 	// update markers 
 	{
 		_y params ["_jamObj", "_radius", "_strength", "_enabled"];
@@ -49,9 +48,6 @@ if (call EFUNC(zeus,isZeus)) then {
 		// jamObj, netId, radius
 		[_jamObj, _x, _radius, true] call FUNC(updateJamMarker);
 	} forEach GVAR(jamMap);
-
-	// TODO uncomment, currently commented out for testing purpose, Zeus should not be jammed
-	// continue;
 };
 
 // find nearest jammer within range
@@ -78,14 +74,12 @@ private _distRad = -1;
 	};
 } forEach GVAR(jamMap);
 
-diag_log _nearestJammer;
 private _nearestJammerObject = (_nearestJammer select 0);
 
 // if no jammer are within range, reset tfar vars and exit
-if (isNull _nearestJammerObject) then {
+if (isNull _nearestJammerObject) exitWith {
 	// reset values of TFAR, if they are degraded
 	[player] call FUNC(resetTfarIfDegraded);
-	exit; //skip jamming calcs
 };
 
 // we now got distance, and nearest jammer, time to calculate jamming

@@ -2,17 +2,19 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fnc_addBeacon.sqf
+File: fnc_removeBeacon.sqf
 Parameters: pos, _unit
 Return: none
 
-Called upon event, adds the jammer to local gvar array and starts while loop, if it isn't running
+remove signal source from object 
 
 *///////////////////////////////////////////////
-params ["_unit", "_frequency", "_scanRange"];
+params ["_unit"];
 
 // if object is null, exitwith. Can happen if we get event as JIP but object has been removed
 if (isNull _unit) exitWith {};
 
-// add to array
-GVAR(beacons) pushBack [_unit, _frequency, _scanRange];
+// find object in array
+private _rmIndex = GVAR(beacons) findIf { (_x select 0) == _unit};
+
+GVAR(beacons) deleteAt _rmIndex;
