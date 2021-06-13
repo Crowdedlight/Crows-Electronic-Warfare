@@ -6,7 +6,7 @@ This mod requires Zeus Enhanced (ZEN), CBA3 and Taskforce Radio (TFAR) Beta.
 
 ### Features
 
-**The wiki for the features is available at:** *insert wiki* 
+**The wiki for the features is available at:** https://github.com/Crowdedlight/Crows-Electronic-Warfare/wiki 
 
 * **Set TFAR Jammer:** Allows Zeus to select a object that will work as a TFAR jammer with the chosen settings, until death or removal. Zeus has a continuous updated map marker showing the area it is active in.
 * **Set Spectrum Signal Source:** Allows Zeus to select a object that can be tracked by the spectrum analyzer with selected frequency and range it can be tracked from. Frequency has to be unique due to game limitations. 
