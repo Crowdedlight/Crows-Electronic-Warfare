@@ -17,3 +17,6 @@ private _netId = netId _unit;
 
 // delete key in hashmap with this netid 
 GVAR(jamMap) deleteAt _netId;
+
+// delete marker
+[_netId] call FUNC(removeJamMarker);

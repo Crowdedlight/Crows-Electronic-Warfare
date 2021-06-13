@@ -24,7 +24,8 @@ _unit addAction ["<t color=""#FFFF00"">Duct Tape Wires Back In", FUNC(actionJamT
 if (typeof _unit == "Land_DataTerminal_01_F") then {
 	
 	// set texture of left screen to custom 
-	_unit setObjectTextureGlobal [0, QPATHTOF(data\DataTerminalScreen.paa);];
+	_unit setObjectTextureGlobal [0, QPATHTOF(data\data_terminal_screen_CO.paa)];
+	_unit setObjectMaterialGlobal [0, "\A3\Props_F_Exp_A\Military\Equipment\Data\DataTerminal_green.rvmat"];
 	
 	// animate activation
 	[_unit,3] call BIS_fnc_dataTerminalAnimate;
