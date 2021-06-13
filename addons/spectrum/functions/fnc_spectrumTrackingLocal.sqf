@@ -10,8 +10,10 @@ Script being called by PFH to handle updates to the direction and signal of the 
 
 *///////////////////////////////////////////////
 
-// only calculate if there is any signals
-if (count GVAR(beacons) == 0) exitWith {};
+// only calculate if there is any signals, otherwise reset the list
+if (count GVAR(beacons) == 0) exitWith {
+    missionNamespace setVariable ["#EM_Values", []];
+};
 
 // only calculate if we got analyzer as player
 if (!("hgun_esd_" in (handgunWeapon player))) exitWith {}; 
@@ -66,63 +68,7 @@ private _tracker = player;
 // apply changes - only local
 missionNamespace setVariable ["#EM_Values", _sigsArray];
 
-//Debugging
-if (true) then {	
-	systemChat format ["Sigs: %1", _sigsArray];
-};
-
-// 20:22:08 213.985 => _dir target fron tracker
-// 20:22:08 234.325 => _trackerFacingDir
-// 20:22:08 20.3402 => dirDiff
-// 20:22:08 177.081 => distance
-// 20:22:08 41      => dist strength, 3 --> 95,7
-// 20:22:08 89      => dir strength,    --> 118
-// 20:22:08 -35     => sig strength
-
-
-// private _tracker = player;
-// private _scanRange = 300;
-// private _sigsArray = [];
-// {
-// 	_x params ["_target", "_frequency"];
-
-//     diag_log _target;
-//     diag_log _frequency;
-
-// 	private _dirTargetFromTracker = _tracker getDir _target;
-//     diag_log _dirTargetFromTracker;
-
-//     private _trackerFacingDir = direction _tracker;
-//     diag_log _trackerFacingDir;
-
-//     private _dirDiff = abs (_dirTargetFromTracker - _trackerFacingDir);    
-//     diag_log _dirDiff;
-
-//     private _distance = _tracker distance _target;
-//     diag_log _distance;
-
-//     private _distStrength = round((100 / _scanRange) * (_scanRange - _distance));
-//     diag_log _distStrength;
-
-//     private _dirStrength = abs round((100 / 180) * (180 - _dirDiff));
-//     diag_log _dirStrength;
-
-//     private _sigStrength = (100 - ((_distStrength + _dirStrength) / 2)) * (-1);
-//     diag_log _sigStrength;
-
-//     _sigsArray pushBack [_frequency, _sigStrength];
-//     diag_log _sigsArray;
-//     systemChat str(_sigsArray);
-// } forEach crowsEW_spectrum_beacons;
-
-// 20:22:08 21b0a3b9600# 1813963: satelliteantenna_01_f.p3d REMOTE
-
-// 20:22:08 213.985 => _dir target fron tracker
-// 20:22:08 234.325 => _trackerFacingDir
-// 20:22:08 20.3402 => dirDiff
-// 20:22:08 177.081 => distance
-// 20:22:08 41      => dist strength
-// 20:22:08 89      => dir strength
-// 20:22:08 -35     => sig strength
-
-// 20:22:08 [[any,-35]] 
+// //Debugging
+// if (true) then {	
+// 	systemChat format ["Sigs: %1", _sigsArray];
+// };

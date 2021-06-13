@@ -11,7 +11,7 @@ This mod requires Zeus Enhanced (ZEN), CBA3 and Taskforce Radio (TFAR) Beta.
 * **Set TFAR Jammer:** Allows Zeus to select a object that will work as a TFAR jammer with the chosen settings, until death or removal. Zeus has a continuous updated map marker showing the area it is active in.
 * **Set Spectrum Signal Source:** Allows Zeus to select a object that can be tracked by the spectrum analyzer with selected frequency and range it can be tracked from. Frequency has to be unique due to game limitations. 
 
-**All features have been tested on a dedicated server with multiple clients**
+**All features have been tested on a dedicated server with multiple clients. Big thanks to the people that helped me test. You know who you are!**
 
 ### Debugging
 All logging made to the .RPT file will start with CrowsEW-module: where the module is whatever module is writing the entry. Only done upon errors.
