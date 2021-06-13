@@ -24,3 +24,6 @@ Crows Electronic Warfare is licensed under the GPL-3.0 license.
 
 ### Fonts used in texture
 Digital 7 by Sizenko Alexander, Style-7, http://www.styleseven.com
+
+### Sounds used 
+Sounds used is from freesound.org under CC0 1.0 Universal (CC0 1.0) Public Domain Dedication

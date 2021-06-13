@@ -1,15 +1,15 @@
 class CfgSounds
 {
-	class jammer_loop
+	sounds[] = {};
+	class jam_loop
 	{
-		name = "jammer_loop";
-		sound[] = {PATHOF(data\sounds\jammer_effect.ogg), db+2, 1};
+		name = "jam_loop";
+		sound[] = {PATHTOF(data\sounds\jam_effect.ogg), db+9, 1};
 		titles[] = {};
 	};
-	class power_down
+	class jam_start
 	{
-		name = "power_down";
-		sound[] = {PATHOF(data\sounds\power_down.ogg), db+6, 1};
-		titles[] = {};
+		name = "jam_start";
+		sound[] = {PATHTOF(data\sounds\jam_start.ogg), db+3, 1}
 	};
 };
