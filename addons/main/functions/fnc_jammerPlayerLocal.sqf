@@ -40,7 +40,7 @@ private _removeList = [];
 } forEach _removeList;
 
 //IF ZEUS, DON'T JAM...update markers and skip.
-if (call EFUNC(zeus,isZeus)) then { //TODO replace with exitWith to avoid jamming zeus
+if (call EFUNC(zeus,isZeus)) exitWith {
 	// update markers 
 	{
 		_y params ["_jamObj", "_radius", "_strength", "_enabled"];
