@@ -6,10 +6,11 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"cba_main", "zen_main", "tfar_core"};
+        requiredAddons[] = {"crowsEW_main", "crowsEW_zeus"};
         author = "Crowdedlight";
         VERSION_CONFIG;
     };
 };
 
 #include "CfgEventhandlers.hpp"
+#include "CfgSounds.hpp"

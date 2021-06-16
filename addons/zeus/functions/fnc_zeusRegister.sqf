@@ -42,7 +42,9 @@ private _wait = [player] spawn
 		["Set TFAR Jammer",{_this call FUNC(addJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
 		["Remove TFAR Jammer",{_this call FUNC(removeJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
 		["Set Spectrum Signal Source",{_this call FUNC(addSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
-		["Remove Spectrum Signal Source",{_this call FUNC(removeSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)]
+		["Remove Spectrum Signal Source",{_this call FUNC(removeSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
+		["Add Sound",{_this call FUNC(addSoundZeus)}, QPATHTOF(data\spectrum_signal.paa)], // TODO change to sound icon
+		["Remove Sound",{_this call FUNC(removeSoundZeus)}, QPATHTOF(data\spectrum_signal.paa)]
 	];
 
 	//registering ZEN custom modules

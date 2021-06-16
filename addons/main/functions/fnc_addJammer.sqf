@@ -47,6 +47,10 @@ if (typeof _unit == "Land_DataTerminal_01_F") then {
 // add to map, netId is key		jammer, radius, strength, and enabled
 GVAR(jamMap) set [_netId, [_unit, _rad, _strength, true]];
 
+// enable sound - params ["_unit", "_delay", "_range", "_repeat", "_aliveCondition", "_sound"];
+[QEGVAR(sounds,addSound), [_unit, 0, 50, true, true, "jam_loop"]] call CBA_fnc_serverEvent;
+
+
 // Experiment information from logging data hits
 // Results: that explosive damage should be > 0.5, and hit value > 100
 
