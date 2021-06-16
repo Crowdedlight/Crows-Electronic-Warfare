@@ -36,9 +36,7 @@ private _deleteArr = [];
 
 	if (_timeDiff > _loopTime) then {
 		// play sound, we use remoteExec from server to play, to sync so all clients hears the sound at the same time.
-		[_unit, [_sound, _range, 1] ] remoteExec ["say3D", -2, false]; // all but server and no JIP as this is continously execution
-		systemChat "Playing sound now";
-		diag_log "Playing sound now";
+		[_unit, [_sound, _range, 1] ] remoteExec ["say3D", [0,-2] select isDedicated, false]; // all but server and no JIP as this is continously execution
 
 		// if no repeat
 		if (!_repeat) then { 

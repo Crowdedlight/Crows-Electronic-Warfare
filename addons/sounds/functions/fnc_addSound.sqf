@@ -19,9 +19,7 @@ if (!(_sound in GVAR(soundAttributes))) exitWith {diag_log format ["crowsEW-soun
 
 // get loop-sleep time for the sound, this is the length of the sound so it repeats itself. 
 private _soundLength = GVAR(soundAttributes) getOrDefault [_sound, 1];
-private _loopTime = _delay + soundLength;
+private _loopTime = _delay + _soundLength;
 
 // add to array [unit, loopTime, range, repeat, aliveCondition, sound, enabled, lastPlayed]
 GVAR(soundList) pushBack [_unit, _loopTime, _range, _repeat, _aliveCondition, _sound, true, 0];
-
-diag_log "adding sound";

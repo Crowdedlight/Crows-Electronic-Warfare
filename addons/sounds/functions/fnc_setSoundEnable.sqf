@@ -19,5 +19,3 @@ private _index = GVAR(soundList) findIf { (_x select 0) == _unit};
 
 private _soundEle = (GVAR(soundList) select _index);
 _soundEle set [6, _enabled];
-
-diag_log "enabling or disabling sound";

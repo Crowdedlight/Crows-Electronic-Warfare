@@ -29,7 +29,7 @@ if (typeof _jamObj == "Land_DataTerminal_01_F") then {
 };
 
 // set sound enabled - params ["_unit", "_enabled"];
-[QEGVAR(sounds,SetSoundEnable), [_jamObj, !_enabled]] call CBA_fnc_serverEvent;
+[QEGVAR(sounds,setSoundEnable), [_jamObj, !_enabled]] call CBA_fnc_serverEvent;
 
 // broadcast event to set the jammer with this key as disabled
 [QGVAR(actionToggleJam), [_netId, !_enabled]] call CBA_fnc_globalEventJIP;
