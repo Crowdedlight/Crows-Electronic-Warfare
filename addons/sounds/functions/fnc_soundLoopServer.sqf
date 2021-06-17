@@ -39,7 +39,7 @@ private _deleteArr = [];
 		// [_unit, [_sound, _range, 1] ] remoteExec ["say3D", [0,-2] select isDedicated, false]; // all but server and no JIP as this is continously execution
 
 		// plays the same file on global scale
-		playSound3D [_sound, _unit, false, getPosASL _unit, _volume, 1, _range]
+		playSound3D [_sound, _unit, false, getPosASL _unit, _volume, 1, _range, 0];
 
 		// if no repeat
 		if (!_repeat) then { 

@@ -13,4 +13,3 @@ class CfgPatches {
 };
 
 #include "CfgEventhandlers.hpp"
-#include "CfgSounds.hpp"

@@ -6,3 +6,4 @@ PREP(addSpectrumBeaconZeus);
 PREP(removeSpectrumBeaconZeus);
 PREP(addSoundZeus);
 PREP(removeSoundZeus);
+PREP(playSoundZeus);

@@ -24,13 +24,10 @@ if (typeof _jamObj == "Land_DataTerminal_01_F") then {
 	if (_enabled) then {
 		[_jamObj,0] call BIS_fnc_dataTerminalAnimate;
 	} else {
+		// play sound and start open animation
 		[_jamObj,3] call BIS_fnc_dataTerminalAnimate;
+		[getPosATL _jamObj, 50, "jam_start", 3] call EFUNC(sounds,playSoundPos);
 	};
-};
-
-// play start up sound
-if (_enabled == false) then {
-	[getPos _jamObj, 50, "jam_start", 3] call EFUNC(sounds,playSound);
 };
 
 // set sound enabled - params ["_unit", "_enabled"];

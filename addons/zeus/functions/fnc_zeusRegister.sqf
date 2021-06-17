@@ -44,7 +44,8 @@ private _wait = [player] spawn
 		["Set Spectrum Signal Source",{_this call FUNC(addSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
 		["Remove Spectrum Signal Source",{_this call FUNC(removeSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
 		["Add Sound",{_this call FUNC(addSoundZeus)}, QPATHTOF(data\spectrum_signal.paa)], // TODO change to sound icon
-		["Remove Sound",{_this call FUNC(removeSoundZeus)}, QPATHTOF(data\spectrum_signal.paa)]
+		["Remove Sound",{_this call FUNC(removeSoundZeus)}, QPATHTOF(data\spectrum_signal.paa)],
+		["Play Sound",{_this call FUNC(playSoundZeus)}, QPATHTOF(data\spectrum_signal.paa)]
 	];
 
 	//registering ZEN custom modules

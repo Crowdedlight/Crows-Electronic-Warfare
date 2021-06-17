@@ -10,5 +10,5 @@ GVAR(soundList) = [];
 GVAR(soundAttributes) = createHashMap;
 
 // sound configs key: [length]
-GVAR(soundAttributes) set ["jam_loop", [0.4, PATHTOF(data\sounds\jam_effect.ogg)]];
-GVAR(soundAttributes) set ["jam_start", [0.9, PATHTOF(data\sounds\jam_start.ogg)]];
+GVAR(soundAttributes) set ["jam_loop", [0.4, "z\crowsEW\addons\sounds\data\jam_effect.ogg"]];
+GVAR(soundAttributes) set ["jam_start", [0.9, "z\crowsEW\addons\sounds\data\jam_start.ogg"]];
