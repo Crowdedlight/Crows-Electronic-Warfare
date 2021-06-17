@@ -20,7 +20,7 @@ private _deleteArr = [];
 
 // loop through all sounds on list
 {
-	_x params ["_unit", "_loopTime", "_range", "_repeat", "_aliveCondition", "_sound", "_enabled", "_lastPlayed"]; 
+	_x params ["_unit", "_loopTime", "_range", "_repeat", "_aliveCondition", "_sound", "_enabled", "_lastPlayed", "_delayInitial", "_volume"]; 
 
 	// remove sound if obj is null or if not alive, and alive var is true
 	if (isNull _unit || (_aliveCondition && !alive _unit)) then {
@@ -34,9 +34,12 @@ private _deleteArr = [];
 	// calculate if its time to play it
 	private _timeDiff = _now - _lastPlayed;
 
-	if (_timeDiff > _loopTime) then {
+	if (_timeDiff > _loopTime && _now > _delayInitial) then {
 		// play sound, we use remoteExec from server to play, to sync so all clients hears the sound at the same time.
-		[_unit, [_sound, _range, 1] ] remoteExec ["say3D", [0,-2] select isDedicated, false]; // all but server and no JIP as this is continously execution
+		// [_unit, [_sound, _range, 1] ] remoteExec ["say3D", [0,-2] select isDedicated, false]; // all but server and no JIP as this is continously execution
+
+		// plays the same file on global scale
+		playSound3D [_sound, _unit, false, getPosASL _unit, _volume, 1, _range]
 
 		// if no repeat
 		if (!_repeat) then { 

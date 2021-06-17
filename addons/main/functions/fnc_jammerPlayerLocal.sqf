@@ -96,12 +96,6 @@ private _txInterference = 1 / _rxInterference; 									// transmitting interfer
 player setVariable ["tf_receivingDistanceMultiplicator", _rxInterference];
 player setVariable ["tf_sendingDistanceMultiplicator", _txInterference];
 
-// play sound 3D 
-// TODO should be toggable on the individual jammer? Would probably be better with a sound module where you spawn a thread to handle the sounds?
-//  Current implementation means that only if a player is within the radius of a jammer will it be heard. And then only 50m away. Should move to a dedicated sound module that spawns on each module for the repeat of the sound
-// alternative sound https://freesound.org/people/cydon/sounds/456519/ & https://freesound.org/people/Timbre/sounds/395318/
-// _nearestJammerObject say3D ["jam_loop", 50, 1, false, 0];
-
 //Debugging
 // if (true) then {	
 // 	// systemChat format ["Distance: %1, Percent: %2", _distJammer,  100 * _distPercent];

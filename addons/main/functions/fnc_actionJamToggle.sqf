@@ -28,6 +28,11 @@ if (typeof _jamObj == "Land_DataTerminal_01_F") then {
 	};
 };
 
+// play start up sound
+if (_enabled == false) then {
+	[getPos _jamObj, 50, "jam_start", 3] call EFUNC(sounds,playSound);
+};
+
 // set sound enabled - params ["_unit", "_enabled"];
 [QEGVAR(sounds,setSoundEnable), [_jamObj, !_enabled]] call CBA_fnc_serverEvent;
 

@@ -47,8 +47,9 @@ if (typeof _unit == "Land_DataTerminal_01_F") then {
 // add to map, netId is key		jammer, radius, strength, and enabled
 GVAR(jamMap) set [_netId, [_unit, _rad, _strength, true]];
 
-// enable sound - params ["_unit", "_delay", "_range", "_repeat", "_aliveCondition", "_sound"];
-[QEGVAR(sounds,addSound), [_unit, 0.5, 50, true, true, "jam_loop"]] call CBA_fnc_serverEvent;
+// enable sound - params ["_unit", "_delay", "_range", "_repeat", "_aliveCondition", "_sound", "_startDelay", "_volume"];
+[getPos _unit, 50, "jam_start", 3] call EFUNC(sounds,playSound);
+[QEGVAR(sounds,addSound), [_unit, 0.5, 50, true, true, "jam_loop", 2, 3]] call CBA_fnc_serverEvent;
 
 
 // Experiment information from logging data hits
