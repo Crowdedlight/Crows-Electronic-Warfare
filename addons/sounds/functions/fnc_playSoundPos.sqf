@@ -2,7 +2,7 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fnc_playSound.sqf
+File: fnc_playSoundPos.sqf
 Parameters: position array, range, sound and volume
 Return: none
 

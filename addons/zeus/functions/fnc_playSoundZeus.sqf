@@ -28,13 +28,13 @@ private _onConfirm =
 	[_pos, _range, _sound, _volume] call EFUNC(sounds,playSoundPos);
 };
 [
-	"Play Sound", 
+	"Play Sound (Can't be stopped, be aware of long sounds)", 
 	[
 		["COMBO","Sound",[
-			["jam_loop", "jam_start"],
-			["Jammer Loop Sound", "Computer Startup Sound"]
+			EGVAR(sounds,soundZeusDisplayKeys),
+			EGVAR(sounds,soundZeusDisplay)
 			,0]], // list of possible sounds, ideally we would like to preview them when selected.... but that is custom gui right?
-		["SLIDER","Range it can be heard",[0,500,50,0]], //0 to 500, default 50 and showing 0 decimal // TODO tooltip, 0 means unlimited?
+		["SLIDER","Range it can be heard (0 is unlimited)",[0,1000,0,0]], //0 to 500, default 50 and showing 0 decimal // TODO tooltip, 0 means unlimited?
 		["SLIDER","Volume",[1,5,2,0]] //1 to 5, default 2 and showing 0 decimal
 	],
 	_onConfirm,
