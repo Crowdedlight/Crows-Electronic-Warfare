@@ -21,6 +21,10 @@ if (!isServer) exitWith {};
 
 // get close units, cars, static launchers, lights
 private _nearestArray = [_object, _range] call FUNC(getNearestElements);
+private _vehicles = _nearestArray select 0;
+private _lights = _nearestArray select 1;
+private _statics = _nearestArray select 2;
+private _men = _nearestArray select 3;
 
 // start EMP effect
 private _delay = 0.01; // for processing purposes
@@ -29,7 +33,7 @@ private _delay = 0.01; // for processing purposes
 ["rumble"] remoteExec ["playsound", [0,-2] select isDedicated];
 
 // spawn in scheduled enviroment so sleep is allowed.
-private _vehicleSpawn = [_delay, (_nearestArray select 0)] spawn {
+private _vehicleSpawn = [_delay, _vehicles] spawn {
 	params ["_delay, _vehicles"];
 	// disable and set dmg on each vehicle - remoteExec visual effect for all vehicles
 	{
@@ -57,7 +61,7 @@ private _vehicleSpawn = [_delay, (_nearestArray select 0)] spawn {
 	} forEach _vehicles;
 };
 
-private _lightSpawn = [_delay, (_nearestArray select 1)] spawn {
+private _lightSpawn = [_delay, _lights] spawn {
 	params ["_delay, _lights"];
 	// disable and set dmg on each light - remoteExec visual effect
 	{
@@ -70,7 +74,7 @@ private _lightSpawn = [_delay, (_nearestArray select 1)] spawn {
 	} forEach _lights;
 };
 
-private _staticSpawn = [_delay, (_nearestArray select 2)] spawn {
+private _staticSpawn = [_delay, _statics] spawn {
 	params ["_delay, _turrets"];
 	// disable and set dmg on each turrent - remoteExec visual effect
 	{
@@ -80,12 +84,12 @@ private _staticSpawn = [_delay, (_nearestArray select 2)] spawn {
 		[[_x],QPATHTOF(functions\fnc_lampEffect.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
 
 		sleep _delay;
-	} forEach _turrents;
+	} forEach _turrets;
 };
 
 // play radio static sound
 ["electro_static"] remoteExec ["playsound", [0,-2] select isDedicated];
-private _unitSpawn = [_delay, (_nearestArray select 3)] spawn {
+private _unitSpawn = [_delay, _men] spawn {
 	params ["_delay, _units"];
 	// remove equipment etc.
 	{
@@ -98,3 +102,5 @@ private _unitSpawn = [_delay, (_nearestArray select 3)] spawn {
 		sleep _delay;
 	} forEach _units;
 };
+
+// private _handle = [_this, 1000] execVM "\z\crowsEW\emp\functions\fnc_playerEffect.sqf";

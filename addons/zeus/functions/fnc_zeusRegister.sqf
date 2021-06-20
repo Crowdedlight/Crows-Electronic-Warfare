@@ -45,7 +45,8 @@ private _wait = [player] spawn
 		["Remove Spectrum Signal Source",{_this call FUNC(removeSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
 		["Add Sound",{_this call FUNC(addSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
 		["Remove Sound",{_this call FUNC(removeSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
-		["Play Sound",{_this call FUNC(playSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"]
+		["Play Sound",{_this call FUNC(playSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
+		["Fire EMP",{_this call FUNC(fireEMPZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"]
 	];
 
 	//registering ZEN custom modules

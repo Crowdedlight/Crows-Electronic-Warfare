@@ -48,6 +48,6 @@ if (_spark_type=="orange") then
 };
 
 // sound and cleanup
-_unit say3D [_spark_sound, 350];
+// _unit say3D [_spark_sound, 350]; //TODO
 sleep _delay;
 deleteVehicle _sparkSource;

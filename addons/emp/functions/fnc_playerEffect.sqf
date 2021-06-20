@@ -25,64 +25,129 @@ private _wave = "#particlesource" createVehicleLocal getposatl _empObj;
 // create in circel with radius
 _wave setParticleCircle [0,[0,0,0]];;
 // randomize effect paramters and set particle effect 
-_wave setParticleRandom [0,[0.45,0.45,0],[0.235,0.235,0],0,0.35,[0,0,0,0.1],0,0];
-_wave setParticleParams [["\A3\data_f\ParticleEffects\Universal\Refract.p3d",1,0,1], "", "Billboard", 1, 0.5, [0, 0, 0], [0, 0, 0],0,12,7.9,0, [30,1000], [[1, 1, 1, 1], [1, 1, 1, 1]], [0.08], 1, 0, "", "", _empObj];
-_wave setDropInterval 0.12;
+_wave setParticleRandom [0,[0.20,0.20,0],[0.170,0.170,0],0,0.20,[0,0,0,0.1],0,0];
+_wave setParticleParams [["\A3\data_f\ParticleEffects\Universal\Refract.p3d",1,0,1], "", "Billboard", 1, 0.65, [0, 0, 0], [0, 0, 0],0,10,7.9,0, [30,(_range*1.2)], [[1, 1, 1, 1], [1, 1, 1, 1]], [0.08], 1, 0, "", "", _empObj];
+_wave setDropInterval 0.1;
 // cleanup 
-[_wave] spawn {private _obj = _this select 0;sleep 1;deleteVehicle _obj};
+[_wave] spawn {params ["_obj"];sleep 1;deleteVehicle _obj};
 
 // create the boom effect
 private _explosion = "#particlesource" createVehicleLocal getposatl _empObj;
 _explosion setParticleCircle [0, [0, 0, 0]];
 _explosion setParticleRandom [0, [0, 0, 0], [0, 0, 0], 0, 0, [0, 0, 0, 0], 0, 0];
 // sphereModel for 3D explosion
-_explosion setParticleParams [["\A3\data_f\koule", 1, 0, 1], "", "SpaceObject", 1,1.5,[0,0,0],[0,0,1],3,12,7.9,0,[60,1000],[[1, 1, 1, 0.1], [1, 1, 1, 0]], [1], 1, 0, "", "", _empObj];
-_explosion setDropInterval 65;
+_explosion setParticleParams [["\A3\data_f\koule", 1, 0, 1], "", "SpaceObject", 1.1,1,[0,0,0],[0,0,1],4,10,7.9,0,[50,(_range*1.2)],[[0.34, 0.72, 1, 0.1],[0.40, 0.72, 1, 0]], [1], 1, 0, "", "", _empObj];
+_explosion setDropInterval 50;
 // cleanup
-[_explosion] spawn {private _obj = _this select 0;sleep 1;deleteVehicle _obj};
+[_explosion] spawn {params ["_obj"];sleep 1;deleteVehicle _obj};
 
 // emp colour - Set 0 brightness then turn it up as effect
 private _empEffect = "#lightpoint" createVehiclelocal getposatl _empObj; 
 _empEffect lightAttachObject [_empObj, [0,0,3]];
-_empEffect setLightAmbient [1,1,1];  
-_empEffect setLightColor [1,1,1];
+_empEffect setLightAmbient [0.34,0.72,1];  
+_empEffect setLightColor [0.34,0.72,1];
 _empEffect setLightBrightness 0;
 _empEffect setLightDayLight true; // can be used in daytime
 // set the falloff over light over distance
-_empEffect setLightAttenuation [12,7,50,0,60,2500];
+_empEffect setLightAttenuation [15,8,50,0,200,2000];
 
 // turn up the brightness over time 
 private _brightness = 0;
-private _range_illuminated = 0;
-while {_brightness < 65} do {
+while {_brightness < 50} do {
 	_empEffect setLightBrightness _brightness;
-	ADD(_brightness,2.5);
-	sleep 0.1;
+	_brightness = _brightness + 2;
+	sleep 0.02;
 };
 deleteVehicle _empEffect;
 
-
-// todo this should only happen if within range of emp as player.
-
+// player whiteout should only happen if within range of emp.
+if ((player distance _empObj) > _range) exitWith {};
 
 // then it triggers the white-out for the player
-sleep 0.8;
 cutText ["", "WHITE OUT", 0.5];
 sleep 0.1;
 titleCut ["", "WHITE IN", 0.5];
 
-// play Tinitus sound
-playsound "tinitus";
+// play tinnitus sound
+playsound "tinnitus";
 
 // blue a bit, then slightly less, then none to simulate getting hit effect
 "dynamicBlur" ppEffectEnable true;   
 "dynamicBlur" ppEffectAdjust [7];   
 "dynamicBlur" ppEffectCommit 0.5;     
 sleep 0.5;
-"dynamicBlur" ppEffectAdjust [2];
+"dynamicBlur" ppEffectAdjust [1.5];
 "dynamicBlur" ppEffectCommit 1.5;  
-sleep 6.5;
+sleep 5;
 "dynamicBlur" ppEffectAdjust [0];
 "dynamicBlur" ppEffectCommit 5;
-sleep 8;
+sleep 3;
 "dynamicBlur" ppEffectEnable false; 
+
+// effect testing 
+// [_this, 1000] spawn {
+// params ["_empObj", "_range"];
+
+// private _wave = "#particlesource" createVehicleLocal getposatl _empObj;
+// _wave setParticleCircle [0,[0,0,0]];;
+// _wave setParticleRandom [0,[0.20,0.20,0],[0.170,0.170,0],0,0.20,[0,0,0,0.1],0,0];
+// _wave setParticleParams [["\A3\data_f\ParticleEffects\Universal\Refract.p3d",1,0,1], "", "Billboard", 1, 0.65, [0, 0, 0], [0, 0, 0],0,10,7.9,0, [30,(_range*1.2)], [[1, 1, 1, 1], [1, 1, 1, 1]], [0.08], 1, 0, "", "", _empObj];
+// _wave setDropInterval 0.1;
+// [_wave] spawn {params ["_obj"];sleep 1;deleteVehicle _obj};
+
+// private _explosion = "#particlesource" createVehicleLocal getposatl _empObj;
+// _explosion setParticleCircle [0, [0, 0, 0]];
+// _explosion setParticleRandom [0, [0, 0, 0], [0, 0, 0], 0, 0, [0, 0, 0, 0], 0, 0];
+// _explosion setParticleParams [
+// 	["\A3\data_f\koule", 1, 0, 1],
+// 	 "",
+// 	  "SpaceObject",
+// 	   1,
+// 	   1.1,
+// 	   [0,0,0],
+// 	   [0,0,1]
+// 	   ,4
+// 	   ,10
+// 	   ,7.9
+// 	   ,0
+// 	   ,[50,(_range*1.2)]
+// 	   ,[[0.34, 0.72, 1, 0.1],[0.40, 0.72, 0.75, 0]],
+// 	   [1],
+// 	   1, 
+// 	   0, 
+// 	   "", 
+// 	   "", 
+// 	   _empObj];
+// _explosion setDropInterval 50;
+// [_explosion] spawn {params ["_obj"];sleep 1;deleteVehicle _obj};
+
+// private _empEffect = "#lightpoint" createVehiclelocal getposatl _empObj; 
+// _empEffect lightAttachObject [_empObj, [0,0,3]];
+// _empEffect setLightAmbient [0.34,0.72,1];  
+// _empEffect setLightColor [0.34,0.72,1];
+// _empEffect setLightBrightness 0;
+// _empEffect setLightDayLight true;
+// _empEffect setLightAttenuation [15,8,50,0,200,2000];
+// private _brightness = 0;
+// while {_brightness < 50} do {
+// 	_empEffect setLightBrightness _brightness;
+// 	_brightness = _brightness + 2;
+// 	sleep 0.02;
+// };
+// deleteVehicle _empEffect;
+// cutText ["", "WHITE OUT", 0.5];
+// sleep 0.1;
+// titleCut ["", "WHITE IN", 0.5];
+// playsound "tinnitus";
+// "dynamicBlur" ppEffectEnable true;   
+// "dynamicBlur" ppEffectAdjust [7];   
+// "dynamicBlur" ppEffectCommit 0.5;     
+// sleep 0.5;
+// "dynamicBlur" ppEffectAdjust [1.5];
+// "dynamicBlur" ppEffectCommit 1.5;  
+// sleep 5.5;
+// "dynamicBlur" ppEffectAdjust [0];
+// "dynamicBlur" ppEffectCommit 5;
+// sleep 5;
+// "dynamicBlur" ppEffectEnable false; 
+// }
