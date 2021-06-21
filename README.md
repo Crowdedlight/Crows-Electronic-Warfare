@@ -43,6 +43,9 @@ Tinnitus sound by Breviceps: https://freesound.org/people/Breviceps/sounds/45062
 EMP blast.wav by 2887679652: https://freesound.org/people/2887679652/sounds/110564/  
 electro_static.mps by soulman 90: https://freesound.org/people/Soulman%2090/sounds/108859/  
 Huge Explosion Part 1 - Shockwave by bevibeldesign: https://freesound.org/people/bevibeldesign/sounds/366091/  
+spark by elliottmoo: https://freesound.org/people/elliottmoo/sounds/189630/  
+spark.wav by BMacZero: https://freesound.org/people/BMacZero/sounds/94132/  
+
 
 
 Any sounds used under [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) is listed here with credit:  
@@ -67,6 +70,8 @@ Permission to panic? by deleted_user_2906614 (who remixed it from http://freesou
 This Statement Is False by qubodup: https://freesound.org/people/qubodup/sounds/211996/  
 rumble.wav by tim.kahn: https://freesound.org/people/tim.kahn/sounds/94114/  
 couch hit.wav by MegaBlasterRecordings: https://freesound.org/people/MegaBlasterRecordings/sounds/368640/ 
+spark 1.wav by ERH: https://freesound.org/people/ERH/sounds/31348/  
+
 
 Sounds used under [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) is listed here with credit:
 

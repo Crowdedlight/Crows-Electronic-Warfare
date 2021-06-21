@@ -19,7 +19,7 @@ _unit removeWeaponGlobal "Laserdesignator";
 {
 	_unit removePrimaryWeaponItem _x;
 	_unit removeHandgunItem _x;
-} forEach ["acc_pointer_IR","acc_flashlight","optic_Nightstalker","optic_NVS","optic_tws","	optic_tws_mg","acc_esd_01_flashlight_broken","acc_flashlight_smg_01","acc_flashlight_pistol"];
+} forEach ["acc_pointer_IR","acc_flashlight","optic_Nightstalker","optic_NVS","optic_tws","	optic_tws_mg","acc_esd_01_flashlight_broken","acc_flashlight_smg_01","acc_flashlight_pistol","rhsusf_acc_anpeq15_wmx_light"];
 
 // remove if electronic helmet
 if (headgear _unit in GVAR(electronicHelmets)) then {removeHeadgear _unit};
@@ -32,8 +32,8 @@ if (secondaryWeapon _unit in GVAR(electronicLaunchers)) then {_unit removeWeapon
 	_unit unassignItem _x; //some will fail, but that should be fine and it will carry on per WIKI
 	_unit removeItems _x;
 } forEach ["Rangefinder", 
-			"Laserdesignator","	Laserdesignator_02","Laserdesignator_03",
-			"ItemGPS", "ItemRadio", 
+			"Laserdesignator","	Laserdesignator_02","Laserdesignator_03","Laserdesignator_01_khk_F",
+			"ItemGPS", "ItemRadio","TFAR_anprc152_6",
 			"NVGoggles","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_OPFOR","NVGoggles_INDEP","NVGoggles_tna_F","NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F","Integrated_NVG_F","Integrated_NVG_TI_0_F","Integrated_NVG_TI_1_F",
 			"MineDetector","B_UavTerminal","O_UavTerminal","I_UavTerminal","C_UavTerminal","I_E_UavTerminal"
 		];

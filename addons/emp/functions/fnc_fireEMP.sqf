@@ -22,7 +22,7 @@ if (!isServer) exitWith {};
 // get close units, cars, static launchers, lights
 private _nearestArray = [_object, _range] call FUNC(getNearestElements);
 private _vehicles = _nearestArray select 0;
-private _lights = _nearestArray select 1;
+private _lightList = _nearestArray select 1;
 private _statics = _nearestArray select 2;
 private _men = _nearestArray select 3;
 
@@ -34,7 +34,7 @@ private _delay = 0.01; // for processing purposes
 
 // spawn in scheduled enviroment so sleep is allowed.
 private _vehicleSpawn = [_delay, _vehicles] spawn {
-	params ["_delay, _vehicles"];
+	params ["_delay", "_vehicles"];
 	// disable and set dmg on each vehicle - remoteExec visual effect for all vehicles
 	{
 		private _v = _x;
@@ -61,8 +61,8 @@ private _vehicleSpawn = [_delay, _vehicles] spawn {
 	} forEach _vehicles;
 };
 
-private _lightSpawn = [_delay, _lights] spawn {
-	params ["_delay, _lights"];
+private _lightSpawn = [_delay, _lightList] spawn {
+	params ["_delay", "_lights"];
 	// disable and set dmg on each light - remoteExec visual effect
 	{
 		_x setDamage 0.9;
@@ -75,7 +75,7 @@ private _lightSpawn = [_delay, _lights] spawn {
 };
 
 private _staticSpawn = [_delay, _statics] spawn {
-	params ["_delay, _turrets"];
+	params ["_delay", "_turrets"];
 	// disable and set dmg on each turrent - remoteExec visual effect
 	{
 		_x setDamage 1;
@@ -90,7 +90,7 @@ private _staticSpawn = [_delay, _statics] spawn {
 // play radio static sound
 ["electro_static"] remoteExec ["playsound", [0,-2] select isDedicated];
 private _unitSpawn = [_delay, _men] spawn {
-	params ["_delay, _units"];
+	params ["_delay", "_units"];
 	// remove equipment etc.
 	{
 		// remote exec visual effect - Spawn in scheduled for sleep

@@ -24,6 +24,6 @@ for "_i" from 0 to _sparkCount do {
 	private _randomDelay = 0.1 + (random 3);
 
 	// do the effect
-	[[_unit,_randomDelay],QPATHTOF(functions\lampSparkEffect.sqf)] remoteExec ["execvm", [0,-2] select isDedicated];
+	[[_unit,_randomDelay],QPATHTOF(functions\fnc_lampSparkEffect.sqf)] remoteExec ["execvm", [0,-2] select isDedicated];
 	sleep _randomDelay;
 };
