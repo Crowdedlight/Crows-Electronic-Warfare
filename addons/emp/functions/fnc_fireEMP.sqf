@@ -54,6 +54,9 @@ private _vehicleSpawn = [_delay, _vehicles] spawn {
 		_v disableTIEquipment true; 
 		_v disableNVGEquipment true;
 
+		// disable TFAR radios if present 
+		_v setVariable ["tf_hasRadio", false, true]
+
 		// remote exec dmg effect 
 		[[_x],QPATHTOF(functions\fnc_targetSparkSFX.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
 

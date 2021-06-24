@@ -11,15 +11,61 @@ Removes electronic items from unit
 *///////////////////////////////////////////////
 params ["_unit"];
 
-// remove equipment
-_unit removeWeaponGlobal "Rangefinder";
-_unit removeWeaponGlobal "Laserdesignator"; 
+///////////// changed to get unit loadout, and then remove items we find that is in the slots and inherits from base classes
+private _loadout = getUnitLoadout _unit;
+private _mainWep = _loadout select 0;
+private _secWep = _loadout select 1;
+private _pistol = _loadout select 3;
+private _itemsBino = _loadout select 8;
+private _itemsAssigned = _loadout select 9;
 
-// remove attachments of electronic variaty
+// main weapon pointer
+private _pointer = _mainWep select 2;
+_unit removePrimaryWeaponItem _pointer;
+
+// handgun pointer
+_pointer = _secWep select 2;
+_unit removeHandgunItem _pointer;
+
+// main-gun SCOPE - Remove if we got intergrated NV / Thermal scopes
+private _scope = _mainWep select 3;
+// get the configs for the scope to check for thermal or NVG. This way we don't have to hardcode list of items
+private _opticsModes = ("true" configClasses (ConfigFile >> "CfgWeapons" >> _scope >> "ItemInfo" >> "OpticsModes")) apply {
+    private _visionMode = getArray (_x >> "visionMode");
+    [
+        "NVG" in _visionMode, //Integrated NVG
+        "Ti" in _visionMode //Integrated Thermal
+    ]
+};
+// check all vision modes and if NVG or TI intergrated we replace it, as we can't turn off only the TI/NVG
 {
-	_unit removePrimaryWeaponItem _x;
-	_unit removeHandgunItem _x;
-} forEach ["acc_pointer_IR","acc_flashlight","optic_Nightstalker","optic_NVS","optic_tws","	optic_tws_mg","acc_esd_01_flashlight_broken","acc_flashlight_smg_01","acc_flashlight_pistol","rhsusf_acc_anpeq15_wmx_light"];
+    _x params ["_integratedNVG", "_integratedTi"];
+    if (_integratedNVG || _integratedTi) then {
+		// remove scope, and replace by aim-point
+		_unit removePrimaryWeaponItem _scope;
+		_unit addWeaponItem [(_mainWep select 0), "optic_Aco", true]; //replace with base-game item to ensure we don't rely on modded items
+    };
+} forEach _opticsModes;
+
+// BINO - replace with basegame binoculars. As pretty much all other items would be electronic
+_unit unlinkItem (_itemsBino select 0);
+_unit removeItems (_itemsBino select 0);
+_unit linkItem "Binocular"; //base game binoculars
+
+// ASSIGNED ITEMS - Also remove same variants in inventory, but doesn't check for parent type
+// GPS
+_unit unlinkItem (_itemsAssigned select 1);
+_unit removeItems (_itemsAssigned select 1);
+// Radio
+_unit unlinkItem (_itemsAssigned select 2);
+_unit removeItems (_itemsAssigned select 2);
+// watch - replace with analog, just because ;-) 
+_unit unlinkItem (_itemsAssigned select 4);
+_unit removeItems (_itemsAssigned select 4);
+_unit linkItem "itemWatch";
+// Night Vision Goggles - Remove 
+_unit unlinkItem (_itemsAssigned select 5);
+_unit removeItems (_itemsAssigned select 5);
 
 // remove if electronic helmet
 if (headgear _unit in GVAR(electronicHelmets)) then {removeHeadgear _unit};
@@ -27,16 +73,81 @@ if (headgear _unit in GVAR(electronicHelmets)) then {removeHeadgear _unit};
 // remove if launcher is electronic
 if (secondaryWeapon _unit in GVAR(electronicLaunchers)) then {_unit removeWeaponGlobal (secondaryWeapon _unit)};
 
-// unassign and remove items
+// some items for backpack we should remove too 
 {
-	_unit unassignItem _x; //some will fail, but that should be fine and it will carry on per WIKI
 	_unit removeItems _x;
-} forEach ["Rangefinder", 
-			"Laserdesignator","	Laserdesignator_02","Laserdesignator_03","Laserdesignator_01_khk_F",
-			"ItemGPS", "ItemRadio","TFAR_anprc152_6",
-			"NVGoggles","O_NVGoggles_hex_F","O_NVGoggles_urb_F","O_NVGoggles_ghex_F","NVGoggles_OPFOR","NVGoggles_INDEP","NVGoggles_tna_F","NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F","Integrated_NVG_F","Integrated_NVG_TI_0_F","Integrated_NVG_TI_1_F",
-			"MineDetector","B_UavTerminal","O_UavTerminal","I_UavTerminal","C_UavTerminal","I_E_UavTerminal"
-		];
+} forEach ["TFAR_microdagr","MineDetector", "tfw_rf3080Item", "ACE_ATragMX", "ACE_Cellphone", "ACE_DAGR","ACE_HuntIR_monitor","ACE_Kestrel4500","ACE_Flashlight_KSF1","ACE_Flashlight_XL50",
+			"ACE_M26_Clacker","ACE_Clacker","ACE_IR_Strobe_Item","ACE_Flashlight_MX991","ACE_DeadManSwitch","ACE_microDAGR","itc_land_tablet_fdc","itc_land_tablet_rover","UMI_Land_Camcorder_F",
+			"UMI_Land_Camera_F","UMI_Land_MobilePhone_F","UMI_Land_Tablet_F"];
 
 
-// if its own, we can turn the shoulder mounted light off by calling: _this call UDM_fnc_diveLightOnOff; 
+// handle if TFAR backpack
+if (count (_unit call TFAR_fnc_lrRadiosList) > 0) then {
+	// we got LR radio, swap bags
+	private _bpItems = backpackItems _unit;
+
+	// remove current backpack with LR 
+	removeBackPackGlobal _unit;
+	// add new backpack 
+	_unit addBackpackGlobal "B_Carryall_oli";
+
+	// wait until backpack is not null - Using CBA to run in unscheduled space
+	[{!isNull backpackContainer (_this select 0)}, 
+	{
+		params ["_unit", "_items", "_mags"];
+    	{
+			// add item
+			_unit addItemToBackpack _x;
+		} forEach _items;
+	}, 
+	[_unit, _bpItems]] call CBA_fnc_waitUntilAndExecute;
+};
+
+// new backpack: B_Carryall_oli (should be able to hold as much as largest TFAR radio and is neutrally green)
+
+// clearItemCargoGlobal _backPack;
+// clearMagazineCargoGlobal _backPack;
+// clearWeaponCargoGlobal _backPack;
+
+// {
+// 	if (isClass (configFile >> "CfgMagazines" >> _x)) then{
+// 		_backPack addMagazineCargoGlobal [_x, 1];
+// 	} else {
+// 		_backPack addItemCargoGlobal [_x, 1];
+// 		_backPack addWeaponCargoGlobal [_x, 1];
+// 	};
+// 	true;
+// } count _newItems
+
+
+
+
+
+
+
+
+// use to see base parent 
+// diag_log (inheritsFrom (configFile >> "CfgWeapons" >> "rhsusf_acc_anpeq15_wmx_light"));
+//remove systemChat str("TFAR_anprc152_6" isKindOf ["ItemRadio", configFile >> "CfgWeapons"]); == true 
+
+// handle inventory
+// private _allItems = [];
+// // get all items in vest
+
+// // get all items in uniform
+
+// // get all items in backpack
+
+// // remove duplicates, as we remove all with loop anyway
+// _allItems = _allItems arrayIntersect _allItems;
+
+// // go through all items
+// {
+// 	// if radio variant, 
+// 	if (_x isKindOf ["ItemRadio", configFile >> "CfgWeapons"] || _x isKindOf ["ItemRadio", configFile >> "CfgWeapons"]) then {
+// 		_unit removeItems _x;
+// 	};
+// 	// if gps, remove 
+
+// } forEach _allItems;
+

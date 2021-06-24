@@ -15,7 +15,7 @@ params ["_empObj", "_range"];
 // only for players 
 if (!hasInterface) exitWith {};
 
-// emp sound
+// emp sound, but only if close enough
 if ((player distance _empObj) < (_range*2)) then {playsound "emp_blast";};
 
 // cam shake
@@ -76,11 +76,11 @@ playsound "tinnitus";
 
 // blue a bit, then slightly less, then none to simulate getting hit effect
 "dynamicBlur" ppEffectEnable true;   
-"dynamicBlur" ppEffectAdjust [7];   
+"dynamicBlur" ppEffectAdjust [6];   
 "dynamicBlur" ppEffectCommit 0.5;     
 sleep 0.5;
-"dynamicBlur" ppEffectAdjust [1.5];
-"dynamicBlur" ppEffectCommit 1.5;  
+"dynamicBlur" ppEffectAdjust [1.2];
+"dynamicBlur" ppEffectCommit 1;  
 sleep 5;
 "dynamicBlur" ppEffectAdjust [0];
 "dynamicBlur" ppEffectCommit 5;
