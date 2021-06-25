@@ -63,8 +63,8 @@ while {_brightness < 50} do {
 };
 deleteVehicle _empEffect;
 
-// player whiteout should only happen if within range of emp.
-if ((player distance _empObj) > _range) exitWith {};
+// player whiteout should only happen if within range of emp. If Zeus, we don't get blur effect and whiteout
+if ((player distance _empObj) > _range || !isNull (getAssignedCuratorLogic player)) exitWith {};
 
 // then it triggers the white-out for the player
 cutText ["", "WHITE OUT", 0.5];

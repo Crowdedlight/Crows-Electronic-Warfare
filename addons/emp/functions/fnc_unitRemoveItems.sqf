@@ -56,9 +56,6 @@ _unit linkItem "Binocular"; //base game binoculars
 // GPS
 _unit unlinkItem (_itemsAssigned select 1);
 _unit removeItems (_itemsAssigned select 1);
-// Radio
-_unit unlinkItem (_itemsAssigned select 2);
-_unit removeItems (_itemsAssigned select 2);
 // watch - replace with analog, just because ;-) 
 _unit unlinkItem (_itemsAssigned select 4);
 _unit removeItems (_itemsAssigned select 4);
@@ -76,50 +73,21 @@ if (secondaryWeapon _unit in GVAR(electronicLaunchers)) then {_unit removeWeapon
 // some items for backpack we should remove too 
 {
 	_unit removeItems _x;
-} forEach ["TFAR_microdagr","MineDetector", "tfw_rf3080Item", "ACE_ATragMX", "ACE_Cellphone", "ACE_DAGR","ACE_HuntIR_monitor","ACE_Kestrel4500","ACE_Flashlight_KSF1","ACE_Flashlight_XL50",
+} forEach ["TFAR_microdagr","MineDetector", "ACE_ATragMX", "ACE_Cellphone", "ACE_DAGR","ACE_HuntIR_monitor","ACE_Kestrel4500","ACE_Flashlight_KSF1","ACE_Flashlight_XL50",
 			"ACE_M26_Clacker","ACE_Clacker","ACE_IR_Strobe_Item","ACE_Flashlight_MX991","ACE_DeadManSwitch","ACE_microDAGR","itc_land_tablet_fdc","itc_land_tablet_rover","UMI_Land_Camcorder_F",
 			"UMI_Land_Camera_F","UMI_Land_MobilePhone_F","UMI_Land_Tablet_F"];
 
+// TFAR disable SW radios
+private _arr = _this call TFAR_fnc_radiosList;
+{
+    [_x, false] call TFAR_fnc_radioOn; //beta-specific functionality. 
+} forEach _arr;
 
-// handle if TFAR backpack
-if (count (_unit call TFAR_fnc_lrRadiosList) > 0) then {
-	// we got LR radio, swap bags
-	private _bpItems = backpackItems _unit;
-
-	// remove current backpack with LR 
-	removeBackPackGlobal _unit;
-	// add new backpack 
-	_unit addBackpackGlobal "B_Carryall_oli";
-
-	// wait until backpack is not null - Using CBA to run in unscheduled space
-	[{!isNull backpackContainer (_this select 0)}, 
-	{
-		params ["_unit", "_items", "_mags"];
-    	{
-			// add item
-			_unit addItemToBackpack _x;
-		} forEach _items;
-	}, 
-	[_unit, _bpItems]] call CBA_fnc_waitUntilAndExecute;
-};
-
-// new backpack: B_Carryall_oli (should be able to hold as much as largest TFAR radio and is neutrally green)
-
-// clearItemCargoGlobal _backPack;
-// clearMagazineCargoGlobal _backPack;
-// clearWeaponCargoGlobal _backPack;
-
-// {
-// 	if (isClass (configFile >> "CfgMagazines" >> _x)) then{
-// 		_backPack addMagazineCargoGlobal [_x, 1];
-// 	} else {
-// 		_backPack addItemCargoGlobal [_x, 1];
-// 		_backPack addWeaponCargoGlobal [_x, 1];
-// 	};
-// 	true;
-// } count _newItems
-
-
+// TFAR disable LR radios
+private _lrList = (_unit call TFAR_fnc_lrRadiosList);
+{
+	[_x, false] call TFAR_fnc_radioOn; //beta-specific functionality. 
+} forEach _lrList;
 
 
 
