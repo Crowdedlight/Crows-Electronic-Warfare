@@ -66,6 +66,11 @@ deleteVehicle _empEffect;
 // player whiteout should only happen if within range of emp. If Zeus, we don't get blur effect and whiteout
 if ((player distance _empObj) > _range || !isNull (getAssignedCuratorLogic player)) exitWith {};
 
+// get vehicle if unit is in vehicle, to check if vehicle or unit is immune to EMP
+private _vehicle = vehicle player;
+// we check both vehicle and player, in the case player is not in vehicle, the player is just checked twice, thats fine.
+if ((_vehicle getVariable [QGVAR(immuneEMP), false]) || (player getVariable [QGVAR(immuneEMP), false])) exitWith {};
+
 // then it triggers the white-out for the player
 cutText ["", "WHITE OUT", 0.5];
 sleep 0.1;

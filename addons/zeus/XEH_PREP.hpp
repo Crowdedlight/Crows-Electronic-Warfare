@@ -8,3 +8,4 @@ PREP(addSoundZeus);
 PREP(removeSoundZeus);
 PREP(playSoundZeus);
 PREP(fireEMPZeus);
+PREP(setImmuneEMPZeus);

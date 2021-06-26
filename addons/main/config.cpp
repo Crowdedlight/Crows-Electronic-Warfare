@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"cba_main", "zen_main", "tfar_core"};
+        requiredAddons[] = {"cba_main", "zen_main"};
         author = "Crowdedlight";
         VERSION_CONFIG;
     };

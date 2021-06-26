@@ -9,12 +9,16 @@ Return: none
 Called upon event, fires EMP. This is server-side. 
 
 *///////////////////////////////////////////////
-params ["_pos", "_object", "_range"];
+params ["_pos", "_object", "_range", "_scopeMode", "_binoMode"];
 
 if (!isServer) exitWith {};
 
 // if unit is null, we spawn something and use as EMP on the given position
-// TODO
+if (isNull _object) then 
+{
+	private _posAGL = ASLToAGL _pos;
+	_object = createVehicle ["Land_Device_slingloadable_F", _posAGL, [], 0, "NONE"];
+};
 
 // create visual effects for all
 [[_object, _range],QPATHTOF(functions\fnc_playerEffect.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
@@ -38,6 +42,9 @@ private _vehicleSpawn = [_delay, _vehicles] spawn {
 	// disable and set dmg on each vehicle - remoteExec visual effect for all vehicles
 	{
 		private _v = _x;
+
+		// if immune to emp, skip it
+		if (_x getVariable [QGVAR(immuneEMP), false]) then {continue;};
 
 		// dmg vehicle modules
 		{
@@ -81,6 +88,9 @@ private _staticSpawn = [_delay, _statics] spawn {
 	params ["_delay", "_turrets"];
 	// disable and set dmg on each turrent - remoteExec visual effect
 	{
+		// check if immune and skip if immune
+		if (_x getVariable [QGVAR(immuneEMP), false]) then {continue;};
+
 		_x setDamage 1;
 		
 		// remote exec dmg effect 
@@ -96,11 +106,19 @@ private _unitSpawn = [_delay, _men] spawn {
 	params ["_delay", "_units"];
 	// remove equipment etc.
 	{
+		// if zeus, skip execution of effects and disabling of gear 
+		if (!isNull (getAssignedCuratorLogic _x)) then {continue;};
+
+		// if immune to EMP skip removal and particles of sparks
+		if (_x getVariable [QGVAR(immuneEMP), false]) then {continue;};
+
 		// remote exec visual effect - Spawn in scheduled for sleep
 		[[_x],QPATHTOF(functions\fnc_targetSparkSFX.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
 		
 		// remove equipment
-		[_x] call FUNC(unitRemoveItems);		
+		// remoteExec this, no server specific code, and more effective if each client handles their own removal instead of server having to go through all
+		[_x, _scopeMode, _binoMode] remoteExec [QFUNC(unitRemoveItems), _x]
+		// [_x, _scopeMode, _binoMode] call FUNC(unitRemoveItems);		
 
 		sleep _delay;
 	} forEach _units;
