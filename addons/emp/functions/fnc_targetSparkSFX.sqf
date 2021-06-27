@@ -29,7 +29,7 @@ private _height = abs ((_point2 select 2) - (_point1 select 2));
 if (_unit isKindOf "man") then {
 	private _spark = "#particlesource" createVehicleLocal (getPos _unit);
 	_spark setParticleCircle [0,[0,0,0]];
-	// set dimensions to 
+	// set dimensions to object
 	_spark setParticleRandom [0.2,[_width/3,_length/3,_height],[0,0,0],0,0.001,[0,0,0,1],1,0];
 	_spark setParticleParams [["\A3\data_f\blesk1",1,0,1],"","SpaceObject",1,0.2,[0,0,0],[0,0,0],0,10,7.9,0,[0.002,0.002],[[1,1,0.1,1],[1,1,1,1]],[0.08], 1, 0, "", "", _unit];
 	_spark setDropInterval 0.01;

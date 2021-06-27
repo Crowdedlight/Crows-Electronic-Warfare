@@ -33,9 +33,13 @@ if (("hgun_esd_" in _handgun)) then {
     _unit removeWeaponGlobal _handgun;
 }; 
 
+// remove if flashlight is equipped as pistol
+if (_handgun == "ACE_Flashlight_Maglite_ML300L") then {_unit removeWeaponGlobal _handgun;};
+
+
 // if scopemode is 0, we don't remove, if its 1 or 2, we remove and/or replace
 if (_scopeMode != 0) then {
-    // main-gun SCOPE - Remove if we got intergrated NV / Thermal scopes
+    // PRIMARY WEAPON SCOPE - Remove if we got intergrated NV / Thermal scopes
     private _scope = _mainWep select 3;
     // get the configs for the scope to check for thermal or NVG. This way we don't have to hardcode list of items
     private _opticsModes = ("true" configClasses (ConfigFile >> "CfgWeapons" >> _scope >> "ItemInfo" >> "OpticsModes")) apply {
@@ -56,10 +60,30 @@ if (_scopeMode != 0) then {
             if (_scopeMode == 1) then {_unit addWeaponItem [(_mainWep select 0), "optic_Aco", true];};
         };
     } forEach _opticsModes;
+
+    // PISTOL WEAPON SCOPE
+    _scope = _pistol select 3;
+    // get the configs for the scope to check for thermal or NVG. This way we don't have to hardcode list of items
+    _opticsModes = ("true" configClasses (ConfigFile >> "CfgWeapons" >> _scope >> "ItemInfo" >> "OpticsModes")) apply {
+        private _visionMode = getArray (_x >> "visionMode");
+        [
+            "NVG" in _visionMode, //Integrated NVG
+            "Ti" in _visionMode //Integrated Thermal
+        ]
+    };
+    // check all vision modes and if NVG or TI intergrated we replace it, as we can't turn off only the TI/NVG
+    {
+        _x params ["_integratedNVG", "_integratedTi"];
+        if (_integratedNVG || _integratedTi) then {
+            // remove scope
+            _unit removeHandgunItem _scope;
+        };
+    } forEach _opticsModes;
 };
 
 // BINO - replace if chosen with basegame binoculars. As pretty much all other items would be electronic
-if (_binoMode != 0) then {
+private _currentBinos = _itemsBino select 0;
+if (_binoMode != 0 && !(_currentBinos in GVAR(baseBinoculars))) then {
     _unit removeWeaponGlobal (_itemsBino select 0);
     _unit removeItems (_itemsBino select 0);
     
@@ -83,7 +107,12 @@ _unit removeItems (_itemsAssigned select 5);
 if (headgear _unit in GVAR(electronicHelmets)) then {removeHeadgear _unit};
 
 // remove if launcher is electronic
-if (secondaryWeapon _unit in GVAR(electronicLaunchers)) then {_unit removeWeaponGlobal (secondaryWeapon _unit)};
+// get the parent base, as we have a collection of item-bases. This way we should cover all variants
+private _parentLauncher = inheritsFrom (configFile >> "CfgWeapons" >> secondaryWeapon _unit);
+_parentLauncher = ([_parentLauncher, "/"] call BIS_fnc_splitString);
+_parentLauncher = _parentLauncher select (count _parentLauncher - 1);
+// remove if parent is in our array
+if (_parentLauncher in GVAR(electronicLaunchers)) then {_unit removeWeaponGlobal (secondaryWeapon _unit)};
 
 // some items for backpack we should remove too 
 {

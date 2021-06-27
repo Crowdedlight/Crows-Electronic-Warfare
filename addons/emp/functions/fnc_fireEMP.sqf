@@ -78,7 +78,7 @@ private _lightSpawn = [_delay, _lightList] spawn {
 	params ["_delay", "_lights"];
 	// disable and set dmg on each light - remoteExec visual effect
 	{
-		_x setDamage 0.9;
+		_x setDamage 0.96;
 
 		// remote exec dmg effect 
 		[[_x],QPATHTOF(functions\fnc_lampEffect.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
