@@ -3,7 +3,7 @@
 Author: Crowdedlight
 			   
 File: fnc_fireEMP.sqf
-Parameters: pos, _unit, _range
+Parameters: pos, _unit, _range, _scopeMode, _binoMode
 Return: none
 
 Called upon event, fires EMP. This is server-side. 
@@ -18,6 +18,9 @@ if (isNull _object) then
 {
 	private _posAGL = ASLToAGL _pos;
 	_object = createVehicle ["Land_Device_slingloadable_F", _posAGL, [], 0, "NONE"];
+
+	// set zeus editable 
+	["zen_common_addObjects", [[_object], objNull]] call CBA_fnc_serverEvent;
 };
 
 // create visual effects for all
@@ -33,9 +36,6 @@ private _men = _nearestArray select 3;
 // start EMP effect
 private _delay = 0.01; // for processing purposes
 
-// play rumble for all but server
-["rumble"] remoteExec ["playsound", [0,-2] select isDedicated];
-
 // spawn in scheduled enviroment so sleep is allowed.
 private _vehicleSpawn = [_delay, _vehicles] spawn {
 	params ["_delay", "_vehicles"];
@@ -43,8 +43,11 @@ private _vehicleSpawn = [_delay, _vehicles] spawn {
 	{
 		private _v = _x;
 
-		// if immune to emp, skip it
-		if (_x getVariable [QGVAR(immuneEMP), false]) then {continue;};
+		// if immune to emp, skip it, but still do emp effect around the car
+		if (_x getVariable [QGVAR(immuneEMP), false]) then {
+			[[_x],QPATHTOF(functions\fnc_targetSparkSFX.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];	
+			continue;
+		};
 
 		// dmg vehicle modules
 		{
@@ -102,23 +105,22 @@ private _staticSpawn = [_delay, _statics] spawn {
 
 // play radio static sound
 ["electro_static"] remoteExec ["playsound", [0,-2] select isDedicated];
-private _unitSpawn = [_delay, _men] spawn {
-	params ["_delay", "_units"];
+private _unitSpawn = [_delay, _men, _scopeMode, _binoMode] spawn {
+	params ["_delay", "_units", "_scopeMode", "_binoMode"];
 	// remove equipment etc.
 	{
 		// if zeus, skip execution of effects and disabling of gear 
 		if (!isNull (getAssignedCuratorLogic _x)) then {continue;};
 
-		// if immune to EMP skip removal and particles of sparks
-		if (_x getVariable [QGVAR(immuneEMP), false]) then {continue;};
+		// if immune to EMP, or in vic that is immune skip removal and particles of sparks
+		if (_x getVariable [QGVAR(immuneEMP), false] || ((vehicle _x) getVariable [QGVAR(immuneEMP), false])) then {continue;};
 
 		// remote exec visual effect - Spawn in scheduled for sleep
 		[[_x],QPATHTOF(functions\fnc_targetSparkSFX.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
 		
 		// remove equipment
 		// remoteExec this, no server specific code, and more effective if each client handles their own removal instead of server having to go through all
-		[_x, _scopeMode, _binoMode] remoteExec [QFUNC(unitRemoveItems), _x]
-		// [_x, _scopeMode, _binoMode] call FUNC(unitRemoveItems);		
+		[_x, _scopeMode, _binoMode] remoteExec [QFUNC(unitRemoveItems), _x];
 
 		sleep _delay;
 	} forEach _units;

@@ -15,12 +15,14 @@ params ["_empObj", "_range"];
 // only for players 
 if (!hasInterface) exitWith {};
 
-// emp sound, but only if close enough
-if ((player distance _empObj) < (_range*2)) then {playsound "emp_blast";};
-
-// cam shake
-enableCamShake true;
-addCamShake [2,10,24]; // shaking in 10s, see how it works?
+// emp sound and shake, but only if close enough
+if ((player distance _empObj) < (_range*2)) then {
+	playsound "emp_blast";
+	
+	// cam shake
+	enableCamShake true;
+	addCamShake [2,10,24]; // shaking in 10s, see how it works?
+};
 
 // first it makes the EMP effect explosion 
 // create particle source on object pos 

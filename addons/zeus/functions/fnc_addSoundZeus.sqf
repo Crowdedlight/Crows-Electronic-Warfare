@@ -42,7 +42,7 @@ private _onConfirm =
 			EGVAR(sounds,soundZeusDisplay)
 			,0]], // list of possible sounds, ideally we would like to preview them when selected.... but that is custom gui right?
 		["SLIDER","Delay between repeats [s]",[0,120,0,1]], //0 to 120, default 0 and showing 1 decimal.
-		["SLIDER","Range it can be heard (0 is unlimited)",[0,1000,50,0]], //0 to 500, default 50 and showing 0 decimal // TODO tooltip, 0 means unlimited?
+		["SLIDER",["Range it can be heard [m]", "0 range is unlimited distance"],[0,1000,50,0]], //0 to 500, default 50 and showing 0 decimal
 		["SLIDER","Start Delay [s]",[0,500,0,1]], //0 to 500, default 0 and showing 0 decimal
 		["SLIDER","Volume",[1,5,2,0]], //1 to 5, default 2 and showing 0 decimal
 		["CHECKBOX","Should it repeat the sound?",[true]],

@@ -6,7 +6,7 @@ File: fnc_unitRemoveItems.sqf
 Parameters: _unit
 Return: none
 
-Removes electronic items from unit
+Removes electronic items from unit depending on EMP mode set, not required to run locally
 
 *///////////////////////////////////////////////
 params ["_unit", "_scopeMode", "_binoMode"];
@@ -60,11 +60,11 @@ if (_scopeMode != 0) then {
 
 // BINO - replace if chosen with basegame binoculars. As pretty much all other items would be electronic
 if (_binoMode != 0) then {
-    _unit unlinkItem (_itemsBino select 0);
+    _unit removeWeaponGlobal (_itemsBino select 0);
     _unit removeItems (_itemsBino select 0);
     
     // add base game binoculars - if chosen 
-    if (_binoMode == 1) then {_unit linkItem "Binocular";};
+    if (_binoMode == 1) then {_unit addWeapon "Binocular";};
 };
 
 // ASSIGNED ITEMS - Also remove same variants in inventory, but doesn't check for parent type
