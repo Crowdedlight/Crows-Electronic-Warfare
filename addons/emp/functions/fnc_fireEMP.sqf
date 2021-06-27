@@ -17,7 +17,7 @@ if (!isServer) exitWith {};
 if (isNull _object) then 
 {
 	private _posAGL = ASLToAGL _pos;
-	_object = createVehicle ["Land_Device_slingloadable_F", _posAGL, [], 0, "NONE"];
+	_object = createVehicle ["Land_Device_slingloadable_F", _posAGL, [], 0, "COLLIDE"];
 
 	// set zeus editable 
 	["zen_common_addObjects", [[_object], objNull]] call CBA_fnc_serverEvent;
