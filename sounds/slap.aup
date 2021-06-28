@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="slap_data" version="1.3.0" audacityversion="2.4.2" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="86.1328125000" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="Audio Track" isSelected="0" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.995262" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="524288" sampleformat="131073" numsamples="1057947">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808f12.au" len="262144" min="-1.0" max="0.999969" rms="0.041185"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e0808f60.au" len="262144" min="-1.0" max="0.999969" rms="0.04759"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e0808d05.au" len="262144" min="-1.0" max="0.999969" rms="0.03044"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="e0808972.au" len="262144" min="-1.0" max="0.999969" rms="0.043023"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="e0808ed1.au" len="9371" min="-0.020264" max="0.014191" rms="0.004027"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
