@@ -46,8 +46,8 @@ private _wait = [player] spawn
 			["Add Sound",{_this call FUNC(addSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
 			["Remove Sound",{_this call FUNC(removeSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
 			["Play Sound",{_this call FUNC(playSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
-			["Fire EMP",{_this call FUNC(fireEMPZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"], //TODO change icon
-			["Set Immune to EMP",{_this call FUNC(setImmuneEMPZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"] //TODO change icon
+			["Fire EMP",{_this call FUNC(fireEMPZeus)}, QPATHTOF(data\EMP_Icon.paa)], 
+			["Set Immune to EMP",{_this call FUNC(setImmuneEMPZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)] 
 		];
 		private _tfarModules = [
 			["Set TFAR Jammer",{_this call FUNC(addJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
