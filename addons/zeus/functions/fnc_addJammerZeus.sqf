@@ -38,6 +38,12 @@ private _onConfirm =
 
 	// broadcast event to all clients and JIP
 	[QEGVAR(main,addJammer), [_unit, _rad, _strength]] call CBA_fnc_globalEventJIP;
+
+	// broadcast sound to server for sound handling - Means we don't get duplicate broadcasts due to JIP.
+	// params ["_unit", "_delay", "_range", "_repeat", "_aliveCondition", "_sound", "_startDelay", "_volume"];
+	[getPosATL _unit, 50, "jam_start", 3] call EFUNC(sounds,playSoundPos);
+	[QEGVAR(sounds,addSound), [_unit, 0.5, 50, true, true, "jam_loop", 3, 3]] call CBA_fnc_serverEvent;
+
 };
 [
 	"TFAR Jammer", 

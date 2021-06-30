@@ -39,6 +39,14 @@ Siren by Jwade722: https://freesound.org/people/Jwade722/sounds/534550/?page=1#c
 Air Raid Siren Alarm by ScreamStudio: https://freesound.org/people/ScreamStudio/sounds/412171/  
 Footsteps_Boots_Gritty_Ground_(Gravel) by Nox_sound: https://freesound.org/people/Nox_Sound/sounds/530589/  
 War of the worlds Horn 1 by JarredGibb: https://freesound.org/people/JarredGibb/sounds/244796/  
+Tinnitus sound by Breviceps: https://freesound.org/people/Breviceps/sounds/450620/  
+EMP blast.wav by 2887679652: https://freesound.org/people/2887679652/sounds/110564/  
+electro_static.mps by soulman 90: https://freesound.org/people/Soulman%2090/sounds/108859/  
+Huge Explosion Part 1 - Shockwave by bevibeldesign: https://freesound.org/people/bevibeldesign/sounds/366091/  
+spark by elliottmoo: https://freesound.org/people/elliottmoo/sounds/189630/  
+spark.wav by BMacZero: https://freesound.org/people/BMacZero/sounds/94132/  
+
+
 
 Any sounds used under [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) is listed here with credit:  
 
@@ -60,6 +68,10 @@ Permission to panic? by deleted_user_2906614 (who remixed it from http://freesou
 "Car Alarm, Distant, A.wav" by InspectorJ (www.jshaw.co.uk) of Freesound.org: https://freesound.org/people/InspectorJ/sounds/422051/  
 "Cathedral Bells, Close, A.wav" by InspectorJ (www.jshaw.co.uk) of Freesound.org: https://freesound.org/people/InspectorJ/sounds/417769/  
 This Statement Is False by qubodup: https://freesound.org/people/qubodup/sounds/211996/  
+rumble.wav by tim.kahn: https://freesound.org/people/tim.kahn/sounds/94114/  
+couch hit.wav by MegaBlasterRecordings: https://freesound.org/people/MegaBlasterRecordings/sounds/368640/ 
+spark 1.wav by ERH: https://freesound.org/people/ERH/sounds/31348/  
+
 
 Sounds used under [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) is listed here with credit:
 

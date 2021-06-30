@@ -42,6 +42,7 @@ GVAR(soundAttributes) set ["zombie_sound", [6, "z\crowsEW\addons\sounds\data\zom
 GVAR(soundAttributes) set ["stuka_siren", [15.4, "z\crowsEW\addons\sounds\data\stuka_siren.ogg", "Stuka Siren Diving (15s)"]];
 GVAR(soundAttributes) set ["dog_barking", [12.4, "z\crowsEW\addons\sounds\data\dog_barking.ogg", "Dog Barking (12s)"]];
 GVAR(soundAttributes) set ["dog_bark_german", [19, "z\crowsEW\addons\sounds\data\dog_bark_german.ogg", "Dog, German Shepard, Barking (19s)"]];
+GVAR(soundAttributes) set ["slap", [1, "z\crowsEW\addons\sounds\data\slap.ogg", "Slap (1s)"]];
 
 // Base game sounds - none yet. Might come if I add dubbing
 
