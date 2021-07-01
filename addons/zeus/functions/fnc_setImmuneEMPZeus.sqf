@@ -33,7 +33,7 @@ private _empImmune = _unit getVariable [QEGVAR(emp,immuneEMP), false];
 [
 	"Set Immune to EMP", 
 	[
-		["TOOLBOX:YESNO", ["Immunity to EMP", "Makes the unit immune to EMPs"], _empImmune]
+		["TOOLBOX:YESNO", ["Immunity to EMP", "Makes the unit immune to EMPs"], [_empImmune], true]
 	],
 	_onConfirm,
 	{},
