@@ -2,16 +2,23 @@
 A arma 3 mod that allows zeus to add additional eletronic measures available for the players. 
 
 ### Requirements
-This mod requires Zeus Enhanced (ZEN), CBA3 and Taskforce Radio (TFAR) Beta. 
+This mod requires Zeus Enhanced (ZEN) and CBA3
 
 ### Features
 
 **The wiki for the features is available at:** https://github.com/Crowdedlight/Crows-Electronic-Warfare/wiki 
 
-* **Set TFAR Jammer:** Allows Zeus to select a object that will work as a TFAR jammer with the chosen settings, until death or removal. Zeus has a continuous updated map marker showing the area it is active in.
-* **Set Spectrum Signal Source:** Allows Zeus to select a object that can be tracked by the spectrum analyzer with selected frequency and range it can be tracked from. Frequency has to be unique due to game limitations. 
-* **Add Sound:** Allows Zeus to select a object and play a selected sound with options such as: initial delay, on repeat, delay between repeat, removal if unit dies. Sound follows the unit around. (Be aware if using the long sounds, they can't stop mid-playing, only when played to end)
-* **Play Sound:** Allows Zeus to play a sound at selected position. Sound follows the unit around. (Be aware if using the long sounds, they can't stop mid-playing, only when played to end)
+**Features requiring TFAR:**  
+
+* **Set TFAR Jammer:** Allows Zeus to select a object that will work as a TFAR jammer with the chosen settings, until death or removal. Zeus has a continuous updated map marker showing the area it is active in. Zeus is not affected by the jammning and does not have to think about where the zeus character is currently placed to avoid jamming. 
+
+
+**Features:**
+* **Set Spectrum Signal Source:** Allows Zeus to select a object that can be tracked by the spectrum analyzer with selected frequency and range it can be tracked from. Frequency has to be unique due to game limitations. Does not work on remote-controlled units. However a player-zeus would be able to use the spectrum analyzer himself.    
+* **Add Sound:** Allows Zeus to select a object and play a selected sound with options such as: initial delay, on repeat, delay between repeat, removal if unit dies. Sound follows the unit around. (Be aware if using the long sounds, they can't stop mid-playing, only when played to end)  
+* **Play Sound:** Allows Zeus to play a sound at selected position. Sound follows the unit around. (Be aware if using the long sounds, they can't stop mid-playing, only when played to end)  
+* **EMP:** Added EMP module which makes Zeus able to fire an EMP. The EMP will remove NV/Thermal for men, weapons and vehicles. Vehicles electric components (lights,engine,turrest) will also be damaged. Launchers and static weapons that has NV/Thermal/electronic components will be damaged/removed. Binoculars and Scopes on weapons that has intergrated NV/Thermal will be either removed or replaced with base-game item that do not have NV/Thermal. This is configuable by the Zeus. If TFAR is loaded the radios of affected units/vehicles will stop working (Requires TFAR Beta). However new items picking up not affected by the EMP will work. Some equipment might not be removed if they are modded items that does not share base-game parent. In that case please let me know and I will add it. As I can't cover every single modded item, the module will have item/equipment limitations and is meant to be operated by trust with the players. Zeus are immune to the EMP effect and will not have equipment removed or damaged and will also not get white-out/screen blur effect, like the players.   
+* **EMP Immunity:** Set any unit or vehicle immune to the EMP effect. Units inside a vehicle set immune is also immune to the effect.   
 
 **All features have been tested on a dedicated server with multiple clients. Big thanks to the people that helped me test. You know who you are!**
 
