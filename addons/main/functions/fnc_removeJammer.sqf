@@ -2,7 +2,7 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fnc_removeJammerZeus.sqf
+File: fnc_removeJammer.sqf
 Parameters: pos, _unit
 Return: none
 
@@ -20,3 +20,6 @@ GVAR(jamMap) deleteAt _netId;
 
 // delete marker
 [_netId] call FUNC(removeJamMarker);
+
+// delete sound effect 
+[QEGVAR(sounds,removeSound), [_unit]] call CBA_fnc_serverEvent;
