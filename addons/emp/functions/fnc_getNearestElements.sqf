@@ -39,3 +39,4 @@ _manList = _manList arrayIntersect _manList;
 // build array and return it
 private _arr = [_vehicleList, _lightList, _turretList, _manList];
 _arr
+

@@ -21,7 +21,7 @@ class CfgSounds
 	class emp_blast
 	{
 		name = "emp_blast";
-		sound[] = {PATHTOF(data\emp_low_to_high.ogg), db+9, 1};
+		sound[] = {PATHTOF(data\emp_low_to_high.ogg), db+20, 1};
 		titles[] = {0, ""};	
 	};
 	class impact

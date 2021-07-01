@@ -17,7 +17,7 @@ if (!isServer) exitWith {};
 if (isNull _object) then 
 {
 	private _posAGL = ASLToAGL _pos;
-	_object = createVehicle ["Land_Device_slingloadable_F", _posAGL, [], 0, "COLLIDE"];
+	_object = createVehicle ["Land_Device_slingloadable_F", _posAGL, [], 0, "CAN_COLLIDE"];
 
 	// set zeus editable 
 	["zen_common_addObjects", [[_object], objNull]] call CBA_fnc_serverEvent;
@@ -55,8 +55,8 @@ private _vehicleSpawn = [_delay, _vehicles] spawn {
 			if ("engine" in _x || {"avionics" in _x} ||{"turret" in _x} || 
 				{"missiles" in _x} || {"light" in _x} || {"svetlo" in _x} || 
 				{"battery" in _x} || {"cam" in _x}) then {
-				// set as destroyed
-				_v setHitIndex [_forEachIndex, 1];
+				// set as destroyed, Global effect, but local argument, so we execute where the unit is local
+				[_v, [_forEachIndex, 1]] remoteExec ["setHitIndex", _v];
 			};
 		} foreach (getAllHitPointsDamage _v select 0);
 

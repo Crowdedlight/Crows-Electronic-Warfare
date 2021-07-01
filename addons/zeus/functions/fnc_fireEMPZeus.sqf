@@ -30,7 +30,7 @@ private _onConfirm =
 [
 	"Fire EMP", 
 	[
-		["SLIDER","Range [m]",[50,5000,2000,0]],
+		["SLIDER","Range [m]",[50,5000,1000,0]],
 		["TOOLBOX:wide", ["NV/Thermal Scopes", "How should scopes with built-in thermal and NV be handled"], [1, 1, 3, ["No Removal", "Replace with base-game item", "Removal"]]],
 		["TOOLBOX:WIDE", ["Binoculars", "How should binoculars with built-in thermal and NV be handled"], [1, 1, 3, ["No Removal", "Replace with base-game item", "Removal"]]]
 	],

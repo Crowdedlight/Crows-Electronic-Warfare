@@ -21,7 +21,7 @@ if ((player distance _empObj) < (_range*2)) then {
 	
 	// cam shake
 	enableCamShake true;
-	addCamShake [2,10,24]; // shaking in 10s, see how it works?
+	addCamShake [6,5,24]; // shaking in 5s
 };
 
 // first it makes the EMP effect explosion 
@@ -31,7 +31,7 @@ private _wave = "#particlesource" createVehicleLocal getposatl _empObj;
 _wave setParticleCircle [0,[0,0,0]];;
 // randomize effect paramters and set particle effect 
 _wave setParticleRandom [0,[0.20,0.20,0],[0.170,0.170,0],0,0.20,[0,0,0,0.1],0,0];
-_wave setParticleParams [["\A3\data_f\ParticleEffects\Universal\Refract.p3d",1,0,1], "", "Billboard", 1, 0.65, [0, 0, 0], [0, 0, 0],0,10,7.9,0, [30,(_range*1.2)], [[1, 1, 1, 1], [1, 1, 1, 1]], [0.08], 1, 0, "", "", _empObj];
+_wave setParticleParams [["\A3\data_f\ParticleEffects\Universal\Refract.p3d",1,0,1], "", "Billboard", 1, 0.8, [0, 0, 0], [0, 0, 0],0,10,7.9,0, [30,(_range*1.2)], [[1, 1, 1, 1], [1, 1, 1, 1]], [0.08], 1, 0, "", "", _empObj];
 _wave setDropInterval 0.1;
 // cleanup 
 [_wave] spawn {params ["_obj"];sleep 1;deleteVehicle _obj};
@@ -44,7 +44,7 @@ _explosion setParticleRandom [0, [0, 0, 0], [0, 0, 0], 0, 0, [0, 0, 0, 0], 0, 0]
 _explosion setParticleParams [["\A3\data_f\koule", 1, 0, 1], "", "SpaceObject", 1.1,1,[0,0,0],[0,0,1],4,10,7.9,0,[50,(_range*1.2)],[[0.34, 0.72, 1, 0.1],[0.40, 0.72, 1, 0]], [1], 1, 0, "", "", _empObj];
 _explosion setDropInterval 50;
 // cleanup
-[_explosion] spawn {params ["_obj"];sleep 1;deleteVehicle _obj};
+[_explosion] spawn {params ["_obj"];sleep 1.1;deleteVehicle _obj};
 
 // emp colour - Set 0 brightness then turn it up as effect
 private _empEffect = "#lightpoint" createVehiclelocal getposatl _empObj; 
@@ -61,8 +61,9 @@ private _brightness = 0;
 while {_brightness < 50} do {
 	_empEffect setLightBrightness _brightness;
 	_brightness = _brightness + 2;
-	sleep 0.02;
+	sleep 0.05;
 };
+sleep 0.1;
 deleteVehicle _empEffect;
 
 // player whiteout should only happen if within range of emp. If Zeus, we don't get blur effect and whiteout
@@ -95,13 +96,17 @@ sleep 3;
 "dynamicBlur" ppEffectEnable false; 
 
 // effect testing 
-// [_this, 1000] spawn {
+// [_this, 500] spawn {
 // params ["_empObj", "_range"];
+// playsound "emp_blast";
+
+// enableCamShake true;
+// addCamShake [6,5,24];
 
 // private _wave = "#particlesource" createVehicleLocal getposatl _empObj;
 // _wave setParticleCircle [0,[0,0,0]];;
 // _wave setParticleRandom [0,[0.20,0.20,0],[0.170,0.170,0],0,0.20,[0,0,0,0.1],0,0];
-// _wave setParticleParams [["\A3\data_f\ParticleEffects\Universal\Refract.p3d",1,0,1], "", "Billboard", 1, 0.65, [0, 0, 0], [0, 0, 0],0,10,7.9,0, [30,(_range*1.2)], [[1, 1, 1, 1], [1, 1, 1, 1]], [0.08], 1, 0, "", "", _empObj];
+// _wave setParticleParams [["\A3\data_f\ParticleEffects\Universal\Refract.p3d",1,0,1], "", "Billboard", 1, 0.8, [0, 0, 0], [0, 0, 0],0,10,7.9,0, [30,(_range*1.2)], [[1, 1, 1, 1], [1, 1, 1, 1]], [0.08], 1, 0, "", "", _empObj];
 // _wave setDropInterval 0.1;
 // [_wave] spawn {params ["_obj"];sleep 1;deleteVehicle _obj};
 
@@ -129,7 +134,7 @@ sleep 3;
 // 	   "", 
 // 	   _empObj];
 // _explosion setDropInterval 50;
-// [_explosion] spawn {params ["_obj"];sleep 1;deleteVehicle _obj};
+// [_explosion] spawn {params ["_obj"];sleep 1.1;deleteVehicle _obj};
 
 // private _empEffect = "#lightpoint" createVehiclelocal getposatl _empObj; 
 // _empEffect lightAttachObject [_empObj, [0,0,3]];
@@ -142,9 +147,11 @@ sleep 3;
 // while {_brightness < 50} do {
 // 	_empEffect setLightBrightness _brightness;
 // 	_brightness = _brightness + 2;
-// 	sleep 0.02;
+// 	sleep 0.05;
 // };
+// sleep 0.1;
 // deleteVehicle _empEffect;
+
 // cutText ["", "WHITE OUT", 0.5];
 // sleep 0.1;
 // titleCut ["", "WHITE IN", 0.5];
