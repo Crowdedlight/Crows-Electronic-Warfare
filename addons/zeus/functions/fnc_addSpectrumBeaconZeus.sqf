@@ -27,7 +27,7 @@ private _onConfirm =
 	if (_unit == objNull) exitWith {hint "You have to select a object as signal source";};
 
 	// broadcast event to all clients and JIP
-	[QEGVAR(spectrum,addBeacon), [_unit, _freq, _range]] call CBA_fnc_globalEventJIP;
+	[QEGVAR(spectrum,addBeacon), [_unit, _freq, _range, "zeus"]] call CBA_fnc_globalEventJIP;
 };
 [
 	"Set Spectrum Signal Source", 

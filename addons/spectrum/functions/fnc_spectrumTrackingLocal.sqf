@@ -18,6 +18,11 @@ if (count GVAR(beacons) == 0) exitWith {
 // only calculate if we got analyzer as player
 if (!("hgun_esd_" in (handgunWeapon player))) exitWith {}; 
 
+// only work if we got an antenna on 
+if (GVAR(spectrumAttachmentLocal) == -1) exitWith {
+    missionNamespace setVariable ["#EM_Values", []];
+};
+
 // update local array for deleted or dead elements
 private _removeArr = [];
 {
@@ -38,10 +43,14 @@ GVAR(beacons) = GVAR(beacons) - _removeArr;
 private _sigsArray = [];
 private _tracker = player;
 {
-	_x params [["_target",objNull,[objNull]], ["_frequency", 0], ["_scanRange",300]];
+	_x params [["_target",objNull,[objNull]], ["_frequency", 0], ["_scanRange",300], ["_type", "zeus"]];
 
     // if for safety 
     if (_target == objNull || _frequency == 0) then {continue};
+
+    // if frequency outside range of antenna skip it
+    private _requiredAntenna = [_frequency] call FUNC(getAntennaFromFrequency);
+    if (_requiredAntenna != GVAR(spectrumRangeAntenna)) then { continue; };
 
 	// calculate direction
 	private _dirTargetFromTracker = _tracker getDir _target;
@@ -69,6 +78,6 @@ private _tracker = player;
 missionNamespace setVariable ["#EM_Values", _sigsArray];
 
 // //Debugging
-// if (true) then {	
-// 	systemChat format ["Sigs: %1", _sigsArray];
-// };
+if (true) then {	
+	systemChat format ["Sigs: %1", _sigsArray];
+};

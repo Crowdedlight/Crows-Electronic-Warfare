@@ -5,8 +5,8 @@ if (!hasInterface) exitWith {};
 
 // set default settings 
 { missionNamespace setVariable _x} forEach [
-    ["#EM_FMin",390], 					// Minimum of frequency in MHz
-	["#EM_FMax",500],					// Maximum of frequency in MHz
+    ["#EM_FMin",0], 					// Minimum of frequency in MHz
+	["#EM_FMax",0],						// Maximum of frequency in MHz
 	["#EM_SMin",-100],					// Minimum of signal value, in RSSI -120 to 0, with 0 being the strongest
 	["#EM_SMax",0],						// Maximum of signal value, in RSSI
 	["#EM_SelMin",141.6],				// currently selected frequency band that you scroll back and forth
@@ -20,6 +20,10 @@ if (!hasInterface) exitWith {};
 private _addId = [QGVAR(addBeacon), FUNC(addBeacon)] call CBA_fnc_addEventHandler;
 private _removeId = [QGVAR(removeBeacon), FUNC(removeBeacon)] call CBA_fnc_addEventHandler;
 
+// event listener to enable/disable TFAR signal sourcing
+private _tfarTrackingId = [QGVAR(toggleRadioTracking), FUNC(toggleRadioTracking)] call CBA_fnc_addEventHandler;
+
 // due to best practices we are gonna put the track loop in unscheduled space. 
-// TODO, remove/add PFH based if any sources are active... 
-GVAR(PFH_beaconPlayer) = [FUNC(spectrumTrackingLocal) , 0.5] call CBA_fnc_addPerFrameHandler; 
+// TODO, remove/add PFH based if any sources are active...
+GVAR(PFH_beaconPlayer) = [FUNC(spectrumTrackingLocal) , 0] call CBA_fnc_addPerFrameHandler; 
+GVAR(PFH_SpectrumAttachmentPlayer) = [FUNC(spectrumAttachmentLocal) , 1] call CBA_fnc_addPerFrameHandler; 

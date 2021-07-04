@@ -9,3 +9,4 @@ PREP(removeSoundZeus);
 PREP(playSoundZeus);
 PREP(fireEMPZeus);
 PREP(setImmuneEMPZeus);
+PREP(setRadioTrackingZeus);
