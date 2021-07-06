@@ -22,8 +22,25 @@ private _removeId = [QGVAR(removeBeacon), FUNC(removeBeacon)] call CBA_fnc_addEv
 
 // event listener to enable/disable TFAR signal sourcing
 private _tfarTrackingId = [QGVAR(toggleRadioTracking), FUNC(toggleRadioTracking)] call CBA_fnc_addEventHandler;
+// event listener for adding trackable random radio chatter on units
+private _randomRadioChatterTrackingId = [QGVAR(addRandomRadioTrackingChatter), FUNC(addRandomRadioTrackingChatter)] call CBA_fnc_addEventHandler;
+private _removeRandomRadioChatterTrackingId = [QGVAR(removeRandomRadioTrackingChatter), FUNC(removeRandomRadioTrackingChatter)] call CBA_fnc_addEventHandler;
 
 // due to best practices we are gonna put the track loop in unscheduled space. 
 // TODO, remove/add PFH based if any sources are active...
 GVAR(PFH_beaconPlayer) = [FUNC(spectrumTrackingLocal) , 0] call CBA_fnc_addPerFrameHandler; 
 GVAR(PFH_SpectrumAttachmentPlayer) = [FUNC(spectrumAttachmentLocal) , 1] call CBA_fnc_addPerFrameHandler; 
+
+
+// only if zeus, add draw3D handler for radio units
+if (!isNull (getAssignedCuratorLogic player)) exitWith {};
+
+GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
+	// if zeus display is null, exit. Only drawing when zeus display is open
+	if (isNull(findDisplay 312)) exitWith {};
+
+	{
+		// draw icon on relative pos 
+		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _x, 0, 0, 0, "Target", 1, 0.05, "RadioChatter"];
+	} forEach GVAR(radioTrackingAiUnits);
+}];

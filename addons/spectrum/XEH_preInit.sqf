@@ -9,3 +9,6 @@ GVAR(beacons) = [];
 // What frequency attachment is on 
 GVAR(spectrumRangeAntenna) = -1;
 GVAR(radioTrackingEnabled) = false;
+
+// array of special units
+GVAR(radioTrackingAiUnits) = [];

@@ -5,3 +5,5 @@ PREP(spectrumAttachmentLocal);
 PREP(getAntennaFromFrequency);
 PREP(toggleRadioTracking);
 PREP(radioTrackingBroadcastLocal);
+PREP(addRandomRadioTrackingChatter);
+PREP(removeRandomRadioTrackingChatter);
