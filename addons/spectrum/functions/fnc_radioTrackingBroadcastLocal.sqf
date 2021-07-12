@@ -15,6 +15,8 @@ params ["_unit", "_radioclass", "_radioType", "_additionalChannel", "_buttonDown
 private _freq = -1;
 private _range = -1;
 
+diag_log format ["radio class: %1, type: %2, buttonDown: %3", _radioclass, _radioType, _buttonDown];
+
 // 0 == SR, 1 == LR, 2 == underwater
 switch (_radioType) do {
 	case 0: {
@@ -27,10 +29,11 @@ switch (_radioType) do {
 	};
 };
 
-if (_freq == -1 || _range == -1) exitWith {};
+diag_log format["freq: %1, range: %2", _freq, _range];
+
+if ((_freq == -1) || {_range == -1}) exitWith {};
 
 systemChat format["onTangent: btnDown: %1", _buttonDown];
-diag_log _radioclass;
 
 // add signal source - NOT on JIP, as they are shorter bursts and we don't want to fill up the JIP. Such short messages should never be a problem requiring JIP.
 [QGVAR(addBeacon), [player, _freq, _range, "radio"]] call CBA_fnc_globalEvent;

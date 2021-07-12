@@ -2,17 +2,21 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fnc_removeRandomRadioTrackingChatter.sqf
+File: fnc_removeRandomRadioTrackingChatterServer.sqf
 Parameters: _unit/group, _sleepInterval
 Return: none
 
 Called from event broadcast by zeus to everyone, and JIP
 removes loop that randomly within the chosen intervals adds spectrum signals as long as unit is alive.
 
+SERVER ONLY
+
 *///////////////////////////////////////////////
 params ["_unit"];
 
-if (isNull _unit) exitWith {hint "You have to select an unit"};
+// server only 
+if (!isServer) exitWith {};
+if (isNull _unit) exitWith {};
 
 // if loop exists, then remove it and spawn new one
 private _existingHandle = _unit getVariable[QGVAR(radioChatterHandle), scriptNull];
@@ -25,3 +29,4 @@ _unit setVariable[QGVAR(radioChatterHandle), scriptNull, true];
 
 // remove from array for drawing indication of what AI units has it enabled
 GVAR(radioTrackingAiUnits) = GVAR(radioTrackingAiUnits) - [_unit];
+publicVariable GVAR(radioTrackingAiUnits);

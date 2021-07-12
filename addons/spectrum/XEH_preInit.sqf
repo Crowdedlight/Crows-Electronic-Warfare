@@ -10,5 +10,5 @@ GVAR(beacons) = [];
 GVAR(spectrumRangeAntenna) = -1;
 GVAR(radioTrackingEnabled) = false;
 
-// array of special units
+// array of special units -- public? 
 GVAR(radioTrackingAiUnits) = [];

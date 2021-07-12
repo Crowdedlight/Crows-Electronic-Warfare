@@ -78,6 +78,6 @@ private _tracker = player;
 missionNamespace setVariable ["#EM_Values", _sigsArray];
 
 // //Debugging
-if (true) then {	
-	systemChat format ["Sigs: %1", _sigsArray];
-};
+// if (true) then {	
+// 	systemChat format ["Sigs: %1", _sigsArray];
+// };

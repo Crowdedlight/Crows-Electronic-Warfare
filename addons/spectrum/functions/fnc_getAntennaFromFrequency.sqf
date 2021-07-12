@@ -13,7 +13,7 @@ params ["_freq"];
 
 private _antenna = -1;
 switch (true) do {
-	// 78 - 89 MHz - consider changing to 60 - 250 mhz, for TFAR frequencie ranges
+	// 78 - 89 MHz - changing to 60 - 250 mhz, for TFAR frequencie ranges
 	case (_freq >= 60 && _freq <= 250): {
 		_antenna = 1;
 	};
