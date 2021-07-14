@@ -30,7 +30,7 @@ private _removeArr = [];
     private _target = _x select 0;
 
     // if removed or dead, remove it from tracking array
-    if (_target == objNull || !alive _target) then {
+    if (isNull _target || !alive _target) then {
         _removeArr pushBack _x;
     };
 } forEach GVAR(beacons);
@@ -43,10 +43,10 @@ GVAR(beacons) = GVAR(beacons) - _removeArr;
 private _sigsArray = [];
 private _tracker = player;
 {
-	_x params [["_target",objNull,[objNull]], ["_frequency", 0], ["_scanRange",300], ["_type", "zeus"]];
+	_x params [["_target",objNull,[objNull]], ["_frequency", 0, [0]], ["_scanRange",300, [0]], ["_type", "zeus", [""]]];
 
-    // if for safety 
-    if (_target == objNull || _frequency == 0) then {continue};
+    // if for safety and so we don't track ourself
+    if (isNull _target || _frequency == 0 || _target == _tracker) then {continue};
 
     // if frequency outside range of antenna skip it
     private _requiredAntenna = [_frequency] call FUNC(getAntennaFromFrequency);

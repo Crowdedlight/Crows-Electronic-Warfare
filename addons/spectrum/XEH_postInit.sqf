@@ -16,8 +16,8 @@ if (!hasInterface) exitWith {};
 	["#EM_FMax",0],						// Maximum of frequency in MHz
 	["#EM_SMin",-100],					// Minimum of signal value, in RSSI -120 to 0, with 0 being the strongest
 	["#EM_SMax",0],						// Maximum of signal value, in RSSI
-	["#EM_SelMin",141.6],				// currently selected frequency band that you scroll back and forth
-	["#EM_SelMax",144.6],				// currently selected frequency band that you scroll back and forth
+	["#EM_SelMin",143.6],				// currently selected frequency band that you scroll back and forth
+	["#EM_SelMax",150.6],				// currently selected frequency band that you scroll back and forth
 	["#EM_Values",[]],					// signal values in array
 	["#EM_Transmit",false],				// boolean if you are transmitting, Affects the background of the graph and the icon on the device.
 	["#EM_Progress",0]					// progress of transmission, between 0 and 1
@@ -32,9 +32,11 @@ private _tfarTrackingId = [QGVAR(toggleRadioTracking), FUNC(toggleRadioTracking)
 
 // due to best practices we are gonna put the track loop in unscheduled space. 
 // TODO, remove/add PFH based if any sources are active...
-GVAR(PFH_beaconPlayer) = [FUNC(spectrumTrackingLocal), 0] call CBA_fnc_addPerFrameHandler; 
+GVAR(PFH_beaconPlayer) = [FUNC(spectrumTrackingLocal), 0.2] call CBA_fnc_addPerFrameHandler; 
 GVAR(PFH_SpectrumAttachmentPlayer) = [FUNC(spectrumAttachmentLocal), 1] call CBA_fnc_addPerFrameHandler; 
 
+// Spectrum event handler for "FIRE" spectrum analyzer 
+(findDisplay 46) displayAddEventHandler ["MouseButtonDown", FUNC(spectrumDeviceMouseDown)];
 
 // only if zeus, add draw3D handler for radio units
 if (!isNull (getAssignedCuratorLogic player)) exitWith {};
@@ -42,9 +44,10 @@ if (!isNull (getAssignedCuratorLogic player)) exitWith {};
 GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 	// if zeus display is null, exit. Only drawing when zeus display is open
 	if (isNull(findDisplay 312)) exitWith {};
+	if (isNull _x) exitWith {};
 
 	{
 		// draw icon on relative pos 
-		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _x, 0, 0, 0, "Target", 1, 0.05, "RadioChatter"];
+		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _x, 0, 0, 0, "RadioChatter", 1, 0.05];
 	} forEach GVAR(radioTrackingAiUnits);
 }];

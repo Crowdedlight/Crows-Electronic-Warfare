@@ -16,17 +16,26 @@ params ["_unit"];
 
 // server only 
 if (!isServer) exitWith {};
-if (isNull _unit) exitWith {};
+
+// if null, we just need to remove nulls from drawing array, as tracking array is updated automatically
+if (isNull _unit) exitWith {
+	GVAR(radioTrackingAiUnits) = GVAR(radioTrackingAiUnits) - [objNull];
+	publicVariable QGVAR(radioTrackingAiUnits);
+};
 
 // if loop exists, then remove it and spawn new one
 private _existingHandle = _unit getVariable[QGVAR(radioChatterHandle), scriptNull];
+
 if (!isNull _existingHandle) then {
 	// if not null, we terminate it
 	terminate _existingHandle;
+
+	// if we terminate it stops straight away and thus the signal source might not have been removed. So we manually remove it 
+	[QGVAR(removeBeacon), [_unit]] call CBA_fnc_globalEvent;
 };
 // set unit handle var to null
-_unit setVariable[QGVAR(radioChatterHandle), scriptNull, true];
+_unit setVariable[QGVAR(radioChatterHandle), scriptNull];
 
 // remove from array for drawing indication of what AI units has it enabled
 GVAR(radioTrackingAiUnits) = GVAR(radioTrackingAiUnits) - [_unit];
-publicVariable GVAR(radioTrackingAiUnits);
+publicVariable QGVAR(radioTrackingAiUnits);

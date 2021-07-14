@@ -27,20 +27,22 @@ if (isNull _unit) exitWith {};
 private _existingHandle = _unit getVariable[QGVAR(radioChatterHandle), scriptNull];
 if (!isNull _existingHandle) then {
 	terminate _existingHandle;
+	// remove signal 
+	[QGVAR(removeBeacon), [_unit]] call CBA_fnc_globalEvent;
 };
 
 // get vars
 private _slp_min = _sleepInterval select 0;
-private _slp_mid = round((_sleepInterval select 1)/2);
 private _slp_max = _sleepInterval select 1;
+private _slp_mid = round(((_slp_max - _slp_min)/2) + _slp_min);
 
 private _len_min = _lengthInterval select 0;
-private _len_mid = round((_lengthInterval select 1)/2);
 private _len_max = _lengthInterval select 1;
+private _len_mid = round(((_len_max - _len_min)/2) + _len_min);
 
 private _freq_min = _frequencyInterval select 0;
-private _freq_mid = round((_frequencyInterval select 1)/2);
 private _freq_max = _frequencyInterval select 1;
+private _freq_mid = round(((_freq_max - _freq_min)/2) + _freq_min);
 
 // spawn loop - spawning to allow sleep and to have no impact on game performance. 
 private _handler = [_unit, _range, _slp_min, _slp_mid, _slp_max, _len_min, _len_mid, _len_max, _freq_min, _freq_mid, _freq_max] spawn {
@@ -50,8 +52,8 @@ private _handler = [_unit, _range, _slp_min, _slp_mid, _slp_max, _len_min, _len_
 	while {alive _unit && !isNull _unit} do {
 		// add signal, sleep for duration, remove signal, sleep for delay... etc.
 		private _freq = floor(random[_freq_min, _freq_mid, _freq_max]);
-		private _length = floor(random[_freq_min, _freq_mid, _freq_max]);
-		private _sleep = floor(random[_freq_min, _freq_mid, _freq_max]);
+		private _length = floor(random[_len_min, _len_mid, _len_max]);
+		private _sleep = floor(random[_slp_min, _slp_mid, _slp_max]);
 
 		// add signal 
 		[QGVAR(addBeacon), [_unit, _freq, _range, "chatter"]] call CBA_fnc_globalEvent;
@@ -67,14 +69,11 @@ private _handler = [_unit, _range, _slp_min, _slp_mid, _slp_max, _len_min, _len_
 	};
 	// not alive anymore so we terminate script, and remove unit from drawing array
 	[QGVAR(removeRandomRadioTrackingChatter), [_unit]] call CBA_fnc_serverEvent;
-
-	// final removal to ensure its signal source is removed 
-	[QGVAR(removeBeacon), [_unit]] call CBA_fnc_globalEvent;
 };
 
-// save handler to loop or a way to stop it, on var on unit
-_unit setVariable[QGVAR(radioChatterHandle), _handler, true];
+// save handler to loop or a way to stop it, on var on unit, as we are on server, we only save locally
+_unit setVariable[QGVAR(radioChatterHandle), _handler];
 
 // add to array for drawing indication of what AI units has it enabled
 GVAR(radioTrackingAiUnits) pushBack _unit;
-publicVariable GVAR(radioTrackingAiUnits);
+publicVariable QGVAR(radioTrackingAiUnits);

@@ -7,3 +7,4 @@ PREP(toggleRadioTracking);
 PREP(radioTrackingBroadcastLocal);
 PREP(addRandomRadioTrackingChatterServer);
 PREP(removeRandomRadioTrackingChatterServer);
+PREP(spectrumDeviceMouseDown);
