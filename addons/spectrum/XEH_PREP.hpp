@@ -8,3 +8,6 @@ PREP(radioTrackingBroadcastLocal);
 PREP(addRandomRadioTrackingChatterServer);
 PREP(removeRandomRadioTrackingChatterServer);
 PREP(spectrumDeviceMouseDown);
+PREP(spectrumDeviceMouseUp);
+PREP(getActiveBeaconsInRange);
+PREP(calcSignalStrength);

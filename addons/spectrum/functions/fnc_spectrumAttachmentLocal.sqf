@@ -19,11 +19,11 @@ private _minFreq = 0;
 private _maxFreq = 0;
 
 switch (_muzzleAttachment) do {
-	// 78 - 89 MHz - consider changing to 60 - 250 mhz, for TFAR frequencie ranges
+	// 78 - 89 MHz - consider changing to 30 - 389 mhz, for TFAR frequencie ranges
 	case "muzzle_antenna_01_f": {
 		GVAR(spectrumRangeAntenna) = 1;
-		_minFreq = 60;
-		_maxFreq = 250;
+		_minFreq = 30;
+		_maxFreq = 389;
 	};
 	// 390 - 500 MHz
 	case "muzzle_antenna_02_f": {

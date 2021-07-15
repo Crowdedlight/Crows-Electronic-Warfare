@@ -37,13 +37,13 @@ private _onConfirm =
 [
 	"Set Spectrum Signal Source", 
 	[
-		["SLIDER",["Frequency min.", "The minimum frequency used. Recommend small interval"],[60,250,220,1]], //60 to 250, default 220 and showing 1 decimal
-		["SLIDER",["Frequency max.", "The maximum frequency used. Recommend small interval"],[60,250,221,1]], //60 to 250, default 221 and showing 1 decimal
+		["SLIDER",["Frequency min.", "The minimum frequency used. Recommend small interval"],[30,389,220,1]], //60 to 250, default 220 and showing 1 decimal
+		["SLIDER",["Frequency max.", "The maximum frequency used. Recommend small interval"],[30,389,221,1]], //60 to 250, default 221 and showing 1 decimal
 		["SLIDER","Range",[1,10000,2000,0]], //1 to 10000, default 2000 and showing 0 decimal
 		["SLIDER",["Duration min.", "The minimum duration of each chatter broadcast"],[4,40,5,0]], //1 to 40, default 5 and showing 0 decimal
 		["SLIDER",["Duration max.", "The maximum duration of each chatter broadcast"],[4,100,30,0]], //1 to 100, default 30 and showing 0 decimal
 		["SLIDER",["Pause min.", "The minimum time between chatter broadcasts"],[1,40,5,0]], //1 to 40, default 5 and showing 0 decimal
-		["SLIDER",["Pause max.", "The minimum time between chatter broadcasts"],[1,100,30,0]] //1 to 100, default 30 and showing 0 decimal
+		["SLIDER",["Pause max.", "The minimum time between chatter broadcasts"],[1,100,10,0]] //1 to 100, default 30 and showing 0 decimal
 	],
 	_onConfirm,
 	{},

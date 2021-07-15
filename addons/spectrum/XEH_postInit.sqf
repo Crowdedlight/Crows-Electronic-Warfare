@@ -16,7 +16,7 @@ if (!hasInterface) exitWith {};
 	["#EM_FMax",0],						// Maximum of frequency in MHz
 	["#EM_SMin",-100],					// Minimum of signal value, in RSSI -120 to 0, with 0 being the strongest
 	["#EM_SMax",0],						// Maximum of signal value, in RSSI
-	["#EM_SelMin",143.6],				// currently selected frequency band that you scroll back and forth
+	["#EM_SelMin",140.6],				// currently selected frequency band that you scroll back and forth
 	["#EM_SelMax",150.6],				// currently selected frequency band that you scroll back and forth
 	["#EM_Values",[]],					// signal values in array
 	["#EM_Transmit",false],				// boolean if you are transmitting, Affects the background of the graph and the icon on the device.
@@ -36,7 +36,8 @@ GVAR(PFH_beaconPlayer) = [FUNC(spectrumTrackingLocal), 0.2] call CBA_fnc_addPerF
 GVAR(PFH_SpectrumAttachmentPlayer) = [FUNC(spectrumAttachmentLocal), 1] call CBA_fnc_addPerFrameHandler; 
 
 // Spectrum event handler for "FIRE" spectrum analyzer 
-(findDisplay 46) displayAddEventHandler ["MouseButtonDown", FUNC(spectrumDeviceMouseDown)];
+["MouseButtonDown", {_this call FUNC(spectrumDeviceMouseDown)}] call CBA_fnc_addDisplayHandler;
+["MouseButtonUp", {_this call FUNC(spectrumDeviceMouseUp)}] call CBA_fnc_addDisplayHandler;
 
 // only if zeus, add draw3D handler for radio units
 if (!isNull (getAssignedCuratorLogic player)) exitWith {};

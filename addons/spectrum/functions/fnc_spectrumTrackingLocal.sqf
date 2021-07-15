@@ -52,23 +52,8 @@ private _tracker = player;
     private _requiredAntenna = [_frequency] call FUNC(getAntennaFromFrequency);
     if (_requiredAntenna != GVAR(spectrumRangeAntenna)) then { continue; };
 
-	// calculate direction
-	private _dirTargetFromTracker = _tracker getDir _target;
-    private _trackerFacingDir = direction _tracker;
-    // get positive value of direction difference
-    private _dirDiff = abs (_dirTargetFromTracker - _trackerFacingDir);    
-
-	// calculate strength based on distance
-    private _distance = _tracker distance _target;
-
-    // distance strength. 50 is max value when at 0 distance
-    private _distStrength = round((50 / _scanRange) * (_scanRange - _distance));
-
-    // direction strength, 150 is max value when looking straight at it
-    private _dirStrength = abs round((150 / 180) * (180 - _dirDiff));
-
-    // sig strength is max signal, 100, subtracted half the combined strength of dist and dir strength
-    private _sigStrength = (100 - ((_distStrength + _dirStrength) / 2)) * (-1);
+    // Get signal strength 
+    private _sigStrength = [_target, _tracker, _scanRange] call FUNC(calcSignalStrength);
 
     // push to sig array
     _sigsArray append [_frequency, _sigStrength];

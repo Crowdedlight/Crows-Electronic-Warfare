@@ -13,12 +13,12 @@ params ["_freq"];
 
 private _antenna = -1;
 switch (true) do {
-	// 78 - 89 MHz - changing to 60 - 250 mhz, for TFAR frequencie ranges
-	case (_freq >= 60 && _freq <= 250): {
+	// 78 - 89 MHz - changing to 30 - 389 mhz, for TFAR frequencie ranges
+	case (_freq >= 30 && _freq <= 389): {
 		_antenna = 1;
 	};
 
-	// 390 - 500 MHz
+	// 390 - 500 MHz - Zeus signal range, or high TFAR channels 
 	case (_freq >= 390 && _freq <= 500): {
 		_antenna = 2;
 	};
