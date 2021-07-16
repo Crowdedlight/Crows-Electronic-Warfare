@@ -49,6 +49,6 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 
 	{
 		// draw icon on relative pos 
-		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _x, 0, 0, 0, "RadioChatter", 1, 0.05];
+		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _x, 0, 0, 0, "RadioChatter", 1, 0.03];
 	} forEach GVAR(radioTrackingAiUnits);
 }];

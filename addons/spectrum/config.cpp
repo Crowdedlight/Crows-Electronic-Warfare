@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"crowsEW_main", "crowsEW_zeus"};
+        requiredAddons[] = {"crowsEW_main", "crowsEW_zeus", "A3_Data_F_AoW_Loadorder"};
         author = "Crowdedlight";
         VERSION_CONFIG;
     };
@@ -14,3 +14,4 @@ class CfgPatches {
 
 #include "CfgEventhandlers.hpp"
 #include "CfgSounds.hpp"
+#include "CfgWeapons.hpp"

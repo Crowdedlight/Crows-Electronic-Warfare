@@ -18,7 +18,9 @@ if (_enabled) then {
 	[QGVAR(radioTrackingBroadcastLocal), "OnTangent", FUNC(radioTrackingBroadcastLocal), player] call TFAR_fnc_addEventHandler;
 } else {
 	// if disabled, remove eventhandler 
-	[QGVAR(radioTrackingBroadcastLocal), "OnTangent", player] call TFAR_fnc_removeEventHandler
+	[QGVAR(radioTrackingBroadcastLocal), "OnTangent", player] call TFAR_fnc_removeEventHandler;
+	// remove existing signals from unit 
+	[QGVAR(removeBeacon), [player]] call CBA_fnc_globalEvent;
 };
 
 // save state for zeus module

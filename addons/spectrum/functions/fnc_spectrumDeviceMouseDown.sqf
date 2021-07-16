@@ -12,7 +12,7 @@ Called on event for mouseDown
 params ["_displayorcontrol", "_button", "_xPos", "_yPos", "_shift", "_ctrl", "_alt"];
 
 // check if left mouse-down (0), right-mouse == 1
-if (_button != 0) exitWith {};
+if (_button != 0 || !alive player) exitWith {};
 
 // check if current weapon is hgun_esd
 if (!("hgun_esd_" in (currentWeapon player))) exitWith {}; 

@@ -15,6 +15,9 @@ if (!("hgun_esd_" in (handgunWeapon player))) exitWith {};
 
 private _muzzleAttachment = (handgunItems player) select 0;
 
+// don't reset vars and calculate if we have same attachment as last time, should make us only recalculate upon changes
+if (GVAR(LastSpectrumMuzzleAttachment) == _muzzleAttachment) exitWith {};
+
 private _minFreq = 0;
 private _maxFreq = 0;
 
@@ -42,6 +45,14 @@ switch (_muzzleAttachment) do {
 	};
 };
 
+GVAR(LastSpectrumMuzzleAttachment) = _muzzleAttachment;
+
 // set local params
 missionNamespace setVariable ["#EM_FMin", _minFreq];
 missionNamespace setVariable ["#EM_FMax", _maxFreq];
+
+// calculate the span for selected band graphics 
+// 1/10 of span 
+private _span = (_maxFreq - _minFreq) *0.1;
+missionNamespace setVariable ["#EM_SelMin", _minFreq];
+missionNamespace setVariable ["#EM_SelMax", (_minFreq + _span)];
