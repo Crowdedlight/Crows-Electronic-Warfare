@@ -11,8 +11,8 @@ Called on event for mouseUp
 *///////////////////////////////////////////////
 params ["_displayorcontrol", "_button", "_xPos", "_yPos", "_shift", "_ctrl", "_alt"];
 
-// check if left mouse-down 
-if (_button != 0 || !alive player) exitWith {};
+// check if left mouse-down, also check if unit is dead, as we need it to reset mouseDown if we die while mouseDown
+if (_button != 0) exitWith {};
 
 // check if current weapon is hgun_esd
 if (!("hgun_esd_" in (currentWeapon player))) exitWith {}; 

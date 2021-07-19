@@ -16,7 +16,8 @@ if (!hasInterface) exitWith {};
 
 // do random amount of sparks for each lamp, with slight random delays
 sleep 0.1;
-private _sparkCount = 1 + floor (random 2);
+// private _sparkCount = 1 + floor (random 2);
+private _sparkCount = 1;
 
 // do all sparks 
 for "_i" from 0 to _sparkCount do {

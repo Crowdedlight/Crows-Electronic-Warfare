@@ -43,6 +43,9 @@ private _vehicleSpawn = [_delay, _vehicles] spawn {
 	{
 		private _v = _x;
 
+		// skip if not alive
+		if (!alive _x) then { continue; };
+
 		// if immune to emp, skip it, but still do emp effect around the car
 		if (_x getVariable [QGVAR(immuneEMP), false]) then {
 			[[_x],QPATHTOF(functions\fnc_targetSparkSFX.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];	
@@ -92,7 +95,7 @@ private _staticSpawn = [_delay, _statics] spawn {
 	// disable and set dmg on each turrent - remoteExec visual effect
 	{
 		// check if immune and skip if immune
-		if (_x getVariable [QGVAR(immuneEMP), false]) then {continue;};
+		if (_x getVariable [QGVAR(immuneEMP), false] || !alive _x) then {continue;};
 
 		_x setDamage 1;
 		
@@ -115,8 +118,11 @@ private _unitSpawn = [_delay, _men, _scopeMode, _binoMode] spawn {
 		// if immune to EMP, or in vic that is immune skip removal and particles of sparks
 		if (_x getVariable [QGVAR(immuneEMP), false] || ((vehicle _x) getVariable [QGVAR(immuneEMP), false])) then {continue;};
 
-		// remote exec visual effect - Spawn in scheduled for sleep
-		[[_x],QPATHTOF(functions\fnc_targetSparkSFX.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
+		// remote exec visual effect - only if alive - Spawn in scheduled for sleep
+		// TODO MIGHT REMOVE IF IT ADDS TOO LITTLE IMPACT AND SMASHES PERFORMANCE
+		if (alive _x) then {
+			[[_x],QPATHTOF(functions\fnc_targetSparkSFX.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
+		};
 		
 		// remove equipment
 		// remoteExec this, no server specific code, and more effective if each client handles their own removal instead of server having to go through all
