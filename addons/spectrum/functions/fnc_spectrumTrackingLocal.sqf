@@ -19,7 +19,7 @@ if (count GVAR(beacons) == 0) exitWith {
 if (!("hgun_esd_" in (handgunWeapon player))) exitWith {}; 
 
 // only work if we got an antenna on 
-if (GVAR(spectrumAttachmentLocal) == -1) exitWith {
+if (GVAR(spectrumRangeAntenna) == -1) exitWith {
     missionNamespace setVariable ["#EM_Values", []];
 };
 
@@ -49,8 +49,11 @@ private _tracker = player;
     if (isNull _target || _frequency == 0 || _target == _tracker) then {continue};
 
     // if frequency outside range of antenna skip it
-    private _requiredAntenna = [_frequency] call FUNC(getAntennaFromFrequency);
-    if (_requiredAntenna != GVAR(spectrumRangeAntenna)) then { continue; };
+    private _requiredAntennas = [_frequency] call FUNC(getAntennaFromFrequency);
+    if (!(GVAR(spectrumRangeAntenna) in _requiredAntennas)) then {systemChat format["antenna: %1 is not in %2", GVAR(spectrumRangeAntenna), _requiredAntennas]; continue; };
+
+    // if jammer is equipped, only show signals that is type drone 
+    if (GVAR(spectrumRangeAntenna) == 3 && _type != "drone") then { systemChat format["type: %1 is not a drone", _type]; continue; };
 
     // Get signal strength 
     private _sigStrength = [_target, _tracker, _scanRange] call FUNC(calcSignalStrength);

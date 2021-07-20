@@ -21,6 +21,13 @@ if (!("hgun_esd_" in (currentWeapon player))) exitWith {};
 deleteVehicle GVAR(radioChatterVoiceSound);
 terminate GVAR(radioChatterProgressHandle);
 
-// mouse down, set firing as active
+// mouse up, set firing as inactive
 missionNamespace setVariable ["#EM_Transmit",false];
 missionNamespace setVariable ["#EM_Progress",0];
+
+// if jamming unit is not null, then we have been jamming, so reset AI and var 
+if (!isNull GVAR(isJammingDrone)) then {
+	systemChat "Jamming deactivated";
+	[QGVAR(toggleJammingOnUnit), [GVAR(isJammingDrone), false], GVAR(isJammingDrone)] call CBA_fnc_targetEvent;
+	GVAR(isJammingDrone) = objNull;
+};

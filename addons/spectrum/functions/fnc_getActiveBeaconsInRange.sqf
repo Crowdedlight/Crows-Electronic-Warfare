@@ -18,6 +18,10 @@ private _arr = [];
 	private _freq = _x select 1; 
 	// check if within range
 	if (_freq <= _maxFreq && _freq >= _minFreq) then {
+
+		// if we have jammer antenna on, only make "fire" events work with drone signals, even if we got other in same frequency band
+		if (GVAR(spectrumRangeAntenna) == 3 && (_x select 3) != "drone") then { continue; };
+
 		_arr pushBack _x;
 	}
 } forEach GVAR(beacons);

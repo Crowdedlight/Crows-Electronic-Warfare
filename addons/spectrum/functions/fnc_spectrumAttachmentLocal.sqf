@@ -38,7 +38,7 @@ switch (_muzzleAttachment) do {
 	case "muzzle_antenna_03_f": {
 		GVAR(spectrumRangeAntenna) = 3;
 		_minFreq = 433;
-		_maxFreq = 434;
+		_maxFreq = 440;
 	};
 	default {
 		GVAR(spectrumRangeAntenna) = -1;
@@ -52,7 +52,7 @@ missionNamespace setVariable ["#EM_FMin", _minFreq];
 missionNamespace setVariable ["#EM_FMax", _maxFreq];
 
 // calculate the span for selected band graphics 
-// 1/10 of span 
-private _span = (_maxFreq - _minFreq) *0.1;
+// 0.5/10 of span 
+private _span = (_maxFreq - _minFreq) *0.05;
 missionNamespace setVariable ["#EM_SelMin", _minFreq];
 missionNamespace setVariable ["#EM_SelMax", (_minFreq + _span)];

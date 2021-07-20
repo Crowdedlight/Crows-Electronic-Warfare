@@ -11,21 +11,21 @@ Returns what antenna should be used to see the frequency
 *///////////////////////////////////////////////
 params ["_freq"];
 
-private _antenna = -1;
-switch (true) do {
-	// 78 - 89 MHz - changing to 30 - 389 mhz, for TFAR frequencie ranges
-	case (_freq >= 30 && _freq <= 389): {
-		_antenna = 1;
-	};
+private _antenna = [];
+// using ifs instead of case as multiple cases can be true, which switch does not support
 
-	// 390 - 500 MHz - Zeus signal range, or high TFAR channels 
-	case (_freq >= 390 && _freq <= 500): {
-		_antenna = 2;
-	};
+// 78 - 89 MHz - changing to 30 - 389 mhz, for TFAR frequencie ranges
+if (_freq >= 30 && _freq <= 389) then {
+	_antenna pushBack 1;
+};
 
-	// 433 MHz - UVG jamming antenna 
-	case (_freq >= 433 && _freq <= 434): {
-		_antenna = 3;
-	};
+// 390 - 500 MHz - Zeus signal range, or high TFAR channels 
+if (_freq >= 390 && _freq <= 500) then {
+	_antenna pushBack 2;
+};
+
+// 433-440 MHz - UVG jamming antenna 
+if (_freq >= 433 && _freq <= 440) then {
+	_antenna pushBack 3;
 };
 _antenna

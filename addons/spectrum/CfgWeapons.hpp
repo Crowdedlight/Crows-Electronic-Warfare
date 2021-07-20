@@ -28,17 +28,17 @@
 	// 		antenna = "Antenna_02";
 	// 	};
 	// };
-	// class muzzle_antenna_03_f: muzzle_antenna_base_01_F
-	// {
-	// 	author = "Bohemia Interactive";
-	// 	_generalMacro = "muzzle_antenna_03_f";
-	// 	scope = 2;
-	// 	displayName = "SD Jammer Antenna (433 MHz)";
-	// 	picture = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_03_ca.paa";
-	// 	model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_03_F";
-	// 	class EM
-	// 	{
-	// 		antenna = "Antenna_03";
-	// 	};
-	// };
+	class muzzle_antenna_03_f: muzzle_antenna_base_01_F
+	{
+		author = "Bohemia Interactive";
+		_generalMacro = "muzzle_antenna_03_f";
+		scope = 2;
+		displayName = "SD Jammer Antenna (433-440 MHz)";
+		picture = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_03_ca.paa";
+		model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_03_F";
+		class EM
+		{
+			antenna = "Antenna_03";
+		};
+	};
  };

@@ -10,8 +10,11 @@ GVAR(beacons) = [];
 GVAR(spectrumRangeAntenna) = -1;
 GVAR(radioTrackingEnabled) = false;
 
-// array of special units -- public? 
+// array of special units
 GVAR(radioTrackingAiUnits) = [];
+
+// Jamming variables
+GVAR(isJammingDrone) = objNull;
 
 // array of voice lines - ["classname", duration];
 GVAR(voiceLinesList) = [

@@ -14,7 +14,7 @@ if (!hasInterface) exitWith {};
 { missionNamespace setVariable _x} forEach [
     ["#EM_FMin",0], 					// Minimum of frequency in MHz
 	["#EM_FMax",0],						// Maximum of frequency in MHz
-	["#EM_SMin",-100],					// Minimum of signal value, in RSSI -120 to 0, with 0 being the strongest
+	["#EM_SMin",-100],					// Minimum of signal value, in RSSI -100 to 0, with 0 being the strongest
 	["#EM_SMax",0],						// Maximum of signal value, in RSSI
 	["#EM_SelMin",140.6],				// currently selected frequency band that you scroll back and forth
 	["#EM_SelMax",150.6],				// currently selected frequency band that you scroll back and forth
@@ -40,15 +40,15 @@ GVAR(PFH_SpectrumAttachmentPlayer) = [FUNC(spectrumAttachmentLocal), 1] call CBA
 ["MouseButtonUp", {_this call FUNC(spectrumDeviceMouseUp)}] call CBA_fnc_addDisplayHandler;
 
 // only if zeus, add draw3D handler for radio units
-if (!isNull (getAssignedCuratorLogic player)) exitWith {};
+if (isNull (getAssignedCuratorLogic player)) then {
+	GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
+		// if zeus display is null, exit. Only drawing when zeus display is open
+		if (isNull(findDisplay 312)) exitWith {};
+		if (isNull _x) exitWith {};
 
-GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
-	// if zeus display is null, exit. Only drawing when zeus display is open
-	if (isNull(findDisplay 312)) exitWith {};
-	if (isNull _x) exitWith {};
-
-	{
-		// draw icon on relative pos 
-		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _x, 0, 0, 0, "RadioChatter", 1, 0.03];
-	} forEach GVAR(radioTrackingAiUnits);
-}];
+		{
+			// draw icon on relative pos 
+			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _x, 0, 0, 0, "RadioChatter", 1, 0.03];
+		} forEach GVAR(radioTrackingAiUnits);
+	}];
+};
