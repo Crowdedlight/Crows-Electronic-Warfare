@@ -21,3 +21,6 @@ if (!isServer || isNull _unit) exitWith {};
 private _freq = 433.00 + (random 7);
 
 [QGVAR(addBeacon), [_unit, _freq, 500, "drone"]] call CBA_fnc_globalEventJIP;
+
+// set empty array on unit var where the players currently jamming is listed 
+_unit setVariable [QGVAR(activeJammingPlayers), []];

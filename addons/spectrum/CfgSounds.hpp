@@ -21,4 +21,22 @@ class CfgSounds
 		sound[] = {PATHTOF(data\voice\garbled.ogg), db+6, 1};
 		titles[] = {};
 	};
+	class jamcharging
+	{
+		name = "drone jammer charging";
+		sound[] = {PATHTOF(data\sound\jam_power_on.wav), db+6, 1};
+		titles[] = {};
+	};
+	class spectrumjamloop
+	{
+		name = "drone jam loop";
+		sound[] = {PATHTOF(data\sound\jam_loop.wav), db+6, 1};
+		titles[] = {};
+	};
+	class spectrumjamerror
+	{
+		name = "drone jam error";
+		sound[] = {PATHTOF(data\sound\jam_error.wav), db+6, 1};
+		titles[] = {0, "ERROR: Too weak Signal"};
+	};
 };
