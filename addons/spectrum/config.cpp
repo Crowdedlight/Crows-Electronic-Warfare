@@ -14,4 +14,6 @@ class CfgPatches {
 
 #include "CfgEventhandlers.hpp"
 #include "CfgSounds.hpp"
+#include "CfgSoundsPolice.hpp"
+#include "CfgSoundsAlienElectronic.hpp"
 #include "CfgWeapons.hpp"

@@ -52,6 +52,8 @@ electro_static.mps by soulman 90: https://freesound.org/people/Soulman%2090/soun
 Huge Explosion Part 1 - Shockwave by bevibeldesign: https://freesound.org/people/bevibeldesign/sounds/366091/  
 spark by elliottmoo: https://freesound.org/people/elliottmoo/sounds/189630/  
 spark.wav by BMacZero: https://freesound.org/people/BMacZero/sounds/94132/  
+large alien machine call by john129pats: https://freesound.org/people/john129pats/sounds/147907/  
+custom reaper horn.mp3 by darkadders: https://freesound.org/people/darkadders/sounds/217517/  
 
 
 
@@ -79,6 +81,7 @@ rumble.wav by tim.kahn: https://freesound.org/people/tim.kahn/sounds/94114/
 couch hit.wav by MegaBlasterRecordings: https://freesound.org/people/MegaBlasterRecordings/sounds/368640/ 
 spark 1.wav by ERH: https://freesound.org/people/ERH/sounds/31348/    
 FM_on_AM.wav by AlienXXX: https://freesound.org/people/AlienXXX/sounds/243540/  
+Transformer malfunction by complex_waveform: https://freesound.org/people/complex_waveform/sounds/213147/   
 
 
 Sounds used under [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) is listed here with credit:
