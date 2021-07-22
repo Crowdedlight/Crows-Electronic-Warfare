@@ -86,8 +86,13 @@ private _timeActive = 5;
 				_timeActive = 1;
 			} else {
 				// just play electronic sounds, as we don't have jammer on
-				// TODO
-
+				if (_unit isKindOf "UAV_03_dynamicLoadout_base_F") then {
+					GVAR(radioChatterVoiceSound) = playSound "dronehelimotor";
+					_timeActive = 4;
+				} else {
+					GVAR(radioChatterVoiceSound) = playSound "ugvmotor";
+					_timeActive = 3;
+				};
 			};
 			breakOut "loopFreq"; //breakout as even if multiple signals, we only count the first we react on. 
 		};
