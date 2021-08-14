@@ -97,4 +97,31 @@ GVAR(voiceLinesAlienElectronicWeights) = [
 	1
 ];
 
+// MORSE CODE
+GVAR(voiceLinesMorseCodeList) = [
+	["bci_tx_qro", 6],
+	["bk_cq_inf_close_north", 12],
+	["cqd", 7.5],
+	["ga_hpe_hpy_nw_ob", 9],
+	["qrf_req", 4.2],
+	["qrz_colossus_msg_send_bird", 14.4],
+	["qrz_oz9fa_qrv", 9.1],
+	["sos_morse", 6],
+	["unlis_ham_stn_cfm", 8.4],
+	["what_hath_god_wrought", 11.4]
+];
+
+GVAR(voiceLinesMorseCodeWeights) = [
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1
+];
+
 // Consider coming each pack in combined hashmap, key -> [list, weights]. Means we don't need to hardcode when selecting...

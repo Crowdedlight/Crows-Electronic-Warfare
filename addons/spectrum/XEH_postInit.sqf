@@ -39,16 +39,3 @@ GVAR(PFH_SpectrumAttachmentPlayer) = [FUNC(spectrumAttachmentLocal), 1] call CBA
 ["MouseButtonDown", {_this call FUNC(spectrumDeviceMouseDown)}] call CBA_fnc_addDisplayHandler;
 ["MouseButtonUp", {_this call FUNC(spectrumDeviceMouseUp)}] call CBA_fnc_addDisplayHandler;
 
-// only if zeus, add draw3D handler for radio units
-if (isNull (getAssignedCuratorLogic player)) then {
-	GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
-		// if zeus display is null, exit. Only drawing when zeus display is open
-		if (isNull(findDisplay 312)) exitWith {};
-		if (isNull _x) exitWith {};
-
-		{
-			// draw icon on relative pos 
-			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _x, 0, 0, 0, "RadioChatter", 1, 0.03];
-		} forEach GVAR(radioTrackingAiUnits);
-	}];
-};
