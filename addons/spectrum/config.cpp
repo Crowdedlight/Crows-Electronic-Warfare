@@ -16,5 +16,7 @@ class CfgPatches {
 #include "CfgSounds.hpp"
 #include "CfgSoundsPolice.hpp"
 #include "CfgSoundsAlienElectronic.hpp"
+#include "CfgSoundsElectronic.hpp"
 #include "CfgSoundsMorseCode.hpp"
+#include "CfgSoundsBritish.hpp"
 #include "CfgWeapons.hpp"

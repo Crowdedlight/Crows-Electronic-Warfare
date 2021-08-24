@@ -97,6 +97,25 @@ GVAR(voiceLinesAlienElectronicWeights) = [
 	1
 ];
 
+// ELETRONIC SOUNDS 
+GVAR(voiceLinesEletronicList) = [
+	["alarm", 2],
+	["beep", 2.5],
+	["electricity_with_buzzing", 5.4],
+	["modem_done", 22.8],
+	["shoot_beam_loop", 5],
+	["spaceship_alarm_siren", 2.8]
+];
+
+GVAR(voiceLinesElectronicWeights) = [
+	1,
+	1,
+	1,
+	1,
+	1,
+	1
+];
+
 // MORSE CODE
 GVAR(voiceLinesMorseCodeList) = [
 	["bci_tx_qro", 6],
@@ -113,6 +132,31 @@ GVAR(voiceLinesMorseCodeList) = [
 
 GVAR(voiceLinesMorseCodeWeights) = [
 	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1
+];
+
+// BRITISH
+GVAR(voiceLinesBritishList) = [
+	["ah_fuck_i_stepped_in_something", 2.6],
+	["baseplate_this_is_hammer_two_four_we_have_visual_on_the_target_eta_sixty_seconds", 5],
+	["do_you_think_the_lt_hates_me", 3.5],
+	["fan_out_three_meter_spread", 2.3],
+	["Hammer_two_four_we_got_tangos_on_the_second_floor", 3.5],
+	["hq_this_is_xray_nothing_to_report_on_our_parol_over", 5.6],
+	["kirk97_kirk97_slasher03_say_when_ready_to_copy_8_digit_grid", 7.2],
+	["stop_lagging_behind_karl", 2],
+	["yeah", 1]
+];
+
+GVAR(voiceLinesBritishWeights) = [
 	1,
 	1,
 	1,
