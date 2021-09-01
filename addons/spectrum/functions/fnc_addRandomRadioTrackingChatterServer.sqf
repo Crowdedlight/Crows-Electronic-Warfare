@@ -29,6 +29,10 @@ if (!isNull _existingHandle) then {
 	terminate _existingHandle;
 	// remove signal 
 	[QGVAR(removeBeacon), [_unit]] call CBA_fnc_globalEvent;
+
+	// remove from zeus draw list - We wait with publish update until end of script where we publish anyway for the new draws
+	private _rmIndex = GVAR(radioTrackingAiUnits) findIf { (_x select 0) == _unit};
+	GVAR(radioTrackingAiUnits) deleteAt _rmIndex;
 };
 
 // get vars
