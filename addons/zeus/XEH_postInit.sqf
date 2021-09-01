@@ -23,14 +23,15 @@ if (isNull (getAssignedCuratorLogic player)) then {
 
 		// Radio Chatter 
 		{
+			_x params ["_unit", "_voicepack"];
 			// calculate distance from zeus camera to unit and post in systemchat 
-			_dist = _zeusPos distance _x;
+			_dist = _zeusPos distance _unit;
 
 			// if not within 500m, we don't draw it as the text does not scale and disappear with distance
 			if (_dist > 500) then {continue;};
 
 			// draw icon on relative pos 
-			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _x, 0, 0, 0, "RadioChatter", 1, 0.03];
+			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _unit, 0, 0, 0, format["RadioChatter(%1)", _voicepack], 1, 0.03];
 		} forEach EGVAR(spectrum,radioTrackingAiUnits);
 
 		// Spectrum Signal 

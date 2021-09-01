@@ -17,7 +17,7 @@ _frequencyInterval = [min, max];
 _range = val;
 
 *///////////////////////////////////////////////
-params ["_unit", "_range", "_sleepInterval", "_lengthInterval", "_frequencyInterval"];
+params ["_unit", "_range", "_sleepInterval", "_lengthInterval", "_frequencyInterval", "_voicePack"];
 
 // only runs on server - CBA ServerEvent 
 if (!isServer) exitWith {};
@@ -73,7 +73,9 @@ private _handler = [_unit, _range, _slp_min, _slp_mid, _slp_max, _len_min, _len_
 
 // save handler to loop or a way to stop it, on var on unit, as we are on server, we only save locally
 _unit setVariable[QGVAR(radioChatterHandle), _handler];
+// save voicepack on unit
+_unit setVariable[QGVAR(radioChatterVoicePack), _voicePack];
 
 // add to array for drawing indication of what AI units has it enabled
-GVAR(radioTrackingAiUnits) pushBack _unit;
+GVAR(radioTrackingAiUnits) pushBack [_unit, _voicePack];
 publicVariable QGVAR(radioTrackingAiUnits);

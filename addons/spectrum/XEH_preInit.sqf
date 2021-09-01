@@ -168,4 +168,11 @@ GVAR(voiceLinesBritishWeights) = [
 	1
 ];
 
-// Consider coming each pack in combined hashmap, key -> [list, weights]. Means we don't need to hardcode when selecting...
+// each pack in combined hashmap, key -> [list, weights]
+GVAR(voiceLinePacks) = createHashMap;
+// add packs
+GVAR(voiceLinePacks) set ["british", 			[GVAR(voiceLinesBritishList), GVAR(voiceLinesBritishWeights)]];
+GVAR(voiceLinePacks) set ["morsecode", 			[GVAR(voiceLinesMorseCodeList), GVAR(voiceLinesMorseCodeWeights)]];
+GVAR(voiceLinePacks) set ["electronic", 		[GVAR(voiceLinesEletronicList), GVAR(voiceLinesElectronicWeights)]];
+GVAR(voiceLinePacks) set ["alienElectronic", 	[GVAR(voiceLinesAlienEletronicList), GVAR(voiceLinesAlienElectronicWeights)]];
+GVAR(voiceLinePacks) set ["police", 			[GVAR(voiceLinesPoliceList), GVAR(voiceLinesPoliceWeights)]];

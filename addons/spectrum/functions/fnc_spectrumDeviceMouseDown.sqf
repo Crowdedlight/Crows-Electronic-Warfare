@@ -37,6 +37,8 @@ private _timeActive = 5;
 {
 	scopeName "loopFreq";
 	// if type is "radioChatter", play sound and save beacon in gvar
+	_unit = _x select 0;
+	_range = _x select 2;
 	_type = _x select 3;
 
 	// switch case based on type
@@ -51,8 +53,12 @@ private _timeActive = 5;
 				_sound = "garbled"; 
 				_timeActive = 4.3;
 			} else {
+				// get voicepack - default to british
+				private _voicePackKey = _unit getVariable[QGVAR(radioChatterVoicePack), "british"];
+				private _voicePack = GVAR(voiceLinePacks) get _voicePackKey;
+
 				// select random sound - Weighted so eastereggs can be more rare than rest others
-				private _soundInfo = GVAR(voiceLinesList) selectRandomWeighted GVAR(voiceLinesWeights);
+				private _soundInfo = (_voicePack select 0) selectRandomWeighted (_voicePack select 1);
 
 				_timeActive = _soundInfo select 1;
 				_sound = _soundInfo select 0;
@@ -64,10 +70,6 @@ private _timeActive = 5;
 		};
 		case "drone": {
 			if (GVAR(spectrumRangeAntenna) == 3) then {
-				// set vars 
-				_unit = _x select 0;
-				_range = (_x select 2);
-
 				// check if strong enough
 				private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
 				if (_sigStrength < -50) then {
@@ -108,7 +110,6 @@ GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed] s
 
 	// steps of 10th of seconds as we sleep 0.1 per execution
 	for "_i" from 0 to _timeActive+0.1 step 0.1 do {
-		hintSilent str(_progress);
 		missionNamespace setVariable ["#EM_Progress",_progress];
 		_progress = _progress + _step;
 		sleep 0.1;

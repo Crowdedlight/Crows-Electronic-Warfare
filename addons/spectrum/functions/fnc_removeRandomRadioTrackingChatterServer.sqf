@@ -36,6 +36,8 @@ if (!isNull _existingHandle) then {
 // set unit handle var to null
 _unit setVariable[QGVAR(radioChatterHandle), scriptNull];
 
-// remove from array for drawing indication of what AI units has it enabled
-GVAR(radioTrackingAiUnits) = GVAR(radioTrackingAiUnits) - [_unit];
+// remove unit from array for drawing indication of what AI units has it enabled
+private _rmIndex = GVAR(radioTrackingAiUnits) findIf { (_x select 0) == _unit};
+GVAR(radioTrackingAiUnits) deleteAt _rmIndex;
+// publish change
 publicVariable QGVAR(radioTrackingAiUnits);
