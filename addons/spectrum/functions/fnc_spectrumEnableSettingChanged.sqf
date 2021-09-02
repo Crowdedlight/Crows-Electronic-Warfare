@@ -11,8 +11,6 @@ called when spectrum device setting is changed. Can disable or enable the spectr
 *///////////////////////////////////////////////
 params ["_value"];
 
-diag_log "entered spectrum device setting handler";
-
 // if true, enable handlers
 if (_value) then {
 	{missionNamespace setVariable _x} forEach [
