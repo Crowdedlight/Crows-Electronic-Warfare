@@ -3,6 +3,18 @@
 
 ADDON = true;
 
+// custom CBA setting to disable spectrum device code
+[
+    QGVAR(spectrumEnable), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "CHECKBOX", // setting type
+    "Enable Spectrum Device", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+    "Crows Electronic Warfare", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+    true, // data for this setting: [min, max, default, number of shown trailing decimals]
+    nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    FUNC(spectrumEnableSettingChanged) // function that will be executed once on mission start and every time the setting is changed.
+] call CBA_fnc_addSetting;
+
+
 // [target, frequency]
 GVAR(beacons) = [];
 
@@ -15,17 +27,6 @@ GVAR(radioTrackingAiUnits) = [];
 
 // Jamming variables
 GVAR(isJammingDrone) = objNull;
-
-// array of voice lines - ["classname", duration];
-// GVAR(voiceLinesList) = [
-// 	["radiocheck", 4.5],
-// 	["bolembuggy", 4.3]
-// ];
-
-// GVAR(voiceLinesWeights) = [
-// 	1,
-// 	1
-// ];
 
 // POLICE RADIO PACK 
 GVAR(voiceLinesPoliceList) = [

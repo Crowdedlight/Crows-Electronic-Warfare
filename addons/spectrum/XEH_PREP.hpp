@@ -13,3 +13,4 @@ PREP(getActiveBeaconsInRange);
 PREP(calcSignalStrength);
 PREP(initDroneSignals);
 PREP(toggleJammingOnUnit);
+PREP(spectrumEnableSettingChanged);
