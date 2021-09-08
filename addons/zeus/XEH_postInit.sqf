@@ -65,5 +65,21 @@ if (isNull (getAssignedCuratorLogic player)) then {
 			private _txt = format["Jammer(STR:%1)", _strength];
 			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _jamObj, 0, 0, 0, _txt, 1, 0.03];
 		} forEach EGVAR(main,jamMap);
+
+		// AddSound 
+		{
+			_x params ["_soundObj", "_loopTime", "_range", "_repeat", "_aliveCondition", "_soundPath", "_enabled", "_lastPlayed", "_startDelay", "_volume", "_displayName"];
+			
+			// calculate distance from zeus camera to unit and post in systemchat 
+			private _dist = _zeusPos distance _soundObj;
+
+			// if not within 500m, we don't draw it as the text does not scale and disappear with distance
+			if (_dist > 500) then {continue;};
+
+			// draw icon on relative pos 
+			private _txt = format["Sound(%1:  RNG:%2, RPT:%4)", _displayName, _range, _repeat];
+			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _soundObj, 0, 0, 0, _txt, 1, 0.03];
+
+		} forEach EGVAR(sounds,soundList);
 	}];
 };
