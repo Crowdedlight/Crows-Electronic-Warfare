@@ -77,7 +77,7 @@ if (isNull (getAssignedCuratorLogic player)) then {
 			if (_dist > 500) then {continue;};
 
 			// draw icon on relative pos 
-			private _txt = format["Sound(%1:  RNG:%2, RPT:%4)", _displayName, _range, _repeat];
+			private _txt = format["Sound(%1:  RNG:%2, RPT:%3)", _displayName, _range, _repeat];
 			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _soundObj, 0, 0, 0, _txt, 1, 0.03];
 
 		} forEach EGVAR(sounds,soundList);
