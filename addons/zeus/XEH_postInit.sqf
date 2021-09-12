@@ -30,8 +30,8 @@ if (isNull (getAssignedCuratorLogic player)) then {
 			// if not within 500m, we don't draw it as the text does not scale and disappear with distance
 			if (_dist > 500) then {continue;};
 
-			// draw icon on relative pos 
-			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _unit, 0, 0, 0, format["RadioChatter(%1)", _voicepack], 1, 0.03];
+			// draw icon on relative pos ==> offset: x: 0, y: -5
+			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _unit, 0, 0, 0, format["RadioChatter(%1)", _voicepack], 1, 0.03, "RobotoCondensed", "center", false, 0, 0];
 		} forEach EGVAR(spectrum,radioTrackingAiUnits);
 
 		// Spectrum Signal 
@@ -48,7 +48,8 @@ if (isNull (getAssignedCuratorLogic player)) then {
 
 			// draw icon on relative pos 
 			private _txt = format["SignalSource(%1, RNG:%2)", _x select 1, round(_x select 2)];
-			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _unit, 0, 0, 0, _txt, 1, 0.03];
+			// offset: x: 0, y: -5
+			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _unit, 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false, 0, 0.025];
 		} forEach EGVAR(spectrum,beacons);
 
 		// Jammer
@@ -63,7 +64,8 @@ if (isNull (getAssignedCuratorLogic player)) then {
 
 			// draw icon on relative pos 
 			private _txt = format["Jammer(STR:%1)", _strength];
-			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _jamObj, 0, 0, 0, _txt, 1, 0.03];
+			// offset: x: 0, y: 0
+			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _jamObj, 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false, 0, 0];
 		} forEach EGVAR(main,jamMap);
 
 		// AddSound 
@@ -77,8 +79,9 @@ if (isNull (getAssignedCuratorLogic player)) then {
 			if (_dist > 500) then {continue;};
 
 			// draw icon on relative pos 
-			private _txt = format["Sound(%1:  RNG:%2, RPT:%3)", _displayName, _range, _repeat];
-			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _soundObj, 0, 0, 0, _txt, 1, 0.03];
+			private _txt = format["Sound(%1:  RNG:%2)", _displayName, _range];
+			// offset: x: 0, y: 5
+			drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _soundObj, 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false, 0, 0.012];
 
 		} forEach EGVAR(sounds,soundList);
 	}];
