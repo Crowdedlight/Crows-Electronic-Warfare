@@ -9,25 +9,28 @@ Return: none
 Called upon event, fires EMP. This is server-side. 
 
 *///////////////////////////////////////////////
-params ["_pos", "_object", "_range", "_scopeMode", "_binoMode"];
+params ["_pos", "_object", "_range", "_spawnDevice", "_scopeMode", "_binoMode"];
 
 if (!isServer) exitWith {};
 
+private _pos = ASLToAGL _pos;
+
 // if unit is null, we spawn something and use as EMP on the given position
-if (isNull _object) then 
+if (isNull _object && _spawnDevice) then 
 {
-	private _posAGL = ASLToAGL _pos;
-	_object = createVehicle ["Land_Device_slingloadable_F", _posAGL, [], 0, "CAN_COLLIDE"];
+	_object = createVehicle ["Land_Device_slingloadable_F", _pos, [], 0, "CAN_COLLIDE"];
+
+	_pos = ASLToAGL getPosASL _object;
 
 	// set zeus editable 
 	["zen_common_addObjects", [[_object], objNull]] call CBA_fnc_serverEvent;
 };
 
 // create visual effects for all
-[[_object, _range],QPATHTOF(functions\fnc_playerEffect.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
+[[_pos, _range],QPATHTOF(functions\fnc_playerEffect.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
 
 // get close units, cars, static launchers, lights
-private _nearestArray = [_object, _range] call FUNC(getNearestElements);
+private _nearestArray = [_pos, _range] call FUNC(getNearestElements);
 private _vehicles = _nearestArray select 0;
 private _lightList = _nearestArray select 1;
 private _statics = _nearestArray select 2;

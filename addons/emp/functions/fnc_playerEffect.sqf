@@ -10,13 +10,13 @@ plays the visual effect for the emp.
 Credit to ALIAS for the initial base template of the particle effect: https://www.youtube.com/user/aliascartoons/videos
 
 *///////////////////////////////////////////////
-params ["_empObj", "_range"];
+params ["_pos", "_range"];
 
 // only for players 
 if (!hasInterface) exitWith {};
 
 // emp sound and shake, but only if close enough
-if ((player distance _empObj) < (_range*2)) then {
+if ((player distance _pos) < (_range*2)) then {
 	playsound "emp_blast";
 	
 	// cam shake
@@ -26,29 +26,28 @@ if ((player distance _empObj) < (_range*2)) then {
 
 // first it makes the EMP effect explosion 
 // create particle source on object pos 
-private _wave = "#particlesource" createVehicleLocal getposatl _empObj;
+private _wave = "#particlesource" createVehicleLocal _pos;
 // create in circel with radius
 _wave setParticleCircle [0,[0,0,0]];;
 // randomize effect paramters and set particle effect 
 _wave setParticleRandom [0,[0.20,0.20,0],[0.170,0.170,0],0,0.20,[0,0,0,0.1],0,0];
-_wave setParticleParams [["\A3\data_f\ParticleEffects\Universal\Refract.p3d",1,0,1], "", "Billboard", 1, 0.8, [0, 0, 0], [0, 0, 0],0,10,7.9,0, [30,(_range*1.2)], [[1, 1, 1, 1], [1, 1, 1, 1]], [0.08], 1, 0, "", "", _empObj];
+_wave setParticleParams [["\A3\data_f\ParticleEffects\Universal\Refract.p3d",1,0,1], "", "Billboard", 1, 0.8, [0, 0, 0], [0, 0, 0],0,10,7.9,0, [30,(_range*1.2)], [[1, 1, 1, 1], [1, 1, 1, 1]], [0.08], 1, 0, "", "", _wave];
 _wave setDropInterval 0.1;
 // cleanup 
 [_wave] spawn {params ["_obj"];sleep 1;deleteVehicle _obj};
 
 // create the boom effect
-private _explosion = "#particlesource" createVehicleLocal getposatl _empObj;
+private _explosion = "#particlesource" createVehicleLocal _pos;
 _explosion setParticleCircle [0, [0, 0, 0]];
 _explosion setParticleRandom [0, [0, 0, 0], [0, 0, 0], 0, 0, [0, 0, 0, 0], 0, 0];
 // sphereModel for 3D explosion
-_explosion setParticleParams [["\A3\data_f\koule", 1, 0, 1], "", "SpaceObject", 1.1,1,[0,0,0],[0,0,1],4,10,7.9,0,[50,(_range*1.2)],[[0.34, 0.72, 1, 0.1],[0.40, 0.72, 1, 0]], [1], 1, 0, "", "", _empObj];
+_explosion setParticleParams [["\A3\data_f\koule", 1, 0, 1], "", "SpaceObject", 1.1,1,[0,0,0],[0,0,1],4,10,7.9,0,[50,(_range*1.2)],[[0.34, 0.72, 1, 0.1],[0.40, 0.72, 1, 0]], [1], 1, 0, "", "", _explosion];
 _explosion setDropInterval 50;
 // cleanup
 [_explosion] spawn {params ["_obj"];sleep 1.1;deleteVehicle _obj};
 
 // emp colour - Set 0 brightness then turn it up as effect
-private _empEffect = "#lightpoint" createVehiclelocal getposatl _empObj; 
-_empEffect lightAttachObject [_empObj, [0,0,3]];
+private _empEffect = "#lightpoint" createVehiclelocal _pos; 
 _empEffect setLightAmbient [0.34,0.72,1];  
 _empEffect setLightColor [0.34,0.72,1];
 _empEffect setLightBrightness 0;
@@ -67,7 +66,7 @@ sleep 0.1;
 deleteVehicle _empEffect;
 
 // player whiteout should only happen if within range of emp. If Zeus, we don't get blur effect and whiteout
-if ((player distance _empObj) > _range || !isNull (getAssignedCuratorLogic player)) exitWith {};
+if ((player distance _pos) > _range || !isNull (getAssignedCuratorLogic player)) exitWith {};
 
 // get vehicle if unit is in vehicle, to check if vehicle or unit is immune to EMP
 private _vehicle = vehicle player;
