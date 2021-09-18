@@ -1,6 +1,8 @@
 #define COMPONENT zeus
 #include "\z\crowsEW\addons\main\script_mod.hpp"
 
+#include "\a3\ui_f\hpp\defineDIKCodes.inc"
+
 // #define DEBUG_MODE_FULL
 // #define DISABLE_COMPILE_CACHE
 

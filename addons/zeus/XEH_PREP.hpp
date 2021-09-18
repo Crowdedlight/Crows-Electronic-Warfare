@@ -12,3 +12,4 @@ PREP(setImmuneEMPZeus);
 PREP(setRadioTrackingZeus);
 PREP(addRandomRadioTrackingChatterZeus);
 PREP(removeRandomRadioTrackingChatterZeus);
+PREP(addZeusTextDisplayEH);
