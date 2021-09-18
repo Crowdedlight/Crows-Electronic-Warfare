@@ -16,6 +16,7 @@ params ["_unit", "_radioclass", "_radioType", "_additionalChannel", "_buttonDown
 if (_buttonDown) then {
 	private _freq = -1;
 	private _range = -1;
+	private _radio = "";
 
 	// diag_log format ["radio class: %1, type: %2, buttonDown: %3", _radioclass, _radioType, _buttonDown];
 
@@ -24,12 +25,17 @@ if (_buttonDown) then {
 		case 0: {
 			_freq = parseNumber ((call TFAR_fnc_ActiveSwRadio) call TFAR_fnc_getSwFrequency);
 			_range = getNumber(configfile >> "CfgWeapons" >> (call TFAR_fnc_ActiveSwRadio) >> "tf_range");
+			_radio = call TFAR_fnc_ActiveSwRadio;
 		};
 		case 1: {
 			_freq = parseNumber ((call TFAR_fnc_ActiveLrRadio) call TFAR_fnc_getLrFrequency);
 			_range = getNumber(configfile >> "CfgVehicles" >> typeOf(call TFAR_fnc_activeLrRadio select 0) >> "tf_range");
+			_radio = call TFAR_fnc_ActiveLrRadio;
 		};
 	};
+
+	// EMP support, test if radio is disabled, and then do not create a signal
+	if (!([_radio] call TFAR_fnc_radioOn)) exitWith {};
 
 	systemChat format["freq: %1, range: %2, onTangent: btnDown: %3", _freq, _range, _buttonDown];
 
@@ -43,6 +49,9 @@ if (_buttonDown) then {
 
 } else {
 	// remove signal, shouldn't be a problem with JIP. As same unit would overwrite next transmission anyway, even if it gets stuck in either state
-	systemChat format["Rm signal onTangent: btnDown: %1", _buttonDown];
+	// systemChat format["Rm signal onTangent: btnDown: %1", _buttonDown];
 	[QGVAR(removeBeacon), [_unit]] call CBA_fnc_globalEvent;
 };
+
+
+[call TFAR_fnc_ActiveSwRadio] call TFAR_fnc_radioOn
