@@ -34,6 +34,9 @@ if (_enableJam) then {
 	{
 		_x disableAI "all";
 	} forEach (crew _unit);
+
+	// save units current behaviour
+	_unit setVariable [QGVAR(behaviourJam), combatBehaviour (group _unit), true];
 	
 	systemChat "disabled all AI";
 
@@ -71,6 +74,12 @@ if (_enableJam) then {
 					_x enableAI "all";
 				} forEach (crew _unit);
 				systemChat "Enabled AI";
+
+				// set behaviour back to initial 
+				private _initialBehav = _unit getVariable [QGVAR(behaviourJam), "AWARE"];
+				if (_initialBehav != "ERROR" && !isNull _unit) then {
+					(group _unit) setCombatBehaviour _initialBehav;
+				};
 			};
 
 			sleep 0.5; // repeat only every 0.5s as should be enough as response for enable or disable jamming
