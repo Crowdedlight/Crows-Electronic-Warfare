@@ -6,7 +6,7 @@ File: fnc_addRandomRadioTrackingChatterServer.sqf
 Parameters: _unit/group, _sleepInterval
 Return: none
 
-Called from event broadcast by zeus to everyone, and JIP
+Called from event broadcast by zeus to server
 spawns loop that randomly within the chosen intervals adds spectrum signals as long as unit is alive.
 
 Server only, so DCs doens't interfere with spawned function
@@ -78,7 +78,7 @@ private _handler = [_unit, _range, _slp_min, _slp_mid, _slp_max, _len_min, _len_
 // save handler to loop or a way to stop it, on var on unit, as we are on server, we only save locally
 _unit setVariable[QGVAR(radioChatterHandle), _handler];
 // save voicepack on unit
-_unit setVariable[QGVAR(radioChatterVoicePack), _voicePack];
+_unit setVariable[QGVAR(radioChatterVoicePack), _voicePack, true];
 
 // add to array for drawing indication of what AI units has it enabled
 GVAR(radioTrackingAiUnits) pushBack [_unit, _voicePack];

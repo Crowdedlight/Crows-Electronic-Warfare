@@ -28,7 +28,7 @@ class CfgSounds
 	class ugvmotor
 	{
 		name = "UGV motor sound";
-		sound[] = {PATHTOF(data\sound\ugv_motor.wav), db+6, 1};
+		sound[] = {PATHTOF(data\sound\ugv_motor_drone.wav), db+6, 1};
 		titles[] = {};
 	};
 	class dronehelimotor

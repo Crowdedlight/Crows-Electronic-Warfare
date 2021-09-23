@@ -32,10 +32,10 @@ if (count _pistol > 0) then {
     _unit removeHandgunItem _pointer;
 };
 
-// remove if spectrum analyzer is equipped, we can't "stop it" from working on a per-analyzer basis
+// remove antenna if spectrum analyzer is equipped. Lets say the spectrum device is hardened, but the antenna gets ruined.
 private _handgun = handgunWeapon _unit;
 if (("hgun_esd_" in _handgun)) then {
-    _unit removeWeaponGlobal _handgun;
+    _unit removeHandgunItem ((handgunItems player) select 0);
 }; 
 
 // remove if flashlight is equipped as pistol

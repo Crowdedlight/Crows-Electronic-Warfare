@@ -11,11 +11,21 @@ Called on event for mouseDown
 *///////////////////////////////////////////////
 params ["_displayorcontrol", "_button", "_xPos", "_yPos", "_shift", "_ctrl", "_alt"];
 
-// check if left mouse-down (0), right-mouse == 1
-if (_button != 0 || !alive player) exitWith {};
+// check if left mouse-down (0), right-mouse == 1, middle-mouse == 2
+if (_button == 1 || !alive player) exitWith {};
 
 // check if current weapon is hgun_esd
 if (!("hgun_esd_" in (currentWeapon player))) exitWith {}; 
+
+// TODO check if we got dialog or another display open? 
+// 602 == inventory open, 12 == map, 24 == chatbox, 160 == uavTerminal
+if (!isNull (findDisplay 602) || !isNull (findDisplay 24) || !isNull (findDisplay 160) || visibleMap) exitWith {};
+
+// if we are middle mouse down, handle that
+if (_button == 2) exitWith {
+	// call function to solve middle mouse behaviour
+	[_shift] call FUNC(spectrumDeviceMouseMiddleDown);
+};
 
 // mouse down, set firing as active
 missionNamespace setVariable ["#EM_Transmit",true];
@@ -69,6 +79,7 @@ private _timeActive = 5;
 			breakOut "loopFreq"; //breakout as even if multiple signals, we only count the first we react on. 
 		};
 		case "drone": {
+			// if Jam antenna do jam handling
 			if (GVAR(spectrumRangeAntenna) == 3) then {
 				// check if strong enough
 				private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
@@ -86,15 +97,24 @@ private _timeActive = 5;
 				_jam = true;
 
 				_timeActive = 1;
-			} else {
-				// just play electronic sounds, as we don't have jammer on
-				if (_unit isKindOf "UAV_03_dynamicLoadout_base_F") then {
-					GVAR(radioChatterVoiceSound) = playSound "dronehelimotor";
-					_timeActive = 4;
+			} else { // if non-jam antenna we can still listen to it
+				// check strength
+				private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
+
+				if (_sigStrength < -60) then {
+					// play garbled
+					_sound = "garbled"; 
+					_timeActive = 4.3;
 				} else {
-					GVAR(radioChatterVoiceSound) = playSound "ugvmotor";
-					_timeActive = 3;
-				};
+					// just play electronic sounds, as we don't have jammer on
+					if (_unit isKindOf "UAV_03_dynamicLoadout_base_F") then {
+						GVAR(radioChatterVoiceSound) = playSound "dronehelimotor";
+						_timeActive = 4;
+					} else {
+						GVAR(radioChatterVoiceSound) = playSound "ugvmotor";
+						_timeActive = 3;
+					};
+				}
 			};
 			breakOut "loopFreq"; //breakout as even if multiple signals, we only count the first we react on. 
 		};

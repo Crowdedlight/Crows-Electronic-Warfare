@@ -22,6 +22,12 @@ GVAR(beacons) = [];
 GVAR(spectrumRangeAntenna) = -1;
 GVAR(radioTrackingEnabled) = false;
 
+GVAR(spectrumDeviceFrequencyRange) = [
+	[30,389], 	// military antenna
+	[390,500], 	// experimental antenna
+	[433,440] 	// jammer 
+];
+
 // array of special units
 GVAR(radioTrackingAiUnits) = [];
 

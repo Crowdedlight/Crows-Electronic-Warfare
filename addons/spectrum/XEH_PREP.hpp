@@ -14,3 +14,6 @@ PREP(calcSignalStrength);
 PREP(initDroneSignals);
 PREP(toggleJammingOnUnit);
 PREP(spectrumEnableSettingChanged);
+PREP(setSpectrumFreq);
+PREP(getSpectrumDefaultFreq);
+PREP(spectrumDeviceMouseMiddleDown);

@@ -25,6 +25,9 @@ if (_value) then {
 		["#EM_Progress",0]					// progress of transmission, between 0 and 1
 	];
 
+	// reset value so our PFH correctly sets the current frequencies for the attached antenna
+	GVAR(LastSpectrumMuzzleAttachment) = "";
+
 	// due to best practices we are gonna put the track loop in unscheduled space. 
 	GVAR(PFH_beaconPlayer) = [FUNC(spectrumTrackingLocal), 0.2] call CBA_fnc_addPerFrameHandler; 
 	GVAR(PFH_SpectrumAttachmentPlayer) = [FUNC(spectrumAttachmentLocal), 1] call CBA_fnc_addPerFrameHandler; 

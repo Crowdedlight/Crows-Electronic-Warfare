@@ -82,6 +82,7 @@ couch hit.wav by MegaBlasterRecordings: https://freesound.org/people/MegaBlaster
 spark 1.wav by ERH: https://freesound.org/people/ERH/sounds/31348/    
 FM_on_AM.wav by AlienXXX: https://freesound.org/people/AlienXXX/sounds/243540/  
 Transformer malfunction by complex_waveform: https://freesound.org/people/complex_waveform/sounds/213147/   
+Helicopter by deleted_user_3544904: https://freesound.org/people/deleted_user_3544904/sounds/194250/  
 
 
 Sounds used under [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) is listed here with credit:

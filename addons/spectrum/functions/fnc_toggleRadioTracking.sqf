@@ -12,6 +12,9 @@ This is run for all players
 *///////////////////////////////////////////////
 params ["_enabled"];
 
+// if the new value is equal to the already existing value we shouldn't update. Can happen if zeus hits "enabled" multiple times with module
+if (_enabled == GVAR(radioTrackingEnabled)) exitWith {}; 
+
 // if enabled, add eventlistener
 if (_enabled) then {
 	// add eventhandler to radio transmission
@@ -25,7 +28,3 @@ if (_enabled) then {
 
 // save state for zeus module
 GVAR(radioTrackingEnabled) = _enabled;
-
-// TODO, if disabled, it should remove all current TFAR signals only. Although due to spawned function that cleans up, this should happen automatically.... requires testing
-
-
