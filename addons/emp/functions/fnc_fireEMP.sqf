@@ -18,7 +18,7 @@ private _pos = ASLToAGL _pos;
 // if unit is null, we spawn something and use as EMP on the given position
 if (isNull _object && _spawnDevice) then 
 {
-	_object = createVehicle ["Land_Device_slingloadable_F", _pos, [], 0, "CAN_COLLIDE"];
+	_object = createVehicle ["Crows_Emp_Device", _pos, [], 0, "CAN_COLLIDE"];
 
 	_pos = ASLToAGL getPosASL _object;
 
@@ -42,6 +42,9 @@ private _delay = 0.01; // for processing purposes
 // spawn in scheduled enviroment so sleep is allowed.
 private _vehicleSpawn = [_delay, _vehicles] spawn {
 	params ["_delay", "_vehicles"];
+
+	private _vicTargetEffectArr = [];
+
 	// disable and set dmg on each vehicle - remoteExec visual effect for all vehicles
 	{
 		private _v = _x;
@@ -51,7 +54,7 @@ private _vehicleSpawn = [_delay, _vehicles] spawn {
 
 		// if immune to emp, skip it, but still do emp effect around the car
 		if (_x getVariable [QGVAR(immuneEMP), false]) then {
-			[[_x],QPATHTOF(functions\fnc_targetSparkSFX.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];	
+			_vicTargetEffectArr pushBack _x;
 			continue;
 		};
 
@@ -73,41 +76,40 @@ private _vehicleSpawn = [_delay, _vehicles] spawn {
 		// disable TFAR radios if present 
 		_v setVariable ["tf_hasRadio", false, true];
 
-		// remote exec dmg effect 
-		[[_x],QPATHTOF(functions\fnc_targetSparkSFX.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
+		// add to array for dmg effect 
+		_vicTargetEffectArr pushBack _x;
+		// 
 
 		sleep _delay;
 	} forEach _vehicles;
+
+	// send remoteExec for effects of all vehicles 
+	[[_vicTargetEffectArr],QPATHTOF(functions\fnc_targetSparkSFXSpawner.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
 };
 
-private _lightSpawn = [_delay, _lightList] spawn {
-	params ["_delay", "_lights"];
-	// disable and set dmg on each light - remoteExec visual effect
-	{
-		_x setDamage 0.96;
+// combine targets for light effect into one list
+private _lightEffectArr = _lightList;
 
-		// remote exec dmg effect 
-		[[_x],QPATHTOF(functions\fnc_lampEffect.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
+// disable and set dmg on each light - remoteExec visual effect
+{
+	_x setDamage 0.96;
+} forEach _lightList;
 
-		sleep _delay;
-	} forEach _lights;
-};
+// disable and set dmg on each turrent - remoteExec visual effect
+{
+	// check if immune and skip if immune
+	if (_x getVariable [QGVAR(immuneEMP), false] || !alive _x) then {continue;};
 
-private _staticSpawn = [_delay, _statics] spawn {
-	params ["_delay", "_turrets"];
-	// disable and set dmg on each turrent - remoteExec visual effect
-	{
-		// check if immune and skip if immune
-		if (_x getVariable [QGVAR(immuneEMP), false] || !alive _x) then {continue;};
+	// add to effect list, if not immune
+	_lightEffectArr pushBack _x;
 
-		_x setDamage 1;
-		
-		// remote exec dmg effect 
-		[[_x],QPATHTOF(functions\fnc_lampEffect.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
+	_x setDamage 1;
 
-		sleep _delay;
-	} forEach _turrets;
-};
+	sleep _delay;
+} forEach _statics;
+
+// remote exec effect to all players. Each player only spawn effect if within visual range aka. 500m
+[[_lightEffectArr],QPATHTOF(functions\fnc_lampEffect.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
 
 // play radio static sound
 ["electro_static"] remoteExec ["playsound", [0,-2] select isDedicated];

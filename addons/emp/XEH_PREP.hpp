@@ -6,4 +6,5 @@ PREP(playerEffect);
 PREP(targetSparkSFX);
 PREP(unitRemoveItems);
 PREP(initTriggerEMP);
+PREP(targetSparkSFXSpawner);
 

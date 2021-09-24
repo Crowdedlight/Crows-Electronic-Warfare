@@ -29,7 +29,7 @@ private _spark_pos_relative = (_maxHeight/2)-0.45;
 private _spark_sound = ["spark1","spark2","spark3"] call BIS_fnc_selectRandom;
 private _spark_type = ["white","orange"] call BIS_fnc_selectRandom;
 
-private _drop = 0.04+(random 0.05);
+private _drop = 0.003+(random 0.05);
 private _sparkSource = "#particlesource" createVehicleLocal (getPosATL _unit);
 
 // general settings 
