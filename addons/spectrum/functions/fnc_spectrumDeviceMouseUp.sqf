@@ -17,7 +17,7 @@ if (_button != 0) exitWith {};
 // if jamming unit is not null, then we have been jamming, so reset AI and var. This should also fire on mouse-down if we have been jamming and changed weapon. 
 //  jamming script should catch it anyway, but better to be sure AI gets re-enabled
 if (!isNull GVAR(isJammingDrone)) then {
-	systemChat "Jamming deactivated";
+	// systemChat "Jamming deactivated";
 	[QGVAR(toggleJammingOnUnit), [GVAR(isJammingDrone), false, player], GVAR(isJammingDrone)] call CBA_fnc_targetEvent;
 	GVAR(isJammingDrone) = objNull;
 };

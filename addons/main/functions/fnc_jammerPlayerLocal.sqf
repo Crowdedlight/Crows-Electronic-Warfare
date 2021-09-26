@@ -97,7 +97,7 @@ player setVariable ["tf_receivingDistanceMultiplicator", _rxInterference];
 player setVariable ["tf_sendingDistanceMultiplicator", _txInterference];
 
 //Debugging
-if (true) then {	
+if (false) then {	
 	// systemChat format ["Distance: %1, Percent: %2", _distJammer,  100 * _distPercent];
 	systemChat format ["tfar_rx: %1, tfar_tx: %2", _rxInterference, _txInterference];
 	systemChat format ["Closest Jammer netID: %1, radius: %2, enabled: %3", netId (_nearestJammer select 0), _nearestJammer select 1, _nearestJammer select 3];

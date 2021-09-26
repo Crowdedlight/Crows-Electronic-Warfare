@@ -15,7 +15,7 @@ params [["_unit", objNull], ["_enableJam", false], ["_jamPlayer", objNull]];
 if (isNull _unit || isNull _jamPlayer) exitWith {};
 
 // only if we are local to unit 
-if (!(local _unit)) exitWith {};
+// if (!(local _unit)) exitWith {};
 
 // get unit variable, as this is on a per unit basis and each client could have multiple units it is local to. 
 private _activeJammers = _unit getVariable [QGVAR(activeJammingPlayers), []];
@@ -36,9 +36,9 @@ if (_enableJam) then {
 	} forEach (crew _unit);
 
 	// save units current behaviour
-	_unit setVariable [QGVAR(behaviourJam), combatBehaviour (group _unit), true];
+	_unit setVariable [QGVAR(behaviourJam), combatBehaviour (group _unit)];
 	
-	systemChat "disabled all AI";
+	// systemChat "disabled all AI";
 
 	private _spawnedJamLoop = [_unit] spawn {
 		params ["_unit"];
@@ -53,7 +53,7 @@ if (_enableJam) then {
 				// safety catch that even if we go unconsious or change weapon without a mouse-up event jamming will be disabled
 				if (!("hgun_esd_" in (currentWeapon _x)) || !alive _x) then {
 					// add to rm array 
-					systemChat format["Removing %1 from jam-array", _x];
+					// systemChat format["Removing %1 from jam-array", _x];
 					_rmArr pushBack _x;
 				};
 			} forEach _activeJammers;
@@ -62,7 +62,7 @@ if (_enableJam) then {
 			_activeJammers = _activeJammers - _rmArr;
 			_activeJammers = _activeJammers - [objNull];
 
-			systemChat str(_activeJammers);
+			// systemChat str(_activeJammers);
 
 			// set new variable, as new jammers won't be obtained otherwise
 			_unit setVariable[QGVAR(activeJammingPlayers), _activeJammers];
@@ -73,7 +73,7 @@ if (_enableJam) then {
 				{
 					_x enableAI "all";
 				} forEach (crew _unit);
-				systemChat "Enabled AI";
+				// systemChat "Enabled AI";
 
 				// set behaviour back to initial 
 				private _initialBehav = _unit getVariable [QGVAR(behaviourJam), "AWARE"];
@@ -91,7 +91,7 @@ if (_enableJam) then {
 	};
 } else {
 	// remove player from jamming list - spawned script should handle it from here to enable AI, if no other jammers are active. 
-	systemChat "removing player from jam list";
+	// systemChat "removing player from jam list";
 	_activeJammers = _activeJammers - [_jamPlayer];
 	_unit setVariable [QGVAR(activeJammingPlayers), _activeJammers];
 };

@@ -85,7 +85,7 @@ private _timeActive = 5;
 				private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
 				if (_sigStrength < -40) then {
 					//  do fail if not strong enough
-					systemChat "too low signal, set failed = true";
+					// systemChat "too low signal, set failed = true";
 					_failed = true;
 				};
 				
@@ -140,15 +140,15 @@ GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed] s
 
 		// if we failed, we exit with the resetting of jam unit, progress and error sound
 		if (_failAction) exitWith {
-			systemChat "Exit due to low signal strength";
+			// systemChat "Exit due to low signal strength";
 			playSound "spectrumjamerror";
 			missionNamespace setVariable ["#EM_Transmit",false];
 			missionNamespace setVariable ["#EM_Progress",0];
 			GVAR(isJammingDrone) = objNull;
 		};
 
-		systemChat "Jamming active";
-		[QGVAR(toggleJammingOnUnit), [_unit, true, player], _unit] call CBA_fnc_targetEvent;
+		// systemChat "Jamming active";
+		[QGVAR(toggleJammingOnUnit), [_unit, true, player]] call CBA_fnc_serverEvent;
 		
 		// spawn looping effect that works until GVAR from mouse-down, or if weapon are no longer in hand
 		sleep 0.2; // for sound effect 		
@@ -161,7 +161,7 @@ GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed] s
 			private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
 			if (_sigStrength < -40) exitWith {
 				// stop jamming
-				[QGVAR(toggleJammingOnUnit), [GVAR(isJammingDrone), false, player], GVAR(isJammingDrone)] call CBA_fnc_targetEvent;
+				[QGVAR(toggleJammingOnUnit), [GVAR(isJammingDrone), false, player]] call CBA_fnc_serverEvent;
 				GVAR(isJammingDrone) = objNull;
 				// show error 
 				playSound "spectrumjamerror";

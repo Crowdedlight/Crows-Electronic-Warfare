@@ -17,6 +17,7 @@ missionNamespace setVariable ["#EM_FMax", _maxFreq];
 
 // calculate the span for selected band graphics 
 // 0.5/10 of span 
-private _span = (_maxFreq - _minFreq) *0.05;
+private _span = 0.1 max ((_maxFreq - _minFreq) * 0.05);
+
 missionNamespace setVariable ["#EM_SelMin", _minFreq];
 missionNamespace setVariable ["#EM_SelMax", (_minFreq + _span)];
