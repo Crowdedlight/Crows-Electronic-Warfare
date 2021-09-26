@@ -14,8 +14,6 @@ params ["_arr"];
 // only for players
 if (!hasInterface || isNil "_arr") exitWith {};
 
-diag_log _arr;
-
 private _sparkCount = 1 + floor (random 3);
 
 {
