@@ -52,6 +52,3 @@ if (_buttonDown) then {
 	// systemChat format["Rm signal onTangent: btnDown: %1", _buttonDown];
 	[QGVAR(removeBeacon), [_unit]] call CBA_fnc_globalEvent;
 };
-
-
-[call TFAR_fnc_ActiveSwRadio] call TFAR_fnc_radioOn

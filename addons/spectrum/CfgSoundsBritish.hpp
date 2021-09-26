@@ -11,7 +11,7 @@ class CfgSounds
 	class baseplate_this_is_hammer_two_four_we_have_visual_on_the_target_eta_sixty_seconds
 	{
 		name = "baseplate_this_is_hammer_two_four_we_have_visual_on_the_target_eta_sixty_seconds";
-		sound[] = {PATHTOF(data\voice\british\baseplate_this_is_hammer_two_four_we_have_visual_on_the_target_eta_sixty_seconds.ogg), db+12, 1};
+		sound[] = {PATHTOF(data\voice\british\baseplate_this_is_hammer_two_four_we_have_visual_on_the_target_eta_sixty_seconds.ogg), db+16, 1};
 		titles[] = {0, "Baseplate, this is hammer 2-4, we have visual on the target. ETA 60 seconds"};
 	};
 	class do_you_think_the_lt_hates_me

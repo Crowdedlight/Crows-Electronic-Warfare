@@ -103,7 +103,7 @@ private _timeActive = 5;
 
 				if (_sigStrength < -60) then {
 					// play garbled
-					_sound = "garbled"; 
+					GVAR(radioChatterVoiceSound) = playSound "garbled";
 					_timeActive = 4.3;
 				} else {
 					// just play electronic sounds, as we don't have jammer on

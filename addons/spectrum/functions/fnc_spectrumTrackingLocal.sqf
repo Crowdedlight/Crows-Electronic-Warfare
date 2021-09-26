@@ -50,10 +50,11 @@ private _tracker = player;
 
     // if frequency outside range of antenna skip it
     private _requiredAntennas = [_frequency] call FUNC(getAntennaFromFrequency);
-    if (!(GVAR(spectrumRangeAntenna) in _requiredAntennas)) then {systemChat format["antenna: %1 is not in %2", GVAR(spectrumRangeAntenna), _requiredAntennas]; continue; };
+    // if (!(GVAR(spectrumRangeAntenna) in _requiredAntennas)) then {systemChat format["antenna: %1 is not in %2", GVAR(spectrumRangeAntenna), _requiredAntennas]; continue; };
+    if (!(GVAR(spectrumRangeAntenna) in _requiredAntennas)) then { continue; };
 
     // if jammer is equipped, only show signals that is type drone 
-    if (GVAR(spectrumRangeAntenna) == 3 && _type != "drone") then { systemChat format["type: %1 is not a drone", _type]; continue; };
+    if (GVAR(spectrumRangeAntenna) == 3 && _type != "drone") then { continue; };
 
     // Get signal strength 
     private _sigStrength = [_target, _tracker, _scanRange] call FUNC(calcSignalStrength);
