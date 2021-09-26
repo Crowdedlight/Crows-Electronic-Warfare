@@ -18,6 +18,7 @@ private _onConfirm =
 	_dialogResult params
 	[
 		"_range",
+		"_spawnDevice",
 		"_scopeMode",
 		"_binoMode"
 	];
@@ -25,12 +26,13 @@ private _onConfirm =
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 	
 	// fire EMP - wrapped in CBA wait and execute for the delay. Returns a handler, for now we can't stop it again.
-	[QEGVAR(emp,eventFireEMP), [_pos, _unit, _range, _scopeMode, _binoMode]] call CBA_fnc_serverEvent;		
+	[QEGVAR(emp,eventFireEMP), [_pos, _unit, _range, _spawnDevice, _scopeMode, _binoMode]] call CBA_fnc_serverEvent;		
 };
 [
 	"Fire EMP", 
 	[
-		["SLIDER","Range [m]",[50,5000,1000,0]],
+		["SLIDER","Range [m]",[50,2500,500,0]],
+		["CHECKBOX",["Spawn EMP Object?", "Spawn 'the device' object as EMP source?"],[false]],
 		["TOOLBOX:wide", ["NV/Thermal Scopes", "How should scopes with built-in thermal and NV be handled"], [1, 1, 3, ["No Removal", "Replace with base-game item", "Removal"]]],
 		["TOOLBOX:WIDE", ["Binoculars", "How should binoculars with built-in thermal and NV be handled"], [1, 1, 3, ["No Removal", "Replace with base-game item", "Removal"]]]
 	],

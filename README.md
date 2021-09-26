@@ -7,6 +7,7 @@ This mod requires Zeus Enhanced (ZEN) and CBA3
 ### Features
 
 **The wiki for the features is available at:** https://github.com/Crowdedlight/Crows-Electronic-Warfare/wiki 
+I can recommend reading it to see how features work and whats available. The list below is more like a short summery. 
 
 **Features:**
 * **Set Spectrum Signal Source:** Allows Zeus to select a object that can be tracked by the spectrum analyzer with selected frequency and range it can be tracked from. Frequency has to be unique due to game limitations. Does not work on remote-controlled units. However a player-zeus would be able to use the spectrum analyzer himself.    
@@ -14,10 +15,14 @@ This mod requires Zeus Enhanced (ZEN) and CBA3
 * **Play Sound:** Allows Zeus to play a sound at selected position. Sound follows the unit around. (Be aware if using the long sounds, they can't stop mid-playing, only when played to end)  
 * **EMP:** Added EMP module which makes Zeus able to fire an EMP. The EMP will remove NV/Thermal for men, weapons and vehicles. Vehicles electric components (lights,engine,turrest) will also be damaged. Launchers and static weapons that has NV/Thermal/electronic components will be damaged/removed. Binoculars and Scopes on weapons that has intergrated NV/Thermal will be either removed or replaced with base-game item that do not have NV/Thermal. This is configuable by the Zeus. If TFAR is loaded the radios of affected units/vehicles will stop working (Requires TFAR Beta). However new items picking up not affected by the EMP will work. Some equipment might not be removed if they are modded items that does not share base-game parent. In that case please let me know and I will add it. As I can't cover every single modded item, the module will have item/equipment limitations and is meant to be operated by trust with the players. Zeus are immune to the EMP effect and will not have equipment removed or damaged and will also not get white-out/screen blur effect, like the players.   
 * **EMP Immunity:** Set any unit or vehicle immune to the EMP effect. Units inside a vehicle set immune is also immune to the effect.   
+* **RadioChatter:** A module to put on AI that simulates the AI using radios to each other. The radio broadcasts a spectrum signal while "transmitting". Configurable by zeus. The player can "listen" to these transmission with the spectrum device if there is enough signal strength. The sounds/voice-lines played depends on the voice-pack used by zeus. There is a few different available.   
+* **Jamming of UGVs:** spawned UGVs/Falcons automatically has a signal source attached to them. This makes them jammable when using the "jamming" antenna on the spectrum device. Jamming it will stop all AI functions and it is possible to walk past it while jammed without it being aware of your presence afterwards. Zeus can remove the signal-source on the UGVs and thus making it unjammable. The units can still be remote-controlled by zeus while jammed.   
+
 
 **Features requiring TFAR:**  
 
 * **Set TFAR Jammer:** Allows Zeus to select a object that will work as a TFAR jammer with the chosen settings, until death or removal. Zeus has a continuous updated map marker showing the area it is active in. Zeus is not affected by the jammning and does not have to think about where the zeus character is currently placed to avoid jamming. 
+* **TFAR Radio Tracking:** Zeus can enable the module which makes all usage of the TFAR radios broadcast a spectrum signal while transmitting. Can be used to track enemies using the radio.  
 
 
 **All features have been tested on a dedicated server with multiple clients. Big thanks to the people that helped me test. You know who you are!**
@@ -26,7 +31,10 @@ This mod requires Zeus Enhanced (ZEN) and CBA3
 All logging made to the .RPT file will start with CrowsEW-module: where the module is whatever module is writing the entry. Only done upon errors.
 
 ### Contributors
-Crowdedlight
+Crowdedlight (Main Author)  
+MonkeyBadger (Voice-line work)  
+Technovibegames (Voice-line work)    
+WindWalker (Voice-line work)
 
 ### License 
 Crows Electronic Warfare is licensed under the GPL-3.0 license. Please do not reupload to the Steam Workshop without permission!
@@ -52,6 +60,8 @@ electro_static.mps by soulman 90: https://freesound.org/people/Soulman%2090/soun
 Huge Explosion Part 1 - Shockwave by bevibeldesign: https://freesound.org/people/bevibeldesign/sounds/366091/  
 spark by elliottmoo: https://freesound.org/people/elliottmoo/sounds/189630/  
 spark.wav by BMacZero: https://freesound.org/people/BMacZero/sounds/94132/  
+large alien machine call by john129pats: https://freesound.org/people/john129pats/sounds/147907/  
+custom reaper horn.mp3 by darkadders: https://freesound.org/people/darkadders/sounds/217517/  
 
 
 
@@ -77,7 +87,10 @@ Permission to panic? by deleted_user_2906614 (who remixed it from http://freesou
 This Statement Is False by qubodup: https://freesound.org/people/qubodup/sounds/211996/  
 rumble.wav by tim.kahn: https://freesound.org/people/tim.kahn/sounds/94114/  
 couch hit.wav by MegaBlasterRecordings: https://freesound.org/people/MegaBlasterRecordings/sounds/368640/ 
-spark 1.wav by ERH: https://freesound.org/people/ERH/sounds/31348/  
+spark 1.wav by ERH: https://freesound.org/people/ERH/sounds/31348/    
+FM_on_AM.wav by AlienXXX: https://freesound.org/people/AlienXXX/sounds/243540/  
+Transformer malfunction by complex_waveform: https://freesound.org/people/complex_waveform/sounds/213147/   
+Helicopter by deleted_user_3544904: https://freesound.org/people/deleted_user_3544904/sounds/194250/  
 
 
 Sounds used under [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) is listed here with credit:

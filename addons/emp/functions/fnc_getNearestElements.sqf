@@ -9,9 +9,7 @@ Return: [vehicles, lights, turrents, units]
 [_this, 500] call crowsEW_emp_fnc_getNearestElements;
 
 *///////////////////////////////////////////////
-params ["_empObj", "_range"];
-
-private _pos = ASLToAGL getPosASL _empObj;
+params ["_pos", "_range"];
 
 private _vehicleList = _pos nearEntities [["Car","Motorcycle","Tank","Air","Ship","Helicopter","Plane"], _range];
 private _manList = _pos nearEntities [["Man","Civilian","SoldierGB","SoldierEB","SoldierWB"], _range];

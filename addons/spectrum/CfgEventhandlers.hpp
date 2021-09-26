@@ -18,3 +18,21 @@ class Extended_PreStart_EventHandlers {
 		init = QUOTE( call COMPILE_FILE(XEH_preStart) );
 	};
 };
+
+// runs once per unit/vehicle after the postInit stage (Event data passed to the handler: [unit] with the unit/vehicle/object, just like a normal init event)
+class Extended_InitPost_Eventhandlers {
+
+	class UGV_01_base_F {
+		init = QUOTE( _this call FUNC(initDroneSignals) );
+	};
+	class UGV_01_rcws_base_F {
+		init = QUOTE( _this call FUNC(initDroneSignals) );
+	};
+	class UAV_03_dynamicLoadout_base_F {
+		init = QUOTE( _this call FUNC(initDroneSignals) );
+	};
+};
+
+
+// UAV should probably not be included? 
+// "UGV_01_base_F", "UGV_01_rcws_base_F", "UAV_03_dynamicLoadout_base_F", "UAV_02_base_F", "UAV_04_base_F"
