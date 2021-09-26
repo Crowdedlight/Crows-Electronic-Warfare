@@ -12,7 +12,7 @@ Called on event for mouseDown
 params ["_displayorcontrol", "_button", "_xPos", "_yPos", "_shift", "_ctrl", "_alt"];
 
 // check if left mouse-down (0), right-mouse == 1, middle-mouse == 2
-if (_button == 1 || !alive player) exitWith {};
+if (_button in [1,3,4] || !alive player) exitWith {};
 
 // check if current weapon is hgun_esd
 if (!("hgun_esd_" in (currentWeapon player))) exitWith {}; 
@@ -83,7 +83,7 @@ private _timeActive = 5;
 			if (GVAR(spectrumRangeAntenna) == 3) then {
 				// check if strong enough
 				private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
-				if (_sigStrength < -50) then {
+				if (_sigStrength < -40) then {
 					//  do fail if not strong enough
 					systemChat "too low signal, set failed = true";
 					_failed = true;
@@ -159,7 +159,7 @@ GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed] s
 
 			// check if signal strength goes below ??, then we stop the jamming
 			private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
-			if (_sigStrength < -50) exitWith {
+			if (_sigStrength < -40) exitWith {
 				// stop jamming
 				[QGVAR(toggleJammingOnUnit), [GVAR(isJammingDrone), false, player], GVAR(isJammingDrone)] call CBA_fnc_targetEvent;
 				GVAR(isJammingDrone) = objNull;
