@@ -17,5 +17,3 @@ PRELOAD_ADDONS;
 #include "CfgEventhandlers.hpp"
 #include "CfgSounds.hpp"
 #include "CfgVehicles.hpp"
-// #include "CfgMagazines.hpp"
-// #include "CfgAmmo.hpp"
