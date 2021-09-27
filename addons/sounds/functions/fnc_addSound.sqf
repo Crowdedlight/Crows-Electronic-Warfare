@@ -22,9 +22,10 @@ if (isNil "_soundAttri") exitWith {diag_log format ["crowsEW-sounds: Sound not f
 
 private _soundLength = (_soundAttri select 0);
 private _soundPath = (_soundAttri select 1);
+private _displayName = (_soundAttri select 2);
 
 private _loopTime = _delayBetween + _soundLength;
 private _startDelay = time + _delayInitial;
 
 // add to array [unit, loopTime, range, repeat, aliveCondition, sound, enabled, lastPlayed, _startDelay, _volume]
-GVAR(soundList) pushBack [_unit, _loopTime, _range, _repeat, _aliveCondition, _soundPath, true, 0, _startDelay, _volume];
+GVAR(soundList) pushBack [_unit, _loopTime, _range, _repeat, _aliveCondition, _soundPath, true, 0, _startDelay, _volume, _displayName];

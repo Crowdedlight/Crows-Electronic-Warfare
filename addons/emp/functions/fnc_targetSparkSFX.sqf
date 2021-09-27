@@ -32,7 +32,7 @@ if (_unit isKindOf "man") then {
 	// set dimensions to object
 	_spark setParticleRandom [0.2,[_width/3,_length/3,_height],[0,0,0],0,0.001,[0,0,0,1],1,0];
 	_spark setParticleParams [["\A3\data_f\blesk1",1,0,1],"","SpaceObject",1.5,0.2,[0,0,0],[0,0,0],0,10,7.9,0,[0.002,0.002],[[1,1,0.1,1],[1,1,1,1]],[0.08], 1, 0, "", "", _unit];
-	_spark setDropInterval 0.01;
+	_spark setDropInterval 0.05;
 	[_spark] spawn {params ["_obj"];sleep 1;deleteVehicle _obj};
 };
 
@@ -41,6 +41,6 @@ if (_unit isKindOf "LandVehicle") then {
 	_spark setParticleCircle [_width-0.5,[0,0,0]];
 	_spark setParticleRandom [0.2,[0.2,0.2,_height/2-0.5],[0,0,0],0,0.02,[0,0,0,1],1,0];
 	_spark setParticleParams [["\A3\data_f\blesk1",1,0,1],"","SpaceObject",1,0.2,[0,0,0],[0,0,0],0,10,7.9,0,[0.003,0.003],[[1,1,0.1,1],[1,1,1,1]],[0.08], 1, 0, "", "", _unit];
-	_spark setDropInterval 0.01;
+	_spark setDropInterval 0.05;
 	[_spark] spawn {params ["_obj"];sleep 1;deleteVehicle _obj};
 };
