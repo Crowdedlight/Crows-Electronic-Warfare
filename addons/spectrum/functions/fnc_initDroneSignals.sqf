@@ -11,6 +11,9 @@ Called upon event, adds the jammer to local gvar array and starts while loop, if
 *///////////////////////////////////////////////
 params [["_unit", objNull]];
 
+// add event for disabling AI, as this needs to happen where the unit is local, so we add to all
+private _aiDisable = [QGVAR(toggleAI), FUNC(toggleAI)] call CBA_fnc_addEventHandler;
+
 // only add if server - To make sure its only added once
 if (!isServer || isNull _unit) exitWith {};
 

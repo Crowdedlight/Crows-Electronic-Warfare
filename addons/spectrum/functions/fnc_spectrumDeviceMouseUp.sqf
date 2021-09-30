@@ -18,7 +18,7 @@ if (_button != 0) exitWith {};
 //  jamming script should catch it anyway, but better to be sure AI gets re-enabled
 if (!isNull GVAR(isJammingDrone)) then {
 	// systemChat "Jamming deactivated";
-	[QGVAR(toggleJammingOnUnit), [GVAR(isJammingDrone), false, player], GVAR(isJammingDrone)] call CBA_fnc_targetEvent;
+	[QGVAR(toggleJammingOnUnit), [GVAR(isJammingDrone), false, player]] call CBA_fnc_serverEvent;
 	GVAR(isJammingDrone) = objNull;
 };
 

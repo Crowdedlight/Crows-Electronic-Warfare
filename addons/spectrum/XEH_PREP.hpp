@@ -17,3 +17,4 @@ PREP(spectrumEnableSettingChanged);
 PREP(setSpectrumFreq);
 PREP(getSpectrumDefaultFreq);
 PREP(spectrumDeviceMouseMiddleDown);
+PREP(toggleAi);
