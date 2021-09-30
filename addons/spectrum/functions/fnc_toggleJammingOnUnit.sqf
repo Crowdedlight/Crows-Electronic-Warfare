@@ -14,9 +14,6 @@ params [["_unit", objNull], ["_enableJam", false], ["_jamPlayer", objNull]];
 // sanity check for null objs
 if (isNull _unit || isNull _jamPlayer) exitWith {};
 
-// only if we are local to unit 
-// if (!(local _unit)) exitWith {};
-
 // get unit variable, as this is on a per unit basis and each client could have multiple units it is local to. 
 private _activeJammers = _unit getVariable [QGVAR(activeJammingPlayers), []];
 private _jamCount = count _activeJammers;
@@ -31,12 +28,15 @@ if (_enableJam) then {
 	if (_jamCount != 0) exitWith {};
 
 	// disable AI as we got no other active jammers already
-	{
-		_x disableAI "all";
-	} forEach (crew _unit);
+	[QGVAR(toggleAI), [_unit, false], _unit] call CBA_fnc_targetEvent;
 
 	// save units current behaviour
 	_unit setVariable [QGVAR(behaviourJam), combatBehaviour (group _unit)];
+
+	// add unit to jammed list 
+	private _activelyJammedUnits = missionNamespace getVariable [QGVAR(activeJammedUnits), []];
+	_activelyJammedUnits pushBack _unit;
+	missionNamespace setVariable [QGVAR(activeJammedUnits), _activelyJammedUnits, true];
 	
 	// systemChat "disabled all AI";
 
@@ -70,9 +70,7 @@ if (_enableJam) then {
 			// if 0 jammers, we enable AI, and exit the loop
 			if (count _activeJammers == 0) exitWith {
 				// enable all AI 
-				{
-					_x enableAI "all";
-				} forEach (crew _unit);
+				[QGVAR(toggleAI), [_unit, true], _unit] call CBA_fnc_targetEvent;
 				// systemChat "Enabled AI";
 
 				// set behaviour back to initial 
@@ -80,14 +78,24 @@ if (_enableJam) then {
 				if (_initialBehav != "ERROR" && !isNull _unit) then {
 					(group _unit) setCombatBehaviour _initialBehav;
 				};
+
+				// remove from active jam list
+				private _activelyJammedUnits = missionNamespace getVariable [QGVAR(activeJammedUnits), []];
+				_activelyJammedUnits = _activelyJammedUnits - [_unit];
+				_activelyJammedUnits = _activelyJammedUnits - [objNull];
+				missionNamespace setVariable [QGVAR(activeJammedUnits), _activelyJammedUnits, true];
 			};
 
 			sleep 0.5; // repeat only every 0.5s as should be enough as response for enable or disable jamming
 		};
 		// catch all, always enable AI if we leave the loop, should already have been done, but for good measure we repeat in case we left loop by error
-		{
-			_x enableAI "all";
-		} forEach (crew _unit);
+		[QGVAR(toggleAI), [_unit, true], _unit] call CBA_fnc_targetEvent;
+
+		// remove from active jam list
+		private _activelyJammedUnits = missionNamespace getVariable [QGVAR(activeJammedUnits), []];
+		_activelyJammedUnits = _activelyJammedUnits - [_unit];
+		_activelyJammedUnits = _activelyJammedUnits - [objNull];
+		missionNamespace setVariable [QGVAR(activeJammedUnits), _activelyJammedUnits, true];
 	};
 } else {
 	// remove player from jamming list - spawned script should handle it from here to enable AI, if no other jammers are active. 
@@ -95,3 +103,7 @@ if (_enableJam) then {
 	_activeJammers = _activeJammers - [_jamPlayer];
 	_unit setVariable [QGVAR(activeJammingPlayers), _activeJammers];
 };
+
+
+
+

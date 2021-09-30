@@ -83,4 +83,18 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _soundObj, 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false, 0, 0.012];
 
 	} forEach EGVAR(sounds,soundList);
+	// Jammed units
+	private _jammedUnits = missionNamespace getVariable [QEGVAR(spectrum,activeJammedUnits), []];
+	{
+		// calculate distance from zeus camera to unit and post in systemchat 
+		private _dist = _zeusPos distance _x;
+
+		// if not within 500m, we don't draw it as the text does not scale and disappear with distance
+		if (_dist > 500) then {continue;};
+
+		// draw icon on relative pos 
+		private _txt = "JAMMED";
+		
+		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _x, 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false, 0, -0.045];
+	} forEach _jammedUnits;
 }];
