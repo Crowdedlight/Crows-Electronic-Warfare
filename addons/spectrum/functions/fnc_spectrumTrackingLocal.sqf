@@ -47,7 +47,7 @@ private _tracker = player;
 
     // if for safety and so we don't track ourself
     // if (isNull _target || _frequency == 0 || _target == _tracker) then {continue};
-    if (isNull _target || _frequency == 0) then {continue};
+    if (isNull _target || _frequency == 0) then {continue}; //TODO change so we don't track ourselves
 
     // if frequency outside range of antenna skip it
     private _requiredAntennas = [_frequency] call FUNC(getAntennaFromFrequency);

@@ -37,21 +37,23 @@ if (_buttonDown) then {
 		};
 	};
 
+
+
 	// EMP support, test if radio is disabled, and then do not create a signal
 	if (!([_radio] call TFAR_fnc_radioOn)) exitWith {};
 
 	// systemChat format["freq: %1, range: %2, onTangent: btnDown: %3", _freq, _range, _buttonDown];
 
 	if (_freq isEqualTo -1 || _range isEqualTo -1) exitWith {};
+	
+	// save radio in public var for other player to get identical radio when listening in
+	_unit setVariable [QGVAR(broadcastingRadio), [_radio, _radioType, _freq, _radioCode], true];
 
 	// Randomize the digits of signal to try and avoid multiple signals override eachother, while we want to symbolize multiple signals
 	_freq = _freq + ((random 900)/10000); //changing the 0.0xx part only
 
 	// add signal source - NOT on JIP, as they are shorter bursts and we don't want to fill up the JIP. Such short messages should never be a problem requiring JIP.
 	[QGVAR(addBeacon), [_unit, _freq, _range, "radio"]] call CBA_fnc_globalEvent;
-
-	// save radio in public var for other player to get identical radio when listening in
-	_unit setVariable [QGVAR(broadcastingRadio), [_radio, _radioType, _freq, _radioCode], true];
 
 } else {
 	// remove signal, shouldn't be a problem with JIP. As same unit would overwrite next transmission anyway, even if it gets stuck in either state

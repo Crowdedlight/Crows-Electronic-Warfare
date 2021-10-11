@@ -14,7 +14,7 @@ params ["_minFreq", "_maxFreq"];
 
 // check for flooring - If we are above current antennas max or min, clamp it
 private _antenna = (handgunItems player) select 0;
-private _resultArr = [_muzzleAttachment] call FUNC(getSpectrumDefaultFreq);
+private _resultArr = [_antenna] call FUNC(getSpectrumDefaultFreq);
 _resultArr params ["_minFreqDefault", "_maxFreqDefault", "_selectedAntenna"];
 
 // check and clamp

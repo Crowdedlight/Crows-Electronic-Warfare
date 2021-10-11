@@ -38,5 +38,11 @@ _settings params["_targetRadio", "_targetRadioType", "_targetFreq", "_targetCode
 [_icom, format["%1", _targetFreq]] call TFAR_fnc_setSwFrequency;
 [_icom, _targetCode] call TFAR_fnc_setSwRadioCode;
 
+private _debugCode = _icom call TFAR_fnc_getSwRadioCode;
+private _debugfreq = _icom call TFAR_fnc_getSwFrequency;
+
+systemChat str(_debugCode);
+systemChat str(_debugfreq);
+
 // set that we are listening
 GVAR(listeningToIcom) = true;
