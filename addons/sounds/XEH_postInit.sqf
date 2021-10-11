@@ -1,5 +1,11 @@
 #include "script_component.hpp"
 
+// only players
+if (!hasInterface) exitWith {};
+
+// register CBA event for playing local sound
+private _localSoundId = [QGVAR(playSoundLocal), FUNC(playSoundPos)] call CBA_fnc_addEventHandler;
+
 // only if we are on server
 if (!isServer) exitWith {}; 
 
