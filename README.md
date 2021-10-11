@@ -37,7 +37,7 @@ Technovibegames (Voice-line work)
 WindWalker (Voice-line work)
 
 ### License 
-Crows Electronic Warfare is licensed under the GPL-3.0 license. Please do not reupload to the Steam Workshop without permission!
+Crows Electronic Warfare is licensed under the Arma Public License Share Alike. Please do not reupload to the Steam Workshop without permission!
 
 ### Fonts used in texture
 Digital 7 by Sizenko Alexander, Style-7, http://www.styleseven.com

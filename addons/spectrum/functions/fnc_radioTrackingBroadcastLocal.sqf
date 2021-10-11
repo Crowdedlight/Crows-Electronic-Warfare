@@ -17,20 +17,23 @@ if (_buttonDown) then {
 	private _freq = -1;
 	private _range = -1;
 	private _radio = "";
+	private _radioCode = "";
 
 	// diag_log format ["radio class: %1, type: %2, buttonDown: %3", _radioclass, _radioType, _buttonDown];
 
 	// 0 == SR, 1 == LR, 2 == underwater
 	switch (_radioType) do {
 		case 0: {
-			_freq = parseNumber ((call TFAR_fnc_ActiveSwRadio) call TFAR_fnc_getSwFrequency);
-			_range = getNumber(configfile >> "CfgWeapons" >> (call TFAR_fnc_ActiveSwRadio) >> "tf_range");
 			_radio = call TFAR_fnc_ActiveSwRadio;
+			_freq = parseNumber (_radio call TFAR_fnc_getSwFrequency);
+			_range = getNumber(configfile >> "CfgWeapons" >> _radio >> "tf_range");
+			_radioCode = _radio call TFAR_fnc_getSwRadioCode;
 		};
 		case 1: {
-			_freq = parseNumber ((call TFAR_fnc_ActiveLrRadio) call TFAR_fnc_getLrFrequency);
-			_range = getNumber(configfile >> "CfgVehicles" >> typeOf(call TFAR_fnc_activeLrRadio select 0) >> "tf_range");
 			_radio = call TFAR_fnc_ActiveLrRadio;
+			_freq = parseNumber (_radio call TFAR_fnc_getLrFrequency);
+			_range = getNumber(configfile >> "CfgVehicles" >> typeOf(_radio select 0) >> "tf_range");
+			_radioCode = _radio call TFAR_fnc_getLrRadioCode;
 		};
 	};
 
@@ -47,8 +50,14 @@ if (_buttonDown) then {
 	// add signal source - NOT on JIP, as they are shorter bursts and we don't want to fill up the JIP. Such short messages should never be a problem requiring JIP.
 	[QGVAR(addBeacon), [_unit, _freq, _range, "radio"]] call CBA_fnc_globalEvent;
 
+	// save radio in public var for other player to get identical radio when listening in
+	_unit setVariable [QGVAR(broadcastingRadio), [_radio, _radioType, _freq, _radioCode], true];
+
 } else {
 	// remove signal, shouldn't be a problem with JIP. As same unit would overwrite next transmission anyway, even if it gets stuck in either state
 	// systemChat format["Rm signal onTangent: btnDown: %1", _buttonDown];
 	[QGVAR(removeBeacon), [_unit]] call CBA_fnc_globalEvent;
+	
+	// reset var for listening to
+	_unit setVariable [QGVAR(broadcastingRadio), [], true];
 };

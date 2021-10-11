@@ -25,6 +25,10 @@ class CfgSounds
 		sound[] = {PATHTOF(data\sound\jam_error.wav), db+6, 1};
 		titles[] = {0, "ERROR: Too weak Signal"};
 	};
+	class radioError : spectrumjamerror
+	{
+		titles[] = {0, "ERROR: Missing Icom radio in inventory"};
+	};
 	class ugvmotor
 	{
 		name = "UGV motor sound";

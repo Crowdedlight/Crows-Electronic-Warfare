@@ -22,6 +22,11 @@ if (!isNull GVAR(isJammingDrone)) then {
 	GVAR(isJammingDrone) = objNull;
 };
 
+// check if listening to radio
+if (GVAR(listeningToIcom)) then {
+	call FUNC(listenToRadioStop);
+};
+
 // check if current weapon is hgun_esd
 if (!("hgun_esd_" in (currentWeapon player))) exitWith {}; 
 
