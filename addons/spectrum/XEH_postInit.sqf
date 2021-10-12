@@ -20,3 +20,17 @@ private _removeId = [QGVAR(removeBeacon), FUNC(removeBeacon)] call CBA_fnc_addEv
 // event listener to enable/disable TFAR signal sourcing
 private _tfarTrackingId = [QGVAR(toggleRadioTracking), FUNC(toggleRadioTracking)] call CBA_fnc_addEventHandler;
 
+// eventhandler for respawn as the TFAR EH we are using is removed upon respawn
+player addEventHandler ["Respawn", {
+    params ["_unit", "_corpse"];
+	// if TFAR tracking is enabled we reapply the TFAR eventhandler
+	if (GVAR(radioTrackingEnabled)) then {
+    	[QGVAR(radioTrackingBroadcastLocal), "OnTangent", FUNC(radioTrackingBroadcastLocal), _unit] call TFAR_fnc_addEventHandler;
+	};
+}];
+
+// eventhandler for RC'ing as zeus. To give new unit the TFAR EH. Gotta spawn it to wait for zeus to be registered
+// Set for all players, as this event can only be triggered by zeus' anyway
+private _zeusRcEventStartId = ["zen_remoteControlStarted", FUNC(eventZeusStartRC)] call CBA_fnc_addEventHandler;
+private _zeusRcEventStopId = ["zen_remoteControlStopped", FUNC(eventZeusStopRC)] call CBA_fnc_addEventHandler;
+

@@ -41,6 +41,7 @@ _settings params["_targetRadio", "_targetRadioType", "_targetFreq", "_targetCode
 private _debugCode = _icom call TFAR_fnc_getSwRadioCode;
 private _debugfreq = _icom call TFAR_fnc_getSwFrequency;
 
+// TODO remove debugging
 systemChat str(_debugCode);
 systemChat str(_debugfreq);
 
