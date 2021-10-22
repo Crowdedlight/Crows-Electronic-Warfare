@@ -13,6 +13,8 @@ if (!hasInterface) exitWith {};
 // spectrum device handlers and default settings are set in "spectrumEnableSettingChanged" to allow for disable/enable of device
 //  The add beacon code and zeus modules are still active, as the disable can be set individually. And as long as the local handlers are disabled, they can't interferer.
 
+GVAR(trackerUnit) = player; // what unit is used as tracker. Nessecary for zeus RC support
+
 // register event callback, "addBeacon", as rest is local, event runs local jam function that adds to array and starts the while loop 
 private _addId = [QGVAR(addBeacon), FUNC(addBeacon)] call CBA_fnc_addEventHandler;
 private _removeId = [QGVAR(removeBeacon), FUNC(removeBeacon)] call CBA_fnc_addEventHandler;
@@ -23,6 +25,10 @@ private _tfarTrackingId = [QGVAR(toggleRadioTracking), FUNC(toggleRadioTracking)
 // eventhandler for respawn as the TFAR EH we are using is removed upon respawn
 player addEventHandler ["Respawn", {
     params ["_unit", "_corpse"];
+
+	// to support zeus RC tracking, changed to variable system for tracker. Reset tracker upon respawn
+	GVAR(trackerUnit) = player;
+
 	// if TFAR tracking is enabled we reapply the TFAR eventhandler
 	if (GVAR(radioTrackingEnabled)) then {
     	[QGVAR(radioTrackingBroadcastLocal), "OnTangent", FUNC(radioTrackingBroadcastLocal), _unit] call TFAR_fnc_addEventHandler;

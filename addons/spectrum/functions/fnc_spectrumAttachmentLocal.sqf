@@ -11,9 +11,13 @@ Script being called by PFH to handle updates for frequencies depending on what a
 *///////////////////////////////////////////////
 
 // exit if spectrum analyzer is not equipped. 
-if (!("hgun_esd_" in (handgunWeapon player))) exitWith {}; 
+private _tracker = GVAR(trackerUnit);
+// safety check
+if (isNull _tracker || !alive _tracker) then {_tracker = player};
 
-private _muzzleAttachment = (handgunItems player) select 0;
+if (!("hgun_esd_" in (handgunWeapon _tracker))) exitWith {}; 
+
+private _muzzleAttachment = (handgunItems _tracker) select 0;
 
 // don't reset vars and calculate if we have same attachment as last time, should make us only recalculate upon changes
 if (GVAR(LastSpectrumMuzzleAttachment) == _muzzleAttachment) exitWith {};
@@ -29,4 +33,4 @@ GVAR(spectrumRangeAntenna) = _selectedAntenna;
 GVAR(LastSpectrumMuzzleAttachment) = _muzzleAttachment;
 
 // set local params
-[_minFreq, _maxFreq] call FUNC(setSpectrumFreq);
+[_minFreq, _maxFreq, _muzzleAttachment] call FUNC(setSpectrumFreq);

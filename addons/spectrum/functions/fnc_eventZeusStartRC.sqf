@@ -11,6 +11,9 @@ fires when zeus start to RC an unit. Used for TFAR tracking
 *///////////////////////////////////////////////
 params ["_unit"];
 
+// set new unit as tracker, for zeus RC spectrum tracking support
+GVAR(trackerUnit) = _unit;
+
 // if tfar tracking is disabled, exit
 if (!GVAR(radioTrackingEnabled)) exitWith {};
 
