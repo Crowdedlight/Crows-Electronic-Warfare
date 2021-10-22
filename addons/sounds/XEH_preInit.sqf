@@ -44,6 +44,20 @@ GVAR(soundAttributes) set ["dog_barking", [12.4, "z\crowsEW\addons\sounds\data\d
 GVAR(soundAttributes) set ["dog_bark_german", [19, "z\crowsEW\addons\sounds\data\dog_bark_german.ogg", "Dog, German Shepard, Barking (19s)"]];
 GVAR(soundAttributes) set ["slap", [1, "z\crowsEW\addons\sounds\data\slap.ogg", "Slap (1s)"]];
 
+// sound configs from voice-pack sounds
+GVAR(soundAttributes) set ["sos_morse_code", [6, "z\crowsEW\addons\spectrum\data\voice\morse_code\sos_morse.ogg", "Morse code - SOS (6s)"]];
+GVAR(soundAttributes) set ["what_hath_god_wrought_morse_code", [11.4, "z\crowsEW\addons\spectrum\data\voice\morse_code\sos_morse.ogg", "Morse code - What Hath God Wrought (12s)"]];
+GVAR(soundAttributes) set ["dial_up_modem", [23, "z\crowsEW\addons\spectrum\data\voice\electronic\modem_done.ogg", "Dial Up Modem (23s)"]];
+GVAR(soundAttributes) set ["spaceship_alarm", [3, "z\crowsEW\addons\spectrum\data\voice\electronic\spaceship_alarm_siren.ogg", "Spaceship Alarm (3s)"]];
+GVAR(soundAttributes) set ["electricity_with_buzzing", [5.5, "z\crowsEW\addons\spectrum\data\voice\electronic\electricity_with_buzzing.ogg", "Electricity With Buzzing (6s)"]];
+GVAR(soundAttributes) set ["arcane_blast_hit", [2.6, "z\crowsEW\addons\spectrum\data\voice\alien_electronic\arcane_blast_hit.ogg", "Arcane Blast Hit (3s)"]];
+GVAR(soundAttributes) set ["custom_reaper_horn", [3.5, "z\crowsEW\addons\spectrum\data\voice\alien_electronic\custom_reaper_horn.ogg", "Reaper Horn (4s)"]];
+GVAR(soundAttributes) set ["futuristic_machine_turn_off", [2.4, "z\crowsEW\addons\spectrum\data\voice\alien_electronic\futuristic_machine_turn_off.ogg", "Futuristic Machine Turn Off (3s)"]];
+GVAR(soundAttributes) set ["futuristic_machine_turn_on", [2, "z\crowsEW\addons\spectrum\data\voice\alien_electronic\futuristic_machine_turn_on.ogg", "Futuristic Machine Turn On (2s)"]];
+GVAR(soundAttributes) set ["large_alien_machine_call", [6.9, "z\crowsEW\addons\spectrum\data\voice\alien_electronic\large_alien_machine_call.ogg", "Large Alien Machine Call (7s)"]];
+GVAR(soundAttributes) set ["transformer_malfunction", [4.4, "z\crowsEW\addons\spectrum\data\voice\alien_electronic\transformer_malfunction.ogg", "Transformer Malfunction (5s)"]];
+
+
 // Base game sounds - none yet. Might come if I add dubbing
 
 
