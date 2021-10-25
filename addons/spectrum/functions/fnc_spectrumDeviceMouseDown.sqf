@@ -40,6 +40,7 @@ private _frequencies = [_selectedFreqMin, _selectedFreqMax] call FUNC(getActiveB
 private _unit = objNull;
 private _range = 0;
 private _jam = false;
+private _radio = false;
 private _failed = false;
 
 // if type radiochatter, get random selection of voice clip, and play it. 
@@ -116,14 +117,20 @@ private _timeActive = 5;
 					};
 				}
 			};
-			breakOut "loopFreq"; //breakout as even if multiple signals, we only count the first we react on. 
+			breakOut "loopFreq";
+		};
+		case "radio": {
+			// listen to signal instantly
+			_radio = true;
+			_timeActive = 0.1;
+			breakOut "loopFreq";
 		};
 	};
 } forEach _frequencies; // [_unit, _frequency, _scanRange, _type]
 
 // spawn function that increments progress over same time interval as duration of voice clip
-GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed] spawn {
-	params["_timeActive", "_jam", "_unit", "_range", "_failAction"];
+GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed, _radio] spawn {
+	params["_timeActive", "_jam", "_unit", "_range", "_failAction", "_radio"];
 
 	private _progress = 0;
 	private _step = 0.1/_timeActive;
@@ -133,6 +140,12 @@ GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed] s
 		missionNamespace setVariable ["#EM_Progress",_progress];
 		_progress = _progress + _step;
 		sleep 0.1;
+	};
+
+	// if type == radio, we can now listen to the radio
+	if (_radio) exitWith {
+		// a TFAR signal, call to start listening to TFAR signal
+		[_unit] call FUNC(listenToRadioStart);
 	};
 
 	// if type == drone, we now apply jamming 

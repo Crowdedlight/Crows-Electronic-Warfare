@@ -12,3 +12,7 @@
 #endif
 
 #include "\z\crowsEW\addons\main\script_macros.hpp"
+
+#define PRIVATE 0 //unusable - only for inheritance
+#define HIDDEN 1 //Hidden in Editor/Curator/Arsenal
+#define PUBLIC 2 //usable and visible

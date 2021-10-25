@@ -17,6 +17,7 @@ private _onConfirm =
 	params ["_dialogResult","_in"];
 	_dialogResult params
 	[
+		"_targets",
 		"_sound",
 		"_range",
 		"_volume"
@@ -24,12 +25,22 @@ private _onConfirm =
 	//Get in params again
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 	
-	// play sound
-	[_pos, _range, _sound, _volume] call EFUNC(sounds,playSoundPos);
+	// manage input on _tarets to get one list
+	_targets = [_targets] call FUNC(getListZenOwnersSelection);
+
+	if (count _targets == 0) then {
+		// play sound
+		[_pos, _range, _sound, _volume, false] call EFUNC(sounds,playSoundPos);
+	} else {
+		// send event
+
+		[QEGVAR(sounds,playSoundLocal), [_pos, _range, _sound, _volume, true], _targets] call CBA_fnc_targetEvent;
+	};
 };
 [
 	"Play Sound (Can't be stopped, be aware of long sounds)", 
 	[
+		["OWNERS",["Targets to play sound. If none is selected it will play globally for all", "If none selected it will play globally, otherwise it will play local only for selected players"],[[],[],[],2], true], //no preselected defaults, and default tab open is players. Forcing defaults to deselect tp selection.
 		["COMBO","Sound",[
 			EGVAR(sounds,soundZeusDisplayKeys),
 			EGVAR(sounds,soundZeusDisplay)

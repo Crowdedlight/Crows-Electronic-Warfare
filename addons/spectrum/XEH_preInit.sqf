@@ -33,6 +33,7 @@ GVAR(radioTrackingAiUnits) = [];
 
 // Jamming variables
 GVAR(isJammingDrone) = objNull;
+GVAR(listeningToIcom) = false;
 
 // POLICE RADIO PACK 
 GVAR(voiceLinesPoliceList) = [

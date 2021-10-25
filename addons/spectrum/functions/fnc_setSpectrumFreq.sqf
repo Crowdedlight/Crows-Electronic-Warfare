@@ -10,7 +10,18 @@ Sets the min and max of frequency and the span that should be "selectable".
 
 *///////////////////////////////////////////////
 
-params ["_minFreq", "_maxFreq"];
+params ["_minFreq", "_maxFreq", ["_antenna", ""]];
+
+// check for flooring - If we are above current antennas max or min, clamp it
+if (_antenna == "") then {
+	_antenna = (handgunItems GVAR(trackerUnit)) select 0;
+};
+private _resultArr = [_antenna] call FUNC(getSpectrumDefaultFreq);
+_resultArr params ["_minFreqDefault", "_maxFreqDefault", "_selectedAntenna"];
+
+// check and clamp
+if (_minFreq < _minFreqDefault) then {_minFreq = _minFreqDefault};
+if (_maxFreq > _maxFreqDefault) then {_maxFreq = _maxFreqDefault};
 
 missionNamespace setVariable ["#EM_FMin", _minFreq];
 missionNamespace setVariable ["#EM_FMax", _maxFreq];

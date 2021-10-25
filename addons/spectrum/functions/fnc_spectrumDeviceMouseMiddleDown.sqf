@@ -20,7 +20,7 @@ private _newMaxFreq = 0;
 
 if (_shift) then {
 	// get antenna 
-	private _muzzleAttachment = (handgunItems player) select 0;
+	private _muzzleAttachment = (handgunItems GVAR(trackerUnit)) select 0;
 	// set values to default antenna
 	private _resultArr = [_muzzleAttachment] call FUNC(getSpectrumDefaultFreq);
 	_resultArr params ["_minFreq", "_maxFreq", "_selectedAntenna"];
