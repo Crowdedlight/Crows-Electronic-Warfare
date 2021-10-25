@@ -42,7 +42,7 @@ if (_buttonDown) then {
 	// EMP support, test if radio is disabled, and then do not create a signal
 	if (!([_radio] call TFAR_fnc_radioOn)) exitWith {};
 
-	systemChat format["freq: %1, range: %2, onTangent: btnDown: %3", _freq, _range, _buttonDown];
+	// systemChat format["freq: %1, range: %2, onTangent: btnDown: %3", _freq, _range, _buttonDown];
 
 	if (_freq isEqualTo -1 || _range isEqualTo -1) exitWith {};
 	
