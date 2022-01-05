@@ -30,6 +30,12 @@ class Extended_InitPost_Eventhandlers {
 	};
 	class UAV_03_dynamicLoadout_base_F {
 		init = QUOTE( _this call FUNC(initDroneSignals) );
+	};	
+	class UGV_02_Demining_Base_F {
+		init = QUOTE( _this call FUNC(initDroneSignals) );
+	};	
+	class UAV_06_antimine_base_F {
+		init = QUOTE( _this call FUNC(initDroneSignals) );
 	};
 };
 
