@@ -9,7 +9,7 @@ Return: none
 Plays sound for everyone once
 
 *///////////////////////////////////////////////
-params ["_position", "_range", "_sound", "_volume", "_local"];
+params ["_position", "_range", "_sound", "_volume", ["_local", false]];
 
 // get loop-sleep time for the sound, this is the length of the sound so it repeats itself. 
 private _soundAttri = GVAR(soundAttributes) get _sound;
