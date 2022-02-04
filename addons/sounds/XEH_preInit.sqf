@@ -46,7 +46,7 @@ GVAR(soundAttributes) set ["slap", [1, "z\crowsEW\addons\sounds\data\slap.ogg", 
 
 // sound configs from voice-pack sounds
 GVAR(soundAttributes) set ["sos_morse_code", [6, "z\crowsEW\addons\spectrum\data\voice\morse_code\sos_morse.ogg", "Morse code - SOS (6s)"]];
-GVAR(soundAttributes) set ["what_hath_god_wrought_morse_code", [11.4, "z\crowsEW\addons\spectrum\data\voice\morse_code\sos_morse.ogg", "Morse code - What Hath God Wrought (12s)"]];
+GVAR(soundAttributes) set ["what_hath_god_wrought_morse_code", [11.4, "z\crowsEW\addons\spectrum\data\voice\morse_code\what_hath_god_wrought.ogg", "Morse code - What Hath God Wrought (12s)"]];
 GVAR(soundAttributes) set ["dial_up_modem", [23, "z\crowsEW\addons\spectrum\data\voice\electronic\modem_done.ogg", "Dial Up Modem (23s)"]];
 GVAR(soundAttributes) set ["spaceship_alarm", [3, "z\crowsEW\addons\spectrum\data\voice\electronic\spaceship_alarm_siren.ogg", "Spaceship Alarm (3s)"]];
 GVAR(soundAttributes) set ["electricity_with_buzzing", [5.5, "z\crowsEW\addons\spectrum\data\voice\electronic\electricity_with_buzzing.ogg", "Electricity With Buzzing (6s)"]];
