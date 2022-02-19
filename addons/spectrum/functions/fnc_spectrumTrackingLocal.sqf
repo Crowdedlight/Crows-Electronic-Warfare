@@ -15,8 +15,13 @@ if (count GVAR(beacons) == 0) exitWith {
     missionNamespace setVariable ["#EM_Values", []];
 };
 
-// only calculate if we got analyzer as player
-if (!("hgun_esd_" in (handgunWeapon player))) exitWith {}; 
+// set tracker unit
+private _tracker = GVAR(trackerUnit);
+// add check for race condition of if zeus RC messed up and not got reset correctly on unit death. 
+if (isNull _tracker || !alive _tracker) then {_tracker = player};
+
+// only calculate if we got analyzer as tracker
+if (!("hgun_esd_" in (handgunWeapon _tracker))) exitWith {}; 
 
 // only work if we got an antenna on 
 if (GVAR(spectrumRangeAntenna) == -1) exitWith {
@@ -38,13 +43,8 @@ private _removeArr = [];
 // update list
 GVAR(beacons) = GVAR(beacons) - _removeArr;
 
-
 // for each beacon calculate direction, and strength based on distance.
 private _sigsArray = [];
-private _tracker = GVAR(trackerUnit);
-// add check for race condition of if zeus RC messed up and not got reset correctly on unit death. 
-if (isNull _tracker || !alive _tracker) then {_tracker = player};
-
 {
 	_x params [["_target",objNull,[objNull]], ["_frequency", 0, [0]], ["_scanRange",300, [0]], ["_type", "zeus", [""]]];
 
