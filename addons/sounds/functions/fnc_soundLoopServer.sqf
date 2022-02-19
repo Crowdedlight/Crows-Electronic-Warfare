@@ -20,7 +20,7 @@ private _deleteArr = [];
 
 // loop through all sounds on list
 {
-	_x params ["_unit", "_loopTime", "_range", "_repeat", "_aliveCondition", "_sound", "_enabled", "_lastPlayed", "_delayInitial", "_volume"]; 
+	_x params ["_unit", "_loopTime", "_range", "_repeat", "_aliveCondition", "_sound", "_enabled", "_lastPlayed", "_delayInitial", "_volume", "_displayName"]; 
 
 	// remove sound if obj is null or if not alive, and alive var is true
 	if (isNull _unit || (_aliveCondition && !alive _unit)) then {
@@ -55,4 +55,6 @@ private _deleteArr = [];
 // update array if deletions
 if (count _deleteArr > 0) then {
 	GVAR(soundList) = GVAR(soundList) - _deleteArr;
+	// update for zeus' to see change
+	SETMVAR(GVAR(activeSounds),GVAR(soundList));
 };
