@@ -43,6 +43,10 @@ GVAR(soundAttributes) set ["stuka_siren", [15.4, "z\crowsEW\addons\sounds\data\s
 GVAR(soundAttributes) set ["dog_barking", [12.4, "z\crowsEW\addons\sounds\data\dog_barking.ogg", "Dog Barking (12s)"]];
 GVAR(soundAttributes) set ["dog_bark_german", [19, "z\crowsEW\addons\sounds\data\dog_bark_german.ogg", "Dog, German Shepard, Barking (19s)"]];
 GVAR(soundAttributes) set ["slap", [1, "z\crowsEW\addons\sounds\data\slap.ogg", "Slap (1s)"]];
+GVAR(soundAttributes) set ["telephone_ringing", [11.6, "z\crowsEW\addons\sounds\data\telephone_ring_sound_effect.ogg", "Telephone Ringing (12s)"]];
+GVAR(soundAttributes) set ["old_telephone_ringing", [12.8, "z\crowsEW\addons\sounds\data\old_fashioned_telephone_ringing_sound.ogg", "Old Telephone Ringing (13s)"]];
+GVAR(soundAttributes) set ["chainsaw_cutting", [13.6, "z\crowsEW\addons\sounds\data\chainsaw_cutting.ogg", "Chainsaw Cutting (14s)"]];
+
 
 // sound configs from voice-pack sounds
 GVAR(soundAttributes) set ["sos_morse_code", [6, "z\crowsEW\addons\spectrum\data\voice\morse_code\sos_morse.ogg", "Morse code - SOS (6s)"]];
