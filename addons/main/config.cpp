@@ -12,6 +12,8 @@ class CfgPatches {
     };
 };
 
+
 PRELOAD_ADDONS;
 
 #include "CfgEventhandlers.hpp"
+#include "CfgUnitInsignia.hpp"

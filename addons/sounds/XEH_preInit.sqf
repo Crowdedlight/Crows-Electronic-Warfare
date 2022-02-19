@@ -46,6 +46,9 @@ GVAR(soundAttributes) set ["slap", [1, "z\crowsEW\addons\sounds\data\slap.ogg", 
 GVAR(soundAttributes) set ["telephone_ringing", [11.6, "z\crowsEW\addons\sounds\data\telephone_ring_sound_effect.ogg", "Telephone Ringing (12s)"]];
 GVAR(soundAttributes) set ["old_telephone_ringing", [12.8, "z\crowsEW\addons\sounds\data\old_fashioned_telephone_ringing_sound.ogg", "Old Telephone Ringing (13s)"]];
 GVAR(soundAttributes) set ["chainsaw_cutting", [13.6, "z\crowsEW\addons\sounds\data\chainsaw_cutting.ogg", "Chainsaw Cutting (14s)"]];
+GVAR(soundAttributes) set ["fire_sequence_init_5min", [4.5, "z\crowsEW\addons\sounds\data\fire_sequence_initiated_5min.ogg", "Fire Sequence Init. 5min (5s)"]];
+GVAR(soundAttributes) set ["device_armed", [1.1, "z\crowsEW\addons\sounds\data\device_armed.ogg", "Device Armed (1s)"]];
+GVAR(soundAttributes) set ["device_disarmed", [1.5, "z\crowsEW\addons\sounds\data\device_disarmed.ogg", "Device Disarmed (2s)"]];
 
 
 // sound configs from voice-pack sounds
