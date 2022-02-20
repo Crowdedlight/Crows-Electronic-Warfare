@@ -43,10 +43,17 @@ GVAR(soundAttributes) set ["stuka_siren", [15.4, "z\crowsEW\addons\sounds\data\s
 GVAR(soundAttributes) set ["dog_barking", [12.4, "z\crowsEW\addons\sounds\data\dog_barking.ogg", "Dog Barking (12s)"]];
 GVAR(soundAttributes) set ["dog_bark_german", [19, "z\crowsEW\addons\sounds\data\dog_bark_german.ogg", "Dog, German Shepard, Barking (19s)"]];
 GVAR(soundAttributes) set ["slap", [1, "z\crowsEW\addons\sounds\data\slap.ogg", "Slap (1s)"]];
+GVAR(soundAttributes) set ["telephone_ringing", [11.6, "z\crowsEW\addons\sounds\data\telephone_ring_sound_effect.ogg", "Telephone Ringing (12s)"]];
+GVAR(soundAttributes) set ["old_telephone_ringing", [12.8, "z\crowsEW\addons\sounds\data\old_fashioned_telephone_ringing_sound.ogg", "Old Telephone Ringing (13s)"]];
+GVAR(soundAttributes) set ["chainsaw_cutting", [13.6, "z\crowsEW\addons\sounds\data\chainsaw_cutting.ogg", "Chainsaw Cutting (14s)"]];
+GVAR(soundAttributes) set ["fire_sequence_init_5min", [4.5, "z\crowsEW\addons\sounds\data\fire_sequence_initiated_5min.ogg", "Fire Sequence Init. 5min (5s)"]];
+GVAR(soundAttributes) set ["device_armed", [1.1, "z\crowsEW\addons\sounds\data\device_armed.ogg", "Device Armed (1s)"]];
+GVAR(soundAttributes) set ["device_disarmed", [1.5, "z\crowsEW\addons\sounds\data\device_disarmed.ogg", "Device Disarmed (2s)"]];
+
 
 // sound configs from voice-pack sounds
 GVAR(soundAttributes) set ["sos_morse_code", [6, "z\crowsEW\addons\spectrum\data\voice\morse_code\sos_morse.ogg", "Morse code - SOS (6s)"]];
-GVAR(soundAttributes) set ["what_hath_god_wrought_morse_code", [11.4, "z\crowsEW\addons\spectrum\data\voice\morse_code\sos_morse.ogg", "Morse code - What Hath God Wrought (12s)"]];
+GVAR(soundAttributes) set ["what_hath_god_wrought_morse_code", [11.4, "z\crowsEW\addons\spectrum\data\voice\morse_code\what_hath_god_wrought.ogg", "Morse code - What Hath God Wrought (12s)"]];
 GVAR(soundAttributes) set ["dial_up_modem", [23, "z\crowsEW\addons\spectrum\data\voice\electronic\modem_done.ogg", "Dial Up Modem (23s)"]];
 GVAR(soundAttributes) set ["spaceship_alarm", [3, "z\crowsEW\addons\spectrum\data\voice\electronic\spaceship_alarm_siren.ogg", "Spaceship Alarm (3s)"]];
 GVAR(soundAttributes) set ["electricity_with_buzzing", [5.5, "z\crowsEW\addons\spectrum\data\voice\electronic\electricity_with_buzzing.ogg", "Electricity With Buzzing (6s)"]];

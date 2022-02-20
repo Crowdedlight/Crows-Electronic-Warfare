@@ -33,7 +33,6 @@ private _onConfirm =
 		[_pos, _range, _sound, _volume, false] call EFUNC(sounds,playSoundPos);
 	} else {
 		// send event
-
 		[QEGVAR(sounds,playSoundLocal), [_pos, _range, _sound, _volume, true], _targets] call CBA_fnc_targetEvent;
 	};
 };

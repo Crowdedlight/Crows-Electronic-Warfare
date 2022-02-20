@@ -98,3 +98,6 @@ Sounds used under [Attribution 4.0 International (CC BY 4.0)](https://creativeco
 Stuka Siren Sound Effect by Alexander: https://orangefreesounds.com/stuka-siren-sound-effect/  
 Dog Barking Noise by Alexander: https://orangefreesounds.com/dog-barking-noise/  
 Woof Woof by Alexander: https://orangefreesounds.com/woof-woof/  
+Telephone Ring Sound Effect BY SPANAC: https://www.freesoundslibrary.com/telephone-ring-sound-effect/ 
+Old Fashioned Telephone Ringing Sound BY SPANAC: https://www.freesoundslibrary.com/old-fashioned-telephone-ringing-sound/ 
+Cutting Tree BY SPANAC: https://www.freesoundslibrary.com/cutting-tree/ 

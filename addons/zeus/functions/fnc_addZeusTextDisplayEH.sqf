@@ -29,13 +29,13 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 		// if not within 500m, we don't draw it as the text does not scale and disappear with distance
 		if (_dist > 500) then {continue;};
 
-		// draw icon on relative pos ==> offset: x: 0, y: -5
-		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _unit, 0, 0, 0, format["RadioChatter(%1)", _voicepack], 1, 0.03, "RobotoCondensed", "center", false, 0, 0];
+		// draw icon on relative pos z: 0
+		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _unit, 0, 0, 0, format["RadioChatter(%1)", _voicepack], 1, 0.03, "RobotoCondensed", "center", false];
 	} forEach EGVAR(spectrum,radioTrackingAiUnits);
 
 	// Spectrum Signal 
 	{
-		// calculate distance from zeus camera to unit and post in systemchat 
+		// calculate distance from zeus camera to unit
 		private _unit = _x select 0;
 		private _dist = _zeusPos distance _unit;
 
@@ -47,15 +47,16 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 
 		// draw icon on relative pos 
 		private _txt = format["SignalSource(%1, RNG:%2)", _x select 1, round(_x select 2)];
-		// offset: x: 0, y: -5
-		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _unit, 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false, 0, 0.025];
+		// offset: z: -0.5
+		private _pos = ASLToAGL getPosASL _unit;
+		drawIcon3D ["", [1,0,0,1], [_pos#0, _pos#1, _pos#2-0.5], 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
 	} forEach EGVAR(spectrum,beacons);
 
 	// Jammer
 	{
 		_y params ["_jamObj", "_radius", "_strength", "_enabled"];
 
-		// calculate distance from zeus camera to unit and post in systemchat 
+		// calculate distance from zeus camera to unit
 		private _dist = _zeusPos distance _jamObj;
 
 		// if not within 500m, we don't draw it as the text does not scale and disappear with distance
@@ -63,38 +64,39 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 
 		// draw icon on relative pos 
 		private _txt = format["Jammer(STR:%1)", _strength];
-		// offset: x: 0, y: 0
-		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _jamObj, 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false, 0, 0];
+		// offset: z: 0
+		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _jamObj, 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
 	} forEach EGVAR(main,jamMap);
 
 	// AddSound 
 	{
 		_x params ["_soundObj", "_loopTime", "_range", "_repeat", "_aliveCondition", "_soundPath", "_enabled", "_lastPlayed", "_startDelay", "_volume", "_displayName"];
 		
-		// calculate distance from zeus camera to unit and post in systemchat 
+		// calculate distance from zeus camera to unit
 		private _dist = _zeusPos distance _soundObj;
 
 		// if not within 500m, we don't draw it as the text does not scale and disappear with distance
 		if (_dist > 500) then {continue;};
 
 		// draw icon on relative pos 
-		private _txt = format["Sound(%1:  RNG:%2)", _displayName, _range];
-		// offset: x: 0, y: 5
-		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _soundObj, 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false, 0, 0.012];
+		private _txt = format["Sound(%1:  RNG:%2, Active:%3)", _displayName, _range, _enabled];
+		// offset: z: 0.5
+		private _pos = ASLToAGL getPosASL _soundObj;
+		drawIcon3D ["", [1,0,0,1], [_pos#0, _pos#1, _pos#2+0.5], 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
 
-	} forEach EGVAR(sounds,soundList);
+	} forEach GETMVAR(EGVAR(sounds,activeSounds),[]);
 	// Jammed units
-	private _jammedUnits = missionNamespace getVariable [QEGVAR(spectrum,activeJammedUnits), []];
 	{
-		// calculate distance from zeus camera to unit and post in systemchat 
+		// calculate distance from zeus camera to unit
 		private _dist = _zeusPos distance _x;
 
 		// if not within 500m, we don't draw it as the text does not scale and disappear with distance
 		if (_dist > 500) then {continue;};
 
-		// draw icon on relative pos 
+		// draw icon on relative pos => Offset: z: -0.6
 		private _txt = "JAMMED";
-		
-		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _x, 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false, 0, -0.045];
-	} forEach _jammedUnits;
+		// offset: z: 1
+		private _pos = ASLToAGL getPosASL _x;
+		drawIcon3D ["", [1,0,0,1], [_pos#0, _pos#1, _pos#2+1], _txt, 1, 0.03, "RobotoCondensed", "center", false];
+	} forEach GETMVAR(EGVAR(spectrum,activeJammedUnits),[]);
 }];

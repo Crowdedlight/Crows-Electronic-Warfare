@@ -18,7 +18,7 @@ GVAR(zeusTextDisplayKeybind) = [
 	["Show help display text", "Shows text in zeus view for units with applied modules"], 
 	{GVAR(zeusTextDisplay) = !GVAR(zeusTextDisplay)}, 
 	"", 
-	[DIK_I, [true, true, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
+	[DIK_I, [true, true, false]], // [DIK code, [Shift?, Ctrl?, Alt?]] => default: ctrl + shift + i
 	false] call CBA_fnc_addKeybind;
 
 // spawn function as we need to check if zeus, and we cannot do that at mission time 0 due to race-condition
