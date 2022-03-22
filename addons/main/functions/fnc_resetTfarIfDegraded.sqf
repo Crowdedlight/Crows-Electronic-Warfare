@@ -2,11 +2,9 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fnc_actionJamToggle.sqf
-Parameters: jammer
+File: fnc_resetTfarIfDegraded.sqf
+Parameters: unit
 Return: none
-
-toggle enable/disable jam on the radio tower. Action option
 
 *///////////////////////////////////////////////
 params ["_unit"];
