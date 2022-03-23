@@ -26,18 +26,10 @@ private _removeList = [];
 		continue;
 	};
 
-	// get nearest men, radius saved
-	private _effectUnitsList = _emitter nearEntities [["CAManBase", "LandVehicle", "Helicopter", "Plane", "Ship"], _radius];
-	// get crew of all vehicles
-	private _effectUnits = [];
-	{
-		_effectUnits append (crew _x);
-	} forEach _effectUnitsList;
+	// get players in range. Using this method is much cheaper as it only iterates players inside a given area
+	private _effectUnits = (allPlayers - entities "HeadlessClient_F") inAreaArray [getPos _emitter, _radius, _radius, 0, false, _radius];
 	
 	{
-		// check if player, otherwise skip. AI won't use TFAR. TODO future, handle remote control as zeus to also boost RC'ed unit if in range?
-		if (!isPlayer _x) then {continue;};
-
 		// check if player already in effect, then we skip
 		if (_x in GVAR(satcom_boosted_units)) then {continue;};
 

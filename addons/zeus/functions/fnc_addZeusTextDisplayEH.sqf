@@ -99,4 +99,19 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 		private _pos = ASLToAGL getPosASL _x;
 		drawIcon3D ["", [1,0,0,1], [_pos#0, _pos#1, _pos#2+1], _txt, 1, 0.03, "RobotoCondensed", "center", false];
 	} forEach GETMVAR(EGVAR(spectrum,activeJammedUnits),[]);
+	{
+		_y params ["_obj", "_radius"];
+
+		// calculate distance from zeus camera to unit
+		private _dist = _zeusPos distance _obj;
+
+		// if not within 500m, we don't draw it as the text does not scale and disappear with distance
+		if (_dist > 500) then {continue;};
+
+		// draw icon on relative pos 
+		private _txt = format["SATCOM (RNG:%1)", _radius];
+		// offset: z: 0
+		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _obj, 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
+
+	} forEach GETMVAR(EGVAR(main,satcomActiveList),[]);
 }];
