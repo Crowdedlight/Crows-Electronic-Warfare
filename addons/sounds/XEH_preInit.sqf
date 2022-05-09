@@ -49,6 +49,7 @@ GVAR(soundAttributes) set ["chainsaw_cutting", [13.6, "z\crowsEW\addons\sounds\d
 GVAR(soundAttributes) set ["fire_sequence_init_5min", [4.5, "z\crowsEW\addons\sounds\data\fire_sequence_initiated_5min.ogg", "Fire Sequence Init. 5min (5s)"]];
 GVAR(soundAttributes) set ["device_armed", [1.1, "z\crowsEW\addons\sounds\data\device_armed.ogg", "Device Armed (1s)"]];
 GVAR(soundAttributes) set ["device_disarmed", [1.5, "z\crowsEW\addons\sounds\data\device_disarmed.ogg", "Device Disarmed (2s)"]];
+GVAR(soundAttributes) set ["throat_singing", [35, "z\crowsEW\addons\sounds\data\throat_singing.ogg", "Throat Singing (35s)"]];
 
 
 // sound configs from voice-pack sounds
