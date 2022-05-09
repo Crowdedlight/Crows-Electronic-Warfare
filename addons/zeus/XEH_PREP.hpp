@@ -14,3 +14,5 @@ PREP(addRandomRadioTrackingChatterZeus);
 PREP(removeRandomRadioTrackingChatterZeus);
 PREP(addZeusTextDisplayEH);
 PREP(getListZenOwnersSelection);
+PREP(addSatcomZeus);
+PREP(removeSatcomZeus);

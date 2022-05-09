@@ -54,7 +54,9 @@ private _wait = [player] spawn
 		private _tfarModules = [
 			["Set TFAR Jammer",{_this call FUNC(addJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
 			["Remove TFAR Jammer",{_this call FUNC(removeJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
-			["Toggle Radio Tracking",{_this call FUNC(setRadioTrackingZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
+			["Toggle Radio Tracking",{_this call FUNC(setRadioTrackingZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
+			["Set SATCOM",{_this call FUNC(addSatcomZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"], //TODO SATELITE DISH ICON
+			["Remove SATCOM",{_this call FUNC(removeSatcomZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"] //TODO SATELITE DISH ICON
 		];
 
 		// return the ones to load		
