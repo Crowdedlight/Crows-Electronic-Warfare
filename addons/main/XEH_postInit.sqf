@@ -28,9 +28,9 @@ if (isServer) then {
 };
 
 // DEBUG
-GVAR(debugbla) = [{
-	systemChat format ["Send: %1, Recv: %2", player getVariable ["tf_sendingDistanceMultiplicator", -1],player getVariable ["tf_receivingDistanceMultiplicator", -1]];
-	} , 0.5] call CBA_fnc_addPerFrameHandler; 
+// GVAR(debugbla) = [{
+// 	systemChat format ["Send: %1, Recv: %2", player getVariable ["tf_sendingDistanceMultiplicator", -1],player getVariable ["tf_receivingDistanceMultiplicator", -1]];
+// 	} , 0.5] call CBA_fnc_addPerFrameHandler; 
 
 // zeus only 
 // spawn function as we need to check if zeus, and we cannot do that at mission time 0 due to race-condition

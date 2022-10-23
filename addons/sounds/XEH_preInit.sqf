@@ -33,7 +33,7 @@ GVAR(soundAttributes) set ["sad_song", [69, "z\crowsEW\addons\sounds\data\sad_so
 GVAR(soundAttributes) set ["space_ship_radar", [8, "z\crowsEW\addons\sounds\data\space_ship_radar.ogg", "Space Ship Radar (8s)"]];
 GVAR(soundAttributes) set ["t_rex_growl", [5, "z\crowsEW\addons\sounds\data\t_rex_growl.ogg", "T-REX Growl (5s)"]];
 GVAR(soundAttributes) set ["t_rex_roar", [4, "z\crowsEW\addons\sounds\data\t_rex_roar.ogg", "T-REX Roar (4s)"]];
-GVAR(soundAttributes) set ["this_statement_is_false", [6, "z\crowsEW\addons\sounds\data\this_statement_is_false.ogg", "(spooky) This Statement Is False (6s)"]];
+GVAR(soundAttributes) set ["this_statement_is_false", [6, "z\crowsEW\addons\sounds\data\this_statement_is_false.ogg", "Spooky. This Statement Is False (6s)"]];
 GVAR(soundAttributes) set ["tripod_horn_1", [8, "z\crowsEW\addons\sounds\data\tripod_horn_1.ogg", "Tripod Horn 1 (8s)"]];
 GVAR(soundAttributes) set ["tripod_horn_blast", [10, "z\crowsEW\addons\sounds\data\tripod_horn_blast.ogg", "Tripos Horn Blast (10s)"]];
 GVAR(soundAttributes) set ["wilhelm_scream", [1.2, "z\crowsEW\addons\sounds\data\wilhelm_scream.ogg", "Wilhelm Scream (1.2s)"]];
@@ -50,6 +50,16 @@ GVAR(soundAttributes) set ["fire_sequence_init_5min", [4.5, "z\crowsEW\addons\so
 GVAR(soundAttributes) set ["device_armed", [1.1, "z\crowsEW\addons\sounds\data\device_armed.ogg", "Device Armed (1s)"]];
 GVAR(soundAttributes) set ["device_disarmed", [1.5, "z\crowsEW\addons\sounds\data\device_disarmed.ogg", "Device Disarmed (2s)"]];
 GVAR(soundAttributes) set ["throat_singing", [35, "z\crowsEW\addons\sounds\data\throat_singing.ogg", "Throat Singing (35s)"]];
+GVAR(soundAttributes) set ["machine_open", [4, "z\crowsEW\addons\sounds\data\machine_open.ogg", "Machine Open (4s)"]];
+GVAR(soundAttributes) set ["footsteps_mud", [10.5, "z\crowsEW\addons\sounds\data\footsteps_mud.ogg", "Footsteps Mud (11s)"]];
+GVAR(soundAttributes) set ["spooky_background_hum", [15, "z\crowsEW\addons\sounds\data\spooky_background_hum.ogg", "Spooky Background Hum (15s)"]];
+GVAR(soundAttributes) set ["foliage_rustling", [7.5, "z\crowsEW\addons\sounds\data\foliage_rustling.ogg", "Foliage Rustling (7.5s)"]];
+GVAR(soundAttributes) set ["whisper_ghostly", [2.5, "z\crowsEW\addons\sounds\data\whisper_ghostly.ogg", "Whisper Ghostly (2.5s)"]];
+GVAR(soundAttributes) set ["shadows_sentence", [6.5, "z\crowsEW\addons\sounds\data\shadows_sentence.ogg", "Sometimes the things you see in the shadows... (6.5s)"]];
+GVAR(soundAttributes) set ["whisper_spooky", [7.8, "z\crowsEW\addons\sounds\data\whisper_spooky.ogg", "Whisper Spooky (8s)"]];
+GVAR(soundAttributes) set ["ghost_sigh", [3.2, "z\crowsEW\addons\sounds\data\ghost_sigh.ogg", "Ghost Kid Sigh (3s)"]];
+GVAR(soundAttributes) set ["ghost_child", [5, "z\crowsEW\addons\sounds\data\ghost_child.ogg", "Ghost Child Noise (5s)"]];
+GVAR(soundAttributes) set ["ghost_horror_noise", [11.5, "z\crowsEW\addons\sounds\data\ghost_horror_noise.ogg", "Ghost Horror Noise (11.5s)"]];
 
 
 // sound configs from voice-pack sounds
