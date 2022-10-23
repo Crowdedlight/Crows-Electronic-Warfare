@@ -62,7 +62,10 @@ spark by elliottmoo: https://freesound.org/people/elliottmoo/sounds/189630/
 spark.wav by BMacZero: https://freesound.org/people/BMacZero/sounds/94132/  
 large alien machine call by john129pats: https://freesound.org/people/john129pats/sounds/147907/  
 custom reaper horn.mp3 by darkadders: https://freesound.org/people/darkadders/sounds/217517/  
-
+Four_Voices_Whispering_2.wav by geoneo0: https://freesound.org/people/geoneo0/sounds/193811/ 
+Shadows by carmsie: https://freesound.org/people/carmsie/sounds/271634/ 
+Kid Ghost Sigh.wav by HorrorAudio: https://freesound.org/people/HorrorAudio/sounds/431979/ 
+horror Ghost low-pitched sound.wav by HaraldDeLuca: https://freesound.org/people/HaraldDeLuca/sounds/380511/ 
 
 
 Any sounds used under [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) is listed here with credit:  
@@ -91,6 +94,7 @@ spark 1.wav by ERH: https://freesound.org/people/ERH/sounds/31348/
 FM_on_AM.wav by AlienXXX: https://freesound.org/people/AlienXXX/sounds/243540/  
 Transformer malfunction by complex_waveform: https://freesound.org/people/complex_waveform/sounds/213147/   
 Helicopter by deleted_user_3544904: https://freesound.org/people/deleted_user_3544904/sounds/194250/  
+Walking in the mud by arnaud coutancier: https://freesound.org/people/arnaud%20coutancier/sounds/582400/ 
 
 
 Sounds used under [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) is listed here with credit:
@@ -101,3 +105,11 @@ Woof Woof by Alexander: https://orangefreesounds.com/woof-woof/
 Telephone Ring Sound Effect BY SPANAC: https://www.freesoundslibrary.com/telephone-ring-sound-effect/ 
 Old Fashioned Telephone Ringing Sound BY SPANAC: https://www.freesoundslibrary.com/old-fashioned-telephone-ringing-sound/ 
 Cutting Tree BY SPANAC: https://www.freesoundslibrary.com/cutting-tree/ 
+Whisper swoosh_8(mltprcssng).wav by newlocknew: https://freesound.org/people/newlocknew/sounds/582488/
+Foliage_Rustling_001.wav by duckduckpony: https://freesound.org/people/duckduckpony/sounds/204030/ 
+Ghost Child by RetroGuy23: https://freesound.org/people/RetroGuy23/sounds/651953/ 
+
+
+Sounds used under [Sampling Plus 1.0](https://creativecommons.org/licenses/sampling+/1.0/) is listed here with credit:
+
+scary.wav by Y0Klaver: https://freesound.org/people/Y0Klaver/sounds/109320/ 
