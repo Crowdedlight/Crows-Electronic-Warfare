@@ -176,11 +176,11 @@ GVAR(voiceLinesBritishWeights) = [
 	1
 ];
 
-// each pack in combined hashmap, key -> [list, weights]
+// each pack in combined hashmap, key -> [list, weights, displayname]
 GVAR(voiceLinePacks) = createHashMap;
 // add packs
-GVAR(voiceLinePacks) set ["british", 			[GVAR(voiceLinesBritishList), GVAR(voiceLinesBritishWeights)]];
-GVAR(voiceLinePacks) set ["morsecode", 			[GVAR(voiceLinesMorseCodeList), GVAR(voiceLinesMorseCodeWeights)]];
-GVAR(voiceLinePacks) set ["electronic", 		[GVAR(voiceLinesEletronicList), GVAR(voiceLinesElectronicWeights)]];
-GVAR(voiceLinePacks) set ["alienElectronic", 	[GVAR(voiceLinesAlienEletronicList), GVAR(voiceLinesAlienElectronicWeights)]];
-GVAR(voiceLinePacks) set ["police", 			[GVAR(voiceLinesPoliceList), GVAR(voiceLinesPoliceWeights)]];
+GVAR(voiceLinePacks) set ["british", 			[GVAR(voiceLinesBritishList), GVAR(voiceLinesBritishWeights), "British"]];
+GVAR(voiceLinePacks) set ["morsecode", 			[GVAR(voiceLinesMorseCodeList), GVAR(voiceLinesMorseCodeWeights), "Morse Code"]];
+GVAR(voiceLinePacks) set ["electronic", 		[GVAR(voiceLinesEletronicList), GVAR(voiceLinesElectronicWeights), "Electronic"]];
+GVAR(voiceLinePacks) set ["alienElectronic", 	[GVAR(voiceLinesAlienEletronicList), GVAR(voiceLinesAlienElectronicWeights), "Alien Electronic"]];
+GVAR(voiceLinePacks) set ["police", 			[GVAR(voiceLinesPoliceList), GVAR(voiceLinesPoliceWeights), "Police Radio"]];
