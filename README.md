@@ -66,6 +66,7 @@ Four_Voices_Whispering_2.wav by geoneo0: https://freesound.org/people/geoneo0/so
 Shadows by carmsie: https://freesound.org/people/carmsie/sounds/271634/ 
 Kid Ghost Sigh.wav by HorrorAudio: https://freesound.org/people/HorrorAudio/sounds/431979/ 
 horror Ghost low-pitched sound.wav by HaraldDeLuca: https://freesound.org/people/HaraldDeLuca/sounds/380511/ 
+predator.ogg by Ediecz: https://freesound.org/people/Ediecz/sounds/507771/ 
 
 
 Any sounds used under [Attribution 3.0 Unported (CC BY 3.0)](https://creativecommons.org/licenses/by/3.0/) is listed here with credit:  
@@ -108,6 +109,7 @@ Cutting Tree BY SPANAC: https://www.freesoundslibrary.com/cutting-tree/
 Whisper swoosh_8(mltprcssng).wav by newlocknew: https://freesound.org/people/newlocknew/sounds/582488/
 Foliage_Rustling_001.wav by duckduckpony: https://freesound.org/people/duckduckpony/sounds/204030/ 
 Ghost Child by RetroGuy23: https://freesound.org/people/RetroGuy23/sounds/651953/ 
+tiger roar by videog: https://freesound.org/people/videog/sounds/149190/ 
 
 
 Sounds used under [Sampling Plus 1.0](https://creativecommons.org/licenses/sampling+/1.0/) is listed here with credit:

@@ -60,6 +60,9 @@ GVAR(soundAttributes) set ["whisper_spooky", [7.8, "z\crowsEW\addons\sounds\data
 GVAR(soundAttributes) set ["ghost_sigh", [3.2, "z\crowsEW\addons\sounds\data\ghost_sigh.ogg", "Ghost Kid Sigh (3s)"]];
 GVAR(soundAttributes) set ["ghost_child", [5, "z\crowsEW\addons\sounds\data\ghost_child.ogg", "Ghost Child Noise (5s)"]];
 GVAR(soundAttributes) set ["ghost_horror_noise", [11.5, "z\crowsEW\addons\sounds\data\ghost_horror_noise.ogg", "Ghost Horror Noise (11.5s)"]];
+GVAR(soundAttributes) set ["tiger_growl", [5.3, "z\crowsEW\addons\sounds\data\tiger_growl.ogg", "Tiger Growling (5.3s)"]];
+GVAR(soundAttributes) set ["tiger_roar", [1.8, "z\crowsEW\addons\sounds\data\tiger_roar.ogg", "Tiger Roar (2s)"]];
+GVAR(soundAttributes) set ["predator_clicking_sound", [2, "z\crowsEW\addons\sounds\data\predator_clicking_sound.ogg", "Predator Clicking Sound (2s)"]];
 
 
 // sound configs from voice-pack sounds
