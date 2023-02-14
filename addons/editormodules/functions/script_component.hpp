@@ -1,0 +1,1 @@
+#include "\z\CrowsEW\addons\editormodules\script_component.hpp"

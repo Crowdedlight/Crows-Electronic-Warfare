@@ -8,6 +8,7 @@
 		class EventHandlers {
 			// class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {};
 			init = QUOTE([(_this select 0)] call FUNC(initTriggerEMP););
+			class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {};
 		};
 		displayName = "Device (EMP)";
 		scope = 2; // available in editor

@@ -11,6 +11,9 @@ GVAR(hasItcLandSystems) = isClass (configFile >> "CfgPatches" >> "itc_land_commo
 // register zeus modules
 call FUNC(zeusRegister);
 
+// register hint to zeus callback
+[QGVAR(showHintZeus), FUNC(showHintZeus)] call CBA_fnc_addEventHandler;
+
 // register CBA keybinding to toggle zeus-drawn text
 GVAR(zeusTextDisplayKeybind) = [
 	["Crows Electronic Warfare", "Zeus"],

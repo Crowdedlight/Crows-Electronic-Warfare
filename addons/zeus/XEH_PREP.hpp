@@ -16,3 +16,4 @@ PREP(addZeusTextDisplayEH);
 PREP(getListZenOwnersSelection);
 PREP(addSatcomZeus);
 PREP(removeSatcomZeus);
+PREP(showHintZeus);
