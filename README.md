@@ -17,7 +17,7 @@ I can recommend reading it to see how features work and whats available. The lis
 * **EMP Immunity:** Set any unit or vehicle immune to the EMP effect. Units inside a vehicle set immune is also immune to the effect.   
 * **RadioChatter:** A module to put on AI that simulates the AI using radios to each other. The radio broadcasts a spectrum signal while "transmitting". Configurable by zeus. The player can "listen" to these transmission with the spectrum device if there is enough signal strength. The sounds/voice-lines played depends on the voice-pack used by zeus. There is a few different available.   
 * **Jamming of UGVs:** spawned UGVs/Falcons automatically has a signal source attached to them. This makes them jammable when using the "jamming" antenna on the spectrum device. Jamming it will stop all AI functions and it is possible to walk past it while jammed without it being aware of your presence afterwards. Zeus can remove the signal-source on the UGVs and thus making it unjammable. The units can still be remote-controlled by zeus while jammed.   
-
+* **Multiple Editor modules:** Most of the zeus functions have editor modules that can be synced to triggers for more complex control. 
 
 **Features requiring TFAR:**  
 
