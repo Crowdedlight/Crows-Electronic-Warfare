@@ -4,7 +4,13 @@ class CfgPatches {
     class ADDON {
         name = QUOTE(COMPONENT);
         units[] = {
-            QGVAR(moduleAddSignalSource)
+            QGVAR(moduleAddSignalSource),
+            QGVAR(moduleAddJammer),
+            QGVAR(moduleFireEMP),
+            QGVAR(moduleImmuneEMP),
+            QGVAR(moduleRadioTrackerChatter),
+            QGVAR(moduleSetJammable),
+            QGVAR(moduleSetTrackingTfar)            
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;

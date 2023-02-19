@@ -25,24 +25,9 @@ GVAR(zeusTextDisplayKeybind) = [
 	false] call CBA_fnc_addKeybind;
 
 // spawn function as we need to check if zeus, and we cannot do that at mission time 0 due to race-condition
-private _waitZeus = [player] spawn
-{
-	params ["_unit"];
-	private _timeout = 0;
-	waitUntil 
-	{
-		if (_timeout >= 10) exitWith 
-		{
-			diag_log format ["CrowsEW:%1: Timed out!!!", "fnc_zeusRegister"];
-			true;
-		};
-		sleep 1;
-		_timeout = _timeout + 1;
-		if (count allCurators == 0 || {!isNull (getAssignedCuratorLogic _unit)}) exitWith {true};
-		false;
-	};
-	// call function to set eventHandler - Zeus should be initialized by now, so we can check if zeus or not
-	if (call FUNC(isZeus)) then {
-		call FUNC(addZeusTextDisplayEH);
-	};
-};
+// set eventhandler that waits for player to go into zeus interface, then registeres the textDisplayEHs.... A way to handle the race-condition of not being set as zeus as postinit is run, while being zeus. 
+["zen_curatorDisplayLoaded", {
+    // remove event immediately
+    [_thisType, _thisId] call CBA_fnc_removeEventHandler;
+    call FUNC(addZeusTextDisplayEH);
+}] call CBA_fnc_addEventHandlerArgs;
