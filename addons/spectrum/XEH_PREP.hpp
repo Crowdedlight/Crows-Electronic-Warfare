@@ -22,3 +22,4 @@ PREP(listenToRadioStart);
 PREP(listenToRadioStop);
 PREP(eventZeusStartRC);
 PREP(eventZeusStopRC);
+PREP(ctrackInit);
