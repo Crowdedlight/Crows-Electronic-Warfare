@@ -3,7 +3,10 @@
 class CfgPatches {
     class ADDON {
         name = QUOTE(COMPONENT);
-        units[] = {};
+        units[] = {
+            "crowsew_ctrack_effect",
+            "crowsew_ctrack_effect_2km"
+        };
         weapons[] = {
             "crowsew_tfar_icom", 
             "crowsew_ctrack"
@@ -27,3 +30,4 @@ PRELOAD_ADDONS;
 
 #include "radio_ids.hpp"
 #include "CfgWeapons.hpp"
+#include "CfgVehicles.hpp"
