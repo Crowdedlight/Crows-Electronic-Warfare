@@ -59,6 +59,9 @@ private _sigsArray = [];
     // if jammer is equipped, only show signals that is type drone 
     if (GVAR(spectrumRangeAntenna) == 3 && _type != "drone") then { continue; };
 
+    // if tfar radio, and same side as you, skip if setting is enabled
+    if (!GVAR(tfarSideTrack) && _type == "radio" && (side _target == side player)) then {continue; };
+
     // Get signal strength 
     private _sigStrength = [_target, _tracker, _scanRange] call FUNC(calcSignalStrength);
 
