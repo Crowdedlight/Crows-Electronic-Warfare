@@ -32,7 +32,8 @@ private _moduleList = [GVAR(hasTFAR)] call {
 		["Fire EMP",{_this call FUNC(fireEMPZeus)}, QPATHTOF(data\EMP_Icon.paa)], 
 		["Set Immune to EMP",{_this call FUNC(setImmuneEMPZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)], 
 		["Add Radio Tracking Chatter",{_this call FUNC(addRandomRadioTrackingChatterZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)], 
-		["Remove Radio Tracking Chatter",{_this call FUNC(removeRandomRadioTrackingChatterZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)] 
+		["Remove Radio Tracking Chatter",{_this call FUNC(removeRandomRadioTrackingChatterZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)], 
+		["Set Unit Jammable",{_this call FUNC(setUnitJammableZeus)}, QPATHTOF(data\spectrum_signal.paa)] 
 	];
 	private _tfarModules = [
 		["Set TFAR Jammer",{_this call FUNC(addJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
