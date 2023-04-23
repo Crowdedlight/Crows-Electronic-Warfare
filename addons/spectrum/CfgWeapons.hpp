@@ -80,7 +80,7 @@
 		picture = QPATHTOF(data\c_track\ctrack_picture_ca.paa);
 		icon = QPATHTOF(data\c_track\ctrack_icon_ca.paa);
 		class ItemInfo: CBA_MiscItem_ItemInfo {
-			mass = 10;
+			mass = 11; //0.5kg From formular: (_mass * 0.1 * (1/2.2046) * 100) / 100)
 		};
 		ACE_attachable = "crowsew_ctrack_effect_2km";
 	};
