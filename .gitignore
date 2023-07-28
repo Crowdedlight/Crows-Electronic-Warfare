@@ -4,6 +4,9 @@ releases/*
 keys/*
 hemtt\.exe
 .hemtt/local
+.hemtt/build
+.hemtt/dev
+hemtt
 *.pdb
 *.exe
 *.sqfc
