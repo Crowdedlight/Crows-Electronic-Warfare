@@ -8,6 +8,7 @@ reuse_private_key = false
 files = [
   "mod.cpp",
   "logo_crow.paa",
+  "LICENSE",
   "README.md",
 ]
 include = ["./include"]
@@ -24,6 +25,6 @@ releasebuild = [
   "@zip @crowsEW_{{version}}"
 ]
   
-[header_exts]
-version = "{{git \"id 8\"}}"
+[properties]
 author = "Crowdedlight"
+url = "https://github.com/Crowdedlight/Crows-Electronic-Warfare"
