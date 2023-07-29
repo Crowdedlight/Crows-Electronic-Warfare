@@ -7,4 +7,4 @@
 #define VERSION_AR 	MAJOR,MINOR,PATCH
 
 // Minimum compatible version. When the game's version is lower, pop-up warning will appear when launching the game.
-#define REQUIRED_VERSION 2.08
+#define REQUIRED_VERSION 2.10

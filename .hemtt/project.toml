@@ -5,13 +5,15 @@ author = "Crowdedlight"
 mainprefix = "z"
 sig_version = 3
 reuse_private_key = false
-files = [
+
+[files]
+include = [
   "mod.cpp",
   "logo_crow.paa",
   "LICENSE",
   "README.md",
+  "./include",
 ]
-include = ["./include"]
 exclude = [
   "*.psd",
   "*.png",
