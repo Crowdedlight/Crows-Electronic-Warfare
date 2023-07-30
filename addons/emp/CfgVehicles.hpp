@@ -13,7 +13,7 @@
 		displayName = "Device (EMP)";
 		scope = 2; // available in editor
 		scopeCurator = 2; // available in zeus
-		author = "Crowdedlight"
+		author = "Crowdedlight";
 		cost = 200000;
 		ACE_offset[] = {0, 0, 0};  // Offset of the interaction point from the model in meters on the X,Y,Z axis. Try setting this to the place where it makes most sense (e.g. to buttons/switches/pins)
 		vehicleClass = "Cargo";
