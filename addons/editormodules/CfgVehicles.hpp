@@ -68,7 +68,7 @@ class CfgVehicles
 				displayName = "Range (1m to 5000m)";
 				tooltip = "Range it can be seen from";
 				typeName = "NUMBER";
-				defaultValue = "300"
+				defaultValue = "300";
 			};			
 
 			class ModuleDescription: ModuleDescription {};
@@ -118,7 +118,7 @@ class CfgVehicles
 				displayName = "Strength (0 to 100)";
 				tooltip = "How strong the jammer is, so how much jammer is increased based on distance into the radius";
 				typeName = "NUMBER";
-				defaultValue = "50"
+				defaultValue = "50";
 			};			
 
 			class ModuleDescription: ModuleDescription {};
@@ -167,7 +167,7 @@ class CfgVehicles
 				displayName = "Spawn device";
 				tooltip = "Should a device be spawned to appear as center of EMP, or just the EMP effect";
 				typeName = "BOOL";
-				defaultValue = "false"
+				defaultValue = "false";
 			};
 			class ScopesOptions: Combo
 			{
