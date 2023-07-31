@@ -9,9 +9,6 @@ Return: none
 *///////////////////////////////////////////////
 params [["_unit", objNull]];
 
-// get config value for range 
-private _range = getNumber (configFile >> "CfgVehicles" >> typeOf _unit >> "range");
-
 // TODO consider moving the spectrum signal to the unit instead of the tracker for units? As otherwise when you get into vehicles the signal disappears as the item is detatched?
 // if attached to man, we hide the model as it sits stupidly on the shoulder
 [
@@ -39,6 +36,9 @@ private _onConfirm =
 	// if object is null, we can't start the jamming
 	if (_unit == objNull) exitWith {hint "You have to select a object as signal source";};
 
+	// get config value for range 
+	private _range = getNumber (configFile >> "CfgVehicles" >> typeOf _unit >> "range");
+
 	// broadcast event to all clients and JIP	
 	[QGVAR(addBeacon), [_unit, _freq, _range, "ctrack"]] call CBA_fnc_globalEventJIP;
 };
@@ -51,7 +51,4 @@ private _onConfirm =
 	{},
 	_this
 ] call zen_dialog_fnc_create;
-
-
-
 

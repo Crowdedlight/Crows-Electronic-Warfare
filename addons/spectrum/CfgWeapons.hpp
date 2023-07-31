@@ -83,6 +83,10 @@
 			mass = 11; //0.5kg From formular: (_mass * 0.1 * (1/2.2046) * 100) / 100)
 		};
 		ACE_attachable = "crowsew_ctrack_effect_2km";
+		class EventHandlers {
+			init = QUOTE([(_this select 0)] call FUNC(ctrackInit);); // TODO set function as no-ace init that checks if ace is enabled or not, and adds scroll-wheel option accordingly
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {};
+        };
 	};
 	// TODO when first iteration works, make a few versions that has different ranges. Just reuse the 3D model. Something like 0.5km, 2k, 5k ?
 	// TODO figure out an interface (GUI?) for how to set what frequency it should use. Should I just make a gui that pops up when using the attach? Hitting ok, plays the attach animation with the chosen frequency. 
