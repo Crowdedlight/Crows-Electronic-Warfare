@@ -1,1 +1,1 @@
-#include "\z\CrowsEW\addons\emp\script_component.hpp"
+#include "\z\crowsEW\addons\emp\script_component.hpp"

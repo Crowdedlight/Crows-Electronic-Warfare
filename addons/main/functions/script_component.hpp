@@ -1,1 +1,1 @@
-#include "\z\CrowsEW\addons\main\script_component.hpp"
+#include "\z\crowsEW\addons\main\script_component.hpp"

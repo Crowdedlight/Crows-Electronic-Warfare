@@ -1,1 +1,1 @@
-#include "\z\CrowsEW\addons\spectrum\script_component.hpp"
+#include "\z\crowsEW\addons\spectrum\script_component.hpp"
