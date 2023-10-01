@@ -2,18 +2,16 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fnc_ctrack_init.sqf
+File: fnc_ctrackInit.sqf
 Parameters: _unit
 Return: none
 
 *///////////////////////////////////////////////
 params [["_unit", objNull]];
 
-// TODO consider moving the spectrum signal to the unit instead of the tracker for units? As otherwise when you get into vehicles the signal disappears as the item is detatched?
 // if attached to man, we hide the model as it sits stupidly on the shoulder
 [
 	{
-		diag_log (attachedTo (_this#0));
 		if ((attachedTo (_this#0)) isKindOf "CAManBase") then {
 			_this#0 hideObjectGlobal true;
 		}
@@ -21,6 +19,21 @@ params [["_unit", objNull]];
 	[_unit],
 	1
 ] call CBA_fnc_waitAndExecute;
+
+// handle reattach, if variables are not 0, we are having a reattach and skip
+private _attachedToObj = attachedTo _unit;
+private _savedFreq = _attachedToObj getVariable[QGVAR(ctrack_attached_frequency), 0];
+private _savedRange = _attachedToObj getVariable[QGVAR(ctrack_attached_range), 0];
+systemChat str(_attachedToObj getVariable[QGVAR(ctrack_attached_frequency), 0]); //TODO remove
+
+// if we are readding because we left vehicle, then exit without showing gui and applying the saved settings
+if (_savedFreq != 0) exitWith{
+	// set new beacon again 
+	private _jipID = [QGVAR(addBeacon), [_unit, _savedFreq, _savedRange, "ctrack"]] call CBA_fnc_globalEventJIP;
+
+	// update jip id 
+	_attachedToObj setVariable[QGVAR(ctrack_attached_jipID), _jipID];
+};
 
 // open gui to select frequency
 private _onConfirm =
@@ -40,12 +53,20 @@ private _onConfirm =
 	private _range = getNumber (configFile >> "CfgVehicles" >> typeOf _unit >> "range");
 
 	// broadcast event to all clients and JIP	
-	[QGVAR(addBeacon), [_unit, _freq, _range, "ctrack"]] call CBA_fnc_globalEventJIP;
+	private _ctrackJip = [QGVAR(addBeacon), [_unit, _freq, _range, "ctrack"]] call CBA_fnc_globalEventJIP;
+
+	// save frequency in variable on unit its attached to. (Only if Man, not if vehicle/object)
+	private _attachedToObj = attachedTo _unit;
+	if (!isNull _attachedToObj && _attachedToObj isKindOf "CAManBase") then {
+		_attachedToObj setVariable[QGVAR(ctrack_attached_frequency), _freq];
+		_attachedToObj setVariable[QGVAR(ctrack_attached_range), _range];
+		_attachedToObj setVariable[QGVAR(ctrack_attached_jipID), _ctrackJip];
+	}
 };
 [
 	"Frequency for Tracker", 
 	[
-		["SLIDER","Frequency (Unique)",[390,500,460,1]], //390 to 500, default 460 and showing 1 decimal
+		["SLIDER","Frequency (Unique)",[390,500,460,1]] //390 to 500, default 460 and showing 1 decimal
 	],
 	_onConfirm,
 	{},

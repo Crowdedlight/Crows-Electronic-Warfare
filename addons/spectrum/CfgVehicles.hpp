@@ -1,6 +1,9 @@
+class CBA_Extended_EventHandlers_base;
+
 class CfgVehicles {
 	class Thing;
     class ThingX;
+
 	// The object that gets attached in ace, this way we can show and run the functions needed?
 	// TODO, can we get on-init or similar? 
     class crowsew_ctrack_effect: ThingX {
@@ -22,8 +25,7 @@ class CfgVehicles {
         destrType = "DestructNo";
 
 		class EventHandlers {
-			init = QUOTE([(_this select 0)] call FUNC(ctrackInit););
-            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {};
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
         };
     };
 	class crowsew_ctrack_effect_2km : crowsew_ctrack_effect {

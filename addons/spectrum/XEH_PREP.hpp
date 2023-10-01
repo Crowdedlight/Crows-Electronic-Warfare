@@ -23,3 +23,7 @@ PREP(listenToRadioStop);
 PREP(eventZeusStartRC);
 PREP(eventZeusStopRC);
 PREP(ctrackInit);
+PREP(ctrackNoAce);
+PREP(ctrackDetachEvent);
+PREP(ctrackHandleGetInVehicle);
+PREP(ctrackHandleGetOutVehicle);

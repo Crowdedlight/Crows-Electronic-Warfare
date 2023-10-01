@@ -3,6 +3,7 @@ modname = "crowsEW"
 prefix = "crowsEW"
 author = "Crowdedlight"
 mainprefix = "z"
+
 sig_version = 3
 reuse_private_key = false
 
@@ -17,16 +18,28 @@ include = [
 exclude = [
   "*.psd",
   "*.png",
-  "*.tga"
+  "*.tga",
+  "*.sqm",
 ]
   
-key_name = "{{prefix}}_{{version}}"
-authority = "{{prefix}}_{{version}}-{{git \"id 8\"}}"
-  
-releasebuild = [
-  "@zip @crowsEW_{{version}}"
-]
+[version]
+git_hash = 0 # Disabled
   
 [properties]
 author = "Crowdedlight"
 url = "https://github.com/Crowdedlight/Crows-Electronic-Warfare"
+
+
+# Launched with `hemtt launch`
+[hemtt.launch.default]
+workshop = [
+    "450814997",  # CBA_A3's Workshop ID
+    "894678801",  # TFAR Beta
+    "1779063631", # Zeus Enhanced 
+    "2018593688", # Zeus Enhanced ACE Compat
+    "463939057",  # ACE
+    "2369477168", # Advanced Developer Tools
+]
+parameters = [
+    "C:\\Users\\crow\\Documents\\Arma 3 - Other Profiles\\Crowdedlight\\missions\\dev_mini.Enoch\\mission.sqm", # Launch into existing Editor Mission
+]

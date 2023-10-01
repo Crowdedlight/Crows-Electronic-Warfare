@@ -1,6 +1,6 @@
-
- class CfgWeapons
- {
+ class CBA_Extended_EventHandlers_base;
+ 
+ class CfgWeapons {
 	class CBA_MiscItem_ItemInfo;
 	class muzzle_antenna_base_01_F;
 	class muzzle_antenna_01_f: muzzle_antenna_base_01_F
@@ -84,16 +84,11 @@
 		};
 		ACE_attachable = "crowsew_ctrack_effect_2km";
 		class EventHandlers {
-			init = QUOTE([(_this select 0)] call FUNC(ctrackInit);); // TODO set function as no-ace init that checks if ace is enabled or not, and adds scroll-wheel option accordingly
-            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {};
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
         };
 	};
 	// TODO when first iteration works, make a few versions that has different ranges. Just reuse the 3D model. Something like 0.5km, 2k, 5k ?
-	// TODO figure out an interface (GUI?) for how to set what frequency it should use. Should I just make a gui that pops up when using the attach? Hitting ok, plays the attach animation with the chosen frequency. 
  };
-
- // TODO, make setting for TFAR tracking to disregard your own side. As we assume it would be smart enough to recognize friendly encryption. Makes it a tad easier to use. Set it as CBA option, so communities can force it on/off, or let it be player choice! 
- 
 
 // private _itemClassname = "crowsew_ctrack";
 // diag_log (getText (configFile >> "CfgWeapons" >> _itemClassname >> "ACE_Attachable"));
