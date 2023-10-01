@@ -23,20 +23,51 @@ class Extended_PreStart_EventHandlers {
 class Extended_InitPost_Eventhandlers {
 
 	class UGV_01_base_F {
-		init = QUOTE( _this call FUNC(initDroneSignals) );
+		class crowsew_dronesignal_eh {
+			init = QUOTE( _this call FUNC(initDroneSignals) );
+		};
 	};
 	class UGV_01_rcws_base_F {
-		init = QUOTE( _this call FUNC(initDroneSignals) );
+		class crowsew_dronesignal_eh {
+			init = QUOTE( _this call FUNC(initDroneSignals) );
+		};
 	};
 	class UAV_03_dynamicLoadout_base_F {
-		init = QUOTE( _this call FUNC(initDroneSignals) );
+		class crowsew_dronesignal_eh {
+			init = QUOTE( _this call FUNC(initDroneSignals) );
+		};
 	};	
 	class UGV_02_Demining_Base_F {
-		init = QUOTE( _this call FUNC(initDroneSignals) );
+		class crowsew_dronesignal_eh {
+			init = QUOTE( _this call FUNC(initDroneSignals) );
+		};
 	};	
 	class UAV_06_antimine_base_F {
-		init = QUOTE( _this call FUNC(initDroneSignals) );
+		class crowsew_dronesignal_eh {
+			init = QUOTE( _this call FUNC(initDroneSignals) );
+		};
 	};
+
+	// CTRACK - init function for ACE 
+	class crowsew_ctrack_effect_2km {
+	 	init = QUOTE( _this call FUNC(ctrackInit));
+	};
+};
+
+// handle get-in and get-out events, so we can move the beacon to the vehicle if c-track is attached to self. 
+class Extended_GetInMan_EventHandlers {
+    class CAManBase {
+		class crowsew_getin_eh {
+			getInMan = QUOTE(_this call FUNC(ctrackHandleGetInVehicle));
+		};
+    };
+};
+class Extended_GetOutMan_EventHandlers {
+    class CAManBase {
+		class crowsew_getout_eh {
+			getOutMan = QUOTE(_this call FUNC(ctrackHandleGetOutVehicle));
+		};
+    };
 };
 
 
