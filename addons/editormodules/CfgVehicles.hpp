@@ -332,7 +332,7 @@ class CfgVehicles
 				};
 			};
 
-			class FrequencyMin: edit
+			class FrequencyMin: Edit
 			{
 				property = QGVAR(radiochatter_frequency_minimum);							
 				displayName = "Frequency min (60 to 250mhz)";					
@@ -340,7 +340,7 @@ class CfgVehicles
 				typeName = "NUMBER";											
 				defaultValue = "220";											
 			};	
-			class FrequencyMax: edit
+			class FrequencyMax: Edit
 			{
 				property = QGVAR(radiochatter_frequency_max);							
 				displayName = "Frequency Max (60 to 250mhz)";					
@@ -348,7 +348,7 @@ class CfgVehicles
 				typeName = "NUMBER";											
 				defaultValue = "221";											
 			};	
-			class Range: edit 
+			class Range: Edit 
 			{
 				property = QGVAR(radiochatter_range);							
 				displayName = "Range (1 to 10000)";					
@@ -356,7 +356,7 @@ class CfgVehicles
 				typeName = "NUMBER";											
 				defaultValue = "2000";	
 			};
-			class DurationMin: edit
+			class DurationMin: Edit
 			{
 				property = QGVAR(radiochatter_duration_minimum);							
 				displayName = "Duration min (1 to 40s)";					
@@ -364,7 +364,7 @@ class CfgVehicles
 				typeName = "NUMBER";											
 				defaultValue = "5";											
 			};	
-			class DurationMax: edit
+			class DurationMax: Edit
 			{
 				property = QGVAR(radiochatter_duration_max);							
 				displayName = "Duration max (1 to 100s)";					
@@ -372,7 +372,7 @@ class CfgVehicles
 				typeName = "NUMBER";											
 				defaultValue = "30";											
 			};	
-			class PauseMin: edit
+			class PauseMin: Edit
 			{
 				property = QGVAR(radiochatter_pause_min);							
 				displayName = "Pause min (1 to 40s)";					
@@ -380,7 +380,7 @@ class CfgVehicles
 				typeName = "NUMBER";											
 				defaultValue = "5";											
 			};	
-			class PauseMax: edit
+			class PauseMax: Edit
 			{
 				property = QGVAR(radiochatter_pause_max);							
 				displayName = "Pause max (1 to 100s)";					
