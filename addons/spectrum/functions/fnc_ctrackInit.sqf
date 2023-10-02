@@ -24,7 +24,6 @@ params [["_unit", objNull]];
 private _attachedToObj = attachedTo _unit;
 private _savedFreq = _attachedToObj getVariable[QGVAR(ctrack_attached_frequency), 0];
 private _savedRange = _attachedToObj getVariable[QGVAR(ctrack_attached_range), 0];
-systemChat str(_attachedToObj getVariable[QGVAR(ctrack_attached_frequency), 0]); //TODO remove
 
 // if we are readding because we left vehicle, then exit without showing gui and applying the saved settings
 if (_savedFreq != 0) exitWith{
@@ -47,7 +46,7 @@ private _onConfirm =
 	_in params [["_unit",objNull,[objNull]]];
 	
 	// if object is null, we can't start the jamming
-	if (_unit == objNull) exitWith {hint "You have to select a object as signal source";};
+	if (_unit == objNull) exitWith {};
 
 	// get config value for range 
 	private _range = getNumber (configFile >> "CfgVehicles" >> typeOf _unit >> "range");

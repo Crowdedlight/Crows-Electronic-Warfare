@@ -28,7 +28,7 @@ class CfgVehicles {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
         };
     };
-	class crowsew_ctrack_effect_2km : crowsew_ctrack_effect {
-		range = 2000;
+	class crowsew_ctrack_effect_5km : crowsew_ctrack_effect {
+		range = 5000;
 	};
 };

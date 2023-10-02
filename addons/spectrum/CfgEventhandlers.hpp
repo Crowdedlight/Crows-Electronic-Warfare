@@ -49,7 +49,7 @@ class Extended_InitPost_Eventhandlers {
 	};
 
 	// CTRACK - init function for ACE 
-	class crowsew_ctrack_effect_2km {
+	class crowsew_ctrack_effect_5km {
 	 	init = QUOTE( _this call FUNC(ctrackInit));
 	};
 };

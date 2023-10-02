@@ -36,9 +36,9 @@ workshop = [
     "450814997",  # CBA_A3's Workshop ID
     "894678801",  # TFAR Beta
     "1779063631", # Zeus Enhanced 
+    "2369477168", # Advanced Developer Tools
     "2018593688", # Zeus Enhanced ACE Compat
     "463939057",  # ACE
-    "2369477168", # Advanced Developer Tools
 ]
 parameters = [
     "C:\\Users\\crow\\Documents\\Arma 3 - Other Profiles\\Crowdedlight\\missions\\dev_mini.Enoch\\mission.sqm", # Launch into existing Editor Mission
