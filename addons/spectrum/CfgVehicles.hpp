@@ -5,7 +5,6 @@ class CfgVehicles {
     class ThingX;
 
 	// The object that gets attached in ace, this way we can show and run the functions needed?
-	// TODO, can we get on-init or similar? 
     class crowsew_ctrack_effect: ThingX {
         scope = HIDDEN;
         displayName = "C-TRACK";
