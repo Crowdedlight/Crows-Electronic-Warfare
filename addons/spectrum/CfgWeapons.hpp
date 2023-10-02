@@ -72,7 +72,7 @@
 	// C-TRACK
 	class crowsew_ctrack: CBA_MiscItem {
 		author = "Crowdedlight";
-		displayName = "C-TRACK (2km)";
+		displayName = "C-TRACK (5km)";
 		descriptionShort = "Tracking device that can be put on objects to make them trackable with spectrum device";
 		scope = PUBLIC;
 		scopeCurator = PUBLIC;
@@ -82,7 +82,7 @@
 		class ItemInfo: CBA_MiscItem_ItemInfo {
 			mass = 11; //0.5kg From formular: (_mass * 0.1 * (1/2.2046) * 100) / 100)
 		};
-		ACE_attachable = "crowsew_ctrack_effect_2km";
+		ACE_attachable = "crowsew_ctrack_effect_5km";
 		class EventHandlers {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
         };
