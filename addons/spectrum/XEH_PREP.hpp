@@ -27,3 +27,4 @@ PREP(ctrackNoAce);
 PREP(ctrackDetachEvent);
 PREP(ctrackHandleGetInVehicle);
 PREP(ctrackHandleGetOutVehicle);
+PREP(ctrackHandleKilled);

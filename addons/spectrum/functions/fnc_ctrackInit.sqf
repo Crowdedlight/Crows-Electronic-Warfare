@@ -9,16 +9,20 @@ Return: none
 *///////////////////////////////////////////////
 params [["_unit", objNull]];
 
+if (!local _unit) exitWith {};
+
 // if attached to man, we hide the model as it sits stupidly on the shoulder
 [
 	{
 		if ((attachedTo (_this#0)) isKindOf "CAManBase") then {
-			_this#0 hideObjectGlobal true;
+			[_this#0, true] remoteExec ["hideObjectGlobal", 2];
 		}
 	},
 	[_unit],
 	1
 ] call CBA_fnc_waitAndExecute;
+
+["zen_common_addObjects", [[_unit], objNull]] call CBA_fnc_serverEvent;
 
 // handle reattach, if variables are not 0, we are having a reattach and skip
 private _attachedToObj = attachedTo _unit;
