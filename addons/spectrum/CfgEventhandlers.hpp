@@ -54,6 +54,15 @@ class Extended_InitPost_Eventhandlers {
 	};
 };
 
+// handle get killed 
+class Extended_Killed_EventHandlers {
+	class CAManBase {
+		class crowsew_Killed_eh {
+			Killed = QUOTE(_this call FUNC(ctrackHandleKilled));
+		};
+    };
+};
+
 // handle get-in and get-out events, so we can move the beacon to the vehicle if c-track is attached to self. 
 class Extended_GetInMan_EventHandlers {
     class CAManBase {

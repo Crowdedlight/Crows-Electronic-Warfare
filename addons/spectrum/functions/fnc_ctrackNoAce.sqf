@@ -7,7 +7,6 @@ Parameters: _unit
 Return: none
 
 *///////////////////////////////////////////////
-systemChat "test1";
 // GUI selection 
 GVAR(ctrackAskFreqOnConfirmNoAce) =
 {
