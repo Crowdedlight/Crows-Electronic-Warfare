@@ -1,6 +1,7 @@
-
- class CfgWeapons
- {
+ class CBA_Extended_EventHandlers_base;
+ 
+ class CfgWeapons {
+	class CBA_MiscItem_ItemInfo;
 	class muzzle_antenna_base_01_F;
 	class muzzle_antenna_01_f: muzzle_antenna_base_01_F
 	{
@@ -67,5 +68,30 @@
 		};
 	};
 	TF_RADIO_IDS(crowsew_tfar_icom,Icom)
+
+	// C-TRACK
+	class crowsew_ctrack: CBA_MiscItem {
+		author = "Crowdedlight";
+		displayName = "C-TRACK (3km)";
+		descriptionShort = "Tracking device that can be put on objects to make them trackable with spectrum device";
+		scope = PUBLIC;
+		scopeCurator = PUBLIC;
+		model = QPATHTOF(data\c_track\c_track.p3d);
+		picture = QPATHTOF(data\c_track\ctrack_picture_ca.paa);
+		icon = QPATHTOF(data\c_track\ctrack_icon_ca.paa);
+		class ItemInfo: CBA_MiscItem_ItemInfo {
+			mass = 11; //0.5kg From formular: (_mass * 0.1 * (1/2.2046) * 100) / 100)
+		};
+		ACE_attachable = "crowsew_ctrack_effect_3km";
+		class EventHandlers {
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+        };
+	};
+	// TODO when first iteration works, make a few versions that has different ranges. Just reuse the 3D model. Something like 0.5km, 2k, 5k ?
  };
- 
+
+// private _itemClassname = "crowsew_ctrack";
+// diag_log (getText (configFile >> "CfgWeapons" >> _itemClassname >> "ACE_Attachable"));
+// private _itemVehClass = "crowsew_ctrack";
+// diag_log (getText (configFile >> "CfgAmmo" >> _itemVehClass >> "model"));
+// diag_log (getText (configFile >> "CfgVehicles" >> _itemVehClass >> "model"));

@@ -14,6 +14,15 @@ ADDON = true;
     FUNC(spectrumEnableSettingChanged) // function that will be executed once on mission start and every time the setting is changed.
 ] call CBA_fnc_addSetting;
 
+[
+    QGVAR(tfarSideTrack), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "CHECKBOX", // setting type
+    ["Track Friendly with Radio Tracking", "Do you want your own side's radio transmissions to show on the spectrum device if Radio tracking is enabled?"], 
+    "Crows Electronic Warfare", 
+    false, 
+    nil
+] call CBA_fnc_addSetting;
+
 
 // [target, frequency]
 GVAR(beacons) = [];

@@ -17,7 +17,7 @@ if (_button in [1,3,4] || !alive player) exitWith {};
 // check if current weapon is hgun_esd
 if (!("hgun_esd_" in (currentWeapon player))) exitWith {}; 
 
-// TODO check if we got dialog or another display open? 
+// check if we got dialog or another display open? 
 // 602 == inventory open, 12 == map, 24 == chatbox, 160 == uavTerminal
 if (!isNull (findDisplay 602) || !isNull (findDisplay 24) || !isNull (findDisplay 160) || visibleMap) exitWith {};
 

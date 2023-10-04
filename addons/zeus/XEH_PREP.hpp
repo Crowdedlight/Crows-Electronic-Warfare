@@ -17,3 +17,4 @@ PREP(getListZenOwnersSelection);
 PREP(addSatcomZeus);
 PREP(removeSatcomZeus);
 PREP(showHintZeus);
+PREP(setUnitJammableZeus);

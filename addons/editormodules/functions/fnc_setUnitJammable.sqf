@@ -24,7 +24,7 @@ if (_activated) then {
 	// Attribute values are saved in module's object space under their class names
 	private _applyToClass = _logic getVariable ["Classname",false];
 	{
-		[_x] call EFUNC(spectrum,initDroneSignals);
+		[_x, true] call EFUNC(spectrum,initDroneSignals);
 	} forEach _units;
 
 	// if apply to classname, make list of unique classnames of synced units, and set eventhandlers. 

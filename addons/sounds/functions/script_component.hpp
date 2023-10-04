@@ -1,1 +1,1 @@
-#include "\z\CrowsEW\addons\sounds\script_component.hpp"
+#include "\z\crowsEW\addons\sounds\script_component.hpp"
