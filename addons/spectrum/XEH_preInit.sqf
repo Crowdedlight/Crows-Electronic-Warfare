@@ -193,3 +193,59 @@ GVAR(voiceLinePacks) set ["morsecode", 			[GVAR(voiceLinesMorseCodeList), GVAR(v
 GVAR(voiceLinePacks) set ["electronic", 		[GVAR(voiceLinesEletronicList), GVAR(voiceLinesElectronicWeights), "Electronic"]];
 GVAR(voiceLinePacks) set ["alienElectronic", 	[GVAR(voiceLinesAlienEletronicList), GVAR(voiceLinesAlienElectronicWeights), "Alien Electronic"]];
 GVAR(voiceLinePacks) set ["police", 			[GVAR(voiceLinesPoliceList), GVAR(voiceLinesPoliceWeights), "Police Radio"]];
+
+
+// Spectrum autoline settings
+[
+    QGVAR(spectrumAutoline), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "CHECKBOX", // setting type
+    ["Spectrum Autoline", "Allow players to automatically draw map lines from their position in the direction they're facing, when using the Spectrum Device"],
+    ["Crows Electronic Warfare", "Spectrum Autoline"],
+    true,
+    nil
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(spectrumAutolineColor1), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "EDITBOX", // setting type
+    ["Spectrum Autoline Colour 1", "Colour that should be associated with the autoline hotkey. Must be in CfgMarkerColors"],
+    ["Crows Electronic Warfare", "Spectrum Autoline"],
+    "ColorRed",
+    nil
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(spectrumAutolineColor2), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "EDITBOX", // setting type
+    ["Spectrum Autoline Colour 2", "Colour that should be associated with the autoline hotkey. Must be in CfgMarkerColors"],
+    ["Crows Electronic Warfare", "Spectrum Autoline"],
+    "ColorGreen",
+    nil
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(spectrumAutolineColor3), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "EDITBOX", // setting type
+    ["Spectrum Autoline Colour 3", "Colour that should be associated with the autoline hotkey. Must be in CfgMarkerColors"],
+    ["Crows Electronic Warfare", "Spectrum Autoline"],
+    "ColorBlue",
+    nil
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(spectrumAutolineColor4), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "EDITBOX", // setting type
+    ["Spectrum Autoline Colour 4", "Colour that should be associated with the autoline hotkey. Must be in CfgMarkerColors"],
+    ["Crows Electronic Warfare", "Spectrum Autoline"],
+    "ColorYellow",
+    nil
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(spectrumAutolineNoise), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "SLIDER", // setting type
+    ["Spectrum Autoline Noise", "How accurate should the start point of the autoline be (m)"], 
+    ["Crows Electronic Warfare", "Spectrum Autoline"],
+    [0, 100, 0, 0],
+    nil
+] call CBA_fnc_addSetting;

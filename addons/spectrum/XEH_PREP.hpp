@@ -17,6 +17,7 @@ PREP(spectrumEnableSettingChanged);
 PREP(setSpectrumFreq);
 PREP(getSpectrumDefaultFreq);
 PREP(spectrumDeviceMouseMiddleDown);
+PREP(drawSpectrumLine);
 PREP(toggleAi);
 PREP(listenToRadioStart);
 PREP(listenToRadioStop);
