@@ -199,7 +199,7 @@ GVAR(voiceLinePacks) set ["police", 			[GVAR(voiceLinesPoliceList), GVAR(voiceLi
 [
     QGVAR(spectrumAutoline), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
-    ["Spectrum Autoline", "Allow players to automatically draw map lines from their position in the direction they're facing, when using the Spectrum Device"],
+    ["Spectrum Autoline", "Allow players to automatically draw map lines from their position in the direction they're facing, when aiming the Spectrum Device."+endl+"Player must have a GPS equipped."],
     ["Crows Electronic Warfare", "Spectrum Autoline"],
     true,
     nil
@@ -244,7 +244,7 @@ GVAR(voiceLinePacks) set ["police", 			[GVAR(voiceLinesPoliceList), GVAR(voiceLi
 [
     QGVAR(spectrumAutolineNoise), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "SLIDER", // setting type
-    ["Spectrum Autoline Noise", "How accurate should the start point of the autoline be (m)"], 
+    ["Spectrum Autoline Start Deviation", "How much the start of the autoline should differ from the player's actual position, in meters."+endl+"0 is perfectly accurate; 100 is (up to) a 100m deviation."], 
     ["Crows Electronic Warfare", "Spectrum Autoline"],
     [0, 100, 0, 0],
     nil

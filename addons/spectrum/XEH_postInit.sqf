@@ -54,7 +54,7 @@ if (!EGVAR(zeus,hasAce)) then {
 GVAR(spectrumAutolineC1Keybind) = [
 	["Crows Electronic Warfare", "Spectrum"],
 	"spectrum_autoline_c1", 
-	["Spectrum Autoline (Colour 1)", "Draw a line on the map from the player's position, in the direction they're facing, when holding the Spectrum Device"], 
+	["Spectrum Autoline (Colour 1)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
 	{ [GVAR(spectrumAutolineColor1)] call FUNC(drawSpectrumLine); }, 
 	"", 
 	[DIK_SPACE, [false, false, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
@@ -64,7 +64,7 @@ GVAR(spectrumAutolineC1Keybind) = [
 GVAR(spectrumAutolineC2Keybind) = [
 	["Crows Electronic Warfare", "Spectrum"],
 	"spectrum_autoline_c2", 
-	["Spectrum Autoline (Colour 2)", "Draw a line on the map from the player's position, in the direction they're facing, when holding the Spectrum Device"], 
+	["Spectrum Autoline (Colour 2)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
 	{ [GVAR(spectrumAutolineColor2)] call FUNC(drawSpectrumLine); }, 
 	"", 
 	[DIK_SPACE, [false, true, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
@@ -74,7 +74,7 @@ GVAR(spectrumAutolineC2Keybind) = [
 GVAR(spectrumAutolineC3Keybind) = [
 	["Crows Electronic Warfare", "Spectrum"],
 	"spectrum_autoline_c3", 
-	["Spectrum Autoline (Colour 3)", "Draw a line on the map from the player's position, in the direction they're facing, when holding the Spectrum Device"], 
+	["Spectrum Autoline (Colour 3)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
 	{ [GVAR(spectrumAutolineColor3)] call FUNC(drawSpectrumLine); }, 
 	"", 
 	[DIK_SPACE, [true, false, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
@@ -84,7 +84,7 @@ GVAR(spectrumAutolineC3Keybind) = [
 GVAR(spectrumAutolineC4Keybind) = [
 	["Crows Electronic Warfare", "Spectrum"],
 	"spectrum_autoline_c4", 
-	["Spectrum Autoline (Colour 4)", "Draw a line on the map from the player's position, in the direction they're facing, when holding the Spectrum Device"], 
+	["Spectrum Autoline (Colour 4)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
 	{ [GVAR(spectrumAutolineColor4)] call FUNC(drawSpectrumLine); }, 
 	"", 
 	[DIK_SPACE, [false, false, true]], // [DIK code, [Shift?, Ctrl?, Alt?]]
