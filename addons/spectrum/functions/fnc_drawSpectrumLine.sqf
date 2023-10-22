@@ -4,7 +4,7 @@ Author: Landric
 			   
 File: fnc_drawSpectrumLine.sqf
 Parameters: colour - int index of a colour in GVAR(spectrumAutolineColours). Must be in CfgMarkerColors.
-Return: 
+Return: none
 
 Script to automatically draw a line on the map in the direction they are facing, labelled with the current freq. of the Spectrum Device
 Player must have the Spectrum Device equipped, be in "GUNNER" (i.e. zoomed-in) view, and have a GPS (or UAV terminal) assigned
@@ -18,7 +18,7 @@ if(!(
 		{call FUNC(playerInSpectrumView) &&
 		{call FUNC(playerHasGPSCapability)}}
 	)
-) exitWith { false };
+) exitWith { };
 
 _colour = GVAR(spectrumAutolineColours) # _colour;
 
@@ -48,5 +48,3 @@ _marker = createMarkerLocal ["_USER_DEFINED"+(getPlayerUID player)+str(getPos pl
 _marker setMarkerColorLocal _colour;
 _marker setMarkerTextLocal ((str _freq) + "MHz");
 _marker setMarkerType "hd_dot";
-
-true
