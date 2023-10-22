@@ -34,14 +34,14 @@ _marker setMarkerShapeLocal "polyline";
 _marker setMarkerColorLocal _colour;
 
 
-private _l = 10000; // TODO: base on size of map?
+private _length = 10000; // TODO: base on size of map?
 
 private _pos = [[[position player, GVAR(spectrumAutolineNoise)]]] call BIS_fnc_randomPos;
 
 private _x1 = _pos # 0;
 private _y1 = _pos # 1;
-private _x2 = _x1+(_l*sin(getDir player));
-private _y2 = _y1+(_l*cos(getDir player));
+private _x2 = _x1+(_length*sin(getDir player));
+private _y2 = _y1+(_length*cos(getDir player));
 
 _marker setMarkerPolyline [_x1, _y1, _x2, _y2];
 
