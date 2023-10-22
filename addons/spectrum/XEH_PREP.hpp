@@ -18,6 +18,8 @@ PREP(setSpectrumFreq);
 PREP(getSpectrumDefaultFreq);
 PREP(spectrumDeviceMouseMiddleDown);
 PREP(drawSpectrumLine);
+PREP(playerHasGPSCapability);
+PREP(playerInSpectrumView);
 PREP(toggleAi);
 PREP(listenToRadioStart);
 PREP(listenToRadioStop);

@@ -15,12 +15,8 @@ params [["_colour", 0, [1]]];
 
 if(!(
 		GVAR(spectrumAutoline) &&
-		(currentWeapon player) isKindOf ["hgun_esd_01_F", configFile >> "CfgWeapons"] &&
-		(
-			(player getSlotItemName 612) isKindOf ["ItemGPS", configFile >> "CfgWeapons"] ||
-			(player getSlotItemName 612) isKindOf ["UavTerminal_base", configFile >> "CfgWeapons"]
-		) &&
-		cameraOn == player && cameraView == "GUNNER"
+		{call FUNC(playerInSpectrumView) &&
+		{call FUNC(playerHasGPSCapability)}}
 	)
 ) exitWith { false };
 
