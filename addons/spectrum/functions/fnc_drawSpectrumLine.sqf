@@ -3,7 +3,7 @@
 Author: Landric
 			   
 File: fnc_drawSpectrumLine.sqf
-Parameters: colour - string corresponding to a colour in CfgMarkerColors
+Parameters: colour - int index of a colour in GVAR(spectrumAutolineColours). Must be in CfgMarkerColors.
 Return: 
 
 Script to automatically draw a line on the map in the direction they are facing, labelled with the current freq. of the Spectrum Device
@@ -11,7 +11,7 @@ Player must have the Spectrum Device equipped, be in "GUNNER" (i.e. zoomed-in) v
 
 *///////////////////////////////////////////////
 
-params [["_colour", "ColorBlack", [""]]];
+params [["_colour", 0, [1]]];
 
 if(!(
 		GVAR(spectrumAutoline) &&
@@ -24,7 +24,7 @@ if(!(
 	)
 ) exitWith { false };
 
-if(!isClass (configFile >> "CfgMarkerColors" >> _colour)) then { _colour = "ColorBlack"; };
+_colour = GVAR(spectrumAutolineColours) # _colour;
 
 private _freq = ((missionnamespace getVariable ["#EM_SelMin", 141.6]) + (missionnamespace getVariable ["#EM_SelMax", 141.9]))/2;
 _freq = (round (_freq*10))/10;

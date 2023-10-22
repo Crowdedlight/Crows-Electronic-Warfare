@@ -196,6 +196,14 @@ GVAR(voiceLinePacks) set ["police", 			[GVAR(voiceLinesPoliceList), GVAR(voiceLi
 
 
 // Spectrum autoline settings
+GVAR(spectrumAutolineColours) = ["ColorBlack", "ColorGrey", "ColorRed", "ColorBrown", "ColorOrange", "ColorYellow", "ColorKhaki", "ColorGreen", "ColorBlue", "ColorPink", "ColorWhite", "ColorWEST", "ColorEAST", "ColorGUER", "ColorCIV"]; // Must only contain colours from CfgMarkerColors
+
+private _autolineColourIndexes = [];
+for "_i" from 0 to count GVAR(spectrumAutolineColours) -1 do {
+	_autolineColourIndexes pushBack _i;
+};
+private _autolineColourLabels = GVAR(spectrumAutolineColours) apply { _x select [5] }; // Strip "Color" prefix from labels
+
 [
     QGVAR(spectrumAutoline), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
@@ -207,37 +215,37 @@ GVAR(voiceLinePacks) set ["police", 			[GVAR(voiceLinesPoliceList), GVAR(voiceLi
 
 [
     QGVAR(spectrumAutolineColor1), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "EDITBOX", // setting type
-    ["Spectrum Autoline Colour 1", "Colour that should be associated with the autoline hotkey. Must be in CfgMarkerColors"],
+    "LIST", // setting type
+    ["Spectrum Autoline Colour 1", "Colour that should be associated with autoline hotkey 1."],
     ["Crows Electronic Warfare", "Spectrum Autoline"],
-    "ColorRed",
+    [_autolineColourIndexes, _autolineColourLabels, 2],
     nil
 ] call CBA_fnc_addSetting;
 
 [
     QGVAR(spectrumAutolineColor2), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "EDITBOX", // setting type
-    ["Spectrum Autoline Colour 2", "Colour that should be associated with the autoline hotkey. Must be in CfgMarkerColors"],
+    "LIST", // setting type
+    ["Spectrum Autoline Colour 2", "Colour that should be associated with autoline hotkey 2."],
     ["Crows Electronic Warfare", "Spectrum Autoline"],
-    "ColorGreen",
+    [_autolineColourIndexes, _autolineColourLabels, 7],
     nil
 ] call CBA_fnc_addSetting;
 
 [
     QGVAR(spectrumAutolineColor3), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "EDITBOX", // setting type
-    ["Spectrum Autoline Colour 3", "Colour that should be associated with the autoline hotkey. Must be in CfgMarkerColors"],
+    "LIST", // setting type
+    ["Spectrum Autoline Colour 3", "Colour that should be associated with autoline hotkey 3."],
     ["Crows Electronic Warfare", "Spectrum Autoline"],
-    "ColorBlue",
+    [_autolineColourIndexes, _autolineColourLabels, 8],
     nil
 ] call CBA_fnc_addSetting;
 
 [
     QGVAR(spectrumAutolineColor4), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "EDITBOX", // setting type
-    ["Spectrum Autoline Colour 4", "Colour that should be associated with the autoline hotkey. Must be in CfgMarkerColors"],
+    "LIST", // setting type
+    ["Spectrum Autoline Colour 4", "Colour that should be associated with autoline hotkey 4."],
     ["Crows Electronic Warfare", "Spectrum Autoline"],
-    "ColorYellow",
+    [_autolineColourIndexes, _autolineColourLabels, 5],
     nil
 ] call CBA_fnc_addSetting;
 
@@ -253,41 +261,41 @@ GVAR(voiceLinePacks) set ["police", 			[GVAR(voiceLinesPoliceList), GVAR(voiceLi
 
 // register CBA keybinding to auto-draw lines on map for spectrum device
 GVAR(spectrumAutolineC1Keybind) = [
-	["Crows Electronic Warfare", "Spectrum"],
-	"spectrum_autoline_c1", 
-	["Spectrum Autoline (Colour 1)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
-	{ [GVAR(spectrumAutolineColor1)] call FUNC(drawSpectrumLine); }, 
-	"", 
-	[DIK_SPACE, [false, false, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
-	false
+    ["Crows Electronic Warfare", "Spectrum"],
+    "spectrum_autoline_c1", 
+    ["Spectrum Autoline (Colour 1)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
+    { [GVAR(spectrumAutolineColor1)] call FUNC(drawSpectrumLine); }, 
+    "", 
+    [DIK_SPACE, [false, false, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
+    false
 ] call CBA_fnc_addKeybind;
 
 GVAR(spectrumAutolineC2Keybind) = [
-	["Crows Electronic Warfare", "Spectrum"],
-	"spectrum_autoline_c2", 
-	["Spectrum Autoline (Colour 2)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
-	{ [GVAR(spectrumAutolineColor2)] call FUNC(drawSpectrumLine); }, 
-	"", 
-	[DIK_SPACE, [false, true, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
-	false
+    ["Crows Electronic Warfare", "Spectrum"],
+    "spectrum_autoline_c2", 
+    ["Spectrum Autoline (Colour 2)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
+    { [GVAR(spectrumAutolineColor2)] call FUNC(drawSpectrumLine); }, 
+    "", 
+    [DIK_SPACE, [false, true, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
+    false
 ] call CBA_fnc_addKeybind;
 
 GVAR(spectrumAutolineC3Keybind) = [
-	["Crows Electronic Warfare", "Spectrum"],
-	"spectrum_autoline_c3", 
-	["Spectrum Autoline (Colour 3)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
-	{ [GVAR(spectrumAutolineColor3)] call FUNC(drawSpectrumLine); }, 
-	"", 
-	[DIK_SPACE, [true, false, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
-	false
+    ["Crows Electronic Warfare", "Spectrum"],
+    "spectrum_autoline_c3", 
+    ["Spectrum Autoline (Colour 3)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
+    { [GVAR(spectrumAutolineColor3)] call FUNC(drawSpectrumLine); }, 
+    "", 
+    [DIK_SPACE, [true, false, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
+    false
 ] call CBA_fnc_addKeybind;
 
 GVAR(spectrumAutolineC4Keybind) = [
-	["Crows Electronic Warfare", "Spectrum"],
-	"spectrum_autoline_c4", 
-	["Spectrum Autoline (Colour 4)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
-	{ [GVAR(spectrumAutolineColor4)] call FUNC(drawSpectrumLine); }, 
-	"", 
-	[DIK_SPACE, [false, false, true]], // [DIK code, [Shift?, Ctrl?, Alt?]]
-	false
+    ["Crows Electronic Warfare", "Spectrum"],
+    "spectrum_autoline_c4", 
+    ["Spectrum Autoline (Colour 4)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
+    { [GVAR(spectrumAutolineColor4)] call FUNC(drawSpectrumLine); }, 
+    "", 
+    [DIK_SPACE, [false, false, true]], // [DIK code, [Shift?, Ctrl?, Alt?]]
+    false
 ] call CBA_fnc_addKeybind;
