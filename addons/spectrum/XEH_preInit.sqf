@@ -224,6 +224,16 @@ private _autolineColourLabels = GVAR(spectrumAutolineColours) apply { _x select 
     nil
 ] call CBA_fnc_addSetting;
 
+
+[
+    QGVAR(spectrumAutolineLength), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "SLIDER", // setting type
+    ["Spectrum Autoline Length", "How long should the drawn autoline be, in meters."], 
+    ["Crows Electronic Warfare", "Spectrum Autoline"],
+    [200, 15000, 6000, 0],
+    nil
+] call CBA_fnc_addSetting;
+
 [
     QGVAR(spectrumAutolineColor1), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "LIST", // setting type

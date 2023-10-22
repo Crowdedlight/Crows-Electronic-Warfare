@@ -26,7 +26,7 @@ private _freq = ((missionnamespace getVariable ["#EM_SelMin", 141.6]) + (mission
 _freq = _freq toFixed 1;
 
 private _startPos = [[[position player, GVAR(spectrumAutolineNoise)]]] call BIS_fnc_randomPos;
-private _endPos = _startPos getPos [6000, getDir player];
+private _endPos = _startPos getPos [GVAR(spectrumAutolineLength), getDir player];
 
 private _marker_prefix = "_USER_DEFINED"+(getPlayerUID player)+str(getPos player)+str(getDir player)+_freq;
 private _marker = createMarkerLocal [_marker_prefix, player, currentChannel, player];
