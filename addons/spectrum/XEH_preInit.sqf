@@ -198,6 +198,17 @@ GVAR(voiceLinePacks) set ["police", 			[GVAR(voiceLinesPoliceList), GVAR(voiceLi
 // Spectrum autoline settings
 GVAR(spectrumAutolineColours) = ["ColorBlack", "ColorGrey", "ColorRed", "ColorBrown", "ColorOrange", "ColorYellow", "ColorKhaki", "ColorGreen", "ColorBlue", "ColorPink", "ColorWhite", "ColorWEST", "ColorEAST", "ColorGUER", "ColorCIV"]; // Must only contain colours from CfgMarkerColors
 
+// Alternatively, this could be done programmatically (see below), to account for custom colours
+// However, this would mess with the "default" colours (and potentially the display names)
+// So sticking with the hard-coded list of base-game colours for now
+
+// private _colourCount = 0;
+// {
+// 	GVAR(spectrumAutolineColours) pushBack (configName _x);
+// 	_autolineColourIndexes pushBack _colourCount;
+// 	_colourCount = _colourCount + 1;
+// } forEach configProperties [configFile >> "CfgMarkerColors"];
+
 private _autolineColourIndexes = [];
 for "_i" from 0 to count GVAR(spectrumAutolineColours) -1 do {
 	_autolineColourIndexes pushBack _i;
