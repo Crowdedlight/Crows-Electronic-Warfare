@@ -83,6 +83,7 @@
 			mass = 11; //0.5kg From formular: (_mass * 0.1 * (1/2.2046) * 100) / 100)
 		};
 		ACE_attachable = "crowsew_ctrack_effect_3km";
+		ACE_attachable_orientation[] = {0,-1,0};
 		class EventHandlers {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
         };
