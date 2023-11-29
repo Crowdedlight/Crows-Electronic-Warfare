@@ -13,7 +13,6 @@ params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
 if (isNull _unit) exitWith {hint "Have to select an object to put sound on"};
 
-//ZEN dialog, just ignore ARES, as that mod itself is EOL and links to ZEN
 private _onConfirm =
 {
 	params ["_dialogResult","_in"];
@@ -30,8 +29,8 @@ private _onConfirm =
 	//Get in params again
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 	
-	GVAR(soundPreviewSelected) = nil;
 	stopSound GVAR(soundPreview);
+	GVAR(soundPreviewSelected) = nil;
 	GVAR(soundPreview) = nil;
 
 	// broadcast event to server - params ["_unit", "_loopTime", "_range", "_repeat", "_aliveCondition", "_sound"];
@@ -39,7 +38,7 @@ private _onConfirm =
 };
 
 [
-	"Set Sound (Sound can not stop mid-playing, be aware of long sounds)", 
+	"Set Sound", 
 	[
 		["COMBO","Sound",[
 			EGVAR(sounds,soundZeusDisplayKeys),
@@ -53,12 +52,12 @@ private _onConfirm =
 		["CHECKBOX","Remove sound when dead?",[true]]
 	],
 	_onConfirm,
-	{GVAR(soundPreviewSelected) = nil; stopSound GVAR(soundPreview); GVAR(soundPreview) = nil;},
+	{stopSound GVAR(soundPreview); GVAR(soundPreviewSelected) = nil; GVAR(soundPreview) = nil;},
 	_this
 ] call zen_dialog_fnc_create;
 
 
-// Will this always be 1003? Or is this a case of "it works on my machine" again?
+// This will need to be updated if the UI design is changed
 ((uiNamespace getVariable "zen_common_display") displayCtrl 1003) ctrlAddEventHandler ["LBSelChanged", {
 
 	params ["_control", "_lbCurSel"];
