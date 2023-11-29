@@ -33,17 +33,44 @@ private _onConfirm =
 	// manage input on _tarets to get one list
 	_targets = [_targets] call FUNC(getListZenOwnersSelection);
 
+	_soundIDList = [];
 	if (count _targets == 0) then {
 		// play sound
-		[_pos, _range, _sound, _volume, false] call EFUNC(sounds,playSoundPos);
+		private _soundID = ([_pos, _range, _sound, _volume, false] call EFUNC(sounds,playSoundPos));
+		_soundIDList pushBack _soundID;
 	} else {
 		// send event
 		[QEGVAR(sounds,playSoundLocal), [_pos, _range, _sound, _volume, true], _targets] call CBA_fnc_targetEvent;
+		// TODO: how to get soundID from this?
 	};
+
+	// Attach the sound ID list to a logic object, so it can be deleted mid-play
+	_logicCenter = createCenter sideLogic;
+	_logicGroup = createGroup _logicCenter;
+	_logic = _logicGroup createUnit ["Logic", _pos, [], 0, "NONE"];
+	_logic setVariable [QGVAR(soundIDList), _soundIDList, true];
+	_logic addEventHandler ["Deleted", {
+		params ["_entity"];
+		private _playedSounds = GETMVAR(EGVAR(sounds,playedSounds),[]);
+		_playedSounds = _playedSounds - (_playedSounds select {(_x#0) isEqualTo _entity || isNull (_x#0)});
+		SETMVAR(EGVAR(sounds,playedSounds),_playedSounds);
+
+		{ stopSound _x } forEach (_entity getVariable [QGVAR(soundIDList), []]); 
+	}];
+	[_logic, [_sound] call EFUNC(sounds,getSoundLength)] spawn {
+		params ["_logic", "_delay"];
+		sleep _delay;
+		deleteVehicle _logic;
+	};
+	["zen_common_updateEditableObjects", [[_logic]]] call CBA_fnc_serverEvent;
+
+	private _playedSounds = GETMVAR(EGVAR(sounds,playedSounds),[]);
+	_playedSounds pushBack [_logic, [_sound] call EFUNC(sounds,getSoundName)];
+	SETMVAR(EGVAR(sounds,playedSounds),_playedSounds);
 };
 
 [
-	"Play Sound (Can't be stopped, be aware of long sounds)", 
+	"Play Sound (Can't be stopped if targetted, be aware of long sounds)", 
 	[
 		["OWNERS",["Targets to play sound. If none is selected it will play globally for all", "If none selected it will play globally, otherwise it will play local only for selected players"],[[],[],[],2], true], //no preselected defaults, and default tab open is players. Forcing defaults to deselect tp selection.
 		["COMBO","Sound",[
