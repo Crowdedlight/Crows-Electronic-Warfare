@@ -26,8 +26,8 @@ private _onConfirm =
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
 	// Clear sound preview
-	GVAR(soundPreviewSelected) = nil;
 	stopSound GVAR(soundPreview);
+	GVAR(soundPreviewSelected) = nil;
 	GVAR(soundPreview) = nil;
 	
 	// manage input on _tarets to get one list
@@ -41,6 +41,7 @@ private _onConfirm =
 		[QEGVAR(sounds,playSoundLocal), [_pos, _range, _sound, _volume, true], _targets] call CBA_fnc_targetEvent;
 	};
 };
+
 [
 	"Play Sound (Can't be stopped, be aware of long sounds)", 
 	[
@@ -53,11 +54,11 @@ private _onConfirm =
 		["SLIDER","Volume",[1,5,2,0]] //1 to 5, default 2 and showing 0 decimal
 	],
 	_onConfirm,
-	{GVAR(soundPreviewSelected) = nil; stopSound GVAR(soundPreview); GVAR(soundPreview) = nil;},
+	{stopSound GVAR(soundPreview); GVAR(soundPreviewSelected) = nil; GVAR(soundPreview) = nil;},
 	_this
 ] call zen_dialog_fnc_create;
 
-// Will this always be 1003? Or is this a case of "it works on my machine" again?
+// This will need to be updated if the UI design is changed
 ((uiNamespace getVariable "zen_common_display") displayCtrl 1003) ctrlAddEventHandler ["LBSelChanged", {
 
 	params ["_control", "_lbCurSel"];

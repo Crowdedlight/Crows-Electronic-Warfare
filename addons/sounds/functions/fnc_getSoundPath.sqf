@@ -3,10 +3,13 @@
 Author: Crowdedlight
 			   
 File: fnc_getSoundPath.sqf
-Parameters: sound: String - ID of sound
+Parameters: sound: String - short ID of sound file
 Return: String - path of soundfile or Nothing
 
-Plays sound for everyone once
+Returns the filepath of the sound with the given short ID
+
+Example:
+	["air_raid_siren"] call crowsew_sounds_fn_getSoundPath; // returns "z\crowsEW\addons\sounds\data\air_raid_siren.ogg"
 
 *///////////////////////////////////////////////
 params ["_sound"];
