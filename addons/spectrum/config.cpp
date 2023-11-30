@@ -5,14 +5,16 @@ class CfgPatches {
         name = QUOTE(COMPONENT);
         units[] = {
             "crowsew_ctrack_effect",
-            "crowsew_ctrack_effect_2km"
+            "crowsew_ctrack_effect_2km", //3km?
+            "crowsew_cmotionObj"
         };
         weapons[] = {
             "crowsew_tfar_icom", 
-            "crowsew_ctrack"
+            "crowsew_ctrack",
+            "crowsew_cmotion"
         };
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"crowsEW_main", "crowsEW_zeus", "A3_Data_F_AoW_Loadorder"};
+        requiredAddons[] = {"crowsEW_main", "crowsEW_zeus", "crowsEW_sounds", "A3_Data_F_AoW_Loadorder"};
         author = "Crowdedlight";
         VERSION_CONFIG;
     };

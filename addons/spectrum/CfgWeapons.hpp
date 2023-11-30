@@ -89,10 +89,29 @@
         };
 	};
 	// TODO when first iteration works, make a few versions that has different ranges. Just reuse the 3D model. Something like 0.5km, 2k, 5k ?
- };
+	// private _itemClassname = "crowsew_ctrack";
+	// diag_log (getText (configFile >> "CfgWeapons" >> _itemClassname >> "ACE_Attachable"));
+	// private _itemVehClass = "crowsew_ctrack";
+	// diag_log (getText (configFile >> "CfgAmmo" >> _itemVehClass >> "model"));
+	// diag_log (getText (configFile >> "CfgVehicles" >> _itemVehClass >> "model"));
 
-// private _itemClassname = "crowsew_ctrack";
-// diag_log (getText (configFile >> "CfgWeapons" >> _itemClassname >> "ACE_Attachable"));
-// private _itemVehClass = "crowsew_ctrack";
-// diag_log (getText (configFile >> "CfgAmmo" >> _itemVehClass >> "model"));
-// diag_log (getText (configFile >> "CfgVehicles" >> _itemVehClass >> "model"));
+	
+	// C-MOTION
+	class crowsew_cmotion: CBA_MiscItem {
+		author = "Crowdedlight";
+		displayName = "C-MOTION";
+		descriptionShort = "Placeable sensor device that will trigger an alarm when it detects motion";
+		scope = PUBLIC;
+		scopeCurator = PUBLIC;
+		model = QPATHTOF(data\c_track\c_track.p3d);
+		picture = QPATHTOF(data\c_track\ctrack_picture_ca.paa);
+		icon = QPATHTOF(data\c_track\ctrack_icon_ca.paa);
+		class ItemInfo: CBA_MiscItem_ItemInfo {
+			mass = 11; //0.5kg From formula: (_mass * 0.1 * (1/2.2046) * 100) / 100)
+		};
+		class EventHandlers {
+            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
+        };
+	};
+};
+
