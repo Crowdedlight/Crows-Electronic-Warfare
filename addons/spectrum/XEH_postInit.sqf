@@ -43,7 +43,8 @@ private _zeusRcEventStopId = ["zen_remoteControlStopped", FUNC(eventZeusStopRC)]
 // Eventhandlers for ctrack, adding ACE one to detech when a ctrack is detached and we can reset variable
 private _aceDetachId = ["ace_attach_detaching", FUNC(ctrackDetachEvent)] call CBA_fnc_addEventHandler;
 
-// if no ace, we run the function for ctrack without ace 
+// if no ace, we run the functions for ctrack & cmotion without ace 
 if (!EGVAR(zeus,hasAce)) then {
 	[] call FUNC(ctrackNoAce);
+	[] call FUNC(cmotionNoAce);
 };

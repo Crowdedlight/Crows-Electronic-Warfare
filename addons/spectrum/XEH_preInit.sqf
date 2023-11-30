@@ -328,3 +328,109 @@ GVAR(spectrumAutolineC4Keybind) = [
     [DIK_SPACE, [false, false, true]], // [DIK code, [Shift?, Ctrl?, Alt?]]
     false
 ] call CBA_fnc_addKeybind;
+
+
+// C-MOTION Settings
+[
+    QGVAR(cmotionSpectrum), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "CHECKBOX", // setting type
+    ["C-MOTION Signal Source", "Whether the C-MOTION can generate a signal-source"+endl+"(detectable with the Spectrum Device)"], 
+    ["Crows Electronic Warfare", "C-MOTION"],
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(cmotionSpectrumRange), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "SLIDER", // setting type
+    ["Signal Source Range", "How far will the signal source be detectable"],
+    ["Crows Electronic Warfare", "C-MOTION"],
+    [100, 5000, 3000, 0]
+] call CBA_fnc_addSetting;
+
+
+// TODO: possibly use cmotionCooldown (below) in place of this
+[
+    QGVAR(cmotionSpectrumTime), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "SLIDER", // setting type
+    ["Signal Source Time", "How long the C-MOTION signal source lasts when triggered, in seconds"], 
+    ["Crows Electronic Warfare", "C-MOTION"],
+    [1, 120, 10, 0]
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(cmotionMarker), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "CHECKBOX", // setting type
+    ["C-MOTION Map Marker", "Whether the C-MOTION can generate a map-marker"], 
+    ["Crows Electronic Warfare", "C-MOTION"],
+    true
+] call CBA_fnc_addSetting;
+
+// [
+//     QGVAR(cmotionMarkerText), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+//     "EDITBOX", // setting type
+//     ["C-MOTION Marker Text", "Text for the map-marker"], 
+//     ["Crows Electronic Warfare", "C-MOTION"],
+//     "Motion alert:"
+// ] call CBA_fnc_addSetting;
+
+// [
+//     QGVAR(cmotionMarkerTimestamp), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+//     "CHECKBOX", // setting type
+//     ["C-MOTION Map Timestamp", "Append the trigger timestamp to the map-marker"], 
+//     ["Crows Electronic Warfare", "C-MOTION"],
+//     true
+// ] call CBA_fnc_addSetting;
+
+[
+    QGVAR(cmotionAudio), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "CHECKBOX", // setting type
+    ["C-MOTION Audio Notification", "Whether the C-MOTION can generate an audio-notification"+endl+"(for the player that placed the sensor)"], 
+    ["Crows Electronic Warfare", "C-MOTION"],
+    true
+] call CBA_fnc_addSetting;
+
+// [
+//     QGVAR(cmotionAudioFile), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+//     "LIST", // setting type
+//     ["C-MOTION Audio File", "Soundfile for the audio-notification"], 
+//     ["Crows Electronic Warfare", "C-MOTION"],
+//     [[0, 1, 2, 3], ["0", "1", "2", "3"], 0]
+// ] call CBA_fnc_addSetting;
+
+[
+    QGVAR(cmotionInterval), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "SLIDER", // setting type
+    ["C-MOTION Interval", "How often the C-MOTION checks for movement, in seconds"+endl+"Increase to improve performance"], 
+    ["Crows Electronic Warfare", "C-MOTION"],
+    [0.5, 10, 1, 1]
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(cmotionCooldown), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "SLIDER", // setting type
+    ["C-MOTION Cooldown", "How long the cooldown between repeated detections, in seconds"+endl+"Prevents the sensor being immediately triggered when placed, as well as preventing alarm-spam"], 
+    ["Crows Electronic Warfare", "C-MOTION"],
+    [3, 20, 6, 1]
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(cmotionMaxRange), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "SLIDER", // setting type
+    ["C-MOTION Max Sensor Radius", "Maxmimum range of the C-MOTION sensor (in m)"], 
+    ["Crows Electronic Warfare", "C-MOTION"],
+    [1, 50, 10, 0]
+] call CBA_fnc_addSetting;
+
+GVAR(cmotionAudioKillKeybind) = [
+    ["Crows Electronic Warfare", "C-Motion"],
+    "spectrum_cmotion_audiokill", 
+    ["Audio Kill", "Instantly remove the audio component from any placed C-Motion devices"+endl+"For use when sound loops become annoying"+endl+"(Sound cannot be reactivated until re-placed)"], 
+    { [player] call FUNC(cmotionAudioKill); }, 
+    "", 
+    [DIK_X, [false, true, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
+    false
+] call CBA_fnc_addKeybind;
+
+if(!GVAR(cmotionSpectrum) && !GVAR(cmotionMarker) && !GVAR(cmotionAudio)) then {
+	diag_log format ["crowsEW-spectrum: WARNING! No allowed alerts for C-MOTION in settings!"];
+};
