@@ -1,5 +1,5 @@
 # Crows-Electronic-Warfare
-A arma 3 mod that allows zeus to add additional eletronic measures available for the players. 
+A arma 3 mod that allows zeus to add additional electronic measures available for the players. 
 
 ### Requirements
 This mod requires Zeus Enhanced (ZEN) and CBA3

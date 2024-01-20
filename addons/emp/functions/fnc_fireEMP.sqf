@@ -60,7 +60,7 @@ private _vehicleSpawn = [_delay, _vehicles] spawn {
 
 		// dmg vehicle modules
 		{
-			// get all eletronic modules in vehicles
+			// get all electronic modules in vehicles
 			if ("engine" in _x || {"avionics" in _x} ||{"turret" in _x} || 
 				{"missiles" in _x} || {"light" in _x} || {"svetlo" in _x} || 
 				{"battery" in _x} || {"cam" in _x}) then {
