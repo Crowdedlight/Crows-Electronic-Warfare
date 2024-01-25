@@ -3,26 +3,27 @@
 Author: Crowdedlight
 			   
 File: fnc_toggleJammingOnUnit.sqf
-Parameters: _unit, _enableJam
+Parameters: _unit, _enableJam, 
+            _jamObject (could also be a player)
 Return: none
 
 Called upon event to jam or unjam unit
 
 *///////////////////////////////////////////////
-params [["_unit", objNull], ["_enableJam", false], ["_jamPlayer", objNull]];
+params [["_unit", objNull], ["_enableJam", false], ["_jamObject", objNull]];
 
 // sanity check for null objs
-if (isNull _unit || isNull _jamPlayer) exitWith {};
+if (isNull _unit || isNull _jamObject) exitWith {};
 
 // get unit variable, as this is on a per unit basis and each client could have multiple units it is local to. 
-private _activeJammers = _unit getVariable [QGVAR(activeJammingPlayers), []];
+private _activeJammers = _unit getVariable [QGVAR(activeJammingObjects), []];
 private _jamCount = count _activeJammers;
 
 if (_enableJam) then {
 
 	// add player to jam loop 
-	_activeJammers pushBack _jamPlayer;
-	_unit setVariable [QGVAR(activeJammingPlayers), _activeJammers];
+	_activeJammers pushBack _jamObject;
+	_unit setVariable [QGVAR(activeJammingObjects), _activeJammers];
 
 	// if no jammers active spawn jam loop 
 	if (_jamCount != 0) exitWith {};
@@ -45,7 +46,7 @@ if (_enableJam) then {
 
 		while {alive _unit && !isNull _unit} do {
 			// get latest jam list 
-			private _activeJammers = _unit getVariable[QGVAR(activeJammingPlayers), []];
+			private _activeJammers = _unit getVariable[QGVAR(activeJammingObjects), []];
 
 			// check for cleanup
 			private _rmArr = [];
@@ -65,7 +66,7 @@ if (_enableJam) then {
 			// systemChat str(_activeJammers);
 
 			// set new variable, as new jammers won't be obtained otherwise
-			_unit setVariable[QGVAR(activeJammingPlayers), _activeJammers];
+			_unit setVariable[QGVAR(activeJammingObjects), _activeJammers];
 
 			// if 0 jammers, we enable AI, and exit the loop
 			if (count _activeJammers == 0) exitWith {
@@ -100,8 +101,8 @@ if (_enableJam) then {
 } else {
 	// remove player from jamming list - spawned script should handle it from here to enable AI, if no other jammers are active. 
 	// systemChat "removing player from jam list";
-	_activeJammers = _activeJammers - [_jamPlayer];
-	_unit setVariable [QGVAR(activeJammingPlayers), _activeJammers];
+	_activeJammers = _activeJammers - [_jamObject];
+	_unit setVariable [QGVAR(activeJammingObjects), _activeJammers];
 };
 
 

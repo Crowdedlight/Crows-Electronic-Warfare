@@ -26,4 +26,4 @@ private _freq = 433.00 + (random 7);
 [QGVAR(addBeacon), [_unit, _freq, 300, "drone"]] call CBA_fnc_globalEventJIP;
 
 // set empty array on unit var where the players currently jamming is listed 
-_unit setVariable [QGVAR(activeJammingPlayers), []];
+_unit setVariable [QGVAR(activeJammingObjects), []];
