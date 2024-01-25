@@ -6,7 +6,7 @@ File: fnc_addJammerZeus.sqf
 Parameters: pos, _unit
 Return: none
 
-Zeus dialog to set object as TFAR jammer
+Zeus dialog to set object as jammer
 
 *///////////////////////////////////////////////
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
@@ -17,6 +17,8 @@ private _onConfirm =
 	params ["_dialogResult","_in"];
 	_dialogResult params
 	[
+		"_isVoiceCommsJammer",
+		"_isDroneJammer",
 		"_rad",
 		"_strength"
 	];
@@ -36,8 +38,12 @@ private _onConfirm =
 		_unit = _dataTerminal;
 	};
 
+	private _capabilities = [];	// what types of signals can this jammer counteract?
+	if (_isVoiceCommsJammer) then { _capabilities pushBack "VoiceCommsJammer" };
+	if (_isDroneJammer) then { _capabilities pushBack "DroneJammer" };
+
 	// broadcast event to all clients and JIP
-	[QEGVAR(main,addJammer), [_unit, _rad, _strength]] call CBA_fnc_globalEventJIP;
+	[QEGVAR(main,addJammer), [_unit, _rad, _strength, _capabilities]] call CBA_fnc_globalEventJIP;
 
 	// broadcast sound to server for sound handling - Means we don't get duplicate broadcasts due to JIP.
 	// params ["_unit", "_delay", "_range", "_repeat", "_aliveCondition", "_sound", "_startDelay", "_volume"];
@@ -46,8 +52,10 @@ private _onConfirm =
 
 };
 [
-	"TFAR Jammer", 
+	"Jammer", 
 	[
+		["CHECKBOX","Jam voice communication signals",[true]], // defaults to true because this is a well established feature
+		["CHECKBOX","Jam drone signals",[false]], // defaults to false because this feature is new and might be unexpected
 		["SLIDER","Jamming Radius",[10,5000,500,0]], //10 to 5000, default 500 and showing 0 decimal.
 		["SLIDER","Jamming Strength",[0,100,50,0]] //0 to 100, default 50 and showing 0 decimal
 	],

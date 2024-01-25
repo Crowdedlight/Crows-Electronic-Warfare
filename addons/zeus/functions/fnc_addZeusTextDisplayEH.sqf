@@ -54,7 +54,7 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 
 	// Jammer
 	{
-		_y params ["_jamObj", "_radius", "_strength", "_enabled"];
+		_y params ["_jamObj", "_radius", "_strength", "_enabled", "_capabilities"];
 
 		// calculate distance from zeus camera to unit
 		private _dist = _zeusPos distance _jamObj;
@@ -63,7 +63,7 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 		if (_dist > 500) then {continue;};
 
 		// draw icon on relative pos 
-		private _txt = format["Jammer(STR:%1)", _strength];
+		private _txt = format["Jammer(STR:%1,CAP:%2)", _strength, str _capabilities];
 		// offset: z: 0
 		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _jamObj, 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
 	} forEach EGVAR(main,jamMap);

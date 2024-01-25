@@ -9,7 +9,7 @@ Return: none
 Called upon event, adds the jammer to local gvar array and starts while loop, if it isn't running
 
 *///////////////////////////////////////////////
-params ["_unit", "_rad", "_strength"];
+params ["_unit", "_rad", "_strength", "_capabilities"];
 
 // if object is null, exitwith. Can happen if we get event as JIP but object has been removed
 if (isNull _unit) exitWith {};
@@ -44,8 +44,8 @@ if (typeof _unit == "Land_DataTerminal_01_F") then {
 	}];
 };
 
-// add to map, netId is key		jammer, radius, strength, and enabled
-GVAR(jamMap) set [_netId, [_unit, _rad, _strength, true]];
+// add to map, netId is key		jammer, radius, strength, enabled and capabilities
+GVAR(jamMap) set [_netId, [_unit, _rad, _strength, true, _capabilities]];
 
 // Experiment information from logging data hits
 // Results: that explosive damage should be > 0.5, and hit value > 100

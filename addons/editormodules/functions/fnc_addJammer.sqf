@@ -42,9 +42,15 @@ if (_activated) then {
 	// Attribute values are saved in module's object space under their class names
 	private _rad = _logic getVariable ["Radius",0];
 	private _strength = _logic getVariable ["Strength",0];
+	private _isVoiceCommsJammer = _logic getVariable ["IsVoiceCommsJammer",0];
+	private _isDroneJammer = _logic getVariable ["IsDroneJammer",0];
+
+	private _capabilities = [];	// what types of signals can this jammer counteract?
+	if (_isVoiceCommsJammer) then { _capabilities pushBack "VoiceCommsJammer" };
+	if (_isDroneJammer) then { _capabilities pushBack "DroneJammer" };
 
 	// broadcast event to all clients and JIP
-	[QEGVAR(main,addJammer), [_unit, _rad, _strength]] call CBA_fnc_globalEventJIP;
+	[QEGVAR(main,addJammer), [_unit, _rad, _strength, _capabilities]] call CBA_fnc_globalEventJIP;
 
 	// broadcast sound to server for sound handling - Means we don't get duplicate broadcasts due to JIP.
 	// params ["_unit", "_delay", "_range", "_repeat", "_aliveCondition", "_sound", "_startDelay", "_volume"];

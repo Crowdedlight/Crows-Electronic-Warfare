@@ -103,6 +103,24 @@ class CfgVehicles
 			// class Units: Units{};
 
 			// Module-specific arguments:
+			class IsVoiceCommsJammer: Checkbox
+			{
+				property = QGVAR(addjammer_isVoiceCommsJammer);
+				displayName = "Jam voice communication signals";
+				tooltip = "Should this jammer effect players voice communication (e.g. via TFAR)?";
+				typeName = "BOOL";
+				defaultValue = "true";
+			};
+
+			class IsDroneJammer: Checkbox
+			{
+				property = QGVAR(addjammer_isDroneJammer);
+				displayName = "Jam drone signals";
+				tooltip = "Should this jammer effect drones?";
+				typeName = "BOOL";
+				defaultValue = "false";
+			};
+
 			class Radius: Edit
 			{
 				property = QGVAR(addjammer_radius);							
