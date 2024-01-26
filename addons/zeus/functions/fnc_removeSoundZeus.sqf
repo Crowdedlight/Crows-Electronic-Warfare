@@ -2,7 +2,7 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fnc_addSoundZeus.sqf
+File: fnc_removeSoundZeus.sqf
 Parameters: pos, _unit
 Return: none
 
