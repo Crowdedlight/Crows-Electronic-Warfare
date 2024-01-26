@@ -9,7 +9,7 @@ Return: none
 Called upon event, adds the jammer to local gvar array and starts while loop, if it isn't running
 
 *///////////////////////////////////////////////
-params ["_unit", "_rad", "_strength", "_capabilities"];
+params ["_unit", "_rad", "_strength", "_enabled", "_capabilities"];
 
 // if object is null, exitwith. Can happen if we get event as JIP but object has been removed
 if (isNull _unit) exitWith {};
@@ -27,8 +27,11 @@ if (typeof _unit == "Land_DataTerminal_01_F") then {
 	_unit setObjectTextureGlobal [0, QPATHTOF(data\data_terminal_screen_CO.paa)];
 	_unit setObjectMaterialGlobal [0, "\A3\Props_F_Exp_A\Military\Equipment\Data\DataTerminal_green.rvmat"];
 	
-	// animate activation
-	[_unit,3] call BIS_fnc_dataTerminalAnimate;
+	if (_enabled) then {		
+		[_unit,3] call BIS_fnc_dataTerminalAnimate;	// animate activation
+	} else {
+		[_unit,0] call BIS_fnc_dataTerminalAnimate;	// keep data terminal closed
+	};
 
 	// add eventhandler to allow it to be blown up. Essential explosives
 	_unit addEventHandler ["hitpart",
@@ -45,7 +48,7 @@ if (typeof _unit == "Land_DataTerminal_01_F") then {
 };
 
 // add to map, netId is key		jammer, radius, strength, enabled and capabilities
-GVAR(jamMap) set [_netId, [_unit, _rad, _strength, true, _capabilities]];
+GVAR(jamMap) set [_netId, [_unit, _rad, _strength, _enabled, _capabilities]];
 
 // Experiment information from logging data hits
 // Results: that explosive damage should be > 0.5, and hit value > 100
