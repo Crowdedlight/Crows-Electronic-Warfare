@@ -17,8 +17,8 @@ if (isNull _unit) exitWith {};
 private _netId = netId _unit;
 
 // add action 
-_unit addAction ["<t color=""#FFFF00"">Pull Out Wires", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
-_unit addAction ["<t color=""#FFFF00"">Duct Tape Wires Back In", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["!([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
+_unit addAction ["<t color=""#FFFF00"">De-activate jammer", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
+_unit addAction ["<t color=""#FFFF00"">Activate jammer", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["!([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
 
 // if dataterminal do animation 
 if (typeof _unit == "Land_DataTerminal_01_F") then {
