@@ -125,6 +125,15 @@ private _timeActive = 5;
 			_timeActive = 0.1;
 			breakOut "loopFreq";
 		};
+		case "sweep": {
+			// players can not interact with a drone jammer
+			// so just ignore this signal
+			continue;
+		};
+		default { 
+				diag_log format ["CrowsEW:fnc_spectrumDeviceMouseDown.sqf: '%1' is an unkown type of signal source/beacon!!!", _type]; 
+				continue;	// better luck next time :-)
+			};
 	};
 } forEach _frequencies; // [_unit, _frequency, _scanRange, _type]
 

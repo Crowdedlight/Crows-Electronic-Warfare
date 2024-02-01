@@ -50,6 +50,11 @@ if (typeof _unit == "Land_DataTerminal_01_F") then {
 // add to map, netId is key		jammer, radius, strength, enabled and capabilities
 GVAR(jamMap) set [_netId, [_unit, _rad, _strength, _enabled, _capabilities]];
 
+if (_enabled) then {
+	// add jammer as a signal beacon (so that it can be tracked down with the Spectrum Device)
+	[QEGVAR(spectrum,addBeacon), [_unit, 433, 300, "sweep"]] call CBA_fnc_globalEventJIP;
+}
+
 // Experiment information from logging data hits
 // Results: that explosive damage should be > 0.5, and hit value > 100
 

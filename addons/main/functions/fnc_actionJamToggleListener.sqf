@@ -20,3 +20,11 @@ _jammer set [3, _enabled];
 
 // save changes to map
 GVAR(jamMap) set [_netId, _jammer];
+
+// show jammers in the spectrum
+if (_enabled) then {
+	[QEGVAR(spectrum,addBeacon), [_jamObj, 433, 300, "sweep"]] call CBA_fnc_globalEventJIP;
+} else {
+	[QEGVAR(spectrum,removeBeacon), [_jamObj]] call CBA_fnc_globalEventJIP;
+};
+

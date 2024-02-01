@@ -11,6 +11,7 @@ PREP(spectrumDeviceMouseDown);
 PREP(spectrumDeviceMouseUp);
 PREP(getActiveBeaconsInRange);
 PREP(calcSignalStrength);
+PREP(getNextSweepFreq);
 PREP(initDroneSignals);
 PREP(toggleJammingOnUnit);
 PREP(spectrumEnableSettingChanged);
