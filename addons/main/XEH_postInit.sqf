@@ -20,6 +20,8 @@ private _toggleJamid = [QGVAR(actionToggleJam), FUNC(actionJamToggleListener)] c
 // due to best practices we are gonna put the jam loop in unscheduled space, so we use a PFH to run every 0.5s 
 GVAR(PFH_jamPlayer) = [FUNC(jammerPlayerLocal) , 0.5] call CBA_fnc_addPerFrameHandler; 
 
+GVAR(FilmGrain_jamEffect) = ppEffectCreate ["FilmGrain",2000]; 
+
 // satcom boost loop
 if (isServer) then {
 	GVAR(PFH_satcomHandler) = [FUNC(satcomServerLoop) , 0.5] call CBA_fnc_addPerFrameHandler; 
