@@ -23,6 +23,14 @@ ADDON = true;
     nil
 ] call CBA_fnc_addSetting;
 
+[
+    QGVAR(minJamSigStrength), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "SLIDER", // setting type
+    ["Minimum signal strength required for jamming", "Spectrum Device can not jam signals that are weaker than this value (in dBm)."], 
+    ["Crows Electronic Warfare"],
+    [-100, 0, -40, 0],	// [_min, _max, _default, _trailingDecimals, _isPercentage]
+    nil
+] call CBA_fnc_addSetting;
 
 // [target, frequency]
 GVAR(beacons) = [];
