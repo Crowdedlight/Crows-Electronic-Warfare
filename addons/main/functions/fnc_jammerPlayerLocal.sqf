@@ -45,8 +45,8 @@ if (call EFUNC(zeus,isZeus)) exitWith {
 	{
 		_y params ["_jamObj", "_radius", "_strength", "_enabled", "_capabilities"];
 
-		// jamObj, netId, radius
-		[_jamObj, _x, _radius, true] call FUNC(updateJamMarker);
+		// jamObj, netId, radius, updating, enabled
+		[_jamObj, _x, _radius, true, _enabled] call FUNC(updateJamMarker);
 	} forEach GVAR(jamMap);
 };
 
