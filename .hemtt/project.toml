@@ -29,6 +29,9 @@ git_hash = 0 # Disabled
 author = "Crowdedlight"
 url = "https://github.com/Crowdedlight/Crows-Electronic-Warfare"
 
+[asc]
+enabled = false   # need to deactivate this for the time being because of a bug with prefix paths; further details at:
+                  # https://discord.com/channels/976165959041679380/1039189045655392389/1201275092928299189 (ACE Discord)
 
 # Launched with `hemtt launch`
 [hemtt.launch.default]
@@ -39,6 +42,8 @@ workshop = [
     "2369477168", # Advanced Developer Tools
     "2018593688", # Zeus Enhanced ACE Compat
     "463939057",  # ACE
+    "1645973522", # Intercept Minimal Dev
+    "1585582292", # Arma Debug Engine
 ]
 parameters = [
     "C:\\Users\\crow\\Documents\\Arma 3 - Other Profiles\\Crowdedlight\\missions\\dev_mini.Enoch\\mission.sqm", # Launch into existing Editor Mission
