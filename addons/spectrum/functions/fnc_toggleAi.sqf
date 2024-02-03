@@ -18,8 +18,10 @@ if (_enable) then {
 	{
 		_x enableAI "all";
 	} forEach (crew _unit);
+	_unit land "NONE";	// cancel landing
 } else {
 	{
 		_x disableAI "all";
 	} forEach (crew _unit);
+	_unit land "LAND";
 }

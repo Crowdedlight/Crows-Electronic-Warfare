@@ -60,7 +60,7 @@ private _timeActive = 5;
 
 			// only real radio line if signal strength is better than -60
 			if (_sigStrength < -60) then {
-				// not strong enough signal, so we play garabled radio
+				// not strong enough signal, so we play garbled radio
 				_sound = "garbled"; 
 				_timeActive = 4.3;
 			} else {

@@ -91,8 +91,8 @@ GVAR(voiceLinesPoliceWeights) = [
 	1
 ];
 
-// ELETRONIC ALIEN SOUNDS 
-GVAR(voiceLinesAlienEletronicList) = [
+// ELECTRONIC ALIEN SOUNDS 
+GVAR(voiceLinesAlienElectronicList) = [
 	["arcane_blast_hit", 2.5],
 	["custom_reaper_horn", 3.5],
 	["futuristic_machine_turn_off", 2.5],
@@ -114,8 +114,8 @@ GVAR(voiceLinesAlienElectronicWeights) = [
 	1
 ];
 
-// ELETRONIC SOUNDS 
-GVAR(voiceLinesEletronicList) = [
+// ELECTRONIC SOUNDS 
+GVAR(voiceLinesElectronicList) = [
 	["alarm", 2],
 	["beep", 2.5],
 	["electricity_with_buzzing", 5.4],
@@ -190,8 +190,8 @@ GVAR(voiceLinePacks) = createHashMap;
 // add packs
 GVAR(voiceLinePacks) set ["british", 			[GVAR(voiceLinesBritishList), GVAR(voiceLinesBritishWeights), "British"]];
 GVAR(voiceLinePacks) set ["morsecode", 			[GVAR(voiceLinesMorseCodeList), GVAR(voiceLinesMorseCodeWeights), "Morse Code"]];
-GVAR(voiceLinePacks) set ["electronic", 		[GVAR(voiceLinesEletronicList), GVAR(voiceLinesElectronicWeights), "Electronic"]];
-GVAR(voiceLinePacks) set ["alienElectronic", 	[GVAR(voiceLinesAlienEletronicList), GVAR(voiceLinesAlienElectronicWeights), "Alien Electronic"]];
+GVAR(voiceLinePacks) set ["electronic", 		[GVAR(voiceLinesElectronicList), GVAR(voiceLinesElectronicWeights), "Electronic"]];
+GVAR(voiceLinePacks) set ["alienElectronic", 	[GVAR(voiceLinesAlienElectronicList), GVAR(voiceLinesAlienElectronicWeights), "Alien Electronic"]];
 GVAR(voiceLinePacks) set ["police", 			[GVAR(voiceLinesPoliceList), GVAR(voiceLinesPoliceWeights), "Police Radio"]];
 
 
