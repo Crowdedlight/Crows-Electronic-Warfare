@@ -1,6 +1,6 @@
 class CfgSounds
 {
-	/// Voice lines - alien eletronic
+	/// Voice lines - alien electronic
 
 	class arcane_blast_hit
 	{

@@ -1,6 +1,6 @@
 class CfgSounds
 {
-	/// Voice lines - eletronic
+	/// Voice lines - electronic
 
 	class alarm
 	{
