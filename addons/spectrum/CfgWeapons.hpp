@@ -82,7 +82,8 @@
 		class ItemInfo: CBA_MiscItem_ItemInfo {
 			mass = 11; //0.5kg From formular: (_mass * 0.1 * (1/2.2046) * 100) / 100)
 		};
-		ACE_attachable = "crowsew_ctrack_effect_3km";
+		ACE_Attachable = "crowsew_ctrack_effect_3km";
+		ace_attach_orientation[] = {0,180}; // roll, yaw
 		class EventHandlers {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
         };
