@@ -117,12 +117,12 @@ GVAR(ctrackDetachFromTarget) = {
 };
 
 // add scroll wheel for "attaching ctrack to target" and "attaching ctrack to self". 
-player addAction ["<t color=""#7fd7f5"">Attach Ctrack to self", {_this call GVAR(ctrackAttachToSelf);}, nil, 1, false, true, "", QUOTE( ([_this] call GVAR(hasCtrackCondition)) && {!([_this] call GVAR(hasBeaconAlreadyCondition))} )];
+player addAction ["<t color=""#7fd7f5"">Attach Ctrack to self", {_this call GVAR(ctrackAttachToSelf);}, nil, 1, false, true, "", QUOTE(([_this] call GVAR(hasCtrackCondition)) && {!([_this] call GVAR(hasBeaconAlreadyCondition))})];
 // add scroll wheel for "detaching ctrack from self"
-player addAction ["<t color=""#7fd7f5"">Detach Ctrack from self", {_this call GVAR(ctrackDetachFromSelf);}, nil, 1, false, true, "", QUOTE( [_this] call GVAR(hasBeaconAlreadyCondition) )];
+player addAction ["<t color=""#7fd7f5"">Detach Ctrack from self", {_this call GVAR(ctrackDetachFromSelf);}, nil, 1, false, true, "", QUOTE([_this] call GVAR(hasBeaconAlreadyCondition))];
 
 // add scroll wheel for adding ctrack to vehicles/objects
-player addAction ["<t color=""#30f0a9"">Attach Ctrack to Vehicle", {_this call GVAR(ctrackAttachToTarget);}, nil, 1, false, true, "", QUOTE( ([_this] call GVAR(hasCtrackCondition)) && { ([_this] call GVAR(hasVehicleInFrontCondition)) && {!([_this] call GVAR(targetHasBeaconAlreadyCondition))} } )];
+player addAction ["<t color=""#30f0a9"">Attach Ctrack to Vehicle", {_this call GVAR(ctrackAttachToTarget);}, nil, 1, false, true, "", QUOTE(([_this] call GVAR(hasCtrackCondition)) && { ([_this] call GVAR(hasVehicleInFrontCondition)) && {!([_this] call GVAR(targetHasBeaconAlreadyCondition))}})];
 // add scroll wheel for detaching ctrack to vehicles/objects
-player addAction ["<t color=""#30f0a9"">Detach Ctrack from Vehicle", {_this call GVAR(ctrackDetachFromTarget);}, nil, 1, false, true, "", QUOTE( ([_this] call GVAR(hasVehicleInFrontCondition)) && {([_this] call GVAR(targetHasBeaconAlreadyCondition))} )];
+player addAction ["<t color=""#30f0a9"">Detach Ctrack from Vehicle", {_this call GVAR(ctrackDetachFromTarget);}, nil, 1, false, true, "", QUOTE(([_this] call GVAR(hasVehicleInFrontCondition)) && {([_this] call GVAR(targetHasBeaconAlreadyCondition))})];
 
