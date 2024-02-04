@@ -4,12 +4,12 @@ diffuse[] = {1,1,1,1};
 forcedDiffuse[] = {0,0,0,1};
 emmisive[] = {0,0,0,0};
 specular[] = {1,1,1,1};
-specularPower = 30;
+specularPower = 10;
 PixelShaderID="Super";
 VertexShaderID="Super";
 class Stage0
 {
-	texture="z\crowsEW\addons\spectrum\data\c_motion\cmotion_ca.paa";
+	texture="z\crowsEW\addons\spectrum\data\c_motion\cmotion_co.paa";
 	uvSource="tex";
 	class uvTransform
 	{
