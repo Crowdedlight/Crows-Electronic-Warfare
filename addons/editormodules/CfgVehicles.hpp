@@ -107,7 +107,7 @@ class CfgVehicles
 			{
 				property = QGVAR(addjammer_radius);							
 				displayName = "Radius of jammer (10 to 5000m)";					
-				tooltip = "What frequency the Signal source will broadcast on";	
+				tooltip = "Range of the jammer (which will also be indicated on map)";	
 				typeName = "NUMBER";											
 				defaultValue = "500";											
 			};

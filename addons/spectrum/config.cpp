@@ -9,7 +9,8 @@ class CfgPatches {
         };
         weapons[] = {
             "crowsew_tfar_icom", 
-            "crowsew_ctrack"
+            "crowsew_ctrack",
+            "crowsew_cmotion"
         };
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"crowsEW_main", "crowsEW_zeus", "A3_Data_F_AoW_Loadorder"};

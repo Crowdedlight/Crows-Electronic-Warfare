@@ -2,7 +2,7 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fnc_setUnitJammable.sqf.sqf
+File: fnc_setUnitJammable.sqf
 
 *///////////////////////////////////////////////
 
@@ -23,9 +23,6 @@ if (count _units < 1) exitWith {
 if (_activated) then {
 	// Attribute values are saved in module's object space under their class names
 	private _applyToClass = _logic getVariable ["Classname",false];
-	{
-		[_x, true] call EFUNC(spectrum,initDroneSignals);
-	} forEach _units;
 
 	// if apply to classname, make list of unique classnames of synced units, and set eventhandlers. 
 	if (_applyToClass) then 
@@ -41,6 +38,11 @@ if (_activated) then {
 		{
 			[_x, "initPost", {[_this#0] call EFUNC(spectrum,initDroneSignals);}] call CBA_fnc_addClassEventHandler;
 		} forEach _classnames;
+	} else {
+		// call initDroneSignals directly without use of event handler 
+		{
+			[_x, true] call EFUNC(spectrum,initDroneSignals);
+		} forEach _units;
 	};
 
 };

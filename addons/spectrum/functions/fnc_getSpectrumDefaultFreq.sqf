@@ -16,7 +16,7 @@ private _maxFreq = 0;
 private _antennaSelected = 0;
 
 switch (_antenna) do {
-	// 78 - 89 MHz - consider changing to 30 - 389 mhz, for TFAR frequencie ranges
+	// 30 - 389 MHz, for TFAR frequency ranges
 	case "muzzle_antenna_01_f": {
 		_antennaSelected = 1;
 		_minFreq = (GVAR(spectrumDeviceFrequencyRange) select 0) select 0;

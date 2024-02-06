@@ -60,7 +60,7 @@ private _timeActive = 5;
 
 			// only real radio line if signal strength is better than -60
 			if (_sigStrength < -60) then {
-				// not strong enough signal, so we play garabled radio
+				// not strong enough signal, so we play garbled radio
 				_sound = "garbled"; 
 				_timeActive = 4.3;
 			} else {
@@ -84,7 +84,7 @@ private _timeActive = 5;
 			if (GVAR(spectrumRangeAntenna) == 3) then {
 				// check if strong enough
 				private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
-				if (_sigStrength < -40) then {
+				if (_sigStrength < GVAR(minJamSigStrength)) then {
 					//  do fail if not strong enough
 					// systemChat "too low signal, set failed = true";
 					_failed = true;
@@ -155,6 +155,7 @@ GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed, _
 		if (_failAction) exitWith {
 			// systemChat "Exit due to low signal strength";
 			playSound "spectrumjamerror";
+			[parseText format["<t size='0.9'>&lt;-- min %1dBm required for jamming</t>",GVAR(minJamSigStrength)],-1,[0.85, 0.2],5,1,1,789] spawn BIS_fnc_dynamicText;
 			missionNamespace setVariable ["#EM_Transmit",false];
 			missionNamespace setVariable ["#EM_Progress",0];
 			GVAR(isJammingDrone) = objNull;
@@ -172,12 +173,13 @@ GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed, _
 
 			// check if signal strength goes below ??, then we stop the jamming
 			private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
-			if (_sigStrength < -40) exitWith {
+			if (_sigStrength < GVAR(minJamSigStrength)) exitWith {
 				// stop jamming
 				[QGVAR(toggleJammingOnUnit), [GVAR(isJammingDrone), false, player]] call CBA_fnc_serverEvent;
 				GVAR(isJammingDrone) = objNull;
 				// show error 
 				playSound "spectrumjamerror";
+				[parseText format["<t size='0.9'>&lt;-- min %1dBm required for jamming</t>",GVAR(minJamSigStrength)],-1,[0.85, 0.2],5,1,1,789] spawn BIS_fnc_dynamicText;
 				missionNamespace setVariable ["#EM_Transmit",false];
 				missionNamespace setVariable ["#EM_Progress",0];
 			};
