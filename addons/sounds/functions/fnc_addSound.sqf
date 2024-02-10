@@ -4,13 +4,13 @@ Author: Crowdedlight
 			   
 File: fnc_addSound.sqf
 Parameters: unit: Object to add the sound to
-			delayBetween: Number - delay in seconds between repeated plays
-			range: Number - range in meters at which the sound can be heard
-			repeat: Boolean - whether the sound should repeat
-			aliveCondition: Boolean - whether the sound should be removed on unit death
-			sound: String - the sound's shortID
-			delayInitial: Number - delay in seconds before the initial play
-			volume: Number - volume at which the sound should be played
+		delayBetween: Number - delay in seconds between repeated plays
+		range: Number - range in meters at which the sound can be heard
+		repeat: Boolean - whether the sound should repeat
+		aliveCondition: Boolean - whether the sound should be removed on unit death
+		sound: String - the sound's shortID
+		delayInitial: Number - delay in seconds before the initial play
+		volume: Number - volume at which the sound should be played
 Return: none
 
 Called upon event, adds the sound to the list of active sounds
