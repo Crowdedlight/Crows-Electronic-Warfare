@@ -41,7 +41,6 @@ private _onConfirm =
 	} else {
 		// send event
 		[QEGVAR(sounds,playSoundLocal), [_pos, _range, _sound, _volume, true], _targets] call CBA_fnc_targetEvent;
-		// TODO: how to get soundID from this?
 	};
 
 	// Attach the sound ID list to a logic object, so it can be deleted mid-play
