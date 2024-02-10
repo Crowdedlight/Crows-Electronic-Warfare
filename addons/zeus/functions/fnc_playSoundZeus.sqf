@@ -70,7 +70,7 @@ private _onConfirm =
 };
 
 [
-	"Play Sound (Can't be stopped if targetted, be aware of long sounds)", 
+	"Play Sound (Can't be stopped if targeted, be aware of long sounds)", 
 	[
 		["OWNERS",["Targets to play sound. If none is selected it will play globally for all", "If none selected it will play globally, otherwise it will play local only for selected players"],[[],[],[],2], true], //no preselected defaults, and default tab open is players. Forcing defaults to deselect tp selection.
 		["COMBO","Sound",[
