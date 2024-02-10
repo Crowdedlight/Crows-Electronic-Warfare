@@ -2,7 +2,7 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fnc_addSoundZeus.sqf
+File: fnc_removeSoundZeus.sqf
 Parameters: pos, unit
 Return: none
 
@@ -16,5 +16,3 @@ if (isNull _unit) exitWith {hint "You have to select a unit to remove sound from
 
 // broadcast
 [QEGVAR(sounds,removeSound), [_unit]] call CBA_fnc_serverEvent;
-
-// TODO: should this remove ALL added sounds?
