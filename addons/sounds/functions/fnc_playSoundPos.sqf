@@ -4,10 +4,10 @@ Author: Crowdedlight
 			   
 File: fnc_playSoundPos.sqf
 Parameters: position: Array in format PositionASL
-			range: Number - distance in m from which the sound can be heard
-			sound: String - short ID of the soundfile to be played,
-			volume: Number - volume level of the sound
-			local: Boolean - whether the sound is local to the client
+		range: Number - distance in m from which the sound can be heard
+		sound: String - short ID of the soundfile to be played,
+		volume: Number - volume level of the sound
+		local: Boolean - whether the sound is local to the client
 Return: Number - id of the sound (0..65535) 
 
 Plays sound at position once
