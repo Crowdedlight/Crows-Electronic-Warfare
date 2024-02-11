@@ -6,7 +6,7 @@ This mod requires Zeus Enhanced (ZEN) and CBA3
 
 ### Features
 
-**The wiki for the features is available at:** https://github.com/Crowdedlight/Crows-Electronic-Warfare/wiki 
+**The wiki for the features is available at:** https://crowdedlight.github.io/Crows-Electronic-Warfare/ 
 I can recommend reading it to see how features work and whats available. The list below is more like a short summery. 
 
 **Features:**
