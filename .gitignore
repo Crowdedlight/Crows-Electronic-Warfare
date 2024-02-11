@@ -14,3 +14,4 @@ hemtt
 *.dll
 .hemttout/*
 .vscode/sqfvm-lsp/
+target
