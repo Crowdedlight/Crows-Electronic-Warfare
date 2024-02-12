@@ -8,6 +8,7 @@
 -   [Tracking Signals](spectrum/basic-use.md)
     -   [C-Track](spectrum/tracking/c-track.md)
     -   [TFAR Tracking](spectrum/tracking/tfar-tracking.md)
+        -   [Trigger by script](spectrum/tracking/tfar_tracking_scripting.md)
 -   [Jamming Drones](spectrum/jamming/drone-jamming.md)
 -   [Notes for Zeus](spectrum/notes-zeus.md)
 

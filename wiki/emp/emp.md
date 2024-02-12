@@ -6,6 +6,10 @@ Units or vehicles can be set as immune against the EMP with the zeus module. If 
 
 The EMP will knock out lights, vehicle engines/turrets and other electrical equipment. TFAR SR and LR will still be in inventory, but that specific LR or SL will be unusable from then on. However, picking up another SW or LR that was not affected by EMP will work for the player. (Vehicle radios caught in the blast is also destroyed).
 
+```admonish info
+Only disables radios when using TFAR 1.0.0+ (aka. TFAR Beta).
+```
+
 Equipment like GPS, microdagr, minedetector etc. is removed. Any watch other than analog will be replaced with analog watch.
 
 Zeus can decide if any primary or pistol scope with "intergrated NV/Thermal" should be kept, removed or replaced with an aim-point scope. Any other scope is not touched.
