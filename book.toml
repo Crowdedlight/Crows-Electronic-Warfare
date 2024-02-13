@@ -1,0 +1,24 @@
+[book]
+title = "Crows Electronic Warfare Wiki"
+description = "Wiki for Crows Electronic Warefare Mod for Arma3. Contains information about features and how to use them"
+authors = ["Crowdedlight"]
+language = "en"
+multilingual = false
+src = "wiki"
+
+[output.html]
+git-repository-url = "https://github.com/Crowdedlight/Crows-Electronic-Warfare/tree/main/wiki"
+edit-url-template = "https://github.com/Crowdedlight/Crows-Electronic-Warfare/edit/main/{path}"
+default-theme = "ayu"
+preferred-dark-theme = "ayu"
+additional-css = ['./wiki/mdbook-admonish.css']
+site-url = "/CrowsEW/"
+
+[build]
+build-dir = "target/wiki"
+
+[preprocessor]
+
+[preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "3.0.2" # do not edit: managed by `mdbook-admonish install`
