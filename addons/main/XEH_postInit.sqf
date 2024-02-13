@@ -22,11 +22,13 @@ GVAR(PFH_jamPlayer) = [FUNC(jammerPlayerLocal) , 0.5] call CBA_fnc_addPerFrameHa
 
 GVAR(FilmGrain_jamEffect) = ppEffectCreate ["FilmGrain",2000]; 
 
-// satcom boost loop
 if (isServer) then {
+	// satcom boost loop
 	GVAR(PFH_satcomHandler) = [FUNC(satcomServerLoop) , 0.5] call CBA_fnc_addPerFrameHandler; 
 	private _addSatcomId = [QGVAR(addSatcom), FUNC(addSatcom)] call CBA_fnc_addEventHandler;
 	private _removeSatcomId = [QGVAR(removeSatcom), FUNC(removeSatcom)] call CBA_fnc_addEventHandler;
+
+	GVAR(PFH_jammerServerLoop) = [FUNC(jammerServerLoop) , 1] call CBA_fnc_addPerFrameHandler; 
 };
 
 // DEBUG

@@ -2,6 +2,7 @@ PREP(addJammer);
 PREP(updateJamMarker);
 PREP(removeJamMarker);
 PREP(jammerPlayerLocal);
+PREP(jammerServerLoop);
 PREP(resetTfarIfDegraded);
 PREP(isJammerActive);
 PREP(actionJamToggle);

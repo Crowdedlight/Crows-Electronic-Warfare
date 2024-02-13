@@ -123,9 +123,7 @@ if (!isNull _drone) then {
 		// hardest actions to take when being inside the jammer area
 		player connectTerminalToUAV objNull; // disconnect player from drone
 		hint parseText "Drone is jammed<br/><t color='#ff0000'>Connection lost</t>";	// notify player why this happened
-		/********************************************/
-		// TODO toggleAI on SERVER SIDE
-		/********************************************/
+		// jamming of non player controlled drones is handled in fnc_jammerServerLoop.sqf.
 	} else {
 		// less intense actions when drone is only approaching the jammer area (gives pilot time to react to the presence of the jammer)
 		if (isRemoteControlling player && (isNull curatorCamera)) then {	// if player uses UAV camera currently (and did not step into Zeus mode)
