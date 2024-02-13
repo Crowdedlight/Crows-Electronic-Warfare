@@ -52,7 +52,7 @@ if (_enableJam) then {
 			private _rmArr = [];
 			{
 				// safety catch that even if we go unconsious or change weapon without a mouse-up event jamming will be disabled
-				if (!("hgun_esd_" in (currentWeapon _x)) || !alive _x) then {
+				if ( isPlayer _x && { !("hgun_esd_" in (currentWeapon _x)) || !alive _x }) then {
 					// add to rm array 
 					// systemChat format["Removing %1 from jam-array", _x];
 					_rmArr pushBack _x;
@@ -62,6 +62,7 @@ if (_enableJam) then {
 			// cleanup 
 			_activeJammers = _activeJammers - _rmArr;
 			_activeJammers = _activeJammers - [objNull];
+			_activeJammers = _activeJammers arrayIntersect _activeJammers;	// remove duplicates and leave only unique items
 
 			// systemChat str(_activeJammers);
 
