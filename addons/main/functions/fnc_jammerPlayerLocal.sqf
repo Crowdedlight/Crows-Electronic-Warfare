@@ -131,7 +131,7 @@ if (!isNull _drone) then {
 			private _distDrone2killRadius = _distDroneToJammer - _radius;
 			private _distDrone2pilot = _drone distance player;
 			private _sharpness = [0, 4, _distDrone2killRadius/_distDrone2pilot] call BIS_fnc_lerp;
-			systemChat format ["ratio %1, _sharpness %2", _distDrone2killRadius/_distDrone2pilot, _sharpness];
+			// systemChat format ["ratio %1, _sharpness %2", _distDrone2killRadius/_distDrone2pilot, _sharpness];
 			
 			_PP_film ppEffectAdjust [1,_sharpness,3.3,2,2,true]; 
 			_PP_film ppEffectEnable true; 
