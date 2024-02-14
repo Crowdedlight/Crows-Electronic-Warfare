@@ -24,6 +24,7 @@ if (count _jammableDrones == 0) exitWith {};	// there are no drones to jam
 
 // check every jammable drone against every DroneJammer
 {
+	// set jamming status if in range
 	_x params ["_unit", "_frequency", "_scanRange", "_type"];
 	private _jammersInRange = _allDroneJammers select { (_unit distance _x#0) < _x#1 };	// this _x is different to _x the code line above
 
@@ -31,5 +32,20 @@ if (count _jammableDrones == 0) exitWith {};	// there are no drones to jam
 		_x params ["_jammer", "_radius", "_strength", "_enabled", "_capabilities"];	// and this is yet another _x
 		[_unit, _enabled, _jammer] call EFUNC(spectrum,toggleJammingOnUnit);
 	} forEach _jammersInRange;
+
+	// reset any jamming status if jammer or drone moves out of range
+	private _activeJammers = _unit getVariable[QEGVAR(spectrum,activeJammingObjects), []];
+	if (count _activeJammers > 0) then {
+		private _jammersOutOfRange = _allDroneJammers - _jammersInRange;
+		private _rmArr = [];
+		{
+			_x params ["_jammer", "_radius", "_strength", "_enabled", "_capabilities"];
+			_rmArr pushBack _jammer;
+		} forEach _jammersOutOfRange;
+
+		_activeJammers = _activeJammers - _rmArr;
+		_activeJammers = _activeJammers arrayIntersect _activeJammers;	// remove duplicates and leave only unique items
+		_unit setVariable [QEGVAR(spectrum,activeJammingObjects), _activeJammers];
+	};
 
 } forEach _jammableDrones;
