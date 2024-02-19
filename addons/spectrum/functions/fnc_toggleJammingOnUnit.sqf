@@ -88,6 +88,15 @@ if (_enableJam) then {
 				missionNamespace setVariable [QGVAR(activeJammedUnits), _activelyJammedUnits, true];
 			};
 
+			// disconnect any player that might control this drone
+			private _droneUsers = (UAVControl _unit) select { !(_x isEqualType "String") };	 // leave only player objects
+			{
+				_x connectTerminalToUAV objNull; // disconnect player from drone
+				if (hasInterface) then {
+					hint parseText "Drone is jammed<br/><t color='#ff0000'>Connection lost</t>";	// notify player why this happened
+				};
+			} forEach _droneUsers;
+
 			sleep 0.5; // repeat only every 0.5s as should be enough as response for enable or disable jamming
 		};
 		// catch all, always enable AI if we leave the loop, should already have been done, but for good measure we repeat in case we left loop by error
