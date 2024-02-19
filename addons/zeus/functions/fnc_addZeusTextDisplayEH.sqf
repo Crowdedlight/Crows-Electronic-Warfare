@@ -85,6 +85,23 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 		drawIcon3D ["", [1,0,0,1], [_pos#0, _pos#1, _pos#2+0.5], 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
 
 	} forEach GETMVAR(EGVAR(sounds,activeSounds),[]);
+	// PlaySound 
+	{
+		_x params ["_soundObj", "_displayName"];
+
+		// calculate distance from zeus camera to unit
+		private _dist = _zeusPos distance _soundObj;
+
+		// if not within 500m, we don't draw it as the text does not scale and disappear with distance
+		if (_dist > 500) then {continue;};
+
+		// draw icon on relative pos 
+		private _txt = format["Sound (%1)", _displayName];
+		// offset: z: 0.5
+		private _pos = ASLToAGL getPosASL _soundObj;
+		drawIcon3D ["", [1,0,0,1], [_pos#0, _pos#1, _pos#2+0.5], 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
+
+	} forEach GETMVAR(EGVAR(sounds,playedSounds),[]);
 	// Jammed units
 	{
 		// calculate distance from zeus camera to unit
