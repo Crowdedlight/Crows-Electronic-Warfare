@@ -68,10 +68,10 @@ private _sigsArray = [];
     // get next frequency for a frequency sweeper
     if (_type == "sweep") then {
         _frequency = [433, 7, 5, _forEachIndex] call FUNC(getNextSweepFreq);    // overides the original _frequency value
-		/*******************************************************************/
-		// TODO implement different frequency band for VoiceCommJammers
-        // (those are is currently shown in the drone band)
-		/*******************************************************************/
+        /*******************************************************************/
+        // TODO implement different frequency band for VoiceCommJammers
+        // (those are currently shown in the drone band)
+        /*******************************************************************/
     };
 
     // push to sig array
