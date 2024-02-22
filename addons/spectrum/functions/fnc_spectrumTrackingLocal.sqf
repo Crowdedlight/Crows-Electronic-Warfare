@@ -57,7 +57,7 @@ private _sigsArray = [];
     if (!(GVAR(spectrumRangeAntenna) in _requiredAntennas)) then { continue; };
 
     // if jammer is equipped, only show signals that is type drone or sweep
-    if (GVAR(spectrumRangeAntenna) == 3 && !(_type in ["drone", "sweep"])) then { continue; };
+    if (GVAR(spectrumRangeAntenna) == 3 && { !(_type in ["drone", "sweep"]) } ) then { continue; };
 
     // if tfar radio, and same side as you, skip if setting is enabled
     if (!GVAR(tfarSideTrack) && _type == "radio" && (side _target == side player)) then {continue; };

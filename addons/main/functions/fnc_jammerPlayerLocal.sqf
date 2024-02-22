@@ -112,8 +112,8 @@ _PP_film ppEffectEnable false; // restore players view back to normal if no othe
 private _drone = getConnectedUAV player;
 if (!isNull _drone) then {
 	// sort drone jammers by distance to drone not distance to player (which only makes sense for VoiceCommJammers)
-	private _sortingCode = { _input0 distance (_x select 0) };	// sort by distance between drone and jammer
-	private _filterCode = { (_x select 3)  && ("DroneJammer" in (_x select 4)) };	// keep jammers that are enabled and have the "DroneJammer" capability
+	private _sortingCode = { _input0 distance _x#0 };	// sort by distance between drone and jammer
+	private _filterCode = { _x#3  && { "DroneJammer" in _x#4 } };	// keep jammers that are enabled and have the "DroneJammer" capability
 	private _droneJammersSorted = [ values GVAR(jamMap), [_drone], _sortingCode, "ASCEND", _filterCode] call BIS_fnc_sortBy; 
 	if (count _droneJammersSorted == 0) exitWith {};	// there are no enabled "DroneJammers"
 	private _nearestDroneJammer = _droneJammersSorted#0;
