@@ -92,10 +92,8 @@ if (_enableJam) then {
 			private _droneUsers = (UAVControl _unit) select { !(_x isEqualType "String") };	 // leave only player objects
 			{
 				_x connectTerminalToUAV objNull; // disconnect player from drone
+				["zen_common_hint", [parseText "Drone is jammed<br/><t color='#ff0000'>Connection lost</t>"], _x] call CBA_fnc_targetEvent; // notify player why this happened
 			} forEach _droneUsers;
-			if (player in _droneUsers) then {
-				hint parseText "Drone is jammed<br/><t color='#ff0000'>Connection lost</t>";	// notify player why this happened
-			};
 
 			sleep 0.5; // repeat only every 0.5s as should be enough as response for enable or disable jamming
 		};
