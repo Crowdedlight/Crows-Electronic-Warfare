@@ -47,8 +47,8 @@ if (_activated) then {
 	private _isDroneJammer = _logic getVariable ["IsDroneJammer",0];
 
 	private _capabilities = [];	// what types of signals can this jammer counteract?
-	if (_isVoiceCommsJammer) then { _capabilities pushBack "VoiceCommsJammer" };
-	if (_isDroneJammer) then { _capabilities pushBack "DroneJammer" };
+	if (_isVoiceCommsJammer) then { _capabilities pushBack JAM_CAPABILITY_RADIO };
+	if (_isDroneJammer) then { _capabilities pushBack JAM_CAPABILITY_DRONE };
 
 	// broadcast event to all clients and JIP
 	[QEGVAR(main,addJammer), [_unit, _rad, _strength, _isActiveAtMissionStart, _capabilities]] call CBA_fnc_globalEventJIP;

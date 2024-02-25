@@ -82,7 +82,7 @@ if (isNull _nearestJammerObject) then {
 	[player] call FUNC(resetTfarIfDegraded);
 } else {
 	// check for jammer capabilities and counteract signals accordingly
-	if ( "VoiceCommsJammer" in (_nearestJammer select 4) ) then {
+	if ( JAM_CAPABILITY_RADIO in (_nearestJammer select 4) ) then {
 		// we now got distance, and nearest jammer, time to calculate jamming
 		private _distPercent = _distJammer / _distRad;
 		private _jamStrength = _nearestJammer select 2;
@@ -113,7 +113,7 @@ private _drone = getConnectedUAV player;
 if (!isNull _drone) then {
 	// sort drone jammers by distance to drone not distance to player (which only makes sense for VoiceCommJammers)
 	private _sortingCode = { _input0 distance _x#0 };	// sort by distance between drone and jammer
-	private _filterCode = { _x#3  && { "DroneJammer" in _x#4 } };	// keep jammers that are enabled and have the "DroneJammer" capability
+	private _filterCode = { _x#3  && { JAM_CAPABILITY_DRONE in _x#4 } };	// keep jammers that are enabled and have the JAM_CAPABILITY_DRONE capability
 	private _droneJammersSorted = [ values GVAR(jamMap), [_drone], _sortingCode, "ASCEND", _filterCode] call BIS_fnc_sortBy; 
 	if (count _droneJammersSorted == 0) exitWith {};	// there are no enabled "DroneJammers"
 	private _nearestDroneJammer = _droneJammersSorted#0;

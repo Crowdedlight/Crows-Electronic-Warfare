@@ -15,7 +15,7 @@ Player controlled drones are handled in fnc_jammerPlayerLocal.sqf.
 *///////////////////////////////////////////////
 
 // GVAR(jamMap) is made of [_netId, [_unit, _rad, _strength, _enabled, _capabilities]];
-private _allDroneJammers = (values GVAR(jamMap)) select { "DroneJammer" in _x#4 };	// keep jammers that have the "DroneJammer" capability
+private _allDroneJammers = (values GVAR(jamMap)) select { JAM_CAPABILITY_DRONE in _x#4 };	// keep jammers that have the JAM_CAPABILITY_DRONE capability
 if (count _allDroneJammers == 0) exitWith {};	// there are no "DroneJammers"
 
 // QEGVAR(spectrum,beacons) is made of [_unit, _frequency, _scanRange, _type];
