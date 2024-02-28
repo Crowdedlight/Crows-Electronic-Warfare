@@ -41,7 +41,7 @@ GVAR(PFH_jamPlayer) = [FUNC(jammerPlayerLocal) , 0.5] call CBA_fnc_addPerFrameHa
 GVAR(FilmGrain_jamEffect) = ppEffectCreate ["FilmGrain",2000]; 
 
 // Requesting sync of jammer state - Server will return a targeted event with current state on "updateJammers"
-[QGVAR(requestJammers), []] call CBA_fnc_serverEvent;
+[QGVAR(requestJammers), [player]] call CBA_fnc_serverEvent;
 
 // DEBUG
 // GVAR(debugbla) = [{

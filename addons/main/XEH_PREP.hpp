@@ -1,4 +1,5 @@
 PREP(addJammerServer);
+PREP(requestJammers);
 PREP(updateJamMarker);
 PREP(removeJamMarkers);
 PREP(jammerPlayerLocal);
