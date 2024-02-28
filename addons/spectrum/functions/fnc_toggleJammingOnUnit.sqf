@@ -41,6 +41,7 @@ if (_enableJam) then {
 	
 	// systemChat "disabled all AI";
 
+	// currently spawning one of these per unit while jammed
 	private _spawnedJamLoop = [_unit] spawn {
 		params ["_unit"];
 

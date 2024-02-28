@@ -1,13 +1,14 @@
-PREP(addJammer);
+PREP(addJammerServer);
 PREP(updateJamMarker);
-PREP(removeJamMarker);
+PREP(removeJamMarkers);
 PREP(jammerPlayerLocal);
 PREP(jammerServerLoop);
 PREP(resetTfarIfDegraded);
 PREP(isJammerActive);
 PREP(actionJamToggle);
 PREP(actionJamToggleListener);
-PREP(removeJammer);
+PREP(removeJammerServer);
+PREP(removeJammerArrayServer);
 PREP(satcomServerLoop);
 PREP(addSatcom);
 PREP(removeSatcom);

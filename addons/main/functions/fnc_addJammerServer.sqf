@@ -2,23 +2,20 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fnc_addJammer.sqf
+File: fnc_addJammerServer.sqf
 Parameters: pos, _unit
 Return: none
 
+SERVER ONLY
 Called upon event, adds the jammer to local gvar array and starts while loop, if it isn't running
 
 *///////////////////////////////////////////////
 params ["_unit", "_rad", "_strength", "_enabled", "_capabilities"];
 
 // if object is null, exitwith. Can happen if we get event as JIP but object has been removed
-if (isNull _unit) exitWith {};
+if (isNull _unit || !isServer) exitWith {};
 
 private _netId = netId _unit;
-
-// add action 
-_unit addAction ["<t color=""#FFFF00"">De-activate jammer", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
-_unit addAction ["<t color=""#FFFF00"">Activate jammer", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["!([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
 
 // if dataterminal do animation 
 if (typeof _unit == "Land_DataTerminal_01_F") then {
@@ -50,10 +47,15 @@ if (typeof _unit == "Land_DataTerminal_01_F") then {
 // add to map, netId is key		jammer, radius, strength, enabled and capabilities
 GVAR(jamMap) set [_netId, [_unit, _rad, _strength, _enabled, _capabilities]];
 
+// broadcast update
+[QGVAR(updateJammers), [GVAR(jamMap)]] call CBA_fnc_globalEvent;
+
+//TODO change beacons to be server auth like new jammers
 if (_enabled) then {
 	// add jammer as a signal beacon (so that it can be tracked down with the Spectrum Device)
 	[QEGVAR(spectrum,addBeacon), [_unit, 433, 300, "sweep"]] call CBA_fnc_globalEventJIP;
 }
+
 
 // Experiment information from logging data hits
 // Results: that explosive damage should be > 0.5, and hit value > 100

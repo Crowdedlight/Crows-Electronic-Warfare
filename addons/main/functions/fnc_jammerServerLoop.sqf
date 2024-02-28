@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*/////////////////////////////////////////////////
-Author: b-mayr-1984 - Bernhard Mayr
+Author: b-mayr-1984 - Bernhard Mayr & Crowdedlight
 			   
 File: fnc_jammerServerLoop.sqf
 Parameters:	none
@@ -13,6 +13,37 @@ It is mostly used to stop drones that are not controlled by a player.
 Player controlled drones are handled in fnc_jammerPlayerLocal.sqf.
 
 *///////////////////////////////////////////////
+if (count GVAR(jamMap) == 0) exitWith {};
+
+/////////////////////////////
+/// Jammer Cleanup part ///
+/////////////////////////////
+
+// check all jammers if alive, and remove those that aren't. Using list to not modify the map while we are iterating it
+private _removeList = [];
+{
+	// get jammer obj
+    _y params ["_jamObj"];
+
+	// if object not alive, add to deletion list 
+	if (isNull _jamObj || !alive _jamObj) then {
+		// add key to remove list 
+		_removeList pushBack _x;
+		
+		// remove marker from map, if zeus. TODO if its deleted the marker doesn't get removed as obj is null, and thus the variable for the markers aren't there... Consider adding marker var to array as [_jammer, _marker] instead. 
+		if (call EFUNC(zeus,isZeus)) then {
+			// remove marker based on netID
+			[_x] call FUNC(removeJamMarker);
+		};
+	};
+} forEach GVAR(jamMap);
+
+// remove all jammers from remove list
+[_removeList] call FUNC(removeJammerArray);
+
+/////////////////////////////
+/// Drone AI Jamming part ///
+/////////////////////////////
 
 // GVAR(jamMap) is made of [_netId, [_unit, _rad, _strength, _enabled, _capabilities]];
 private _allDroneJammers = (values GVAR(jamMap)) select { JAM_CAPABILITY_DRONE in _x#4 };	// keep jammers that have the JAM_CAPABILITY_DRONE capability

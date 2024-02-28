@@ -15,30 +15,6 @@ if (!hasInterface) exitWith {};
 // if no jammers exit
 if (count GVAR(jamMap) == 0) exitWith {};
 
-// check all jammers if alive, and remove those that aren't. Using list to not modify the map while we are iterating it
-private _removeList = [];
-{
-	// get jammer obj
-    _y params ["_jamObj"];
-
-	// if object not alive, add to deletion list 
-	if (isNull _jamObj || !alive _jamObj) then {
-		// add key to remove list 
-		_removeList pushBack _x;
-		
-		// remove marker from map, if zeus. TODO if its deleted the marker doesn't get removed as obj is null, and thus the variable for the markers aren't there... Consider adding marker var to array as [_jammer, _marker] instead. 
-		if (call EFUNC(zeus,isZeus)) then {
-			// remove marker based on netID
-			[_x] call FUNC(removeJamMarker);
-		};
-	};
-} forEach GVAR(jamMap);
-
-{
-	// remove from hashmap
-	GVAR(jamMap) deleteAt _x;
-} forEach _removeList;
-
 //IF ZEUS, DON'T JAM...update markers and skip.
 if (call EFUNC(zeus,isZeus)) exitWith {
 	// update markers 
@@ -115,10 +91,13 @@ if (!isNull _drone) then {
 	private _sortingCode = { _input0 distance _x#0 };	// sort by distance between drone and jammer
 	private _filterCode = { _x#3  && { JAM_CAPABILITY_DRONE in _x#4 } };	// keep jammers that are enabled and have the JAM_CAPABILITY_DRONE capability
 	private _droneJammersSorted = [ values GVAR(jamMap), [_drone], _sortingCode, "ASCEND", _filterCode] call BIS_fnc_sortBy; 
+	
 	if (count _droneJammersSorted == 0) exitWith {};	// there are no enabled "DroneJammers"
+	
 	private _nearestDroneJammer = _droneJammersSorted#0;
 	_nearestDroneJammer params ["_jamObj", "_radius", "_strength", "_enabled", "_capabilities"];
 	private _distDroneToJammer = _drone distance _jamObj;
+	
 	if (_distDroneToJammer < _radius) then {
 		// hardest actions to take when being inside the jammer area
 		player connectTerminalToUAV objNull; // disconnect player from drone
