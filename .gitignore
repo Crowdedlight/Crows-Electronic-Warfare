@@ -13,3 +13,5 @@ hemtt
 *.bat
 *.dll
 .hemttout/*
+.vscode/sqfvm-lsp/
+target
