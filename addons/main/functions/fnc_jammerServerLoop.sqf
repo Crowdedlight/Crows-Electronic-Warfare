@@ -29,12 +29,6 @@ private _removeList = [];
 	if (isNull _jamObj || !alive _jamObj) then {
 		// add key to remove list 
 		_removeList pushBack _x;
-		
-		// remove marker from map, if zeus. TODO if its deleted the marker doesn't get removed as obj is null, and thus the variable for the markers aren't there... Consider adding marker var to array as [_jammer, _marker] instead. 
-		if (call EFUNC(zeus,isZeus)) then {
-			// remove marker based on netID
-			[_x] call FUNC(removeJamMarker);
-		};
 	};
 } forEach GVAR(jamMap);
 
