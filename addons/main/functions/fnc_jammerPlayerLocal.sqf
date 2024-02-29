@@ -10,8 +10,6 @@ main script that handles the jamming whenever there is at least 1 active jammer
 
 *///////////////////////////////////////////////
 
-// if on server or headless, stop execution
-if (!hasInterface) exitWith {};
 // if no jammers exit
 if (count GVAR(jamMap) == 0) exitWith {};
 
@@ -92,7 +90,7 @@ if (!isNull _drone) then {
 	private _filterCode = { _x#3  && { JAM_CAPABILITY_DRONE in _x#4 } };	// keep jammers that are enabled and have the JAM_CAPABILITY_DRONE capability
 	private _droneJammersSorted = [ values GVAR(jamMap), [_drone], _sortingCode, "ASCEND", _filterCode] call BIS_fnc_sortBy; 
 	
-	if (count _droneJammersSorted == 0) exitWith {};	// there are no enabled "DroneJammers"
+	if (count _droneJammersSorted == 0) exitWith {systemChat "no drone jammer in range... exiting"};	// there are no enabled "DroneJammers"
 	
 	private _nearestDroneJammer = _droneJammersSorted#0;
 	_nearestDroneJammer params ["_jamObj", "_radius", "_strength", "_enabled", "_capabilities"];
@@ -110,7 +108,7 @@ if (!isNull _drone) then {
 			private _distDrone2killRadius = _distDroneToJammer - _radius;
 			private _distDrone2pilot = _drone distance player;
 			private _sharpness = [0, 4, _distDrone2killRadius/_distDrone2pilot] call BIS_fnc_lerp;
-			// systemChat format ["ratio %1, _sharpness %2", _distDrone2killRadius/_distDrone2pilot, _sharpness];
+			//systemChat format ["ratio %1, _sharpness %2", _distDrone2killRadius/_distDrone2pilot, _sharpness];
 			
 			_PP_film ppEffectAdjust [1,_sharpness,3.3,2,2,true]; 
 			_PP_film ppEffectEnable true; 

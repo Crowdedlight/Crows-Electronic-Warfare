@@ -3,21 +3,21 @@
 Author: Crowdedlight
 			   
 File: fnc_removeJammerArrayServer.sqf
-Parameters: _objects
+Parameters: _netids
 Return: none
 
 SERVER ONLY
 remove jammer from all objects in array 
 
 *///////////////////////////////////////////////
-params ["_objects"];
+params [["_netids", []]];
 
-if (isNull _objects || count _objects == 0 || !isServer) exitWith {};
+if (count _netids == 0 || !isServer) exitWith {};
 
 {
 	// remove jammers, do not update it, as we do a combined update after removing entire array
-	[_x, false] call FUNC(removeJammer);	
-} forEach _objects;
+	[_x, false] call FUNC(removeJammerServer);	
+} forEach _netids;
 
 // broadcast update
 [QGVAR(updateJammers), [GVAR(jamMap)]] call CBA_fnc_globalEvent;

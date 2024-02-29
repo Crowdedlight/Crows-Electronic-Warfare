@@ -13,7 +13,6 @@ It is mostly used to stop drones that are not controlled by a player.
 Player controlled drones are handled in fnc_jammerPlayerLocal.sqf.
 
 *///////////////////////////////////////////////
-if (count GVAR(jamMap) == 0) exitWith {};
 
 /////////////////////////////
 /// Jammer Cleanup part ///
@@ -27,13 +26,13 @@ private _removeList = [];
 
 	// if object not alive, add to deletion list 
 	if (isNull _jamObj || !alive _jamObj) then {
-		// add key to remove list 
+		// add object to remove list 
 		_removeList pushBack _x;
 	};
 } forEach GVAR(jamMap);
 
 // remove all jammers from remove list
-[_removeList] call FUNC(removeJammerArray);
+[_removeList] call FUNC(removeJammerArrayServer);
 
 /////////////////////////////
 /// Drone AI Jamming part ///

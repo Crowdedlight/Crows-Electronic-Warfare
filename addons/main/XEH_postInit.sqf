@@ -20,6 +20,7 @@ if (isServer) then {
 	// event handlers for adding and removing jammers
 	[QGVAR(addJammer), FUNC(addJammerServer)] call CBA_fnc_addEventHandler;
 	[QGVAR(removeJammer), FUNC(removeJammerServer)] call CBA_fnc_addEventHandler;
+	[QGVAR(toggleJammer), FUNC(toggleJammerServer)] call CBA_fnc_addEventHandler;
 	// EH for requesting current jammer state (Init/JIP)
 	[QGVAR(requestJammers), FUNC(requestJammers)] call CBA_fnc_addEventHandler;
 }; 
@@ -29,15 +30,12 @@ if (!hasInterface) exitWith{};
 
 // EH for updating state of jammers
 [QGVAR(updateJammers), FUNC(updateJammers)] call CBA_fnc_addEventHandler;
-// EH for jam marker removal (Zeus)
-[QGVAR(removeJamMarker), FUNC(removeJamMarkers)] call CBA_fnc_addEventHandler;
 
 // register event callback, "actionToggleJam" so a disable/enable of a jammer by a player is sync'ed across the network
 private _toggleJamid = [QGVAR(actionToggleJam), FUNC(actionJamToggleListener)] call CBA_fnc_addEventHandler;
 
-// due to best practices we are gonna put the jam loop in unscheduled space, so we use a PFH to run every 0.5s 
+// local jammer loop to handle jamming on the client. PFH running every 0.5s 
 GVAR(PFH_jamPlayer) = [FUNC(jammerPlayerLocal) , 0.5] call CBA_fnc_addPerFrameHandler; 
-
 GVAR(FilmGrain_jamEffect) = ppEffectCreate ["FilmGrain",2000]; 
 
 // Requesting sync of jammer state - Server will return a targeted event with current state on "updateJammers"

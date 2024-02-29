@@ -12,7 +12,7 @@ Gets the newest state of jamMap from the server which is the source of truth. So
 params ["_jamMap"];
 
 // get diff of values between new value and current one, to get list of netIds to remove markers from - only applicable to zeus
-if (EFUNC(zeus,iszeus)) then {
+if (call EFUNC(zeus,iszeus)) then {
 	// get difference between values
 	private _diff = (keys GVAR(jamMap)) - (keys _jamMap);
 	[_diff] call FUNC(removeJamMarkers); 
