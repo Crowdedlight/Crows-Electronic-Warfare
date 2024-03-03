@@ -32,6 +32,18 @@ ADDON = true;
     nil
 ] call CBA_fnc_addSetting;
 
+// Jamming Default Signals
+[
+    QGVAR(defaultClassForJammingSignal), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "EDITBOX", // setting type
+    ["Default Jammable Drones", "The classnames that by default will spawn with spectrum signal and can be jammed. Change require mission restart. Comma seperated"], 
+    ["Crows Electronic Warfare", "Jamming"],
+    "UGV_01_base_F,UGV_02_Base_F,UAV_01_base_F,UAV_02_base_F,UAV_03_base_F,UAV_04_base_F,UAV_05_Base_F,UAV_06_base_F", // all drones & UGV by default
+    true, // is global, gotta be equal for all
+	FUNC(jammableDronesInit),
+	true // need mission restart - Required as I can't remove the existing class eventhandlers made on init
+] call CBA_fnc_addSetting;
+
 // [target, frequency]
 GVAR(beacons) = [];
 

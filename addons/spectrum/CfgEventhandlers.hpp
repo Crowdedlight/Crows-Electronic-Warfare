@@ -22,32 +22,6 @@ class Extended_PreStart_EventHandlers {
 // runs once per unit/vehicle after the postInit stage (Event data passed to the handler: [unit] with the unit/vehicle/object, just like a normal init event)
 class Extended_InitPost_Eventhandlers {
 
-	class UGV_01_base_F {
-		class crowsew_dronesignal_eh {
-			init = QUOTE(_this call FUNC(initDroneSignals));
-		};
-	};
-	class UGV_01_rcws_base_F {
-		class crowsew_dronesignal_eh {
-			init = QUOTE(_this call FUNC(initDroneSignals));
-		};
-	};
-	class UAV_03_dynamicLoadout_base_F {
-		class crowsew_dronesignal_eh {
-			init = QUOTE(_this call FUNC(initDroneSignals));
-		};
-	};	
-	class UGV_02_Demining_Base_F {
-		class crowsew_dronesignal_eh {
-			init = QUOTE(_this call FUNC(initDroneSignals));
-		};
-	};	
-	class UAV_06_antimine_base_F {
-		class crowsew_dronesignal_eh {
-			init = QUOTE(_this call FUNC(initDroneSignals));
-		};
-	};
-
 	// CTRACK - init function for ACE 
 	class crowsew_ctrack_effect_3km {
 	 	init = QUOTE(_this call FUNC(ctrackInit));
