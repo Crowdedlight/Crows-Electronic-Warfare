@@ -7,6 +7,7 @@ Parameters: netid, enabled
 Return: none
 
 Handles when server is asked to enable or disable a jammer
+SERVER ONLY
 
 *///////////////////////////////////////////////
 params ["_netId", "_enabled"];
@@ -26,8 +27,8 @@ GVAR(jamMap) set [_netId, _jammer];
 
 // show jammers in the spectrum
 if (_enabled) then {
-	[QEGVAR(spectrum,addBeacon), [_jamObj, 433, 300, "sweep"]] call CBA_fnc_globalEventJIP;
+	[_jamObj, 433, 300, "sweep"] call EFUNC(spectrum,addBeaconServer);
 } else {
-	[QEGVAR(spectrum,removeBeacon), [_jamObj]] call CBA_fnc_globalEventJIP;
+	[_jamObj] call EFUNC(spectrum,removeBeaconServer);
 };
 

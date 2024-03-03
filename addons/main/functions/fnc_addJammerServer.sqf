@@ -58,10 +58,9 @@ if (isServer && hasInterface) then {
 	_unit addAction ["<t color=""#FFFF00"">Activate jammer", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["!([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
 };
 
-//TODO change beacons to be server auth like new jammers
 if (_enabled) then {
 	// add jammer as a signal beacon (so that it can be tracked down with the Spectrum Device)
-	[QEGVAR(spectrum,addBeacon), [_unit, 433, 300, "sweep"]] call CBA_fnc_globalEventJIP;
+	[_unit, 433, 300, "sweep"] call EFUNC(spectrum,addBeaconServer);
 };
 
 

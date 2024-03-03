@@ -1,6 +1,9 @@
 PREP(spectrumTrackingLocal);
-PREP(addBeacon);
-PREP(removeBeacon);
+PREP(addBeaconServer);
+PREP(removeBeaconServer);
+PREP(requestBeaconServer);
+PREP(updateBeacons);
+PREP(beaconLoopServer);
 PREP(spectrumAttachmentLocal);
 PREP(getAntennaFromFrequency);
 PREP(toggleRadioTracking);

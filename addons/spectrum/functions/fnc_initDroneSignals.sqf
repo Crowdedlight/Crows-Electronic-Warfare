@@ -21,9 +21,10 @@ if (!isServer && !_force || isNull _unit) exitWith {};
 private _jamToggle = [QGVAR(toggleJammingOnUnit), FUNC(toggleJammingOnUnit)] call CBA_fnc_addEventHandler;
 
 // randomize frequency 
+// TODO randomize within a window that gives minimum seperation to existing signals. 
 private _freq = 433.00 + (random 7);
 
-[QGVAR(addBeacon), [_unit, _freq, 300, "drone"]] call CBA_fnc_globalEventJIP;
+[QGVAR(addBeacon), [_unit, _freq, 300, "drone"]] call CBA_fnc_serverEvent;
 
 // set empty array on unit var where the players currently jamming is listed 
 _unit setVariable [QGVAR(activeJammingObjects), []];

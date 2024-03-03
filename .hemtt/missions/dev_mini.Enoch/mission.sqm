@@ -279,6 +279,8 @@ class Mission
 		forecastWind=0.1;
 		forecastWaves=0.1;
 		forecastLightnings=0.1;
+		wavesForced=1;
+		windForced=1;
 		year=2035;
 		month=6;
 		day=24;
@@ -1498,7 +1500,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={10418.372,97.999199,6753.3198};
-						angles[]={0,2.1893144,-0};
+						angles[]={0,2.1893144,0};
 					};
 					side="West";
 					flags=7;
@@ -1657,7 +1659,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={10425.916,97.961441,6749.0234};
-						angles[]={-0,2.1873295,0};
+						angles[]={0,2.1873295,0};
 					};
 					side="West";
 					flags=6;
@@ -1673,7 +1675,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={10425.916,98.111908,6749.0239};
-						angles[]={-0,2.1873295,0};
+						angles[]={0,2.1873295,0};
 					};
 					side="West";
 					flags=4;
@@ -1728,7 +1730,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={10425.916,98.110466,6748.9741};
-				angles[]={-0,2.1873295,0};
+				angles[]={0,2.1873295,0};
 			};
 			side="West";
 			flags=6;
@@ -1746,7 +1748,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={10424.901,98.621391,6748.8125};
-				angles[]={-0,0,6.2816415};
+				angles[]={0,0,6.2816415};
 			};
 			side="Empty";
 			flags=4;
