@@ -93,7 +93,7 @@ if (!isNull _drone) then {
 	private _filterCode = { _x#3  && { JAM_CAPABILITY_DRONE in _x#4 } };	// keep jammers that are enabled and have the JAM_CAPABILITY_DRONE capability
 	private _droneJammersSorted = [ values GVAR(jamMap), [_drone], _sortingCode, "ASCEND", _filterCode] call BIS_fnc_sortBy; 
 	
-	if (count _droneJammersSorted == 0) exitWith {systemChat "no drone jammer in range... exiting"};	// there are no enabled "DroneJammers"
+	if (count _droneJammersSorted == 0) exitWith {};	// there are no enabled "DroneJammers"
 	
 	private _nearestDroneJammer = _droneJammersSorted#0;
 	_nearestDroneJammer params ["_jamObj", "_radius", "_strength", "_enabled", "_capabilities"];
