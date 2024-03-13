@@ -13,7 +13,14 @@ if (isServer) then {
 
 	// PFH for beacon cleanup
 	GVAR(PFH_BeaconServerLoop) = [FUNC(beaconLoopServer), 1] call CBA_fnc_addPerFrameHandler; 
+
+	// EH for jamming
+	[QGVAR(toggleJammingOnUnit), FUNC(toggleJammingOnUnit)] call CBA_fnc_addEventHandler;
+	[QGVAR(setUnitJammable), FUNC(initDroneSignals)] call CBA_fnc_addEventHandler;
 };
+
+// toggle AI function has to be available on all clients, as it only runs on whoever has the unit locally 
+[QGVAR(toggleAI), FUNC(toggleAI)] call CBA_fnc_addEventHandler;
 
 // if not a player we don't do anything
 if (!hasInterface) exitWith {}; 

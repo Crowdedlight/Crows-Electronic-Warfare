@@ -13,4 +13,4 @@ if (isNull _unit) exitWith {
 	[QGVAR(showHintZeus), ["SetUnitJammable must be placed on a unit"]] call CBA_fnc_globalEvent;
 };
 
-[_unit, true] call EFUNC(spectrum,initDroneSignals);
+[QEGVAR(spectrum,setUnitJammable), [_unit]] call CBA_fnc_serverEvent;
