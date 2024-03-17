@@ -25,13 +25,11 @@ GVAR(jamMap) deleteAt _netId;
 // Handling it for now with Global event. Doesn't require jip, as it just tells all current clients to remove markers. JIP that joins won't create those local markers, as they get current state of jam objects, not past. 
 // [QGVAR(removeJamMarker), [_netId]] call CBA_fnc_globalEvent;
 
-// delete sound effect if object is not null. If its null, our sound cleaner would already have cleaned it up
 if (!isNull _jammerObj) then {
+	// delete sound effect if object is not null. If its null, our sound cleaner would already have cleaned it up
 	[_jammerObj] call EFUNC(sounds,removeSound);
-};
 
-// remove jammer as a signal source for the Spectrum Device
-if (!isNull _jammerObj) then {
+	// remove jammer as a signal source for the Spectrum Device
 	[_jammerObj] call EFUNC(spectrum,removeBeaconServer);
 };
 
