@@ -30,6 +30,11 @@ if (!isNull _jammerObj) then {
 	[_jammerObj] call EFUNC(sounds,removeSound);
 };
 
+// remove jammer as a signal source for the Spectrum Device
+if (!isNull _jammerObj) then {
+	[_jammerObj] call EFUNC(spectrum,removeBeaconServer);
+};
+
 // broadcast to sync if needed
 if (_broadcast) then {
 	[QGVAR(updateJammers), [GVAR(jamMap)]] call CBA_fnc_globalEvent;
