@@ -10,7 +10,7 @@ Return: none
 // ONLY TESTED WITH TFAR Beta
 
 *///////////////////////////////////////////////
-params ["_unit", "_radioclass", "_radioType", "_additionalChannel", "_buttonDown"];
+params [["_unit", objNull], "_radioclass", "_radioType", "_additionalChannel", "_buttonDown"];
 
 // when we start transmission, buttonDown == true, when we stop its false. 
 if (_buttonDown) then {
