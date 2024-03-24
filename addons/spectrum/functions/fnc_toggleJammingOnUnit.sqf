@@ -94,7 +94,7 @@ if (_enableJam) then {
 			// disconnect any player that might control this drone
 			private _droneUsers = (UAVControl _unit) select { !(_x isEqualType "String") };	 // leave only player objects
 			{
-				_x connectTerminalToUAV objNull; // disconnect player from drone
+				[QGVAR(disconnectPlayerUAV), [_x], _x] call CBA_fnc_targetEvent;
 				["zen_common_hint", ["Drone is jammed. Connection lost."], _x] call CBA_fnc_targetEvent; // notify player why this happened 
 				/* NOTE: Don't use Structured Text for the remote executed hint or the server will show "Performance warning" messages in RPT log.
 				         (see https://community.bistudio.com/wiki/Structured_Text for details)  */
