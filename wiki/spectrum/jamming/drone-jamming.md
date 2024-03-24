@@ -19,7 +19,7 @@ Video:
 Player controlled and autonomous drones can not operate within the effective range of the area denial jammer.
 - Autonomous drones will lose their autonomous capabilities (in technical terms [disableAI "all"](https://community.bistudio.com/wiki/disableAI) is called)
   - and if being jammed for long enough will attempt to land.
-- Any player that is currenty controlling either the Driver or Gunner position of the drone is getting disconnected from it.
+- Any player that is currently controlling either the Driver or Gunner position of the drone is getting disconnected from it.
 
 The screenshot below shows 
 - the default 3D model of the area denial jammer on the left
