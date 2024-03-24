@@ -28,21 +28,6 @@ if (GVAR(spectrumRangeAntenna) == -1) exitWith {
     missionNamespace setVariable ["#EM_Values", []];
 };
 
-// update local array for deleted or dead elements
-private _removeArr = [];
-{
-    // get target obj
-    private _target = _x select 0;
-
-    // if removed or dead, remove it from tracking array
-    if (isNull _target || !alive _target) then {
-        _removeArr pushBack _x;
-    };
-} forEach GVAR(beacons);
-
-// update list
-GVAR(beacons) = GVAR(beacons) - _removeArr;
-
 // for each beacon calculate direction, and strength based on distance.
 private _sigsArray = [];
 {

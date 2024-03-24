@@ -45,6 +45,6 @@ workshop = [
     "1645973522", # Intercept Minimal Dev
     "1585582292", # Arma Debug Engine
 ]
+mission = "dev_mini.Enoch" # Launch into existing Editor Mission
 parameters = [
-    "C:\\Users\\crow\\Documents\\Arma 3 - Other Profiles\\Crowdedlight\\missions\\dev_mini.Enoch\\mission.sqm", # Launch into existing Editor Mission
 ]

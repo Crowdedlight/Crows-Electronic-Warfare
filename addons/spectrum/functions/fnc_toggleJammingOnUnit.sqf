@@ -7,7 +7,9 @@ Parameters: _unit, _enableJam,
             _jamObject (could also be a player)
 Return: none
 
-Called upon event to jam or unjam unit
+Called upon event to jam or unjam unit. 
+
+SERVER ONLY
 
 *///////////////////////////////////////////////
 params [["_unit", objNull], ["_enableJam", false], ["_jamObject", objNull]];
@@ -41,6 +43,7 @@ if (_enableJam) then {
 	
 	// systemChat "disabled all AI";
 
+	// currently spawning one of these per unit while jammed
 	private _spawnedJamLoop = [_unit] spawn {
 		params ["_unit"];
 
@@ -91,8 +94,10 @@ if (_enableJam) then {
 			// disconnect any player that might control this drone
 			private _droneUsers = (UAVControl _unit) select { !(_x isEqualType "String") };	 // leave only player objects
 			{
-				_x connectTerminalToUAV objNull; // disconnect player from drone
-				["zen_common_hint", [parseText "Drone is jammed<br/><t color='#ff0000'>Connection lost</t>"], _x] call CBA_fnc_targetEvent; // notify player why this happened
+				[QGVAR(disconnectPlayerUAV), [_x], _x] call CBA_fnc_targetEvent;
+				["zen_common_hint", ["Drone is jammed. Connection lost."], _x] call CBA_fnc_targetEvent; // notify player why this happened 
+				/* NOTE: Don't use Structured Text for the remote executed hint or the server will show "Performance warning" messages in RPT log.
+				         (see https://community.bistudio.com/wiki/Structured_Text for details)  */
 			} forEach _droneUsers;
 
 			sleep 0.5; // repeat only every 0.5s as should be enough as response for enable or disable jamming

@@ -31,7 +31,7 @@ if (!isNull _existingHandle) then {
 	terminate _existingHandle;
 
 	// if we terminate it stops straight away and thus the signal source might not have been removed. So we manually remove it 
-	[QGVAR(removeBeacon), [_unit]] call CBA_fnc_globalEvent;
+	[_unit] call FUNC(removeBeaconServer);
 };
 // set unit handle var to null
 _unit setVariable[QGVAR(radioChatterHandle), scriptNull];

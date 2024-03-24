@@ -21,7 +21,7 @@ private _onConfirm =
 	];
 	
 	// fire event to change 
-	[QEGVAR(spectrum,toggleRadioTracking), [_enabled]] call CBA_fnc_globalEventJIP;
+	[QEGVAR(spectrum,toggleRadioTracking), [_enabled], QEGVAR(spectrum,radioTracking)] call CBA_fnc_globalEventJIP;
 };
 
 [

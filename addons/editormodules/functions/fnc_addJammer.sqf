@@ -50,8 +50,8 @@ if (_activated) then {
 	if (_isVoiceCommsJammer) then { _capabilities pushBack JAM_CAPABILITY_RADIO };
 	if (_isDroneJammer) then { _capabilities pushBack JAM_CAPABILITY_DRONE };
 
-	// broadcast event to all clients and JIP
-	[QEGVAR(main,addJammer), [_unit, _rad, _strength, _isActiveAtMissionStart, _capabilities]] call CBA_fnc_globalEventJIP;
+	// broadcast event to server
+	[QEGVAR(main,addJammer), [_unit, _rad, _strength, _isActiveAtMissionStart, _capabilities]] call CBA_fnc_serverEvent;
 
 	// broadcast sound to server for sound handling - Means we don't get duplicate broadcasts due to JIP.
 	// params ["_unit", "_delay", "_range", "_repeat", "_aliveCondition", "_sound", "_startDelay", "_volume"];

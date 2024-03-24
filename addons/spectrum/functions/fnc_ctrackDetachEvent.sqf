@@ -16,13 +16,6 @@ if (!(_itemName isEqualTo "crowsew_ctrack")) exitWith {};
 
 // get object its attached to
 private _attachedToObj = attachedTo _attachedObject;
-private _jipID = _attachedToObj getVariable[QGVAR(ctrack_attached_jipID), ""];
-
-// no matter what cause is for detach, we always remove jip event to not linger - // - TODO Should probably change so spectrum beacons save their own jip id, and when they "cleanup" they remove it to avoid having large amount of dead jips events
-if (_jipID != "") then {
-	[_jipID] call CBA_fnc_removeGlobalEventJIP;
-	_attachedToObj setVariable[QGVAR(ctrack_attached_jipID), ""];
-};
 
 // if temporary is false, then its removed by player action and we reset variable
 if (!temporary) then {
