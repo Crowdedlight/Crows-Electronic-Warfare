@@ -16,14 +16,21 @@ if (_netid == "" || !isServer) exitWith {};
 
 // get reference to object before deleting jamMap entry
 private _jammerObj = (GVAR(jamMap) get _netid) #0;
+private _capabilities = (GVAR(jamMap) get _netid) #4;
 
 // delete key in hashmap with this netid 
 GVAR(jamMap) deleteAt _netId;
 
-// delete marker on this machine. Other clients will catch up as local_jammer loop sees they are not there anymore
-//  I need netid or housekeeping of local jamming markers to delete local markers, if they are deleted on other clients and sync'ed with publicVar. 
-// Handling it for now with Global event. Doesn't require jip, as it just tells all current clients to remove markers. JIP that joins won't create those local markers, as they get current state of jam objects, not past. 
-// [QGVAR(removeJamMarker), [_netId]] call CBA_fnc_globalEvent;
+// delete this as an active jammer from any units its currently jamming. To make the spawned jam loop stop it.
+// Even though we have to go through all current jammed units, and pull their variables, I believe this is better performance than having each unit run a check every second in their update loop, 
+// as this is only done when a jammer is removed through zeus/script
+if (JAM_CAPABILITY_DRONE in _capabilities) then {
+	private _activelyJammedUnits = missionNamespace getVariable[QEGVAR(spectrum,activeJammedUnits), []];
+	{
+		// untoggle this jammer from all drones its jamming
+		[_x, false, _jammerObj] call EFUNC(spectrum,toggleJammingOnUnit);
+	} forEach _activelyJammedUnits;
+};
 
 if (!isNull _jammerObj) then {
 	// delete sound effect if object is not null. If its null, our sound cleaner would already have cleaned it up

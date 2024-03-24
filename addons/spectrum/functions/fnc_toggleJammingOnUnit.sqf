@@ -7,7 +7,9 @@ Parameters: _unit, _enableJam,
             _jamObject (could also be a player)
 Return: none
 
-Called upon event to jam or unjam unit
+Called upon event to jam or unjam unit. 
+
+SERVER ONLY
 
 *///////////////////////////////////////////////
 params [["_unit", objNull], ["_enableJam", false], ["_jamObject", objNull]];
