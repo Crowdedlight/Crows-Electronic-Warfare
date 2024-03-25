@@ -24,22 +24,22 @@ if (!hasInterface) exitWith {};
 private _moduleList = [GVAR(hasTFAR)] call {
 	params ["_isTFARLoaded"];
 	private _modules = [
-		["Set Spectrum Signal Source",{_this call FUNC(addSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
+		["Add Spectrum Signal Source",{_this call FUNC(addSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
 		["Remove Spectrum Signal Source",{_this call FUNC(removeSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
 		["Add Sound",{_this call FUNC(addSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
 		["Remove Sound",{_this call FUNC(removeSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
 		["Play Sound",{_this call FUNC(playSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
 		["Fire EMP",{_this call FUNC(fireEMPZeus)}, QPATHTOF(data\EMP_Icon.paa)], 
-		["Set Immune to EMP",{_this call FUNC(setImmuneEMPZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)], 
+		["Add Immune to EMP",{_this call FUNC(setImmuneEMPZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)], 
 		["Add Radio Tracking Chatter",{_this call FUNC(addRandomRadioTrackingChatterZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)], 
 		["Remove Radio Tracking Chatter",{_this call FUNC(removeRandomRadioTrackingChatterZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)], 
-		["Set Unit Jammable",{_this call FUNC(setUnitJammableZeus)}, QPATHTOF(data\spectrum_signal.paa)] 
+		["Set Unit Jammable",{_this call FUNC(setUnitJammableZeus)}, QPATHTOF(data\spectrum_signal.paa)],
+		["Add Jammer",{_this call FUNC(addJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
+		["Remove Jammer",{_this call FUNC(removeJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
 	];
 	private _tfarModules = [
-		["Set Jammer",{_this call FUNC(addJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
-		["Remove Jammer",{_this call FUNC(removeJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
 		["Toggle Radio Tracking",{_this call FUNC(setRadioTrackingZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
-		["Set SATCOM",{_this call FUNC(addSatcomZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"], //TODO SATELLITE DISH ICON
+		["Add SATCOM",{_this call FUNC(addSatcomZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"], //TODO SATELLITE DISH ICON
 		["Remove SATCOM",{_this call FUNC(removeSatcomZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"] //TODO SATELLITE DISH ICON
 	];
 
