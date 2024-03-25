@@ -29,7 +29,7 @@ if (_value) then {
 	GVAR(LastSpectrumMuzzleAttachment) = "";
 
 	// due to best practices we are gonna put the track loop in unscheduled space. 
-	GVAR(PFH_beaconPlayer) = [FUNC(spectrumTrackingLocal), 0.2] call CBA_fnc_addPerFrameHandler; 
+	GVAR(PFH_beaconPlayer) = [FUNC(spectrumTrackingLocal), 0.1] call CBA_fnc_addPerFrameHandler; 
 	GVAR(PFH_SpectrumAttachmentPlayer) = [FUNC(spectrumAttachmentLocal), 1] call CBA_fnc_addPerFrameHandler; 
 
 	// Spectrum event handler for "FIRE" spectrum analyzer 

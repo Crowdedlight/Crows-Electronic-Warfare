@@ -103,6 +103,33 @@ class CfgVehicles
 			// class Units: Units{};
 
 			// Module-specific arguments:
+			class IsActiveAtMissionStart: Checkbox
+			{
+				property = QGVAR(addjammer_isActiveAtMissionStart);
+				displayName = "Jammer active at mission start";
+				tooltip = "Should this jammer start working right from the start of the mission?";
+				typeName = "BOOL";
+				defaultValue = "true";
+			};
+
+			class IsVoiceCommsJammer: Checkbox
+			{
+				property = QGVAR(addjammer_isVoiceCommsJammer);
+				displayName = "Jam voice communication signals";
+				tooltip = "Should this jammer effect players voice communication (e.g. via TFAR)?";
+				typeName = "BOOL";
+				defaultValue = "true";
+			};
+
+			class IsDroneJammer: Checkbox
+			{
+				property = QGVAR(addjammer_isDroneJammer);
+				displayName = "Jam drone signals";
+				tooltip = "Should this jammer effect drones?";
+				typeName = "BOOL";
+				defaultValue = "false";
+			};
+
 			class Radius: Edit
 			{
 				property = QGVAR(addjammer_radius);							

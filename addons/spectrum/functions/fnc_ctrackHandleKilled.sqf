@@ -19,6 +19,6 @@ private _items = attachedObjects _unit;
 {
 	if (_x isKindOf "crowsew_ctrack_effect") then {
 		// remove beacon 
-		[QGVAR(removeBeacon), [_x]] call CBA_fnc_globalEventJIP;
+		[QGVAR(removeBeacon), [_x]] call CBA_fnc_serverEvent;
 	}
 } forEach _items;

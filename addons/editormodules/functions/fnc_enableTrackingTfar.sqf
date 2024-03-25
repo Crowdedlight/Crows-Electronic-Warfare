@@ -25,7 +25,8 @@ if (EGVAR(zeus,hasTFAR) == false) exitWith {
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then {
 	// Attribute values are saved in module's object space under their class names
-	[QEGVAR(spectrum,toggleRadioTracking), [true]] call CBA_fnc_globalEventJIP;
+	// jipId is set here, so we don't make a stack of events, but just overwrite the same event, as we only want JIP to get latest state. Should probably be changed to server-auth model too...
+	[QEGVAR(spectrum,toggleRadioTracking), [true], QEGVAR(spectrum,radioTracking)] call CBA_fnc_globalEventJIP;
 };
 // Module function is executed by spawn command, so returned value is not necessary, but it is good practice.
 

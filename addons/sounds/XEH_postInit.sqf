@@ -9,7 +9,7 @@ if (hasInterface) then {
 // only if we are on server
 if (!isServer) exitWith {}; 
 
-// register event callback, "addBeacon", as rest is local, event runs local jam function that adds to array and starts the while loop 
+// register event callback, "addSound", as rest is local, event runs local jam function that adds to array and starts the while loop 
 private _addId = [QGVAR(addSound), FUNC(addSound)] call CBA_fnc_addEventHandler;
 private _removeId = [QGVAR(removeSound), FUNC(removeSound)] call CBA_fnc_addEventHandler;
 private _enabledId = [QGVAR(setSoundEnable), FUNC(setSoundEnable)] call CBA_fnc_addEventHandler;
