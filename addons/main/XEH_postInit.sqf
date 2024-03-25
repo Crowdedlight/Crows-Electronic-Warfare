@@ -2,7 +2,6 @@
 
 // for now only work if TFAR is loaded, as we only jam TFAR 
 private _hasTFAR = isClass (configFile >> "CfgPatches" >> "task_force_radio");
-if (!_hasTFAR) exitWith {diag_log "crowsEW-jamming: TFAR not loaded, so TFAR Jamming is not available"};
 
 //Don't do anything in Singleplayer, as TFAR isn't enabled in SP
 if (!isMultiplayer && !is3DENMultiplayer) exitWith {};
