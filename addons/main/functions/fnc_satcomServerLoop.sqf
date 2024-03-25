@@ -34,7 +34,7 @@ private _removeList = [];
 		if (_x in GVAR(satcom_boosted_units)) then {continue;};
 
 		// set current tfar variables. For now we do satcom, so always 4x boost, no matter the jamming
-		_x setVariable ["tf_receivingDistanceMultiplicator", 4, true];
+		_x setVariable ["tf_receivingDistanceMultiplicator", 1/4, true];
 		_x setVariable ["tf_sendingDistanceMultiplicator", 4, true];
 	} forEach _effectUnits;
 
