@@ -13,6 +13,11 @@ The spectrum device has three different antennas which covers different frequenc
 **middle-mouse:** Clicking will zoom in and show the selected frequencies. Makes it easier to see if multiple signals are overlapping or right next to each other.   
 **shift + middle-mouse:** Resets the zoom to the frequencies visible to the equipped antenna. 
 
+## CBA Settings
+There is two CBA settings that influence what signals you can see. By default you will not see TFAR signals from same side as you, nor your own radio signals. However if you enable the ``Self-Tracking`` setting, you will be able to see your own signals, however you need to also enable ``Track Friendly with Radio Tracking`` setting to be able to see your own TFAR radio signal. 
+
+Enabling ``Track Friendly with Radio Tracking`` will also make radio signals from your side show up. If they are shown you can also listen into them and hear their communication. 
+
 ## Listening
 Using the experimental or military antenna on frequencies that belongs to drones or the RadioChatter module makes it play voice lines or sounds to simulate you listening to the radio/signal. If the strength is not enough you will hear garbled sound instead. 
 
