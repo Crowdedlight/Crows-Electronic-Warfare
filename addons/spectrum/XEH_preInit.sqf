@@ -26,7 +26,7 @@ ADDON = true;
 [
     QGVAR(selfTracking), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
-    ["Self-Tracking", "Should you be able to see your own signal sources on the spectrum Device, or should they be hidden from view"], 
+    ["Self-Tracking", "Should you be able to see your own signal sources on the spectrum Device, or should they be hidden from view. If Tfar SideTrack setting is disabled, you won't see your own TFAR signal even if this setting is turned on"], 
     "Crows Electronic Warfare",
     false,	// bool, disabled by default to stay with current behaviour
     nil
