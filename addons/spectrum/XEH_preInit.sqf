@@ -27,7 +27,7 @@ ADDON = true;
     QGVAR(selfTracking), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     ["Self-Tracking", "Should you be able to see your own signal sources on the spectrum Device, or should they be hidden from view"], 
-    ["Crows Electronic Warfare"],
+    "Crows Electronic Warfare",
     false,	// bool, disabled by default to stay with current behaviour
     nil
 ] call CBA_fnc_addSetting;
