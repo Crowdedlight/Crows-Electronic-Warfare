@@ -10,7 +10,7 @@ Return: none
 // ONLY TESTED WITH TFAR Beta
 
 *///////////////////////////////////////////////
-params ["_unit", "_radioclass", "_radioType", "_additionalChannel", "_buttonDown"];
+params [["_unit", objNull], "_radioclass", "_radioType", "_additionalChannel", "_buttonDown"];
 
 // when we start transmission, buttonDown == true, when we stop its false. 
 if (_buttonDown) then {
@@ -53,12 +53,12 @@ if (_buttonDown) then {
 	_freq = _freq + ((random 900)/10000); //changing the 0.0xx part only
 
 	// add signal source - NOT on JIP, as they are shorter bursts and we don't want to fill up the JIP. Such short messages should never be a problem requiring JIP.
-	[QGVAR(addBeacon), [_unit, _freq, _range, "radio"]] call CBA_fnc_globalEvent;
+	[QGVAR(addBeacon), [_unit, _freq, _range, "radio"]] call CBA_fnc_serverEvent;
 
 } else {
 	// remove signal, shouldn't be a problem with JIP. As same unit would overwrite next transmission anyway, even if it gets stuck in either state
 	// systemChat format["Rm signal onTangent: btnDown: %1", _buttonDown];
-	[QGVAR(removeBeacon), [_unit]] call CBA_fnc_globalEvent;
+	[QGVAR(removeBeacon), [_unit]] call CBA_fnc_serverEvent;
 	
 	// reset var for listening to
 	_unit setVariable [QGVAR(broadcastingRadio), [], true];

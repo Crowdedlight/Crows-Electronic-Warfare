@@ -2,13 +2,15 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fnc_removeJamMarker.sqf
+File: fnc_removeJamMarkers.sqf
 Parameters: _netId
 Return: none
 
 removes local marker for the jammer to show on map. Only called for zeus, so only zeus can see the jammer radius
 
 *///////////////////////////////////////////////
-params ["_netID"];
+params ["_netIDs"];
 
-deletemarkerLocal _netId;
+{
+	deletemarkerLocal _x;
+} foreach _netIDs;

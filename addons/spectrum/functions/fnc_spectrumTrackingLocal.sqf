@@ -21,27 +21,12 @@ private _tracker = GVAR(trackerUnit);
 if (isNull _tracker || !alive _tracker) then {_tracker = player};
 
 // only calculate if we got analyzer as tracker
-if (!("hgun_esd_" in (handgunWeapon _tracker))) exitWith {}; 
+if (!("hgun_esd_" in (currentWeapon _tracker))) exitWith {}; 
 
 // only work if we got an antenna on 
 if (GVAR(spectrumRangeAntenna) == -1) exitWith {
     missionNamespace setVariable ["#EM_Values", []];
 };
-
-// update local array for deleted or dead elements
-private _removeArr = [];
-{
-    // get target obj
-    private _target = _x select 0;
-
-    // if removed or dead, remove it from tracking array
-    if (isNull _target || !alive _target) then {
-        _removeArr pushBack _x;
-    };
-} forEach GVAR(beacons);
-
-// update list
-GVAR(beacons) = GVAR(beacons) - _removeArr;
 
 // for each beacon calculate direction, and strength based on distance.
 private _sigsArray = [];
@@ -56,14 +41,23 @@ private _sigsArray = [];
     // if (!(GVAR(spectrumRangeAntenna) in _requiredAntennas)) then {systemChat format["antenna: %1 is not in %2", GVAR(spectrumRangeAntenna), _requiredAntennas]; continue; };
     if (!(GVAR(spectrumRangeAntenna) in _requiredAntennas)) then { continue; };
 
-    // if jammer is equipped, only show signals that is type drone 
-    if (GVAR(spectrumRangeAntenna) == 3 && _type != "drone") then { continue; };
+    // if jammer is equipped, only show signals that is type drone or sweep
+    if (GVAR(spectrumRangeAntenna) == 3 && { !(_type in ["drone", "sweep"]) } ) then { continue; };
 
     // if tfar radio, and same side as you, skip if setting is enabled
     if (!GVAR(tfarSideTrack) && _type == "radio" && (side _target == side player)) then {continue; };
 
     // Get signal strength 
     private _sigStrength = [_target, _tracker, _scanRange] call FUNC(calcSignalStrength);
+
+    // get next frequency for a frequency sweeper
+    if (_type == "sweep") then {
+        _frequency = [433, 7, 5, _forEachIndex] call FUNC(getNextSweepFreq);    // overides the original _frequency value
+        /*******************************************************************/
+        // TODO implement different frequency band for VoiceCommJammers
+        // (those are currently shown in the drone band)
+        /*******************************************************************/
+    };
 
     // push to sig array
     _sigsArray append [_frequency, _sigStrength];

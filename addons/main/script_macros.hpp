@@ -18,3 +18,7 @@
     #undef PREP
     #define PREP(fncName) [QPATHTOF(functions\DOUBLES(fnc,fncName).sqf), QFUNC(fncName)] call CBA_fnc_compileFunction
 #endif
+
+// macros used for jamming (across multiple addons)
+#define JAM_CAPABILITY_RADIO QUOTE(VoiceCommsJammer)
+#define JAM_CAPABILITY_DRONE QUOTE(DroneJammer)

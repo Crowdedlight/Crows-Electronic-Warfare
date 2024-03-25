@@ -5,19 +5,34 @@ if (isServer) then {
 	// event listener for adding trackable random radio chatter on units - server only
 	private _randomRadioChatterTrackingId = [QGVAR(addRandomRadioTrackingChatter), FUNC(addRandomRadioTrackingChatterServer)] call CBA_fnc_addEventHandler;
 	private _removeRandomRadioChatterTrackingId = [QGVAR(removeRandomRadioTrackingChatter), FUNC(removeRandomRadioTrackingChatterServer)] call CBA_fnc_addEventHandler;
+
+	// EH for adding and removing beacons
+	[QGVAR(addBeacon), FUNC(addBeaconServer)] call CBA_fnc_addEventHandler;
+	[QGVAR(removeBeacon), FUNC(removeBeaconServer)] call CBA_fnc_addEventHandler;
+	[QGVAR(requestBeacons), FUNC(requestBeaconServer)] call CBA_fnc_addEventHandler;
+
+	// PFH for beacon cleanup
+	GVAR(PFH_BeaconServerLoop) = [FUNC(beaconLoopServer), 1] call CBA_fnc_addPerFrameHandler; 
+
+	// EH for jamming
+	[QGVAR(toggleJammingOnUnit), FUNC(toggleJammingOnUnit)] call CBA_fnc_addEventHandler;
+	[QGVAR(setUnitJammable), FUNC(initDroneSignals)] call CBA_fnc_addEventHandler;
 };
+
+// toggle AI function has to be available on all clients, as it only runs on whoever has the unit locally 
+[QGVAR(toggleAI), FUNC(toggleAI)] call CBA_fnc_addEventHandler;
 
 // if not a player we don't do anything
 if (!hasInterface) exitWith {}; 
 
 // spectrum device handlers and default settings are set in "spectrumEnableSettingChanged" to allow for disable/enable of device
 //  The add beacon code and zeus modules are still active, as the disable can be set individually. And as long as the local handlers are disabled, they can't interferer.
+[QGVAR(updateBeacons), FUNC(updateBeacons)] call CBA_fnc_addEventHandler;
 
 GVAR(trackerUnit) = player; // what unit is used as tracker. Nessecary for zeus RC support
 
-// register event callback, "addBeacon", as rest is local, event runs local jam function that adds to array and starts the while loop 
-private _addId = [QGVAR(addBeacon), FUNC(addBeacon)] call CBA_fnc_addEventHandler;
-private _removeId = [QGVAR(removeBeacon), FUNC(removeBeacon)] call CBA_fnc_addEventHandler;
+// EH for jamming disconnects
+[QGVAR(disconnectPlayerUAV), {_this#0 connectTerminalToUAV objNull;}] call CBA_fnc_addEventHandler;
 
 // event listener to enable/disable TFAR signal sourcing
 private _tfarTrackingId = [QGVAR(toggleRadioTracking), FUNC(toggleRadioTracking)] call CBA_fnc_addEventHandler;
@@ -47,3 +62,6 @@ private _aceDetachId = ["ace_attach_detaching", FUNC(ctrackDetachEvent)] call CB
 if (!EGVAR(zeus,hasAce)) then {
 	[] call FUNC(ctrackNoAce);
 };
+
+// request current state of beacons - for JIP/init
+[QGVAR(requestBeacons), [player]] call CBA_fnc_serverEvent;

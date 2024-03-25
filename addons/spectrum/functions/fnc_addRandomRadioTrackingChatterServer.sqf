@@ -28,7 +28,7 @@ private _existingHandle = _unit getVariable[QGVAR(radioChatterHandle), scriptNul
 if (!isNull _existingHandle) then {
 	terminate _existingHandle;
 	// remove signal 
-	[QGVAR(removeBeacon), [_unit]] call CBA_fnc_globalEvent;
+	[_unit] call FUNC(removeBeaconServer);
 
 	// remove from zeus draw list - We wait with publish update until end of script where we publish anyway for the new draws
 	private _rmIndex = GVAR(radioTrackingAiUnits) findIf { (_x select 0) == _unit};
@@ -60,13 +60,13 @@ private _handler = [_unit, _range, _slp_min, _slp_mid, _slp_max, _len_min, _len_
 		private _sleep = floor(random[_slp_min, _slp_mid, _slp_max]);
 
 		// add signal 
-		[QGVAR(addBeacon), [_unit, _freq, _range, "chatter"]] call CBA_fnc_globalEvent;
+		[_unit, _freq, _range, "chatter"] call FUNC(addBeaconServer);
 
 		// sleep for length 
 		sleep _length;
 
 		// remove signal 
-		[QGVAR(removeBeacon), [_unit]] call CBA_fnc_globalEvent;
+		[_unit] call FUNC(removeBeaconServer);
 
 		// sleep before next transmission
 		sleep _sleep;
