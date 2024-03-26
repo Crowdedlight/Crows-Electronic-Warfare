@@ -25,7 +25,7 @@ The screenshot below shows
 - the default 3D model of the area denial jammer on the left
 - and the message a drone pilot will see when getting disconnected on the upper right.
 
-![image](https://cdn.discordapp.com/attachments/402412803153199104/1202531922098786335/image.png?ex=65cdcc20&is=65bb5720&hm=ac8674aebedf7e16bd3f35fe5b06f5a78eb992687304a4c05b87abc1e2c2013b&)
+![drone is jammed](https://github.com/Crowdedlight/Crows-Electronic-Warfare/assets/76476468/efe4b218-b76e-4ab1-ad3f-4ff5bc7f45a3)
 
 ```admonish info
 Any object can be made an area denial jammer, not just the one shown above. This can be done in both Zeus and 3den. 
@@ -42,6 +42,7 @@ When approaching the effective radius of an active area denial drone jammer the 
 The intensity of this video deterioration is dependent on 2 factors.
 1. Distance between drone and jammer radius
 2. Distance between drone and pilot
+
 So the closer the pilot is to the drone the longer the video signal will be workable.
 ```
 
