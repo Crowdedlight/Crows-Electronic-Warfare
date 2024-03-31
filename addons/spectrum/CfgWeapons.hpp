@@ -95,8 +95,8 @@
 		author = "Crowdedlight";
 		displayName = "C-MOTION";
 		descriptionShort = "Tracking device that gets triggered by motion and sends signals that can be seen with the spectrum device";
-		scope = PUBLIC;
-		scopeCurator = PUBLIC;
+		scope = HIDDEN;
+		scopeCurator = HIDDEN;
 		model = QPATHTOF(data\c_motion\c_motion.p3d);
 		picture = QPATHTOF(data\c_motion\cmotion_picture_ca.paa);
 		icon = QPATHTOF(data\c_motion\cmotion_icon_ca.paa);
