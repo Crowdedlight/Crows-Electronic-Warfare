@@ -52,7 +52,7 @@ if (_buttonDown) then {
 	// Randomize the digits of signal to try and avoid multiple signals override eachother, while we want to symbolize multiple signals
 	_freq = _freq + ((random 900)/10000); //changing the 0.0xx part only
 
-	// add signal source - NOT on JIP, as they are shorter bursts and we don't want to fill up the JIP. Such short messages should never be a problem requiring JIP.
+	// add signal source
 	[QGVAR(addBeacon), [_unit, _freq, _range, "radio"]] call CBA_fnc_serverEvent;
 
 } else {

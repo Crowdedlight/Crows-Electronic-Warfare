@@ -21,7 +21,8 @@ if (GVAR(beacons) findIf { _x#0 == _unit } > -1) exitWith {};
 
 // randomize frequency 
 // TODO randomize within a window that gives minimum seperation to existing signals. 
-private _freq = 433.00 + (random 7);
+private _range = abs(GVAR(spectrumDeviceFrequencyRange)#2 select 0 - GVAR(spectrumDeviceFrequencyRange)#2 select 1);
+private _freq = 433.00 + (random _range);
 
 // add beacon
 [_unit, _freq, 300, "drone"] call FUNC(addBeaconServer);

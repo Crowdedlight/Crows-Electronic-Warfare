@@ -60,10 +60,11 @@ GVAR(beacons) = [];
 GVAR(spectrumRangeAntenna) = -1;
 GVAR(radioTrackingEnabled) = false;
 
+// If changing values, remember to update tool-tips in CfgWeapons. Rest of code should update based on values here automatically
 GVAR(spectrumDeviceFrequencyRange) = [
-	[30,389], 	// military antenna
-	[390,500], 	// experimental antenna
-	[433,440] 	// jammer 
+	[30,513], 	// military antenna - Radio comms
+	[520,1090], // experimental antenna
+	[433,445] 	// jammer 
 ];
 
 // array of special units
