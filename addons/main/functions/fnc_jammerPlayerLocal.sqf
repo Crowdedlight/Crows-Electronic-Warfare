@@ -55,30 +55,19 @@ if (!(call EFUNC(zeus,isZeus))) then {
 	// if no jammer are within range, reset tfar vars and exit
 	if (isNull _nearestJammerObject) then {
 		// reset values of TFAR, if they are degraded
-		[player] call FUNC(resetTfarIfDegraded);
+		[player] call FUNC(resetRadioIfDegraded);
 	} else {
 		// check for jammer capabilities and counteract signals accordingly
 		if ( JAM_CAPABILITY_RADIO in (_nearestJammer select 4) ) then {
-			// we now got distance, and nearest jammer, time to calculate jamming
-			private _distPercent = _distJammer / _distRad;
+			// get jamStrength of nearest jammer
 			private _jamStrength = _nearestJammer select 2;
-			private _rxInterference = 1;
-			private _txInterference = 1;
 
-			// for now staying with linear degradation of signal. Might make it a tad better for players than the sudden commms -> no comms exponential could induce
-			private _rxInterference = _jamStrength - (_distPercent * _jamStrength) + 1;     // recieving interference. above 1 to have any effect.
-			private _txInterference = 1 / _rxInterference;                                  // transmitting interference, below 1 to have any effect.
-
-			// Set the TF receiving and sending distance multipliers
-			player setVariable ["tf_receivingDistanceMultiplicator", _rxInterference];
-			player setVariable ["tf_sendingDistanceMultiplicator", _txInterference];
-
-			//Debugging
-			// if (false) then {	
-			// 	// systemChat format ["Distance: %1, Percent: %2", _distJammer,  100 * _distPercent];
-			// 	systemChat format ["tfar_rx: %1, tfar_tx: %2", _rxInterference, _txInterference];
-			// 	systemChat format ["Closest Jammer netID: %1, radius: %2, enabled: %3", netId (_nearestJammer select 0), _nearestJammer select 1, _nearestJammer select 3];
-			// };
+			// apply interference, TFAR or ACRE style
+			if (EGVAR(zeus,hasTFAR)) then {
+				[_distJammer, _distRad, _jamStrength] call FUNC(applyInterferenceTFAR);
+			} else if (EGVAR(zeus,hasACRE)) then {
+				[_distJammer, _distRad, _jamStrength] call FUNC(applyInterferenceACRE);
+			};
 		};
 	};
 };

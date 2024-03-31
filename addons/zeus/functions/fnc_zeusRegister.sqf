@@ -21,8 +21,8 @@ if !(_hasZen) exitWith
 if (!hasInterface) exitWith {};
 
 //register zen modules
-private _moduleList = [GVAR(hasTFAR)] call {
-	params ["_isTFARLoaded"];
+private _moduleList = [GVAR(hasTFAR), GVAR(hasACRE)] call {
+	params ["_isTFARLoaded", "_isACRELoaded"];
 	private _modules = [
 		["Add Spectrum Signal Source",{_this call FUNC(addSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
 		["Remove Spectrum Signal Source",{_this call FUNC(removeSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
@@ -38,7 +38,9 @@ private _moduleList = [GVAR(hasTFAR)] call {
 		["Remove Jammer",{_this call FUNC(removeJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
 	];
 	private _tfarModules = [
-		["Toggle Radio Tracking",{_this call FUNC(setRadioTrackingZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
+		["Toggle Radio Tracking",{_this call FUNC(setRadioTrackingZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
+	];
+	private _radioModules = [
 		["Add SATCOM",{_this call FUNC(addSatcomZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"], //TODO SATELLITE DISH ICON
 		["Remove SATCOM",{_this call FUNC(removeSatcomZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"] //TODO SATELLITE DISH ICON
 	];
@@ -46,6 +48,9 @@ private _moduleList = [GVAR(hasTFAR)] call {
 	// return the ones to load		
 	if (_isTFARLoaded) then {
 		_modules = _modules + _tfarModules;
+	};
+	if (_isTFARLoaded || isACRELoaded) then {
+		_modules = _modules + _radioModules;
 	};
 	_modules;
 };
