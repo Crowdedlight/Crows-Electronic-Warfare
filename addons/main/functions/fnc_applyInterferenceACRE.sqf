@@ -3,14 +3,16 @@
 Author: Crowdedlight
 			   
 File: fnc_applyInterferenceACRE.sqf
-Parameters: _distJammer, _distRad, _jamStrength
+Parameters: _distJammer, _radFalloff, _radEffective
 Return: 
 
-Apply interference to TFAR radios
+Apply interference to ACRE radios
 
 *///////////////////////////////////////////////
 
-params[_distJammer, _distRad, _jamStrength];
+params[_distJammer, _radFalloff, _radEffective];
+
+// TODO calculations for interference. Can reuse TFAR, but need to also test a good value for complete jamming
 
 // If ACRE loaded, we return calculation for TFAR
 private _distPercent = _distJammer / _distRad;
@@ -19,8 +21,8 @@ private _rxInterference = 1;
 private _txInterference = 1;
 
 // for now staying with linear degradation of signal. Might make it a tad better for players than the sudden commms -> no comms exponential could induce
-private _rxInterference = _jamStrength - (_distPercent * _jamStrength) + 1; // recieving interference. below 1 to have any interference effect.
-private _txInterference = _rxInterference;                                  // transmitting interference, below 1 to have any interference effect.
+_rxInterference = _jamStrength - (_distPercent * _jamStrength) + 1; // recieving interference. below 1 to have any interference effect.
+_txInterference = _rxInterference;                                  // transmitting interference, below 1 to have any interference effect.
 
 // Set the ACRE receiving and sending distance multipliers
 player setVariable ["acre_receive_power", _rxInterference, true];

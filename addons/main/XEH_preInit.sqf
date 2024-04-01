@@ -4,7 +4,7 @@
 ADDON = true;
 
 // hashmap for the objects - Only create locally if not already broadcasted and synced
-// format: [_netId, [_unit, _rad, _strength, _enabled, _capabilities]];
+// format: [_netId, [_unit, _radFalloff, _radEffective, _enabled, _capabilities]];
 GVAR(jamMap) = createHashMap;
 
 // server only 

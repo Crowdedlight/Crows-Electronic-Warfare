@@ -17,10 +17,9 @@ if (count GVAR(jamMap) == 0) exitWith {};
 if (call EFUNC(zeus,isZeus)) then {
 	// update markers 
 	{
-		_y params ["_jamObj", "_radius", "_strength", "_enabled", "_capabilities"];
-
-		// jamObj, netId, radius, updating, enabled
-		[_jamObj, _x, _radius, true, _enabled] call FUNC(updateJamMarker);
+		_y params ["_jamObj", "_radFalloff", "_radEffective", "_enabled", "_capabilities"];
+		// jamObj, netId, radFalloff, radEffective, updating, enabled
+		[_jamObj, _x, _radFalloff, _radEffective, true, _enabled] call FUNC(updateJamMarker);
 	} forEach GVAR(jamMap);
 };
 
@@ -31,7 +30,7 @@ if (!(call EFUNC(zeus,isZeus))) then {
 	private _distJammer = -1;
 	private _distRad = -1;
 	{
-		_y params ["_jamObj", "_radius", "_strength", "_enabled", "_capabilities"];
+		_y params ["_jamObj", "_radFalloff", "_radEffective", "_enabled", "_capabilities"];
 
 		// if disabled, skip the jammer 
 		if (!_enabled) then {continue};
@@ -39,13 +38,12 @@ if (!(call EFUNC(zeus,isZeus))) then {
 		// get current dist 
 		private _dist = player distance _jamObj;
 
-		// if distance to object is bigger than radius of jammer, continue 
-		if (_dist > _radius) then {continue;};
+		// if distance to object is bigger than radius of effective + falloff, continue 
+		if (_dist > (_radFalloff + _radEffective)) then {continue;};
 
-		// we are now within jammer area, if this jammer is closer than previous jammers, we save it
+		// we are now within influence area, if this jammer is closer than previous jammers, we save it
 		if (_distJammer == -1 || _distJammer > _dist) then {
 			_distJammer = _dist;
-			_distRad = _radius;
 			_nearestJammer = _y;
 		};
 	} forEach GVAR(jamMap);
@@ -60,13 +58,14 @@ if (!(call EFUNC(zeus,isZeus))) then {
 		// check for jammer capabilities and counteract signals accordingly
 		if ( JAM_CAPABILITY_RADIO in (_nearestJammer select 4) ) then {
 			// get jamStrength of nearest jammer
-			private _jamStrength = _nearestJammer select 2;
+			private _radFalloff = _nearestJammer select 1;
+			private _radEffective = _nearestJammer select 2;
 
 			// apply interference, TFAR or ACRE style
 			if (EGVAR(zeus,hasTFAR)) then {
-				[_distJammer, _distRad, _jamStrength] call FUNC(applyInterferenceTFAR);
+				[_distJammer, _radFalloff, _radEffective] call FUNC(applyInterferenceTFAR);
 			} else if (EGVAR(zeus,hasACRE)) then {
-				[_distJammer, _distRad, _jamStrength] call FUNC(applyInterferenceACRE);
+				[_distJammer, _radFalloff, _radEffective] call FUNC(applyInterferenceACRE);
 			};
 		};
 	};
