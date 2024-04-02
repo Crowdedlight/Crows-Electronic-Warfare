@@ -10,26 +10,36 @@ Apply interference to ACRE radios
 
 *///////////////////////////////////////////////
 
-params[_distJammer, _radFalloff, _radEffective];
+params["_distJammer", "_radFalloff", "_radEffective"];
 
-// TODO calculations for interference. Can reuse TFAR, but need to also test a good value for complete jamming
-
-// If ACRE loaded, we return calculation for TFAR
+// If ACRE loaded, we return calculation for signal jamming
 private _distPercent = _distJammer / _distRad;
 
-private _rxInterference = 1;
-private _txInterference = 1;
+private _rxInterference = 0;
 
-// for now staying with linear degradation of signal. Might make it a tad better for players than the sudden commms -> no comms exponential could induce
-_rxInterference = _jamStrength - (_distPercent * _jamStrength) + 1; // recieving interference. below 1 to have any interference effect.
-_txInterference = _rxInterference;                                  // transmitting interference, below 1 to have any interference effect.
+// if we are within effective radius, we are fully jammed, so set interference to value that fully jamms us
+if (_distJammer < _radEffective) then {
+	_rxInterference = 200;
+} else {
+	// within FALLOFF, so find interference, linear between 0 and 140
 
-// Set the ACRE receiving and sending distance multipliers
-player setVariable ["acre_receive_power", _rxInterference, true];
-player setVariable ["acre_transmit_power", _txInterference, true];
+	// dist - effective_radius = dist_to_jam_edge
+	// dist_to_jam_edge / falloff_radius = percentage_into_falloff
+	private _dist_to_effective_border = abs(_distJammer - _radEffective);
+	_distPercent = _dist_to_effective_border / _radFalloff;
+
+	// the _distPercent gives value of percent from current pos to "not-jammed". 
+	//	100% == on edge of falloff radius => no jamming. 
+	//	0% == on edge of effective radius => maks jamming
+	//  So this is why the interpolation goes from high (jammed), to low, (normal), instead of the other way around 
+	_rxInterference = [130, 0, _distPercent] call BIS_fnc_lerp;		
+};
+
+// not multiplier, but interference 0 == no interference, 140 == total jamming
+player setVariable ["acre_receive_interference", _rxInterference];
 
 //Debugging
-#if 0
+#ifdef DEBUG
 	systemChat format ["Distance: %1, Percent: %2", _distJammer,  100 * _distPercent];
-	systemChat format ["tfar_rx: %1, tfar_tx: %2", _rxInterference, _txInterference];
+	systemChat format ["acre_rx_interference: %1", _rxInterference];
 #endif
