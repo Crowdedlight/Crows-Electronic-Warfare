@@ -14,7 +14,7 @@ params ["_jammer", "_netId", "_radFalloff", "_radEffective", "_updating", "_enab
 // delete existing marker, unless we are creating them first time
 if (_updating) then {
 	deletemarkerLocal _netID;
-	deletemarkerLocal _netID + "_effective";
+	deletemarkerLocal (_netID + "_effective");
 };
 
 // falloff + effective marker, shows the entire marker

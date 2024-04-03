@@ -49,11 +49,11 @@ if (count _jammableDrones == 0) exitWith {};	// there are no drones to jam
 // check every jammable drone against every DroneJammer
 {
 	// set jamming status if in range
-	_x params ["_unit", "_frequency", "_scanRange", "_type"];
-	private _jammersInRange = _allDroneJammers select { (_unit distance _x#0) < _x#1 };	// this _x is different to _x the code line above
+	_x params ["_unit", "_frequency", "_scanRange", "_type"]; 
+	private _jammersInRange = _allDroneJammers select { (_unit distance _x#0) < (_x#2) };	// this _x is different to _x the code line above
 
 	{
-		_x params ["_jammer", "_radius", "_strength", "_enabled", "_capabilities"];	// and this is yet another _x
+		_x params ["_jammer", "_radFalloff", "_radEffective", "_enabled", "_capabilities"];	// and this is yet another _x
 		[_unit, _enabled, _jammer] call EFUNC(spectrum,toggleJammingOnUnit);
 	} forEach _jammersInRange;
 
@@ -63,7 +63,7 @@ if (count _jammableDrones == 0) exitWith {};	// there are no drones to jam
 		private _jammersOutOfRange = _allDroneJammers - _jammersInRange;
 		private _rmArr = [];
 		{
-			_x params ["_jammer", "_radius", "_strength", "_enabled", "_capabilities"];
+			_x params ["_jammer", "_radFalloff", "_radEffective", "_enabled", "_capabilities"];
 			_rmArr pushBack _jammer;
 		} forEach _jammersOutOfRange;
 

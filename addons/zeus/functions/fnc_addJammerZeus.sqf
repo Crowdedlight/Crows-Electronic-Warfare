@@ -12,16 +12,16 @@ Zeus dialog to set object as jammer
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
 //ZEN dialog, just ignore ARES, as that mod itself is EOL and links to ZEN
-private _onConfirm =
+private _onConfirm = 
 {
-	params ["_dialogResult","_in"];
+	params ["_dialogResult", "_in"];
 	_dialogResult params
 	[
 		"_isActiveAtMissionStart",
 		"_isVoiceCommsJammer",
 		"_isDroneJammer",
-		"_radEffective"
-		"_radFalloff",
+		"_radEffective",
+		"_radFalloff"
 	];
 	//Get in params again
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];

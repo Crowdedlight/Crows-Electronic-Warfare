@@ -24,7 +24,7 @@ if (call EFUNC(zeus,isZeus)) then {
 };
 
 // TFAR Jamming logic - do not run if zeus, as zeus is immune to TFAR jamming only
-// if (!(call EFUNC(zeus,isZeus))) then {
+if (!(call EFUNC(zeus,isZeus))) then {
 	// find nearest jammer within range
 	private _nearestJammer = [objNull];
 	private _distJammer = -1;
@@ -71,7 +71,7 @@ if (call EFUNC(zeus,isZeus)) then {
 			};
 		};
 	};
-// };
+};
 
 // handle drone jammers
 private _PP_film = GVAR(FilmGrain_jamEffect);
@@ -88,6 +88,9 @@ if (!isNull _drone) then {
 	private _nearestDroneJammer = _droneJammersSorted#0;
 	_nearestDroneJammer params ["_jamObj", "_radFalloff", "_radEffective", "_enabled", "_capabilities"];
 	private _distDroneToJammer = _drone distance _jamObj;
+
+	// to keep consistency, if we are outside effective + falloff range of jammer, then we don't get any interference
+	if (_distDroneToJammer > (_radEffective + _radFalloff)) exitWith {};
 	
 	if (_distDroneToJammer < _radEffective) then {
 		// hardest actions to take when being inside the jammer area
@@ -98,10 +101,9 @@ if (!isNull _drone) then {
 		// less intense actions when drone is only approaching the jammer area (gives pilot time to react to the presence of the jammer)
 		if (isRemoteControlling player && (isNull curatorCamera)) then {	// if player uses UAV camera currently (and did not step into Zeus mode)
 			// calculate video image distortion
-			private _distDrone2killRadius = _distDroneToJammer - (_radFalloff + _radEffective);
-			private _distDrone2pilot = _drone distance player;
-			private _sharpness = [0, 4, _distDrone2killRadius/_distDrone2pilot] call BIS_fnc_lerp;
-			//systemChat format ["ratio %1, _sharpness %2", _distDrone2killRadius/_distDrone2pilot, _sharpness];
+			private _distDrone2killRadius = abs(_distDroneToJammer - _radEffective);
+			private _sharpness = [0, 4, _distDrone2killRadius/_radFalloff] call BIS_fnc_lerp;
+			// systemChat format ["ratio %1, _sharpness %2", _distDrone2killRadius/_radFalloff, _sharpness];
 			
 			_PP_film ppEffectAdjust [1,_sharpness,3.3,2,2,true]; 
 			_PP_film ppEffectEnable true; 
