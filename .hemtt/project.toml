@@ -48,3 +48,18 @@ workshop = [
 mission = "dev_mini.Enoch" # Launch into existing Editor Mission
 parameters = [
 ]
+
+[hemtt.launch.acre]
+workshop = [
+    "450814997",  # CBA_A3's Workshop ID
+    "751965892",  # ACRE2
+    "1779063631", # Zeus Enhanced 
+    "2369477168", # Advanced Developer Tools
+    "2018593688", # Zeus Enhanced ACE Compat
+    "463939057",  # ACE
+    "1645973522", # Intercept Minimal Dev
+    "1585582292", # Arma Debug Engine
+]
+mission = "dev_mini.Enoch" # Launch into existing Editor Mission
+parameters = [
+]
