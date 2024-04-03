@@ -39,38 +39,10 @@ When approaching the effective radius of an active area denial drone jammer the 
 ![image](https://github.com/gruppe-adler/Shoot_and_Scoot.Tanoa/assets/76476468/88962170-4999-4e16-b6f3-161f1b7bd54c)
 
 ```admonish info
-The intensity of this video deterioration is dependent on 2 factors.
-1. Distance between drone and jammer radius
-2. Distance between drone and pilot
-
-So the closer the pilot is to the drone the longer the video signal will be workable.
+The intensity of this video deterioration is dependent on the distance between drone and jammer.
 ```
 
 #### Spectral behaviour
 To jam the drones the area denial jammer is working an all possible drone frequencies.
 In the Spectrum Device this is visible as a very distinct spectral behaviour. Such a jammer will show a spectral peak that is "sweeping" from left to right.
 ![image](https://github.com/Crowdedlight/Crows-Electronic-Warfare/assets/76476468/324ce56b-e2cf-4196-a37a-f0460b16c31d)
-
-#### How to place such a jammer
-##### Zeus interface
-1. Go to Modules in the right panel of the Zeus interface and search for "jam"
-2. Drag the `Set Jammer` module onto the map
-3. Make sure the `Jam drone signals` checkbox is checked.
-
-![image](https://github.com/Crowdedlight/Crows-Electronic-Warfare/assets/76476468/841ccb9c-c8af-4765-8e01-2026bdd180f1)
-
-##### 3den
-1. Go to Modules in the right panel of the 3den interface and search for "jam"
-2. Drag the `Set Jammer` module onto the map
-3. Make sure the `Jam drone signals` checkbox is checked.
-
-![image](https://github.com/Crowdedlight/Crows-Electronic-Warfare/assets/76476468/03531a25-4327-4656-a529-5f8c854c2a75)
-
-4. Sync the object (3D model) you have chosen as the area denial jammer to the object you just placed on the map.
-
-![image](https://github.com/Crowdedlight/Crows-Electronic-Warfare/assets/76476468/9c4cfe5a-3de6-4e34-bff3-ffaa01b6c5ef)
-
-5. Once done you should see a blue line between the 3D model and the jammer module.
-
-![image](https://github.com/Crowdedlight/Crows-Electronic-Warfare/assets/76476468/7b01696a-9269-434f-8577-d989005d4a0b)
-

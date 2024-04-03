@@ -43,6 +43,14 @@ WindWalker (Voice-line work)
 ### License 
 Crows Electronic Warfare is licensed under the Arma Public License Share Alike. Please do not reupload to the Steam Workshop without permission!
 
+### Building Wiki
+Wiki is build automatically for tags and deployed. To manually preview them locally run:
+```
+cargo install mdbook
+mdbook serve
+```
+Requires rust is installed. 
+
 ### Fonts used in texture
 Digital 7 by Sizenko Alexander, Style-7, http://www.styleseven.com
 
