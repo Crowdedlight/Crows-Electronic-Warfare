@@ -60,7 +60,12 @@ if (isServer && hasInterface) then {
 
 if (_enabled) then {
 	// add jammer as a signal beacon (so that it can be tracked down with the Spectrum Device)
-	[_unit, 433, 300, "sweep"] call EFUNC(spectrum,addBeaconServer);
+	// if (JAM_CAPABILITY_RADIO in _capabilities) then {
+	// 	[_unit, 30, 300, "sweep_radio"] call EFUNC(spectrum,addBeaconServer);
+	// };
+	// if (JAM_CAPABILITY_DRONE in _capabilities) then {
+		[_unit, 433, 300, "sweep_drone"] call EFUNC(spectrum,addBeaconServer);
+	// };
 };
 
 

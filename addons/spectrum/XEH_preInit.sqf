@@ -60,10 +60,11 @@ GVAR(beacons) = [];
 GVAR(spectrumRangeAntenna) = -1;
 GVAR(radioTrackingEnabled) = false;
 
+// Frequencies for antennas. Format: StartFreq, EndFreq, Span
 GVAR(spectrumDeviceFrequencyRange) = [
-	[30,389], 	// military antenna
-	[390,500], 	// experimental antenna
-	[433,440] 	// jammer 
+	[30, 389, (389-30)], 	// military antenna - Radio
+	[390, 500, (500-390)], 	// experimental antenna - Script/Zeus/C-Trackers
+	[433, 440, (440-433)] 	// jammer - Drones
 ];
 
 // array of special units

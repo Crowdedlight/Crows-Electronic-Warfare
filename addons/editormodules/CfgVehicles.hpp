@@ -130,22 +130,22 @@ class CfgVehicles
 				defaultValue = "false";
 			};
 
-			class Radius: Edit
+			class EffectiveRadius: Edit
 			{
 				property = QGVAR(addjammer_radius);							
-				displayName = "Radius of jammer (10 to 5000m)";					
-				tooltip = "Range of the jammer (which will also be indicated on map)";	
+				displayName = "Effective Radius (10 to 5000m)";					
+				tooltip = "The area that will have 100% jamming, which will also be indicated on map";	
 				typeName = "NUMBER";											
-				defaultValue = "500";											
+				defaultValue = "200";											
 			};
 
-			class Strength: Edit
+			class FalloffRadius: Edit
 			{
 				property = QGVAR(addjammer_strength);
-				displayName = "Strength (0 to 100)";
-				tooltip = "How strong the jammer is, so how much jammer is increased based on distance into the radius";
+				displayName = "Falloff Radius (10 to 5000m)";
+				tooltip = "Linear buffer where there will be 0 jamming at start, and when it meet effective radius its fully jammed.";
 				typeName = "NUMBER";
-				defaultValue = "50";
+				defaultValue = "400";
 			};			
 
 			class ModuleDescription: ModuleDescription {};
