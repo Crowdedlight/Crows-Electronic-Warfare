@@ -64,7 +64,7 @@ if (_enabled) then {
 	// 	[_unit, 30, 300, "sweep_radio"] call EFUNC(spectrum,addBeaconServer);
 	// };
 	// if (JAM_CAPABILITY_DRONE in _capabilities) then {
-		[_unit, 433, 300, "sweep_drone"] call EFUNC(spectrum,addBeaconServer);
+		[_unit, 433, _radFalloff + _radEffective, "sweep_drone"] call EFUNC(spectrum,addBeaconServer);
 	// };
 };
 
