@@ -34,8 +34,12 @@ private _removeList = [];
 		if (_x in GVAR(satcom_boosted_units)) then {continue;};
 
 		// set current tfar variables. For now we do satcom, so always 4x boost, no matter the jamming
-		_x setVariable ["tf_receivingDistanceMultiplicator", 1/4, true];
-		_x setVariable ["tf_sendingDistanceMultiplicator", 4, true];
+		if (EGVAR(zeus,hasTFAR)) then {
+			_x setVariable ["tf_receivingDistanceMultiplicator", 1/4, true];
+			_x setVariable ["tf_sendingDistanceMultiplicator", 4, true];
+		} else { // ACRE
+			_x setVariable ["acre_receive_interference", -50];
+		};
 	} forEach _effectUnits;
 
 	// update array of current effected players
@@ -48,10 +52,14 @@ private _removeList = [];
 // get players no longer effected 
 private _gonePlayers = GVAR(satcom_boosted_units) - _newBoostedList;
 
-// reset players that left area of effect. We reset to 1
+// reset players that left area of effect. We reset to 1. Even if they are now in jamming area, the jammer will set the correct interference within 1s
 {
-	_x setVariable ["tf_receivingDistanceMultiplicator", 1, true];
-	_x setVariable ["tf_sendingDistanceMultiplicator", 1, true];
+	if (EGVAR(zeus,hasTFAR)) then {
+		_x setVariable ["tf_receivingDistanceMultiplicator", 1, true];
+		_x setVariable ["tf_sendingDistanceMultiplicator", 1, true];
+	} else { // ACRE
+		_x setVariable ["acre_receive_interference", 0];
+	};
 } forEach _gonePlayers;
 
 // save current effected players

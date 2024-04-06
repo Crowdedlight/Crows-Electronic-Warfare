@@ -61,10 +61,11 @@ GVAR(spectrumRangeAntenna) = -1;
 GVAR(radioTrackingEnabled) = false;
 
 // If changing values, remember to update tool-tips in CfgWeapons. Rest of code should update based on values here automatically
+// Frequencies for antennas. Format: StartFreq, EndFreq, Span
 GVAR(spectrumDeviceFrequencyRange) = [
-	[30,513], 	// military antenna - Radio comms
-	[520,1090], // experimental antenna
-	[433,445] 	// jammer 
+	[30, 513, (513-30)], 	// military antenna - Radio
+	[520, 1090, (1090-520)], 	// experimental antenna - Script/Zeus/C-Trackers
+	[433, 445, (445-433)] 	// jammer - Drones
 ];
 
 // array of special units

@@ -10,7 +10,7 @@ SERVER ONLY
 Called upon event, adds the jammer to local gvar array and starts while loop, if it isn't running
 
 *///////////////////////////////////////////////
-params ["_unit", "_rad", "_strength", "_enabled", "_capabilities"];
+params ["_unit", "_radFalloff", "_radEffective", "_enabled", "_capabilities"];
 
 // if object is null, exitwith. Can happen if we get event as JIP but object has been removed
 if (isNull _unit || !isServer) exitWith {};
@@ -44,8 +44,8 @@ if (typeof _unit == "Land_DataTerminal_01_F") then {
 	}];
 };
 
-// add to map, netId is key		jammer, radius, strength, enabled and capabilities
-GVAR(jamMap) set [_netId, [_unit, _rad, _strength, _enabled, _capabilities]];
+// add to map, netId is key		jammer, _radFalloff, _radEffective, enabled and capabilities
+GVAR(jamMap) set [_netId, [_unit, _radFalloff, _radEffective, _enabled, _capabilities]];
 
 // broadcast update
 [QGVAR(updateJammers), [GVAR(jamMap)]] call CBA_fnc_globalEvent;
@@ -60,7 +60,12 @@ if (isServer && hasInterface) then {
 
 if (_enabled) then {
 	// add jammer as a signal beacon (so that it can be tracked down with the Spectrum Device)
-	[_unit, 433, 300, "sweep"] call EFUNC(spectrum,addBeaconServer);
+	// if (JAM_CAPABILITY_RADIO in _capabilities) then {
+	// 	[_unit, 30, 300, "sweep_radio"] call EFUNC(spectrum,addBeaconServer);
+	// };
+	// if (JAM_CAPABILITY_DRONE in _capabilities) then {
+		[_unit, 433, 300, "sweep_drone"] call EFUNC(spectrum,addBeaconServer);
+	// };
 };
 
 

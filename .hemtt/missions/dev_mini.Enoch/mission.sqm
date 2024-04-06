@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=147;
+		nextID=148;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={10436.137,111.38757,6727.897};
-		dir[]={-0.28369841,-0.57815289,0.765019};
-		up[]={-0.2010238,0.81592703,0.54207921};
-		aside[]={0.93760574,-2.165325e-08,0.34770051};
+		pos[]={10446.476,111.38757,6736.6826};
+		dir[]={-0.63440722,-0.51398951,0.57735598};
+		up[]={-0.38013613,0.85779428,0.34595037};
+		aside[]={0.67306924,-7.2643161e-08,0.73958033};
 	};
 };
 binarizationWanted=0;
@@ -962,7 +962,7 @@ class Mission
 				class Attribute0
 				{
 					property="crowsEW_editormodules_addjammer_strength";
-					expression="_this setVariable ['Strength',_value,true];";
+					expression="_this setVariable ['FalloffRadius',_value,true];";
 					class Value
 					{
 						class data
@@ -1014,7 +1014,7 @@ class Mission
 				class Attribute4
 				{
 					property="crowsEW_editormodules_addjammer_radius";
-					expression="_this setVariable ['Radius',_value,true];";
+					expression="_this setVariable ['EffectiveRadius',_value,true];";
 					class Value
 					{
 						class data
@@ -1249,7 +1249,7 @@ class Mission
 				class Attribute0
 				{
 					property="crowsEW_editormodules_addjammer_strength";
-					expression="_this setVariable ['Strength',_value,true];";
+					expression="_this setVariable ['FalloffRadius',_value,true];";
 					class Value
 					{
 						class data
@@ -1301,7 +1301,7 @@ class Mission
 				class Attribute4
 				{
 					property="crowsEW_editormodules_addjammer_radius";
-					expression="_this setVariable ['Radius',_value,true];";
+					expression="_this setVariable ['EffectiveRadius',_value,true];";
 					class Value
 					{
 						class data
@@ -1581,7 +1581,7 @@ class Mission
 				class Attribute0
 				{
 					property="crowsEW_editormodules_addjammer_strength";
-					expression="_this setVariable ['Strength',_value,true];";
+					expression="_this setVariable ['FalloffRadius',_value,true];";
 					class Value
 					{
 						class data
@@ -1633,7 +1633,7 @@ class Mission
 				class Attribute4
 				{
 					property="crowsEW_editormodules_addjammer_radius";
-					expression="_this setVariable ['Radius',_value,true];";
+					expression="_this setVariable ['EffectiveRadius',_value,true];";
 					class Value
 					{
 						class data
@@ -1686,6 +1686,7 @@ class Mission
 					};
 					id=145;
 					type="B_UAV_AI";
+					atlOffset=0.15046692;
 				};
 			};
 			class Attributes
