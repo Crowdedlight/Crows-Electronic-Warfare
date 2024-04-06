@@ -32,7 +32,7 @@ if (_distJammer < _radEffective) then {
 	//	100% == on edge of falloff radius => no jamming. 
 	//	0% == on edge of effective radius => maks jamming
 	//  So this is why the interpolation goes from high (jammed), to low, (normal), instead of the other way around 
-	_rxInterference = [130, 0, _distPercent] call BIS_fnc_lerp;		
+	_rxInterference = [110, 0, _distPercent] call BIS_fnc_lerp;		
 };
 
 // not multiplier, but interference 0 == no interference, 140 == total jamming

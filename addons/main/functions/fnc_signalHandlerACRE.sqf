@@ -23,13 +23,13 @@ If ACRE is loaded we need to register custom function that handles applying inte
 	// _Px: power as a percentage (0-1). This value is what will be used by the TeamSpeak 3 plugin to adjust the audio of the player being heard on the radio.
 	// _maxStrength: The decibel signal strength value (dBm). A typical value that is heard is between 0 to about -110 (radio specific). Lower values are not heard.
 	// _Px = _Px * _rxInterference;
-	
-    systemChat format["signal dBm: %1, interference: %2, new signal dBm: %3", _maxSignal, _rxInterference, (_maxSignal - _rxInterference)];
-    
     _maxSignal = _maxSignal - _rxInterference;
 
     // ensure _maxSignal does not get too low
-    _maxSignal = _maxSignal max -130;
+    _maxSignal = _maxSignal max -110;
+
+    private _percentage = _rxInterference / 110;
+    _Px = _Px - _percentage;
 
     // Return final signal
     [_Px, _maxSignal]

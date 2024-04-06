@@ -21,8 +21,8 @@ private _distPercent = 1;
 
 // if we are within effective radius, we are fully jammed, so set interference to value that fully jamms us
 if (_distJammer < _radEffective) then {
-	_rxInterference = 50;
-	_txInterference = 1 / 50;
+	_rxInterference = 100;
+	_txInterference = 1 / 20;
 } else {
 	// within FALLOFF, so find interference, linear between 1 and 41
 
@@ -34,8 +34,8 @@ if (_distJammer < _radEffective) then {
 	// the _distPercent gives value of percent from current pos to "not-jammed". 
 	//	100% == on edge of falloff radius => no jamming. 
 	//	0% == on edge of effective radius => maks jamming
-	//  So this is why the interpolation goes from 25 (jammed), to 1, (normal), instead of the other way around 
-	_rxInterference = [25, 1, _distPercent] call BIS_fnc_lerp;		// recieving interference. above 1 to have any effect.
+	//  So this is why the interpolation goes from 15 (jammed), to 1, (normal), instead of the other way around 
+	_rxInterference = [20, 1, _distPercent] call BIS_fnc_lerp;		// recieving interference. above 1 to have any effect.
 	_txInterference = 1 / _rxInterference;							// transmitting interference, below 1 to have any effect.
 };
 
