@@ -33,7 +33,7 @@ GVAR(AskFreqCtrack) = {
 	[
 		"Frequency for Tracker", 
 		[
-			["SLIDER","Frequency (Unique)",[_signalRange#0,_signalRange#1,_half,1]] //390 to 500, default 460 and showing 1 decimal
+			["SLIDER","Frequency (Unique)",[_signalRange#0,_signalRange#1,_half,1]] //min freq to max, default midpoint and showing 1 decimal
 		],
 		GVAR(ctrackAskFreqOnConfirmNoAce),
 		{},
