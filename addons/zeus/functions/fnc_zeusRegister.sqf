@@ -65,4 +65,20 @@ private _moduleList = [GVAR(hasTFAR), GVAR(hasACRE)] call {
 	] call zen_custom_modules_fnc_register;
 } forEach _moduleList;
 
+// context actions
+private _contextActionList = [
+    // Action name, Display name, Icon and Icon colour, code, Condition to show, arguments, dynamic children, modifier functions
+    [
+        [QGVAR(toggle_jammer_on_off),"Toggle On/off","\a3\Ui_F_Curator\Data\RscCommon\RscAttributeInventory\filter_0_ca.paa", {_hoveredEntity getVariable[QEGVAR(main,isJammer), false]}, {[netId _hoveredEntity] call EFUNC(main,actionJamToggle)}] call zen_context_menu_fnc_createAction,
+        ["Jammer"],
+        0
+    ]
+];
+{
+    [
+        // action, parent path, priority
+        (_x select 0), (_x select 1), (_x select 2)
+    ] call zen_context_menu_fnc_addAction;
+} forEach _contextActionList;
+
 diag_log format ["CrowsEW:fnc_zeusRegister: Zeus initialization complete. Zeus Enhanced Detected: %2",_hasZen];
