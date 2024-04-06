@@ -38,8 +38,7 @@ private _removeList = [];
 			_x setVariable ["tf_receivingDistanceMultiplicator", 1/4, true];
 			_x setVariable ["tf_sendingDistanceMultiplicator", 4, true];
 		} else { // ACRE
-			_x setVariable ["acre_receive_power", 4, true];
-			_x setVariable ["acre_transmit_power", 4, true];
+			_x setVariable ["acre_receive_interference", -50];
 		};
 	} forEach _effectUnits;
 
@@ -59,8 +58,7 @@ private _gonePlayers = GVAR(satcom_boosted_units) - _newBoostedList;
 		_x setVariable ["tf_receivingDistanceMultiplicator", 1, true];
 		_x setVariable ["tf_sendingDistanceMultiplicator", 1, true];
 	} else { // ACRE
-		_x setVariable ["acre_receive_power", 1, true];
-		_x setVariable ["acre_transmit_power", 1, true];
+		_x setVariable ["acre_receive_interference", 0];
 	};
 } forEach _gonePlayers;
 

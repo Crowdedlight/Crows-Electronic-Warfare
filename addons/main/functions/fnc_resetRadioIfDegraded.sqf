@@ -27,6 +27,5 @@ if (EGVAR(zeus,hasTFAR)) then {
 	};
 } else {
 	// if not TFAR loaded, then it must be ACRE
-	_unit setVariable ["acre_receive_power", 1, true];
-	_unit setVariable ["acre_transmit_power", 1, true];
+	_unit setVariable ["acre_receive_interference", 0];
 };
