@@ -47,7 +47,7 @@ private _displayNameArr = [];
 } forEach EGVAR(spectrum,voiceLinePacks);
 
 private _signalRange = EGVAR(spectrum,spectrumDeviceFrequencyRange)#0;
-private _half = abs(_signalRange#1 - _signalRange#0)/2;
+private _half = _signalRange#0 + _signalRange#2/2;
 
 [
 	"Set Spectrum Signal Source", 

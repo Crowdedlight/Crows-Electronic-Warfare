@@ -29,7 +29,7 @@ GVAR(ctrackAskFreqOnConfirmNoAce) =
 GVAR(AskFreqCtrack) = {
 	// get range from GVAR
 	private _signalRange = GVAR(spectrumDeviceFrequencyRange)#1;
-	private _half = abs(_signalRange#1 - _signalRange#0)/2;
+	private _half = _signalRange#0 + _signalRange#2/2;
 	[
 		"Frequency for Tracker", 
 		[
