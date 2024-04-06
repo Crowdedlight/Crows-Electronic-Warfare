@@ -17,10 +17,9 @@ if (count GVAR(jamMap) == 0) exitWith {};
 if (call EFUNC(zeus,isZeus)) then {
 	// update markers 
 	{
-		_y params ["_jamObj", "_radius", "_strength", "_enabled", "_capabilities"];
-
-		// jamObj, netId, radius, updating, enabled
-		[_jamObj, _x, _radius, true, _enabled] call FUNC(updateJamMarker);
+		_y params ["_jamObj", "_radFalloff", "_radEffective", "_enabled", "_capabilities"];
+		// jamObj, netId, radFalloff, radEffective, updating, enabled
+		[_jamObj, _x, _radFalloff, _radEffective, true, _enabled] call FUNC(updateJamMarker);
 	} forEach GVAR(jamMap);
 };
 
@@ -31,7 +30,7 @@ if (!(call EFUNC(zeus,isZeus))) then {
 	private _distJammer = -1;
 	private _distRad = -1;
 	{
-		_y params ["_jamObj", "_radius", "_strength", "_enabled", "_capabilities"];
+		_y params ["_jamObj", "_radFalloff", "_radEffective", "_enabled", "_capabilities"];
 
 		// if disabled, skip the jammer 
 		if (!_enabled) then {continue};
@@ -39,13 +38,12 @@ if (!(call EFUNC(zeus,isZeus))) then {
 		// get current dist 
 		private _dist = player distance _jamObj;
 
-		// if distance to object is bigger than radius of jammer, continue 
-		if (_dist > _radius) then {continue;};
+		// if distance to object is bigger than radius of effective + falloff, continue 
+		if (_dist > (_radFalloff + _radEffective)) then {continue;};
 
-		// we are now within jammer area, if this jammer is closer than previous jammers, we save it
+		// we are now within influence area, if this jammer is closer than previous jammers, we save it
 		if (_distJammer == -1 || _distJammer > _dist) then {
 			_distJammer = _dist;
-			_distRad = _radius;
 			_nearestJammer = _y;
 		};
 	} forEach GVAR(jamMap);
@@ -55,30 +53,22 @@ if (!(call EFUNC(zeus,isZeus))) then {
 	// if no jammer are within range, reset tfar vars and exit
 	if (isNull _nearestJammerObject) then {
 		// reset values of TFAR, if they are degraded
-		[player] call FUNC(resetTfarIfDegraded);
+		[player] call FUNC(resetRadioIfDegraded);
 	} else {
 		// check for jammer capabilities and counteract signals accordingly
 		if ( JAM_CAPABILITY_RADIO in (_nearestJammer select 4) ) then {
-			// we now got distance, and nearest jammer, time to calculate jamming
-			private _distPercent = _distJammer / _distRad;
-			private _jamStrength = _nearestJammer select 2;
-			private _rxInterference = 1;
-			private _txInterference = 1;
+			// get jamStrength of nearest jammer
+			private _radFalloff = _nearestJammer select 1;
+			private _radEffective = _nearestJammer select 2;
 
-			// for now staying with linear degradation of signal. Might make it a tad better for players than the sudden commms -> no comms exponential could induce
-			private _rxInterference = _jamStrength - (_distPercent * _jamStrength) + 1;     // recieving interference. above 1 to have any effect.
-			private _txInterference = 1 / _rxInterference;                                  // transmitting interference, below 1 to have any effect.
+			// apply interference, TFAR or ACRE style
+			if (EGVAR(zeus,hasTFAR)) then {
+				[_distJammer, _radFalloff, _radEffective] call FUNC(applyInterferenceTFAR);
+			};
 
-			// Set the TF receiving and sending distance multipliers
-			player setVariable ["tf_receivingDistanceMultiplicator", _rxInterference];
-			player setVariable ["tf_sendingDistanceMultiplicator", _txInterference];
-
-			//Debugging
-			// if (false) then {	
-			// 	// systemChat format ["Distance: %1, Percent: %2", _distJammer,  100 * _distPercent];
-			// 	systemChat format ["tfar_rx: %1, tfar_tx: %2", _rxInterference, _txInterference];
-			// 	systemChat format ["Closest Jammer netID: %1, radius: %2, enabled: %3", netId (_nearestJammer select 0), _nearestJammer select 1, _nearestJammer select 3];
-			// };
+			if (EGVAR(zeus,hasACRE)) then {
+				[_distJammer, _radFalloff, _radEffective] call FUNC(applyInterferenceACRE);
+			};
 		};
 	};
 };
@@ -96,10 +86,13 @@ if (!isNull _drone) then {
 	if (count _droneJammersSorted == 0) exitWith {};	// there are no enabled "DroneJammers"
 	
 	private _nearestDroneJammer = _droneJammersSorted#0;
-	_nearestDroneJammer params ["_jamObj", "_radius", "_strength", "_enabled", "_capabilities"];
+	_nearestDroneJammer params ["_jamObj", "_radFalloff", "_radEffective", "_enabled", "_capabilities"];
 	private _distDroneToJammer = _drone distance _jamObj;
+
+	// to keep consistency, if we are outside effective + falloff range of jammer, then we don't get any interference
+	if (_distDroneToJammer > (_radEffective + _radFalloff)) exitWith {};
 	
-	if (_distDroneToJammer < _radius) then {
+	if (_distDroneToJammer < _radEffective) then {
 		// hardest actions to take when being inside the jammer area
 		player connectTerminalToUAV objNull; // disconnect player from drone
 		hint parseText "Drone is jammed<br/><t color='#ff0000'>Connection lost</t>";	// notify player why this happened
@@ -108,10 +101,9 @@ if (!isNull _drone) then {
 		// less intense actions when drone is only approaching the jammer area (gives pilot time to react to the presence of the jammer)
 		if (isRemoteControlling player && (isNull curatorCamera)) then {	// if player uses UAV camera currently (and did not step into Zeus mode)
 			// calculate video image distortion
-			private _distDrone2killRadius = _distDroneToJammer - _radius;
-			private _distDrone2pilot = _drone distance player;
-			private _sharpness = [0, 4, _distDrone2killRadius/_distDrone2pilot] call BIS_fnc_lerp;
-			//systemChat format ["ratio %1, _sharpness %2", _distDrone2killRadius/_distDrone2pilot, _sharpness];
+			private _distDrone2killRadius = abs(_distDroneToJammer - _radEffective);
+			private _sharpness = [0, 4, _distDrone2killRadius/_radFalloff] call BIS_fnc_lerp;
+			// systemChat format ["ratio %1, _sharpness %2", _distDrone2killRadius/_radFalloff, _sharpness];
 			
 			_PP_film ppEffectAdjust [1,_sharpness,3.3,2,2,true]; 
 			_PP_film ppEffectEnable true; 

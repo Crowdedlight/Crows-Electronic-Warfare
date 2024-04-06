@@ -42,7 +42,7 @@ private _sigsArray = [];
     if (!(GVAR(spectrumRangeAntenna) in _requiredAntennas)) then { continue; };
 
     // if jammer is equipped, only show signals that is type drone or sweep
-    if (GVAR(spectrumRangeAntenna) == 3 && { !(_type in ["drone", "sweep"]) } ) then { continue; };
+    if (GVAR(spectrumRangeAntenna) == 3 && { !(_type in ["drone", "sweep_drone"]) } ) then { continue; };
 
     // if tfar radio, and same side as you, skip if setting is enabled
     if (!GVAR(tfarSideTrack) && _type == "radio" && (side _target == side player)) then {continue; };
@@ -51,13 +51,12 @@ private _sigsArray = [];
     private _sigStrength = [_target, _tracker, _scanRange] call FUNC(calcSignalStrength);
 
     // get next frequency for a frequency sweeper
-    if (_type == "sweep") then {
-        _frequency = [433, 7, 5, _forEachIndex] call FUNC(getNextSweepFreq);    // overides the original _frequency value
-        /*******************************************************************/
-        // TODO implement different frequency band for VoiceCommJammers
-        // (those are currently shown in the drone band)
-        /*******************************************************************/
+    if (_type == "sweep_drone") then {
+        _frequency = [(GVAR(spectrumDeviceFrequencyRange)#2)#0, (GVAR(spectrumDeviceFrequencyRange)#2)#2, 5, _forEachIndex] call FUNC(getNextSweepFreq);    // overides the original _frequency value
     };
+    // if (_type == "sweep_radio") then {
+    //     _frequency = [(GVAR(spectrumDeviceFrequencyRange)#0)#0, (GVAR(spectrumDeviceFrequencyRange)#0)#2, 50, _forEachIndex] call FUNC(getNextSweepFreq);    // overides the original _frequency value
+    // }; 
 
     // push to sig array
     _sigsArray append [_frequency, _sigStrength];

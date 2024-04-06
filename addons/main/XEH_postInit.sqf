@@ -1,8 +1,5 @@
 #include "script_component.hpp"
 
-// for now only work if TFAR is loaded, as we only jam TFAR 
-private _hasTFAR = isClass (configFile >> "CfgPatches" >> "task_force_radio");
-
 //Don't do anything in Singleplayer, as TFAR isn't enabled in SP
 if (!isMultiplayer && !is3DENMultiplayer) exitWith {};
 
@@ -39,6 +36,11 @@ GVAR(FilmGrain_jamEffect) = ppEffectCreate ["FilmGrain",2000];
 
 // Requesting sync of jammer state - Server will return a targeted event with current state on "updateJammers"
 [QGVAR(requestJammers), [player]] call CBA_fnc_serverEvent;
+
+// If ACRE is loaded run the function to register interference handling of signal
+if (EGVAR(zeus,hasACRE)) then {
+	call FUNC(signalHandlerACRE);
+};
 
 // DEBUG
 // GVAR(debugbla) = [{
