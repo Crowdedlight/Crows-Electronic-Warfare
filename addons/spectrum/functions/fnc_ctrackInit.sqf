@@ -63,10 +63,12 @@ private _onConfirm =
 		_attachedToObj setVariable[QGVAR(ctrack_attached_range), _range];
 	}
 };
+private _signalRange = GVAR(spectrumDeviceFrequencyRange)#1;
+private _half = _signalRange#0 + _signalRange#2/2;
 [
 	"Frequency for Tracker", 
 	[
-		["SLIDER","Frequency (Unique)",[390,500,460,1]] //390 to 500, default 460 and showing 1 decimal
+		["SLIDER","Frequency (Unique)",[_signalRange#0,_signalRange#1,_half,1]] //min freq to max, default midpoint and showing 1 decimal
 	],
 	_onConfirm,
 	{},
