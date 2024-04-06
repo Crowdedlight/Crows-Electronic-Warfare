@@ -34,7 +34,7 @@ class CfgVehicles
 	{
 		// Standard object definitions:
 		scope = 2;										// Editor visibility; 2 will show it in the menu, 1 will hide it.
-		displayName = "Set Signal Source";				// Name displayed in the menu
+		displayName = "Add Signal Source";				// Name displayed in the menu
 		icon = QPATHTOEF(zeus,data\spectrum_signal.paa);	// Map icon. Delete this entry to use the default icon.
 		vehicleClass = "Modules";
 		category = "crowsEW_modules";
@@ -56,10 +56,10 @@ class CfgVehicles
 			class Frequency: Edit
 			{
 				property = QGVAR(addsignalsource_freq);							// Unique property (use "<tag>_<moduleClass>_<attributeClass>" format to ensure that the name is unique)
-				displayName = "Frequency (390Mhz to 500Mhz)";					// Argument label
+				displayName = "Frequency (520Mhz to 1090Mhz)";					// Argument label
 				tooltip = "What frequency the Signal source will broadcast on";	// Tooltip description
 				typeName = "NUMBER";											// Value type, can be "NUMBER", "STRING" or "BOOL"
-				defaultValue = "460";											// Default attribute value. Warning: This is an expression, and its returned value will be used (50 in this case).
+				defaultValue = "805";											// Default attribute value. Warning: This is an expression, and its returned value will be used (50 in this case).
 			};
 
 			class Range: Edit
@@ -85,7 +85,7 @@ class CfgVehicles
 	{
 		// Standard object definitions:
 		scope = 2;										
-		displayName = "Set Jammer";				
+		displayName = "Add Jammer";				
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa";	
 		vehicleClass = "Modules";
 		category = "crowsEW_modules";

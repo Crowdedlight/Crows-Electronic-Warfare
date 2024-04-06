@@ -3,9 +3,9 @@ The spectrum device is capable of tracking, listening and jamming depending on a
 
 ## Antennas
 The spectrum device has three different antennas which covers different frequency ranges:  
-* **Military Antenna:** Frequencies from: 30-389 MHz. Mainly used for detecting radio communication with TFAR or with the RadioChatter module put on AI. 
-* **Experimental Antenna:** Frequencies from: 390-500 MHz. Mainly used to track signals set by zeus or drones.  
-* **Jamming Antenna:** Frequencies from: 433-440 MHz. Used for jamming UGVs.
+* **Military Antenna:** Frequencies from: 30-513 MHz. Used for detecting/listening to radio communication with TFAR or with the RadioChatter module put on AI. Also covers the 443-445 MHz frequency span that is emitted from jammable drones.
+* **Experimental Antenna:** Frequencies from: 520-1090 MHz. Used to track signals set by zeus or trackers like C-Track.  
+* **Jamming Antenna:** Frequencies from: 433-445 MHz. Used to detect, track or jam drones/UGV. Jammers will also show up as a sweeping signal in this frequency. 
 
 ## Controls
 **left-mouse:** Holding it down will activate either listening to a signal or the jammer depending on antenna type  
