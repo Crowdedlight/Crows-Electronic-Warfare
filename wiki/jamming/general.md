@@ -19,7 +19,7 @@ This should make it more clear and easier to apply for mission makers to get the
 
 ## Zeus Immunity and Map Markers
 Zeus will not be radio jammed, but might not be able to hear TFAR players transmitting inside jamming area, if that player is totally jammed. 
-Zeus has a mapmarker that shows the position of all jammers and will update with jammer movements. If the jammer is active the marker will be yellow. Each jammer has two markers, the inner `effective` radius in red, and the outer `falloff` radius in yellow. 
+Zeus has two mapmarkers for each jammer. Outer one shows the `falloff` radius, and the inner one shows the `effective` radius. Thus zeus can see the position of all jammers and their area of effect. The markers will update if jammer is moved. If the jammer is active the `falloff`marker will be yellow and the `effective` radius will be red. 
 
 ## How to place such a jammer
 
@@ -53,3 +53,8 @@ A lot of antenna objects are not destructable and as such you cannot blow them u
 
 ![image](https://github.com/Crowdedlight/Crows-Electronic-Warfare/assets/76476468/7b01696a-9269-434f-8577-d989005d4a0b)
 
+
+## Zeus Context Actions - Toggle Jammer on/off
+
+Zeus can toggle the jammer on and off with the ZEN right-click menu. If done on a jammer you will se a `jammer` option and in that a `Toggle On/Off` option. This makes it easy and quick for zeus to enable or disable jammers. 
+![image](https://github.com/Crowdedlight/Crows-Electronic-Warfare/assets/7889925/1c0e9939-c7d5-45d0-b02f-c8c018ab6794)
