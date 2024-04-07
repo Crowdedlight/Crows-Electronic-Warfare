@@ -27,7 +27,9 @@ GVAR(jamMap) set [_netId, _jammer];
 
 // show jammers in the spectrum
 if (_enabled) then {
-	[_jammer#0, 433, 300, "sweep"] call EFUNC(spectrum,addBeaconServer);
+	// _radFalloff + _radEffective;
+	private _range = _jammer#1 + _jammer#2;
+	[_jammer#0, 433, _range, "sweep"] call EFUNC(spectrum,addBeaconServer);
 } else {
 	[_jammer#0] call EFUNC(spectrum,removeBeaconServer);
 };

@@ -49,3 +49,6 @@ if (_broadcast) then {
 if (isServer && hasInterface) then {
 	[[_netid]] call FUNC(removeJamMarkers); 
 };
+
+// remove jammer variable from object. For zeus context action
+_jammerObj setVariable[QGVAR(isJammer), false, true];

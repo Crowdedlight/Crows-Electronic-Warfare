@@ -68,6 +68,8 @@ if (_enabled) then {
 	// };
 };
 
+// set variable on unit that its a jammer. Helps checking if zeus should get right-click context option, compared to checking if exists going through all jammers etc. 
+_unit setVariable[QGVAR(isJammer), true, true];
 
 // Experiment information from logging data hits
 // Results: that explosive damage should be > 0.5, and hit value > 100
