@@ -13,7 +13,9 @@
 
 # Jamming
 -   [General](jamming/general.md)
--   [Radio](jamming/radio.md)
+    -   [Add Jammer Zeus/Eden](jamming/place_jammer.md)
+    -   [Add Jammer Script](jamming/script.md)
+-   [Radio (TFAR/ACRE)](jamming/radio.md)
 -   [Drones](jamming/drones.md)
 -   [SATCOM](satcom/radio-boosting.md)
 
