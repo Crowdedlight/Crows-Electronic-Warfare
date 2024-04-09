@@ -52,11 +52,11 @@ private _sigsArray = [];
 
     // get next frequency for a frequency sweeper
     if (_type == "sweep_drone") then {
-        _frequency = [(GVAR(spectrumDeviceFrequencyRange)#2)#0, (GVAR(spectrumDeviceFrequencyRange)#2)#2, 5, _forEachIndex] call FUNC(getNextSweepFreq);    // overides the original _frequency value
+        _frequency = [(GVAR(spectrumDeviceFrequencyRange)#2)#0, (GVAR(spectrumDeviceFrequencyRange)#2)#2, 4, _forEachIndex] call FUNC(getNextSweepFreq);    // overides the original _frequency value
     };
-    // if (_type == "sweep_radio") then {
-    //     _frequency = [(GVAR(spectrumDeviceFrequencyRange)#0)#0, (GVAR(spectrumDeviceFrequencyRange)#0)#2, 50, _forEachIndex] call FUNC(getNextSweepFreq);    // overides the original _frequency value
-    // }; 
+    if (_type == "sweep_radio") then {
+        _frequency = [(GVAR(spectrumDeviceFrequencyRange)#0)#0, (GVAR(spectrumDeviceFrequencyRange)#0)#2, 120, _forEachIndex] call FUNC(getNextSweepFreq);    // overides the original _frequency value
+    }; 
 
     // push to sig array
     _sigsArray append [_frequency, _sigStrength];

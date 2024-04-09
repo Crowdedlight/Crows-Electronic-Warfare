@@ -59,13 +59,15 @@ if (isServer && hasInterface) then {
 };
 
 if (_enabled) then {
+	private _range = _radFalloff + _radEffective;
+	private _frequencyRange = EGVAR(spectrum,spectrumDeviceFrequencyRange);
 	// add jammer as a signal beacon (so that it can be tracked down with the Spectrum Device)
-	// if (JAM_CAPABILITY_RADIO in _capabilities) then {
-	// 	[_unit, 30, 300, "sweep_radio"] call EFUNC(spectrum,addBeaconServer);
-	// };
-	// if (JAM_CAPABILITY_DRONE in _capabilities) then {
-		[_unit, 433, _radFalloff + _radEffective, "sweep_drone"] call EFUNC(spectrum,addBeaconServer);
-	// };
+	if (JAM_CAPABILITY_RADIO in _capabilities) then {
+		[_unit, (_frequencyRange#0)#0, _range, "sweep_radio"] call EFUNC(spectrum,addBeaconServer);
+	};
+	if (JAM_CAPABILITY_DRONE in _capabilities) then {
+		[_unit, (_frequencyRange#2)#0, _range, "sweep_drone"] call EFUNC(spectrum,addBeaconServer);
+	};
 };
 
 // set variable on unit that its a jammer. Helps checking if zeus should get right-click context option, compared to checking if exists going through all jammers etc. 
