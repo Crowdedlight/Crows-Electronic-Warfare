@@ -126,7 +126,7 @@ if (count _frequenciesSorted > 0) then {
 			_timeActive = 0.1;
 		};
 		case "sweep_drone";	// Players can not interact with a drone jammer. So just ignore this signal.
-		case "sweep_radio";	// Players can not interact with a drone jammer. So just ignore this signal.
+		case "sweep_radio";	// Players can not interact with the radio jammer signal. So just ignore this signal.
 		default { 
 				diag_log format ["CrowsEW:fnc_spectrumDeviceMouseDown.sqf: '%1' is an unkown type of signal source/beacon!!!", _type]; 
 			};
