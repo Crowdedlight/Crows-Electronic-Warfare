@@ -22,7 +22,7 @@ class CfgVehicles {
 	class crowsew_cmotionObj: ThingX {
         scope = HIDDEN;
         displayName = "C-MOTION";
-        model = QPATHTOF(data\c_track\c_track.p3d);
+        model = QPATHTOF(data\c_motion\c_motion.p3d);
 		vehicleClass = "";
 
 		class EventHandlers {
@@ -52,7 +52,7 @@ class CfgVehicles {
 					};
 
 					statement=QUOTE(call FUNC(cmotionDialog););
-					icon=QPATHTOF(data\c_track\ctrack_icon_ca.paa);
+					icon=QPATHTOF(data\c_motion\cmotion_icon_ca.paa);
 					showDisabled=0;
 					// priority=2.5;
 				};

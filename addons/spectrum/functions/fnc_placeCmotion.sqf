@@ -13,25 +13,21 @@ owner when it detects AI within its range
 
 params ["_dialogResult"];
 
-// TODO: I don't like this UI code being in the "placement" code
-GVAR(cMotionUIValues) = _dialogResult;
-
-
 /*/////////////////////////////////////////////////
 	Place the actual sensor object &
 	set up actions (e.g. pickup, carry, etc.)
 *///////////////////////////////////////////////
 
 player removeItem "crowsew_cmotion";
-private _cMotion = createVehicle ["crowsew_cmotionObj", [0, 0, 0], [], 0, "NONE"];
+private _cMotion = createVehicle ["crowsew_cmotionObj", getPosATL player, [], 0, "NONE"];
 // TODO: Disable simulation?
 //_cMotion enableSimulationGlobal false;
 
 if(EGVAR(zeus,hasAce)) then {
 	[_cMotion, true, [0, 1.5, 0], 0] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
 
-	// TODO: fortify-style place preview?
-	[player, _cMotion] call ace_dragging_fnc_startCarry;
+	// TODO: fortify/ace-explosive -style place preview?
+	//[player, _cMotion] call ace_dragging_fnc_startCarry;
 
 	private _pickupAction = [
 	    "crowsewPickupCmotion",

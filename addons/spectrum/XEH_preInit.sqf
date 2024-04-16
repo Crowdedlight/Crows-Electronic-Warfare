@@ -425,7 +425,7 @@ GVAR(cmotionAudioKillKeybind) = [
     ["Crows Electronic Warfare", "C-Motion"],
     "spectrum_cmotion_audiokill", 
     ["Audio Kill", "Instantly remove the audio component from any placed C-Motion devices"+endl+"For use when sound loops become annoying"+endl+"(Sound cannot be reactivated until re-placed)"], 
-    { [player] call FUNC(cmotionAudioKill); }, 
+    { [player] call FUNC(cmotionAudioKill); hint "Removed C-Motion audio alerts"; }, 
     "", 
     [DIK_X, [false, true, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
     false

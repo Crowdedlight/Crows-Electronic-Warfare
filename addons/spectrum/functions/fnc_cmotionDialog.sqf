@@ -94,14 +94,12 @@ if(GVAR(cmotionAudio)) then {
 [
 	"C-MOTION Alarm Options", 
 	_options,
-	FUNC(placeCmotion),
 	{
-		(_display getVariable "zen_dialog_params") params ["_controls", "_onConfirm", "_onCancel", "_args", "_saveID"];
-		private _values = _controls apply {
-		    _x params ["_controlsGroup", "_settings"];
-		    [_controlsGroup, _settings] call (_controlsGroup getVariable "zen_dialog_fnc_value")
-		};
-		GVAR(cMotionUIValues) = _values;
+		GVAR(cMotionUIValues) = this#0;
+		[this#0] call FUNC(placeCmotion);
+	},
+	{
+		GVAR(cMotionUIValues) = this#0;
 	},
 	[_dynamicControls]
 ] call zen_dialog_fnc_create;

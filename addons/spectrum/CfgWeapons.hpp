@@ -1,6 +1,6 @@
- class CBA_Extended_EventHandlers_base;
+class CBA_Extended_EventHandlers_base;
  
- class CfgWeapons {
+class CfgWeapons {
 	class CBA_MiscItem_ItemInfo;
 	class muzzle_antenna_base_01_F;
 	class muzzle_antenna_01_f: muzzle_antenna_base_01_F
@@ -80,7 +80,7 @@
 		picture = QPATHTOF(data\c_track\ctrack_picture_ca.paa);
 		icon = QPATHTOF(data\c_track\ctrack_icon_ca.paa);
 		class ItemInfo: CBA_MiscItem_ItemInfo {
-			mass = 11; //0.5kg From formular: (_mass * 0.1 * (1/2.2046) * 100) / 100)
+			mass = 11; //0.5kg From formula: (_mass * 0.1 * (1/2.2046) * 100) / 100)
 		};
 		ACE_Attachable = "crowsew_ctrack_effect_3km";
 		ace_attach_orientation[] = {0,180}; // roll, yaw
@@ -90,17 +90,16 @@
 	};
 	// TODO when first iteration works, make a few versions that has different ranges. Just reuse the 3D model. Something like 0.5km, 2k, 5k ?
 
-
 	// C-MOTION
 	class crowsew_cmotion: CBA_MiscItem {
 		author = "Crowdedlight";
 		displayName = "C-MOTION";
-		descriptionShort = "Placeable sensor device that will trigger an alarm when it detects motion";
+		descriptionShort = "Sensor device that is triggered by motion and sends signals that can be seen with the spectrum device";
 		scope = PUBLIC;
 		scopeCurator = PUBLIC;
-		model = QPATHTOF(data\c_track\c_track.p3d);
-		picture = QPATHTOF(data\c_track\ctrack_picture_ca.paa);
-		icon = QPATHTOF(data\c_track\ctrack_icon_ca.paa);
+		model = QPATHTOF(data\c_motion\c_motion.p3d);
+		picture = QPATHTOF(data\c_motion\cmotion_picture_ca.paa);
+		icon = QPATHTOF(data\c_motion\cmotion_icon_ca.paa);
 		class ItemInfo: CBA_MiscItem_ItemInfo {
 			mass = 11; //0.5kg From formula: (_mass * 0.1 * (1/2.2046) * 100) / 100)
 		};
