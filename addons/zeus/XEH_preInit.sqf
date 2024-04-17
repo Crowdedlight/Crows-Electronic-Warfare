@@ -6,6 +6,8 @@ ADDON = true;
 // initial value for vars. Text display is by default enabled
 GVAR(zeusTextDisplay) = true;
 
+GVAR(zeusTextBeaconMap) = createHashMap;
+
 // check if mods are loaded and set variable
 GVAR(hasTFAR) = isClass (configFile >> "CfgPatches" >> "task_force_radio");
 GVAR(hasACRE) = isClass (configFile >> "CfgPatches" >> "acre_main");

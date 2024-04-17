@@ -53,7 +53,7 @@ ADDON = true;
 	true // need mission restart - Required as I can't remove the existing class eventhandlers made on init
 ] call CBA_fnc_addSetting;
 
-// [target, frequency]
+// _unit, _frequency, _scanRange, _type
 GVAR(beacons) = [];
 
 // What frequency attachment is on 

@@ -36,13 +36,13 @@ addons[]=
 	"ace_smallarms",
 	"ace_ballistics",
 	"A3_Weapons_F_Enoch_Pistols_ESD",
+	"crowsEW_spectrum",
 	"ace_goggles",
 	"ace_nightvision",
 	"ace_hearing",
 	"A3_Weapons_F_Items",
 	"ace_medical_engine",
 	"ace_medical_treatment",
-	"crowsEW_spectrum",
 	"ace_attach",
 	"ace_chemlights",
 	"A3_Modules_F_Curator_Curator",
@@ -116,44 +116,44 @@ class AddonsMetaData
 		};
 		class Item7
 		{
+			className="crowsEW_spectrum";
+			name="spectrum";
+			author="Crowdedlight";
+		};
+		class Item8
+		{
 			className="ace_goggles";
 			name="ACE3 - Goggles";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item8
+		class Item9
 		{
 			className="ace_nightvision";
 			name="ACE3 - Night Vision";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item9
+		class Item10
 		{
 			className="ace_hearing";
 			name="ACE3 - Hearing";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item10
+		class Item11
 		{
 			className="ace_medical_engine";
 			name="ACE3 - Medical Engine";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item11
+		class Item12
 		{
 			className="ace_medical_treatment";
 			name="ACE3 - Medical Treatment";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
-		};
-		class Item12
-		{
-			className="crowsEW_spectrum";
-			name="spectrum";
-			author="Crowdedlight";
 		};
 		class Item13
 		{
