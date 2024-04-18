@@ -41,4 +41,3 @@ if (_enabled) then {
 } else {
 	[_jammer#0] call EFUNC(spectrum,removeBeaconServer);
 };
-

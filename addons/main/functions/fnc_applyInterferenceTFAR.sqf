@@ -12,6 +12,10 @@ Apply interference to TFAR radios
 
 params ["_distJammer", "_radFalloff", "_radEffective"];
 
+// if their signal is boosted, we don't decrease it, as then they are under satcom boosting
+private _currentEffect = player getVariable ["tf_sendingDistanceMultiplicator", 1];
+if (_currentEffect > 1) exitWith {};
+
 private _rxInterference = 1;
 private _txInterference = 1;
 private _distPercent = 1;
