@@ -37,7 +37,6 @@ addons[]=
 	"ace_ballistics",
 	"A3_Weapons_F_Enoch_Pistols_ESD",
 	"crowsEW_spectrum",
-	"acre_main",
 	"ace_goggles",
 	"ace_nightvision",
 	"ace_hearing",
@@ -120,13 +119,6 @@ class AddonsMetaData
 			className="crowsEW_spectrum";
 			name="spectrum";
 			author="Crowdedlight";
-		};
-		class Item8
-		{
-			className="acre_main";
-			name="ACRE2 - Main";
-			author="ACRE2Team";
-			url="https://github.com/IDI-Systems/acre2";
 		};
 		class Item9
 		{
