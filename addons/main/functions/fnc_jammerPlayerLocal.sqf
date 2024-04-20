@@ -24,7 +24,7 @@ if (call EFUNC(zeus,isZeus)) then {
 };
 
 // TFAR Jamming logic - do not run if zeus, as zeus is immune to TFAR jamming only
-// if (!(call EFUNC(zeus,isZeus))) then {
+if (!(call EFUNC(zeus,isZeus))) then {
 	// find nearest jammer within range
 	private _nearestJammer = [objNull];
 	private _distJammer = -1;
@@ -71,7 +71,7 @@ if (call EFUNC(zeus,isZeus)) then {
 			};
 		};
 	};
-// };
+};
 
 // handle drone jammers
 private _PP_film = GVAR(FilmGrain_jamEffect);
