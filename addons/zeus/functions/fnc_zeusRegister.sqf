@@ -49,7 +49,7 @@ private _moduleList = [GVAR(hasTFAR), GVAR(hasACRE)] call {
 	if (_isTFARLoaded) then {
 		_modules = _modules + _tfarModules;
 	};
-	if (_isTFARLoaded || isACRELoaded) then {
+	if (_isTFARLoaded || _isACRELoaded) then {
 		_modules = _modules + _radioModules;
 	};
 	_modules;

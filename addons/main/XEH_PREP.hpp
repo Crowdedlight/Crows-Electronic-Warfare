@@ -14,7 +14,7 @@ PREP(removeJammerArrayServer);
 PREP(satcomServerLoop);
 PREP(addSatcom);
 PREP(removeSatcom);
-PREP(satcomServerMapDisplay);
+PREP(satcomZeusMapDisplay);
 PREP(updateSatcomMarker);
 PREP(removeSatcomMarker);
 PREP(applyInterferenceTFAR);
