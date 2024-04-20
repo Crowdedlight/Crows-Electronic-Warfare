@@ -68,7 +68,7 @@ private _waitZeus = [player] spawn
 	// call function to set eventHandler - Zeus should be initialized by now, so we can check if zeus or not
 	if (call EFUNC(zeus,isZeus)) then {
 		// handler for satcom markers
-		GVAR(PFH_satcomMarkerHandler) = [FUNC(satcomServerMapDisplay) , 0.1] call CBA_fnc_addPerFrameHandler;
+		GVAR(PFH_satcomMarkerHandler) = [FUNC(satcomZeusMapDisplay), 0.5] call CBA_fnc_addPerFrameHandler;
 		// event handler for removal of satcom markers. Required to not leave dangling map-markers
 		private _removeSatcomMarkerId = [QGVAR(removeSatcomMarker), FUNC(removeSatcomMarker)] call CBA_fnc_addEventHandler;		
 	};

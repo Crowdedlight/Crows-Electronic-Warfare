@@ -51,11 +51,16 @@ GVAR(jamMap) set [_netId, [_unit, _radFalloff, _radEffective, _enabled, _capabil
 [QGVAR(updateJammers), [GVAR(jamMap)]] call CBA_fnc_globalEvent;
 
 // if hosted multiplayer the jamMaps are shared between player and client for host, and thus update handler on client won't detect "new" jammers added on client side (as there is no difference between their jamMaps).
-//  So we have to add actions to jammers here
+//  So we have to add actions/markers to jammers here
 if (isServer && hasInterface) then {
 	// add actions to new jammers
 	_unit addAction ["<t color=""#FFFF00"">De-activate jammer", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
 	_unit addAction ["<t color=""#FFFF00"">Activate jammer", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["!([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
+
+	// if zeus, add map marker for new ones
+	if (call EFUNC(zeus,isZeus)) then {
+		[_unit, _netId, _radFalloff, _radEffective, false, _enabled] call FUNC(updateJamMarker);
+	};
 };
 
 if (_enabled) then {

@@ -12,6 +12,10 @@ Apply interference to ACRE radios
 
 params["_distJammer", "_radFalloff", "_radEffective"];
 
+// if their signal is boosted, we don't decrease it, as then they are under satcom boosting
+private _currentEffect = player getVariable ["acre_receive_interference", 0];
+if (_currentEffect < -1) exitWith {};
+
 // If ACRE loaded, we return calculation for signal jamming
 private _distPercent = _distJammer / _distRad;
 

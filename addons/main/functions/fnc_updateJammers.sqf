@@ -23,11 +23,16 @@ private _newJammers = (keys _jamMap) - (keys GVAR(jamMap));
 {
 	private _netId = _x;
 	// get object from hashmap
-	(_jamMap get _x) params ["_unit"];
+	(_jamMap get _x) params ["_unit", "_radFalloff", "_radEffective", "_enabled"];
 	
 	// add actions to new jammers
 	_unit addAction ["<t color=""#FFFF00"">De-activate jammer", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
 	_unit addAction ["<t color=""#FFFF00"">Activate jammer", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["!([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
+
+	// if zeus, add map marker for new ones
+	if (call EFUNC(zeus,isZeus)) then {
+		[_unit, _netId, _radFalloff, _radEffective, false, _enabled] call FUNC(updateJamMarker);
+	};
 } forEach _newJammers;
 
 // reset effects if 0, as 0 == no logic being run in local PFH

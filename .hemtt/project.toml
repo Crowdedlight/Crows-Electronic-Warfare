@@ -72,8 +72,8 @@ workshop = [
     "2369477168", # Advanced Developer Tools
     "2018593688", # Zeus Enhanced ACE Compat
     "463939057",  # ACE
-    "1645973522", # Intercept Minimal Dev
-    "1585582292", # Arma Debug Engine
+    #"1645973522", # Intercept Minimal Dev
+    #"1585582292", # Arma Debug Engine
 ]
 mission = "dev_mini.Enoch" # Launch into existing Editor Mission
 parameters = [
