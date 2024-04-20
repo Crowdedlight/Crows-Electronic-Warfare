@@ -1,2 +1,4 @@
 # SatCom
-The satcom module can be set to make an object or vehicle a TFAR booster in range. It will show a blue circle for Zeus only of the area of effect. Any units within this area will have their TFAR range boosted. It can help counteract enemy jammers, as long as you are within the area of effect. 
+The satcom module can be set to make an object or vehicle a radio booster. It will show a blue circle for Zeus indicating the area of effect. Any units within this area will have their radio range boosted. The thought behind it is that you use satellite equipment to have up to 4 times the range on your radio comms. That does mean that if you are within the SATCOM area of effect, even if you are inside a effective jammer radius, you comms will still be boosted, as the satellite equipment is not being jammed. 
+
+I know this is not really how it works irl, but for simplicity sake this is how it is implemented for now. It might change to better be influenced by jammers in the future.
