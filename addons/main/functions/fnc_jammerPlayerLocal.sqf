@@ -19,7 +19,7 @@ if (call EFUNC(zeus,isZeus)) then {
 	{
 		_y params ["_jamObj", "_radFalloff", "_radEffective", "_enabled", "_capabilities"];
 		// jamObj, netId, radFalloff, radEffective, updating, enabled
-		[_jamObj, _x, _radFalloff, _radEffective, true, _enabled] call FUNC(updateJamMarker);
+		[_jamObj, _x, _radFalloff, _radEffective, _enabled] call FUNC(updateJamMarker);
 	} forEach GVAR(jamMap);
 };
 

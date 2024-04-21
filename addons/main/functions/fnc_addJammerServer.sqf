@@ -59,7 +59,7 @@ if (isServer && hasInterface) then {
 
 	// if zeus, add map marker for new ones
 	if (call EFUNC(zeus,isZeus)) then {
-		[_unit, _netId, _radFalloff, _radEffective, false, _enabled] call FUNC(updateJamMarker);
+		[_unit, _netId, _radFalloff, _radEffective, _enabled] call FUNC(updateJamMarker);
 	};
 };
 
