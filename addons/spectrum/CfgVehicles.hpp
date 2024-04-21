@@ -22,7 +22,7 @@ class CfgVehicles {
     class crowsew_cmotionObj: ThingX {
         scope = HIDDEN;
         displayName = "C-MOTION";
-        model = QPATHTOF(data\c_track\c_track.p3d);
+        model = QPATHTOF(data\c_motion\c_motion.p3d);
         vehicleClass = "";
 
         class EventHandlers {
