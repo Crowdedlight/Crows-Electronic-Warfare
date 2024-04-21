@@ -21,10 +21,11 @@ I can recommend reading it to see how features work and whats available. The lis
 * **Jamming of Drones:** spawned drones automatically has a signal source attached to them. This makes them jammable when using the "jamming" antenna on the spectrum device. Jamming it will stop all AI functions and it is possible to walk past it while jammed without it being aware of your presence afterwards. Zeus can remove the signal-source on the UGVs and thus making it unjammable. The units can still be remote-controlled by zeus while jammed. Players controlling drones will be disconnected if drone is jammed, and if using the new omni-jammer, then their video feed will degrade as they get closer to the jammer.      
 * **Multiple Editor modules:** Most of the zeus functions have editor modules that can be synced to triggers for more complex control. 
 
-**Features requiring TFAR:**  
+**Features requiring TFAR/ACRE:**  
 
-* **Set TFAR Jammer:** Allows Zeus to select a object that will work as a TFAR jammer with the chosen settings, until death or removal. Zeus has a continuous updated map marker showing the area it is active in. Zeus is not affected by the jammning and does not have to think about where the zeus character is currently placed to avoid jamming. 
-* **TFAR Radio Tracking:** Zeus can enable the module which makes all usage of the TFAR radios broadcast a spectrum signal while transmitting. Can be used to track enemies using the radio. If the player has the Icom radio (misc equipment) in the inventory the player can listen to the TFAR traffic being tracked and hear the other players.   
+* **Radio Jammer (TFAR or ACRE):** Allows to select a object that will work as a radio jammer with the chosen settings, until death or removal. Zeus has a continuous updated map marker showing the area it is active in. Zeus is not affected by the jammning and does not have to think about where the zeus character is currently placed to avoid jamming.
+
+* **Radio Tracking (TFAR only):** Zeus can enable the module which makes all usage of the TFAR radios broadcast a spectrum signal while transmitting. Can be used to track enemies using the radio. If the player has the Icom radio (misc equipment) in the inventory the player can listen to the TFAR traffic being tracked and hear the other players.   
 
 
 **All features have been tested on a dedicated server with multiple clients. Big thanks to the people that helped me test. You know who you are!**
