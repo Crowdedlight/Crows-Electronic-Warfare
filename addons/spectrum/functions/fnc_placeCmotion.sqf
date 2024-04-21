@@ -19,7 +19,7 @@ params ["_dialogResult"];
 *///////////////////////////////////////////////
 
 player removeItem "crowsew_cmotion";
-private _cMotion = createVehicle ["crowsew_cmotionObj", getPosATL player, [], 0, "NONE"];
+private _cMotion = createVehicle ["crowsew_cmotionObj", getPosATL player, [], 0, "CAN_COLLIDE"];
 // TODO: Disable simulation?
 //_cMotion enableSimulationGlobal false;
 
@@ -27,7 +27,7 @@ if(EGVAR(zeus,hasAce)) then {
 	[_cMotion, true, [0, 1.5, 0], 0] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
 
 	// TODO: fortify/ace-explosive -style place preview?
-	//[player, _cMotion] call ace_dragging_fnc_startCarry;
+	[player, _cMotion] call ace_dragging_fnc_startCarry;
 
 	private _pickupAction = [
 	    "crowsewPickupCmotion",
@@ -117,19 +117,9 @@ _motionTrigger setTriggerArea [_radius, _radius, 0, false, _radius];
 _motionTrigger setTriggerActivation ["ANY", "PRESENT", true];
 _motionTrigger setTriggerInterval (GVAR(cmotionInterval)/2); // Halve the interval, to "flip flop" detection
 _motionTrigger setTriggerStatements [
-	QUOTE(
-		[thisTrigger getVariable QQGVAR(cmotionObj) COMMA thisList] call FUNC(motionSensor) &&
-		{ time >= ((thisTrigger getVariable QQGVAR(cmotionCooldownTimer)) + GVAR(cmotionCooldown)) && 
-		{(thisTrigger getVariable QQGVAR(cmotionFlipflop))}}
-	), // Condition
-	QUOTE(
-		(thisTrigger setVariable [QQGVAR(cmotionCooldownTimer) COMMA time]);
-		(thisTrigger setVariable [QQGVAR(cmotionFlipflop) COMMA not (thisTrigger getVariable QQGVAR(cmotionFlipflop))]);
-		[(thisTrigger getVariable QQGVAR(cmotionObj))] call FUNC(triggerCmotion);
-	), // Activation
-	QUOTE(
-		(thisTrigger setVariable [QQGVAR(cmotionFlipflop) COMMA not(thisTrigger getVariable [QQGVAR(cmotionFlipflop) COMMA false])]);
-	) //Deactivation
+	QUOTE([ARR_2(thisTrigger getVariable QQGVAR(cmotionObj),thisList)] call FUNC(motionSensor) && { time >= ((thisTrigger getVariable QQGVAR(cmotionCooldownTimer)) + GVAR(cmotionCooldown)) && {(thisTrigger getVariable QQGVAR(cmotionFlipflop))}}), // Condition
+	QUOTE((thisTrigger setVariable [ARR_2(QQGVAR(cmotionCooldownTimer),time)]); thisTrigger setVariable [ARR_2(QQGVAR(cmotionFlipflop),not (thisTrigger getVariable QQGVAR(cmotionFlipflop)))]; [(thisTrigger getVariable QQGVAR(cmotionObj))] call FUNC(triggerCmotion);), // Activation
+	QUOTE((thisTrigger setVariable [ARR_2(QQGVAR(cmotionFlipflop),not(thisTrigger getVariable [ARR_2(QQGVAR(cmotionFlipflop),false)]))]);) //Deactivation
 ];
 _motionTrigger attachTo [_cMotion, [0,0,0]];
 _motionTrigger setVariable [QGVAR(cmotionObj), _cMotion];

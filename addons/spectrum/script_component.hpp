@@ -3,8 +3,6 @@
 
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"
 
-#define COMMA ,
-
 // #define DEBUG_MODE_FULL
 // #define DISABLE_COMPILE_CACHE
 
