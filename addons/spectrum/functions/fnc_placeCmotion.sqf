@@ -20,8 +20,7 @@ params ["_dialogResult"];
 
 player removeItem "crowsew_cmotion";
 private _cMotion = createVehicle ["crowsew_cmotionObj", getPosATL player, [], 0, "CAN_COLLIDE"];
-// TODO: Disable simulation?
-//_cMotion enableSimulationGlobal false;
+["zen_common_addObjects", [_cMotion]] call CBA_fnc_serverEvent;
 
 if(EGVAR(zeus,hasAce)) then {
 	[_cMotion, true, [0, 1.5, 0], 0] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
@@ -126,6 +125,9 @@ _motionTrigger setVariable [QGVAR(cmotionObj), _cMotion];
 _motionTrigger setVariable [QGVAR(cmotionCooldownTimer), time];
 _motionTrigger setVariable [QGVAR(cmotionFlipflop), true]; // Variable to "flipflop" the trigger
 _cMotion setVariable [QGVAR(cmotionTrigger), _motionTrigger];
+
+//TODO: server setting to create marker showing sensor area?
+
 
 // Keep a list of player's cMotions for "emergency" audio kill
 private _cmotionList = player getVariable [QGVAR(cmotionList), []];

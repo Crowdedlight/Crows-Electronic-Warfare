@@ -14,7 +14,6 @@ params [["_cMotion", objNull]];
 
 if(isNull _cMotion) exitWith { diag_log "crowsEW-spectrum: C-MOTION triggered with no associated sensor"; };
 
-
 // TODO: check locality - is this detectable by all players?
 
 if(GVAR(cmotionSpectrum)) then {

@@ -12,10 +12,13 @@ Returns true if an object in the trigger radius has moved since it was last obse
 *///////////////////////////////////////////////
 
 params [["_sensor", objNull, [objNull]], ["_detected", [], [[]]]];
+
 _detected = _detected select {_x isNotEqualTo _sensor};
 // TODO: also remove PRONE units?
 // Would allow units to sneak past sensors - particularly useful if they're ever linked to explosives
 // Potentially a server-setting
+
+// TODO: filter out animals (rabbits/snakes/etc.)?
 
 
 if(isNull _sensor) exitWith { diag_log "crowsEW-spectrum: C-MOTION triggered with no associated sensor"; };
