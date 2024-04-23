@@ -17,7 +17,7 @@ private _jammer = GVAR(jamMap) get _netId;
 private _enabled = _jammer select 3;
 private _jamObj = _jammer select 0;
 
-// if dataterminal do animation 
+// if dataterminal do animation. Is global so can just be done on player triggering as server doesn't need to sync or handle that
 if (typeof _jamObj == "Land_DataTerminal_01_F") then {
 	
 	// if enabled == true, then we are closing the jammer, so do close animation, otherwise do open
@@ -34,5 +34,5 @@ if (typeof _jamObj == "Land_DataTerminal_01_F") then {
 // set sound enabled - params ["_unit", "_enabled"];
 [QEGVAR(sounds,setSoundEnable), [_jamObj, !_enabled]] call CBA_fnc_serverEvent;
 
-// broadcast event to set the jammer with this key as disabled
-[QGVAR(actionToggleJam), [_netId, !_enabled]] call CBA_fnc_globalEventJIP;
+// broadcast event to set the jammer with this key as disabled/enabled
+[QGVAR(toggleJammer), [_netId, !_enabled]] call CBA_fnc_serverEvent;

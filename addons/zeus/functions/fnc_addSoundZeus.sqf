@@ -13,7 +13,6 @@ params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
 if (isNull _unit) exitWith {hint "Have to select an object to put sound on"};
 
-//ZEN dialog, just ignore ARES, as that mod itself is EOL and links to ZEN
 private _onConfirm =
 {
 	params ["_dialogResult","_in"];
@@ -30,12 +29,16 @@ private _onConfirm =
 	//Get in params again
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 	
+	stopSound GVAR(soundPreview);
+	GVAR(soundPreviewSelected) = nil;
+	GVAR(soundPreview) = nil;
+
 	// broadcast event to server - params ["_unit", "_loopTime", "_range", "_repeat", "_aliveCondition", "_sound"];
 	[QEGVAR(sounds,addSound), [_unit, _delay, _range, _repeat, _aliveCondition, _sound, _startDelay, _volume]] call CBA_fnc_serverEvent;
 };
 
 [
-	"Set Sound (Sound can not stop mid-playing, be aware of long sounds)", 
+	"Set Sound", 
 	[
 		["COMBO","Sound",[
 			EGVAR(sounds,soundZeusDisplayKeys),
@@ -49,6 +52,35 @@ private _onConfirm =
 		["CHECKBOX","Remove sound when dead?",[true]]
 	],
 	_onConfirm,
-	{},
+	{stopSound GVAR(soundPreview); GVAR(soundPreviewSelected) = nil; GVAR(soundPreview) = nil;},
 	_this
 ] call zen_dialog_fnc_create;
+
+
+// This will need to be updated if the UI design is changed
+((uiNamespace getVariable "zen_common_display") displayCtrl 1003) ctrlAddEventHandler ["LBSelChanged", {
+
+	params ["_control", "_lbCurSel"];
+
+	// There's probably a better way of doing the below, using just the params above...
+	
+	// Get the values of all content controls
+	private _display = (uiNamespace getVariable "zen_common_display");
+	(_display getVariable "zen_dialog_params") params ["_controls", "_onConfirm", "_onCancel", "_args", "_saveID"];
+	private _values = _controls apply {
+	    _x params ["_controlsGroup", "_settings"];
+	    [_controlsGroup, _settings] call (_controlsGroup getVariable "zen_dialog_fnc_value")
+	};
+
+	private _selectedSound = _values#0;
+	private _volume = _values#4;
+
+	// Check if a new sound file was selected
+	if(isNil QGVAR(soundPreviewSelected) || {(GVAR(soundPreviewSelected)) != (_selectedSound)}) then {
+		GVAR(soundPreviewSelected) = _selectedSound;
+
+		// Stop the previous preview, and play the new one
+		stopSound GVAR(soundPreview);
+		GVAR(soundPreview) = playSoundUI [[_selectedSound] call EFUNC(sounds,getSoundPath), _volume];
+	};
+}];

@@ -20,17 +20,20 @@ GVAR(ctrackAskFreqOnConfirmNoAce) =
 
 	// non-ace is hardcoded to 5km for now
 	// broadcast event to all clients and JIP	
-	[QGVAR(addBeacon), [_unit, _freq, 5000, "ctrack"]] call CBA_fnc_globalEventJIP;
+	[QGVAR(addBeacon), [_unit, _freq, 5000, "ctrack"]] call CBA_fnc_serverEvent;
 
 	// save variable on unit 
 	_unit setVariable[QGVAR(ctrack_attached_frequency), _freq, true];
 };
 
 GVAR(AskFreqCtrack) = {
+	// get range from GVAR
+	private _signalRange = GVAR(spectrumDeviceFrequencyRange)#1;
+	private _half = _signalRange#0 + _signalRange#2/2;
 	[
 		"Frequency for Tracker", 
 		[
-			["SLIDER","Frequency (Unique)",[390,500,460,1]] //390 to 500, default 460 and showing 1 decimal
+			["SLIDER","Frequency (Unique)",[_signalRange#0,_signalRange#1,_half,1]] //min freq to max, default midpoint and showing 1 decimal
 		],
 		GVAR(ctrackAskFreqOnConfirmNoAce),
 		{},
@@ -92,7 +95,7 @@ GVAR(ctrackDetachFromSelf) = {
 	params ["_target", "_caller", "_actionId", "_arguments"];
 
 	//detach from self by removing the beacon
-	[QGVAR(removeBeacon), [_caller]] call CBA_fnc_globalEventJIP;
+	[QGVAR(removeBeacon), [_caller]] call CBA_fnc_serverEvent;
 
 	// add item back into inventory 
 	_caller addItem "crowsew_ctrack";
@@ -107,7 +110,7 @@ GVAR(ctrackDetachFromTarget) = {
 	_target = cursorTarget;
 
 	//detach from target by removing the beacon
-	[QGVAR(removeBeacon), [_target]] call CBA_fnc_globalEventJIP;
+	[QGVAR(removeBeacon), [_target]] call CBA_fnc_serverEvent;
 
 	// add item back into inventory 
 	_caller addItem "crowsew_ctrack";

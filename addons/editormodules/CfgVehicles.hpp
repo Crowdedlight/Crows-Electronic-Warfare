@@ -34,7 +34,7 @@ class CfgVehicles
 	{
 		// Standard object definitions:
 		scope = 2;										// Editor visibility; 2 will show it in the menu, 1 will hide it.
-		displayName = "Set Signal Source";				// Name displayed in the menu
+		displayName = "Add Signal Source";				// Name displayed in the menu
 		icon = QPATHTOEF(zeus,data\spectrum_signal.paa);	// Map icon. Delete this entry to use the default icon.
 		vehicleClass = "Modules";
 		category = "crowsEW_modules";
@@ -56,10 +56,10 @@ class CfgVehicles
 			class Frequency: Edit
 			{
 				property = QGVAR(addsignalsource_freq);							// Unique property (use "<tag>_<moduleClass>_<attributeClass>" format to ensure that the name is unique)
-				displayName = "Frequency (390Mhz to 500Mhz)";					// Argument label
+				displayName = "Frequency (520Mhz to 1090Mhz)";					// Argument label
 				tooltip = "What frequency the Signal source will broadcast on";	// Tooltip description
 				typeName = "NUMBER";											// Value type, can be "NUMBER", "STRING" or "BOOL"
-				defaultValue = "460";											// Default attribute value. Warning: This is an expression, and its returned value will be used (50 in this case).
+				defaultValue = "805";											// Default attribute value. Warning: This is an expression, and its returned value will be used (50 in this case).
 			};
 
 			class Range: Edit
@@ -85,7 +85,7 @@ class CfgVehicles
 	{
 		// Standard object definitions:
 		scope = 2;										
-		displayName = "Set Jammer";				
+		displayName = "Add Jammer";				
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa";	
 		vehicleClass = "Modules";
 		category = "crowsEW_modules";
@@ -103,22 +103,49 @@ class CfgVehicles
 			// class Units: Units{};
 
 			// Module-specific arguments:
-			class Radius: Edit
+			class IsActiveAtMissionStart: Checkbox
 			{
-				property = QGVAR(addjammer_radius);							
-				displayName = "Radius of jammer (10 to 5000m)";					
-				tooltip = "Range of the jammer (which will also be indicated on map)";	
-				typeName = "NUMBER";											
-				defaultValue = "500";											
+				property = QGVAR(addjammer_isActiveAtMissionStart);
+				displayName = "Jammer active at mission start";
+				tooltip = "Should this jammer start working right from the start of the mission?";
+				typeName = "BOOL";
+				defaultValue = "true";
 			};
 
-			class Strength: Edit
+			class IsVoiceCommsJammer: Checkbox
+			{
+				property = QGVAR(addjammer_isVoiceCommsJammer);
+				displayName = "Jam voice communication signals";
+				tooltip = "Should this jammer effect players voice communication (e.g. via TFAR)?";
+				typeName = "BOOL";
+				defaultValue = "true";
+			};
+
+			class IsDroneJammer: Checkbox
+			{
+				property = QGVAR(addjammer_isDroneJammer);
+				displayName = "Jam drone signals";
+				tooltip = "Should this jammer effect drones?";
+				typeName = "BOOL";
+				defaultValue = "false";
+			};
+
+			class EffectiveRadius: Edit
+			{
+				property = QGVAR(addjammer_radius);							
+				displayName = "Effective Radius (10 to 5000m)";					
+				tooltip = "The area that will have 100% jamming, which will also be indicated on map";	
+				typeName = "NUMBER";											
+				defaultValue = "200";											
+			};
+
+			class FalloffRadius: Edit
 			{
 				property = QGVAR(addjammer_strength);
-				displayName = "Strength (0 to 100)";
-				tooltip = "How strong the jammer is, so how much jammer is increased based on distance into the radius";
+				displayName = "Falloff Radius (10 to 5000m)";
+				tooltip = "Linear buffer where there will be 0 jamming at start, and when it meet effective radius its fully jammed.";
 				typeName = "NUMBER";
-				defaultValue = "50";
+				defaultValue = "400";
 			};			
 
 			class ModuleDescription: ModuleDescription {};

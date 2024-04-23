@@ -2,7 +2,7 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fnc_satcomServerMapDisplay.sqf
+File: fnc_satcomZeusMapDisplay.sqf
 Parameters: 
 Return: none
 
@@ -18,6 +18,6 @@ if (count _list == 0) exitWith {};
 // loop through all current active objects to update map-markers
 {
 	_y params["_emitter", "_radius"];
-	// jamObj, netId, radius
+	// satcom obj, netId, radius, updating
 	[_emitter, _x, _radius, true] call FUNC(updateSatcomMarker);
 } forEach _list;

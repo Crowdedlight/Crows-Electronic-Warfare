@@ -22,7 +22,5 @@ private _savedRange = _unit getVariable[QGVAR(ctrack_attached_range), 0];
 if (_savedFreq == 0 || _savedRange == 0) exitWith{};
 
 // not empty, we have a ctrack attached. So while we are in the vehicle, we are going to push the source onto the vehicle! 
-private _ctrackJip = [QGVAR(addBeacon), [_vehicle, _savedFreq, _savedRange, "ctrack"]] call CBA_fnc_globalEventJIP;
+[QGVAR(addBeacon), [_vehicle, _savedFreq, _savedRange, "ctrack"]] call CBA_fnc_serverEvent;
 
-// save jip id on vehicle 
-_vehicle setVariable[QGVAR(ctrack_attached_jipID), _ctrackJip];

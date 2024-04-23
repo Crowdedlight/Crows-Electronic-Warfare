@@ -8,7 +8,7 @@ class CfgWeapons {
 		author = "Bohemia Interactive";
 		_generalMacro = "muzzle_antenna_01_f";
 		scope = PUBLIC;
-		displayName = "SD Military Antenna (30-389 MHz)";
+		displayName = "SD Military Antenna (30-513 MHz)";
 		picture = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_01_ca.paa";
 		model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_01_F";
 		class EM
@@ -16,25 +16,25 @@ class CfgWeapons {
 			antenna = "Antenna_01";
 		};
 	};
-	// class muzzle_antenna_02_f: muzzle_antenna_base_01_F
-	// {
-	// 	author = "Bohemia Interactive";
-	// 	_generalMacro = "muzzle_antenna_02_f";
-	// 	scope = 2;
-	// 	displayName = "SD Experimental Antenna (390-500 MHz)";
-	// 	picture = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_02_ca.paa";
-	// 	model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_02_F";
-	// 	class EM
-	// 	{
-	// 		antenna = "Antenna_02";
-	// 	};
-	// };
+	class muzzle_antenna_02_f: muzzle_antenna_base_01_F
+	{
+		author = "Bohemia Interactive";
+		_generalMacro = "muzzle_antenna_02_f";
+		scope = PUBLIC;
+		displayName = "SD Experimental Antenna (520-1090 MHz)";
+		picture = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_02_ca.paa";
+		model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_02_F";
+		class EM
+		{
+			antenna = "Antenna_02";
+		};
+	};
 	class muzzle_antenna_03_f: muzzle_antenna_base_01_F
 	{
 		author = "Bohemia Interactive";
 		_generalMacro = "muzzle_antenna_03_f";
 		scope = PUBLIC;
-		displayName = "SD Jammer Antenna (433-440 MHz)";
+		displayName = "SD Jammer Antenna (433-445 MHz)";
 		picture = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_03_ca.paa";
 		model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_03_F";
 		class EM

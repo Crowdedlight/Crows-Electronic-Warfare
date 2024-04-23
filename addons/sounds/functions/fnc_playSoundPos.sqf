@@ -3,21 +3,16 @@
 Author: Crowdedlight
 			   
 File: fnc_playSoundPos.sqf
-Parameters: position array, range, sound, volume, targets
-Return: none
+Parameters: position: Array in format PositionASL
+		range: Number - distance in m from which the sound can be heard
+		sound: String - short ID of the soundfile to be played,
+		volume: Number - volume level of the sound
+		local: Boolean - whether the sound is local to the client
+Return: Number - id of the sound (0..65535) 
 
-Plays sound for everyone once
+Plays sound at position once
 
 *///////////////////////////////////////////////
 params ["_position", "_range", "_sound", "_volume", ["_local", false]];
 
-// get loop-sleep time for the sound, this is the length of the sound so it repeats itself. 
-private _soundAttri = GVAR(soundAttributes) get _sound;
-
-// checking is sound exists or something has gone wrong
-if (isNil "_soundAttri") exitWith {diag_log format ["crowsEW-sounds: Sound not found: %1", _sound]; hint "Sound Not Found"};
-
-private _soundPath = (_soundAttri select 1);
-
-playSound3D [_soundPath, objNull, false, _position, _volume, 1, _range, 0, _local];
-
+(playSound3D [[_sound] call FUNC(getSoundPath), objNull, false, _position, _volume, 1, _range, 0, _local])

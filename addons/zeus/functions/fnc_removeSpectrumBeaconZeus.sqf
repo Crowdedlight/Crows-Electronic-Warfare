@@ -15,4 +15,4 @@ params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 if (isNull _unit) exitWith {hint "You have to select a unit to remove signal source from"};
 
 // broadcast event to remove jammer, so each player remove from hashmap
-[QEGVAR(spectrum,removeBeacon), [_unit]] call CBA_fnc_globalEventJIP;
+[QEGVAR(spectrum,removeBeacon), [_unit]] call CBA_fnc_serverEvent;
