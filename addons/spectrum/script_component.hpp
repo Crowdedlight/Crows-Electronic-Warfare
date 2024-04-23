@@ -3,7 +3,7 @@
 
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"
 
-// #define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 // #define DISABLE_COMPILE_CACHE
 
 #ifdef DEBUG_ENABLED_MAIN

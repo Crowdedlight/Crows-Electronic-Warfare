@@ -4,6 +4,8 @@ Author: Crowdedlight
 			   
 File: fnc_setUnitJammable.sqf
 
+Server only execution, set by CfgVehicles config
+
 *///////////////////////////////////////////////
 
 // Argument 0 is module logic.
@@ -36,12 +38,12 @@ if (_activated) then {
 
 		// set eventhandler for each classname
 		{
-			[_x, "initPost", {[_this#0] call EFUNC(spectrum,initDroneSignals);}] call CBA_fnc_addClassEventHandler;
+			[_x, "initPost", {_this#0 call EFUNC(spectrum,initDroneSignals);}, true, [], true] call CBA_fnc_addClassEventHandler;
 		} forEach _classnames;
 	} else {
 		// call initDroneSignals directly without use of event handler 
 		{
-			[_x, true] call EFUNC(spectrum,initDroneSignals);
+			[_x] call EFUNC(spectrum,initDroneSignals);
 		} forEach _units;
 	};
 

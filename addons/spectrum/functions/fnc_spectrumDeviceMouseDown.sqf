@@ -36,6 +36,7 @@ private _selectedFreqMax = 	missionNamespace getVariable["#EM_SelMax",-1];
 
 // find all current frequencies within the range
 private _frequencies = [_selectedFreqMin, _selectedFreqMax] call FUNC(getActiveBeaconsInRange);
+private _frequenciesSorted = [_frequencies, [], {[_x#0, player, _x#2] call FUNC(calcSignalStrength)}, "DESCEND"] call BIS_fnc_sortBy;	// _x == [_unit, _frequency, _scanRange, _type]
 
 private _unit = objNull;
 private _range = 0;
@@ -45,18 +46,20 @@ private _failed = false;
 
 // if type radiochatter, get random selection of voice clip, and play it. 
 private _timeActive = 5;
-{
-	scopeName "loopFreq";
+
+if (count _frequenciesSorted > 0) then {
+	private _strongestSignal = _frequenciesSorted#0;
+	
 	// if type is "radioChatter", play sound and save beacon in gvar
-	_unit = _x select 0;
-	_range = _x select 2;
-	_type = _x select 3;
+	_unit = _strongestSignal#0;
+	_range = _strongestSignal#2;
+	_type = _strongestSignal#3;
 
 	// switch case based on type
 	switch (_type) do {
 		case "chatter": {			
 			private _sound = "";
-			private _sigStrength = [(_x select 0), player, (_x select 2)] call FUNC(calcSignalStrength);
+			private _sigStrength = [_strongestSignal#0, player, _strongestSignal#2] call FUNC(calcSignalStrength);
 
 			// only real radio line if signal strength is better than -60
 			if (_sigStrength < -60) then {
@@ -69,15 +72,14 @@ private _timeActive = 5;
 				private _voicePack = GVAR(voiceLinePacks) get _voicePackKey;
 
 				// select random sound - Weighted so eastereggs can be more rare than rest others
-				private _soundInfo = (_voicePack select 0) selectRandomWeighted (_voicePack select 1);
+				private _soundInfo = _voicePack#0 selectRandomWeighted _voicePack#1;
 
-				_timeActive = _soundInfo select 1;
-				_sound = _soundInfo select 0;
+				_timeActive = _soundInfo#1;
+				_sound = _soundInfo#0;
 			};
 
 			// play sound
 			GVAR(radioChatterVoiceSound) = playSound _sound;
-			breakOut "loopFreq"; //breakout as even if multiple signals, we only count the first we react on. 
 		};
 		case "drone": {
 			// if Jam antenna do jam handling
@@ -117,16 +119,19 @@ private _timeActive = 5;
 					};
 				}
 			};
-			breakOut "loopFreq";
 		};
 		case "radio": {
 			// listen to signal instantly
 			_radio = true;
 			_timeActive = 0.1;
-			breakOut "loopFreq";
 		};
+		case "sweep_drone";	// Players can not interact with a drone jammer. So just ignore this signal.
+		case "sweep_radio";	// Players can not interact with the radio jammer signal. So just ignore this signal.
+		default { 
+				diag_log format ["CrowsEW:fnc_spectrumDeviceMouseDown.sqf: '%1' is an unkown type of signal source/beacon!!!", _type]; 
+			};
 	};
-} forEach _frequencies; // [_unit, _frequency, _scanRange, _type]
+};
 
 // spawn function that increments progress over same time interval as duration of voice clip
 GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed, _radio] spawn {

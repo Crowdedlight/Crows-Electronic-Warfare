@@ -40,16 +40,24 @@ if (_activated) then {
 	};
 	
 	// Attribute values are saved in module's object space under their class names
-	private _rad = _logic getVariable ["Radius",0];
-	private _strength = _logic getVariable ["Strength",0];
+	private _radEffective = _logic getVariable ["EffectiveRadius",0];
+	private _radFalloff = _logic getVariable ["FalloffRadius",0];
+	private _isActiveAtMissionStart = _logic getVariable ["IsActiveAtMissionStart",0];
+	private _isVoiceCommsJammer = _logic getVariable ["IsVoiceCommsJammer",0];
+	private _isDroneJammer = _logic getVariable ["IsDroneJammer",0];
 
-	// broadcast event to all clients and JIP
-	[QEGVAR(main,addJammer), [_unit, _rad, _strength]] call CBA_fnc_globalEventJIP;
+	private _capabilities = [];	// what types of signals can this jammer counteract?
+	if (_isVoiceCommsJammer) then { _capabilities pushBack JAM_CAPABILITY_RADIO };
+	if (_isDroneJammer) then { _capabilities pushBack JAM_CAPABILITY_DRONE };
+
+	// broadcast event to server
+	[QEGVAR(main,addJammer), [_unit, _radFalloff, _radEffective, _isActiveAtMissionStart, _capabilities]] call CBA_fnc_serverEvent;
 
 	// broadcast sound to server for sound handling - Means we don't get duplicate broadcasts due to JIP.
 	// params ["_unit", "_delay", "_range", "_repeat", "_aliveCondition", "_sound", "_startDelay", "_volume"];
 	[getPosATL _unit, 50, "jam_start", 3] call EFUNC(sounds,playSoundPos);
 	[QEGVAR(sounds,addSound), [_unit, 0.5, 50, true, true, "jam_loop", 3, 3]] call CBA_fnc_serverEvent;
+	[QEGVAR(sounds,setSoundEnable), [_unit, _isActiveAtMissionStart]] call CBA_fnc_serverEvent;
 };
 // Module function is executed by spawn command, so returned value is not necessary, but it is good practice.
 

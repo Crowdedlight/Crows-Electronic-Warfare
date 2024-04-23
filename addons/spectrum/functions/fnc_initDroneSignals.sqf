@@ -8,22 +8,24 @@ Return: none
 
 Called upon event, adds the jammer to local gvar array and starts while loop, if it isn't running
 
-*///////////////////////////////////////////////
-params [["_unit", objNull], ["_force", false]];
+SERVER ONLY
 
-// add event for disabling AI, as this needs to happen where the unit is local, so we add to all
-private _aiDisable = [QGVAR(toggleAI), FUNC(toggleAI)] call CBA_fnc_addEventHandler;
+*///////////////////////////////////////////////
+params [["_unit", objNull]];
 
 // only add if server - To make sure its only added once
-if (!isServer && !_force || isNull _unit) exitWith {};
+if (!isServer || isNull _unit) exitWith {};
 
-// add eventhandler for all clients, as the function ensures only to apply it where its local, which targetEvent should anyway 
-private _jamToggle = [QGVAR(toggleJammingOnUnit), FUNC(toggleJammingOnUnit)] call CBA_fnc_addEventHandler;
+// check if it already has a signal source, we won't add on top of other signals for now
+if (GVAR(beacons) findIf { _x#0 == _unit } > -1) exitWith {};
 
 // randomize frequency 
-private _freq = 433.00 + (random 7);
+// TODO randomize within a window that gives minimum seperation to existing signals. 
+private _range = abs((GVAR(spectrumDeviceFrequencyRange)#2)#0 - (GVAR(spectrumDeviceFrequencyRange)#2)#1);
+private _freq = 433.00 + (random _range);
 
-[QGVAR(addBeacon), [_unit, _freq, 300, "drone"]] call CBA_fnc_globalEventJIP;
+// add beacon
+[_unit, _freq, 300, "drone"] call FUNC(addBeaconServer);
 
 // set empty array on unit var where the players currently jamming is listed 
-_unit setVariable [QGVAR(activeJammingPlayers), []];
+_unit setVariable [QGVAR(activeJammingObjects), []];

@@ -32,14 +32,12 @@ private _savedRange = _attachedToObj getVariable[QGVAR(ctrack_attached_range), 0
 // if we are readding because we left vehicle, then exit without showing gui and applying the saved settings
 if (_savedFreq != 0) exitWith{
 	// set new beacon again 
-	private _jipID = [QGVAR(addBeacon), [_unit, _savedFreq, _savedRange, "ctrack"]] call CBA_fnc_globalEventJIP;
-
-	// update jip id 
-	_attachedToObj setVariable[QGVAR(ctrack_attached_jipID), _jipID];
+	[QGVAR(addBeacon), [_unit, _savedFreq, _savedRange, "ctrack"]] call CBA_fnc_serverEvent;
 };
 
 // open gui to select frequency
-private _onConfirm =
+// TODO problem, if user hits "cancel" on dialog, we don't get into this function and we have an tracker put on the vehicle or ourself, that has no signal. Especially for own beacons this is a problem as it will respawn the choose dialog whenever you get in/out of vehicle
+private _onConfirm = 
 {
 	params ["_dialogResult","_in"];
 	_dialogResult params
@@ -55,21 +53,22 @@ private _onConfirm =
 	// get config value for range 
 	private _range = getNumber (configFile >> "CfgVehicles" >> typeOf _unit >> "range");
 
-	// broadcast event to all clients and JIP	
-	private _ctrackJip = [QGVAR(addBeacon), [_unit, _freq, _range, "ctrack"]] call CBA_fnc_globalEventJIP;
+	// send event to server	
+	[QGVAR(addBeacon), [_unit, _freq, _range, "ctrack"]] call CBA_fnc_serverEvent;
 
 	// save frequency in variable on unit its attached to. (Only if Man, not if vehicle/object)
 	private _attachedToObj = attachedTo _unit;
 	if (!isNull _attachedToObj && _attachedToObj isKindOf "CAManBase") then {
 		_attachedToObj setVariable[QGVAR(ctrack_attached_frequency), _freq];
 		_attachedToObj setVariable[QGVAR(ctrack_attached_range), _range];
-		_attachedToObj setVariable[QGVAR(ctrack_attached_jipID), _ctrackJip];
 	}
 };
+private _signalRange = GVAR(spectrumDeviceFrequencyRange)#1;
+private _half = _signalRange#0 + _signalRange#2/2;
 [
 	"Frequency for Tracker", 
 	[
-		["SLIDER","Frequency (Unique)",[390,500,460,1]] //390 to 500, default 460 and showing 1 decimal
+		["SLIDER","Frequency (Unique)",[_signalRange#0,_signalRange#1,_half,1]] //min freq to max, default midpoint and showing 1 decimal
 	],
 	_onConfirm,
 	{},

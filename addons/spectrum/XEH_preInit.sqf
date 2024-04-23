@@ -24,6 +24,15 @@ ADDON = true;
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(selfTracking), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "CHECKBOX", // setting type
+    ["Self-Tracking", "Should you be able to see your own signal sources on the spectrum Device, or should they be hidden from view. If Tfar SideTrack setting is disabled, you won't see your own TFAR signal even if this setting is turned on"], 
+    "Crows Electronic Warfare",
+    false,	// bool, disabled by default to stay with current behaviour
+    nil
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(minJamSigStrength), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "SLIDER", // setting type
     ["Minimum signal strength required for jamming", "Spectrum Device can not jam signals that are weaker than this value (in dBm)."], 
@@ -32,17 +41,31 @@ ADDON = true;
     nil
 ] call CBA_fnc_addSetting;
 
-// [target, frequency]
+// Jamming Default Signals
+[
+    QGVAR(defaultClassForJammingSignal), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "EDITBOX", // setting type
+    ["Default Jammable Drones", "The classnames that by default will spawn with spectrum signal and can be jammed. Change require mission restart. Comma seperated"], 
+    ["Crows Electronic Warfare", "Jamming"],
+    "UGV_01_base_F,UGV_02_Base_F,UAV_01_base_F,UAV_02_base_F,UAV_03_base_F,UAV_04_base_F,UAV_05_Base_F,UAV_06_base_F", // all drones & UGV by default
+    true, // is global, gotta be equal for all
+	FUNC(jammableDronesInit),
+	true // need mission restart - Required as I can't remove the existing class eventhandlers made on init
+] call CBA_fnc_addSetting;
+
+// _unit, _frequency, _scanRange, _type
 GVAR(beacons) = [];
 
 // What frequency attachment is on 
 GVAR(spectrumRangeAntenna) = -1;
 GVAR(radioTrackingEnabled) = false;
 
+// If changing values, remember to update tool-tips in CfgWeapons. Rest of code should update based on values here automatically
+// Frequencies for antennas. Format: StartFreq, EndFreq, Span
 GVAR(spectrumDeviceFrequencyRange) = [
-	[30,389], 	// military antenna
-	[390,500], 	// experimental antenna
-	[433,440] 	// jammer 
+	[30, 513, (513-30)], 		// military antenna - Radio
+	[520, 1090, (1090-520)], 	// experimental antenna - Script/Zeus/C-Trackers
+	[433, 445, (445-433)] 		// jammer - Drones
 ];
 
 // array of special units

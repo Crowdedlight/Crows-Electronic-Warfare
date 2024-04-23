@@ -6,10 +6,11 @@ This mod requires Zeus Enhanced (ZEN) and CBA3
 
 ### Features
 
-**The wiki for the features is available at:** https://crowdedlight.github.io/Crows-Electronic-Warfare/ 
+**The wiki for the features is available at:** https://crowdedlight.github.io/Crows-Electronic-Warfare/   
 I can recommend reading it to see how features work and whats available. The list below is more like a short summery. 
 
 **Features:**
+
 * **Set Spectrum Signal Source:** Allows Zeus to select a object that can be tracked by the spectrum analyzer with selected frequency and range it can be tracked from. Frequency has to be unique due to game limitations. Does not work on remote-controlled units. However a player-zeus would be able to use the spectrum analyzer himself.    
 * **C-Track trackers:** Player items that can be attached to self or vehicles with ACE Attach, or basegame scrollwheel options, and make whatever they are attached to, trackable with the spectrum device  
 * **Add Sound:** Allows Zeus to select a object and play a selected sound with options such as: initial delay, on repeat, delay between repeat, removal if unit dies. Sound follows the unit around. (Be aware if using the long sounds, they can't stop mid-playing, only when played to end)  
@@ -17,13 +18,14 @@ I can recommend reading it to see how features work and whats available. The lis
 * **EMP:** Added EMP module which makes Zeus able to fire an EMP. The EMP will remove NV/Thermal for men, weapons and vehicles. Vehicles electric components (lights,engine,turrest) will also be damaged. Launchers and static weapons that has NV/Thermal/electronic components will be damaged/removed. Binoculars and Scopes on weapons that has intergrated NV/Thermal will be either removed or replaced with base-game item that do not have NV/Thermal. This is configuable by the Zeus. If TFAR is loaded the radios of affected units/vehicles will stop working (Requires TFAR Beta). However new items picking up not affected by the EMP will work. Some equipment might not be removed if they are modded items that does not share base-game parent. In that case please let me know and I will add it. As I can't cover every single modded item, the module will have item/equipment limitations and is meant to be operated by trust with the players. Zeus are immune to the EMP effect and will not have equipment removed or damaged and will also not get white-out/screen blur effect, like the players.   
 * **EMP Immunity:** Set any unit or vehicle immune to the EMP effect. Units inside a vehicle set immune is also immune to the effect.   
 * **RadioChatter:** A module to put on AI that simulates the AI using radios to each other. The radio broadcasts a spectrum signal while "transmitting". Configurable by zeus. The player can "listen" to these transmission with the spectrum device if there is enough signal strength. The sounds/voice-lines played depends on the voice-pack used by zeus. There is a few different available.   
-* **Jamming of UGVs:** spawned UGVs/Falcons automatically has a signal source attached to them. This makes them jammable when using the "jamming" antenna on the spectrum device. Jamming it will stop all AI functions and it is possible to walk past it while jammed without it being aware of your presence afterwards. Zeus can remove the signal-source on the UGVs and thus making it unjammable. The units can still be remote-controlled by zeus while jammed.   
+* **Jamming of Drones:** spawned drones automatically has a signal source attached to them. This makes them jammable when using the "jamming" antenna on the spectrum device. Jamming it will stop all AI functions and it is possible to walk past it while jammed without it being aware of your presence afterwards. Zeus can remove the signal-source on the UGVs and thus making it unjammable. The units can still be remote-controlled by zeus while jammed. Players controlling drones will be disconnected if drone is jammed, and if using the new omni-jammer, then their video feed will degrade as they get closer to the jammer.      
 * **Multiple Editor modules:** Most of the zeus functions have editor modules that can be synced to triggers for more complex control. 
 
-**Features requiring TFAR:**  
+**Features requiring TFAR/ACRE:**  
 
-* **Set TFAR Jammer:** Allows Zeus to select a object that will work as a TFAR jammer with the chosen settings, until death or removal. Zeus has a continuous updated map marker showing the area it is active in. Zeus is not affected by the jammning and does not have to think about where the zeus character is currently placed to avoid jamming. 
-* **TFAR Radio Tracking:** Zeus can enable the module which makes all usage of the TFAR radios broadcast a spectrum signal while transmitting. Can be used to track enemies using the radio. If the player has the Icom radio (misc equipment) in the inventory the player can listen to the TFAR traffic being tracked and hear the other players.   
+* **Radio Jammer (TFAR or ACRE):** Allows to select a object that will work as a radio jammer with the chosen settings, until death or removal. Zeus has a continuous updated map marker showing the area it is active in. Zeus is not affected by the jammning and does not have to think about where the zeus character is currently placed to avoid jamming.
+
+* **Radio Tracking (TFAR only):** Zeus can enable the module which makes all usage of the TFAR radios broadcast a spectrum signal while transmitting. Can be used to track enemies using the radio. If the player has the Icom radio (misc equipment) in the inventory the player can listen to the TFAR traffic being tracked and hear the other players.   
 
 
 **All features have been tested on a dedicated server with multiple clients. Big thanks to the people that helped me test. You know who you are!**
@@ -33,14 +35,22 @@ All logging made to the .RPT file will start with CrowsEW-module: where the modu
 
 ### Contributors
 Crowdedlight (Main Author)  
-b-mayr-1984 (Dev Work)
-Landric (Dev Work)
-MonkeyBadger (Voice-line work)  
-Technovibegames (Voice-line work)    
-WindWalker (Voice-line work)
+b-mayr-1984 (Dev Work)  
+Landric (Dev Work)  
+MonkeyBadger (Voice-line work)    
+Technovibegames (Voice-line work)      
+WindWalker (Voice-line work)  
 
 ### License 
 Crows Electronic Warfare is licensed under the Arma Public License Share Alike. Please do not reupload to the Steam Workshop without permission!
+
+### Building Wiki
+Wiki is build automatically for tags and deployed. To manually preview them locally run:
+```
+cargo install mdbook
+mdbook serve
+```
+Requires rust is installed. 
 
 ### Fonts used in texture
 Digital 7 by Sizenko Alexander, Style-7, http://www.styleseven.com

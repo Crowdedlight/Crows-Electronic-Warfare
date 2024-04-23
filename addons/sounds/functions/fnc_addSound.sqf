@@ -3,7 +3,14 @@
 Author: Crowdedlight
 			   
 File: fnc_addSound.sqf
-Parameters: pos, _unit
+Parameters: unit: Object to add the sound to
+		delayBetween: Number - delay in seconds between repeated plays
+		range: Number - range in meters at which the sound can be heard
+		repeat: Boolean - whether the sound should repeat
+		aliveCondition: Boolean - whether the sound should be removed on unit death
+		sound: String - the sound's shortID
+		delayInitial: Number - delay in seconds before the initial play
+		volume: Number - volume at which the sound should be played
 Return: none
 
 Called upon event, adds the sound to the list of active sounds
@@ -30,3 +37,16 @@ private _startDelay = time + _delayInitial;
 GVAR(soundList) pushBack [_unit, _loopTime, _range, _repeat, _aliveCondition, _soundPath, true, 0, _startDelay, _volume, _displayName];
 // update for zeus' to see change
 SETMVAR(GVAR(activeSounds),GVAR(soundList));
+
+// Store a map of currently playing sounds, so sounds can be stopped on destruction/deletion
+if(_aliveCondition) then {
+	_unit addEventHandler ["Killed", {
+		params ["_unit", "_killer", "_instigator", "_useEffects"];
+		{ stopSound _x } forEach values (_unit getVariable [QGVAR(soundIDMap), createHashMap]); 
+	}];
+};
+
+_unit addEventHandler ["Deleted", {
+	params ["_entity"];
+	{ stopSound _x } forEach values (_entity getVariable [QGVAR(soundIDMap), createHashMap]); 
+}];

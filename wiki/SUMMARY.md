@@ -9,12 +9,15 @@
     -   [C-Track](spectrum/tracking/c-track.md)
     -   [TFAR Tracking](spectrum/tracking/tfar-tracking.md)
         -   [Trigger by script](spectrum/tracking/tfar_tracking_scripting.md)
--   [Jamming Drones](spectrum/jamming/drone-jamming.md)
 -   [Notes for Zeus](spectrum/notes-zeus.md)
 
-# TFAR
--   [TFAR Jamming](radio-jamming/tfar.md)
--   [TFAR SatCom](satcom/radio-boosting.md)
+# Jamming
+-   [General](jamming/general.md)
+    -   [Add Jammer Zeus/Eden](jamming/place_jammer.md)
+    -   [Add Jammer Script](jamming/script.md)
+-   [Radio (TFAR/ACRE)](jamming/radio.md)
+-   [Drones](jamming/drones.md)
+-   [SATCOM](satcom/radio-boosting.md)
 
 # Sound Modules
 -   [AddSound](sounds/addsound.md)

@@ -2,23 +2,20 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fnc_addJammer.sqf
+File: fnc_addJammerServer.sqf
 Parameters: pos, _unit
 Return: none
 
+SERVER ONLY
 Called upon event, adds the jammer to local gvar array and starts while loop, if it isn't running
 
 *///////////////////////////////////////////////
-params ["_unit", "_rad", "_strength"];
+params ["_unit", "_radFalloff", "_radEffective", "_enabled", "_capabilities"];
 
 // if object is null, exitwith. Can happen if we get event as JIP but object has been removed
-if (isNull _unit) exitWith {};
+if (isNull _unit || !isServer) exitWith {};
 
 private _netId = netId _unit;
-
-// add action 
-_unit addAction ["<t color=""#FFFF00"">Pull Out Wires", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
-_unit addAction ["<t color=""#FFFF00"">Duct Tape Wires Back In", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["!([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
 
 // if dataterminal do animation 
 if (typeof _unit == "Land_DataTerminal_01_F") then {
@@ -27,8 +24,11 @@ if (typeof _unit == "Land_DataTerminal_01_F") then {
 	_unit setObjectTextureGlobal [0, QPATHTOF(data\data_terminal_screen_CO.paa)];
 	_unit setObjectMaterialGlobal [0, "\A3\Props_F_Exp_A\Military\Equipment\Data\DataTerminal_green.rvmat"];
 	
-	// animate activation
-	[_unit,3] call BIS_fnc_dataTerminalAnimate;
+	if (_enabled) then {		
+		[_unit,3] call BIS_fnc_dataTerminalAnimate;	// animate activation
+	} else {
+		[_unit,0] call BIS_fnc_dataTerminalAnimate;	// keep data terminal closed
+	};
 
 	// add eventhandler to allow it to be blown up. Essential explosives
 	_unit addEventHandler ["hitpart",
@@ -44,8 +44,39 @@ if (typeof _unit == "Land_DataTerminal_01_F") then {
 	}];
 };
 
-// add to map, netId is key		jammer, radius, strength, and enabled
-GVAR(jamMap) set [_netId, [_unit, _rad, _strength, true]];
+// add to map, netId is key		jammer, _radFalloff, _radEffective, enabled and capabilities
+GVAR(jamMap) set [_netId, [_unit, _radFalloff, _radEffective, _enabled, _capabilities]];
+
+// broadcast update
+[QGVAR(updateJammers), [GVAR(jamMap)]] call CBA_fnc_globalEvent;
+
+// if hosted multiplayer the jamMaps are shared between player and client for host, and thus update handler on client won't detect "new" jammers added on client side (as there is no difference between their jamMaps).
+//  So we have to add actions/markers to jammers here
+if (isServer && hasInterface) then {
+	// add actions to new jammers
+	_unit addAction ["<t color=""#FFFF00"">De-activate jammer", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
+	_unit addAction ["<t color=""#FFFF00"">Activate jammer", FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["!([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
+
+	// if zeus, add map marker for new ones
+	if (call EFUNC(zeus,isZeus)) then {
+		[_unit, _netId, _radFalloff, _radEffective, _enabled] call FUNC(updateJamMarker);
+	};
+};
+
+if (_enabled) then {
+	private _range = _radFalloff + _radEffective;
+	private _frequencyRange = EGVAR(spectrum,spectrumDeviceFrequencyRange);
+	// add jammer as a signal beacon (so that it can be tracked down with the Spectrum Device)
+	if (JAM_CAPABILITY_RADIO in _capabilities) then {
+		[_unit, (_frequencyRange#0)#0, _range, "sweep_radio"] call EFUNC(spectrum,addBeaconServer);
+	};
+	if (JAM_CAPABILITY_DRONE in _capabilities) then {
+		[_unit, (_frequencyRange#2)#0, _range, "sweep_drone"] call EFUNC(spectrum,addBeaconServer);
+	};
+};
+
+// set variable on unit that its a jammer. Helps checking if zeus should get right-click context option, compared to checking if exists going through all jammers etc. 
+_unit setVariable[QGVAR(isJammer), true, true];
 
 // Experiment information from logging data hits
 // Results: that explosive damage should be > 0.5, and hit value > 100
