@@ -1,10 +1,10 @@
 # C-motion
 
-The C-motion is a item players can carry in their backpacks and deploy in the world to act as a motion-sensor.
+The C-motion is an item players can carry in their backpacks and deploy in the world to act as a motion-sensor.
 
 When any unit moves within the sensor radius of the C-motion, the device will alert the user that placed it. The alert can be configured as:
 
-* A Spectrum frequency signal
+* A [Spectrum frequency signal](spectrum/basic-use.md)
 * A map-marker (with optional time-stamp)
 * An audio cue
 
