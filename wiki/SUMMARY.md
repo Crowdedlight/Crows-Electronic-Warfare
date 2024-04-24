@@ -6,6 +6,7 @@
 -   [AI radio chatter](spectrum/radio-chatter/ai-chatter.md)
     -   [Add own voicepack](spectrum/radio-chatter/add-own-sound-pack.md)
 -   [Tracking Signals](spectrum/basic-use.md)
+    -   [C-Motion](spectrum/tracking/c-motion.md)
     -   [C-Track](spectrum/tracking/c-track.md)
     -   [TFAR Tracking](spectrum/tracking/tfar-tracking.md)
         -   [Trigger by script](spectrum/tracking/tfar_tracking_scripting.md)

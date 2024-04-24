@@ -1,6 +1,6 @@
- class CBA_Extended_EventHandlers_base;
+class CBA_Extended_EventHandlers_base;
  
- class CfgWeapons {
+class CfgWeapons {
 	class CBA_MiscItem_ItemInfo;
 	class muzzle_antenna_base_01_F;
 	class muzzle_antenna_01_f: muzzle_antenna_base_01_F
@@ -80,7 +80,7 @@
 		picture = QPATHTOF(data\c_track\ctrack_picture_ca.paa);
 		icon = QPATHTOF(data\c_track\ctrack_icon_ca.paa);
 		class ItemInfo: CBA_MiscItem_ItemInfo {
-			mass = 11; //0.5kg From formular: (_mass * 0.1 * (1/2.2046) * 100) / 100)
+			mass = 11; //0.5kg From formula: (_mass * 0.1 * (1/2.2046) * 100) / 100)
 		};
 		ACE_Attachable = "crowsew_ctrack_effect_3km";
 		ace_attach_orientation[] = {0,180}; // roll, yaw
@@ -94,25 +94,17 @@
 	class crowsew_cmotion: CBA_MiscItem {
 		author = "Crowdedlight";
 		displayName = "C-MOTION";
-		descriptionShort = "Tracking device that gets triggered by motion and sends signals that can be seen with the spectrum device";
-		scope = HIDDEN;
-		scopeCurator = HIDDEN;
+		descriptionShort = "Sensor device that is triggered by motion and sends signals that can be seen with the spectrum device";
+		scope = PUBLIC;
+		scopeCurator = PUBLIC;
 		model = QPATHTOF(data\c_motion\c_motion.p3d);
 		picture = QPATHTOF(data\c_motion\cmotion_picture_ca.paa);
 		icon = QPATHTOF(data\c_motion\cmotion_icon_ca.paa);
 		class ItemInfo: CBA_MiscItem_ItemInfo {
-			mass = 11; //0.5kg From formular: (_mass * 0.1 * (1/2.2046) * 100) / 100)
+			mass = 11; //0.5kg From formula: (_mass * 0.1 * (1/2.2046) * 100) / 100)
 		};
-		// ACE_Attachable = "crowsew_ctrack_effect_3km";
-		// ace_attach_orientation[] = {0,180}; // roll, yaw
 		class EventHandlers {
             class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
         };
 	};
- };
-
-// private _itemClassname = "crowsew_ctrack";
-// diag_log (getText (configFile >> "CfgWeapons" >> _itemClassname >> "ACE_Attachable"));
-// private _itemVehClass = "crowsew_ctrack";
-// diag_log (getText (configFile >> "CfgAmmo" >> _itemVehClass >> "model"));
-// diag_log (getText (configFile >> "CfgVehicles" >> _itemVehClass >> "model"));
+};
