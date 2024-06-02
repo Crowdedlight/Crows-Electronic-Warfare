@@ -18,7 +18,7 @@ _units = param [1,[],[[]]];
 _activated = param [2,true,[true]];
 
 if (count _units < 1) exitWith {
-	[QEGVAR(zeus,showHintZeus), ["SetUnitJammable editor module requires at least one unit/object synced to it"]] call CBA_fnc_globalEvent;
+	[QEGVAR(zeus,showHintZeus), ["STR_CROWSEW_Editormodules_setjammable_error"]] call CBA_fnc_globalEvent;
 };
 
 // Module specific behavior. Function can extract arguments from logic and use them.

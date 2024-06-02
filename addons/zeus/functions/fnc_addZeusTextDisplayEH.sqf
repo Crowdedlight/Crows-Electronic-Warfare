@@ -30,7 +30,7 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 		if (_dist > 500) then {continue;};
 
 		// draw icon on relative pos z: 0
-		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _unit, 0, 0, 0, format["RadioChatter(%1)", _voicepack], 1, 0.03, "RobotoCondensed", "center", false];
+		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _unit, 0, 0, 0, format["%2(%1)", _voicepack, localize "STR_CROWSEW_Zeus_textdisplay_radiochatter"], 1, 0.03, "RobotoCondensed", "center", false];
 	} forEach EGVAR(spectrum,radioTrackingAiUnits);
 
 	// Spectrum Signal 
@@ -45,7 +45,7 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 			if ((_x select 3) == "chatter") then {continue;};
 			
 			// draw icon on relative pos 
-			private _txt = format["SignalSource(%1, RNG:%2)", _x select 1, round(_x select 2)];
+			private _txt = format["%3(%1, RNG:%2)", _x select 1, round(_x select 2), localize "STR_CROWSEW_Zeus_textdisplay_signalsource"];
 			// offset: z: -0.5
 			private _pos = ASLToAGL getPosASL _unit;
 			drawIcon3D ["", [1,0,0,1], [_pos#0, _pos#1, _pos#2-(0.5*(1 + _forEachIndex))], 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
@@ -63,7 +63,7 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 		if (_dist > 500) then {continue;};
 
 		// draw icon on relative pos 
-		private _txt = format["Jammer(STR:%1,CAP:%2)", _strength, str _capabilities];
+		private _txt = format["%3(STR:%1,CAP:%2)", _strength, str _capabilities, localize "STR_CROWSEW_Zeus_jammer"];
 		// offset: z: 0
 		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _jamObj, 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
 	} forEach EGVAR(main,jamMap);
@@ -79,7 +79,7 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 		if (_dist > 500) then {continue;};
 
 		// draw icon on relative pos 
-		private _txt = format["Sound(%1:  RNG:%2, Active:%3)", _displayName, _range, _enabled];
+		private _txt = format["%4(%1:  RNG:%2, Active:%3)", _displayName, _range, _enabled, localize "STR_CROWSEW_Zeus_sound"];
 		// offset: z: 0.5
 		private _pos = ASLToAGL getPosASL _soundObj;
 		drawIcon3D ["", [1,0,0,1], [_pos#0, _pos#1, _pos#2+0.5], 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
@@ -96,7 +96,7 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 		if (_dist > 500) then {continue;};
 
 		// draw icon on relative pos 
-		private _txt = format["Sound (%1)", _displayName];
+		private _txt = format["%2 (%1)", _displayName, localize "STR_CROWSEW_Zeus_sound"];
 		// offset: z: 0.5
 		private _pos = ASLToAGL getPosASL _soundObj;
 		drawIcon3D ["", [1,0,0,1], [_pos#0, _pos#1, _pos#2+0.5], 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
@@ -111,7 +111,7 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 		if (_dist > 500) then {continue;};
 
 		// draw icon on relative pos => Offset: z: -0.6
-		private _txt = "JAMMED";
+		private _txt = localize "STR_CROWSEW_Zeus_jammed";
 		// offset: z: 1
 		private _pos = ASLToAGL getPosASL _x;
 		drawIcon3D ["", [1,0,0,1], [_pos#0, _pos#1, _pos#2+1], 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
@@ -126,7 +126,7 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 		if (_dist > 500) then {continue;};
 
 		// draw icon on relative pos 
-		private _txt = format["SATCOM (RNG:%1)", _radius];
+		private _txt = format["%2 (RNG:%1)", _radius, localize "STR_CROWSEW_Zeus_satcom"];
 		// offset: z: 0
 		drawIcon3D ["", [1,0,0,1], ASLToAGL getPosASL _obj, 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
 

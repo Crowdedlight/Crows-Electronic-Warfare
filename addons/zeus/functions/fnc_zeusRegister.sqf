@@ -24,25 +24,25 @@ if (!hasInterface) exitWith {};
 private _moduleList = [GVAR(hasTFAR), GVAR(hasACRE)] call {
 	params ["_isTFARLoaded", "_isACRELoaded"];
 	private _modules = [
-		["Add Spectrum Signal Source",{_this call FUNC(addSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
-		["Remove Spectrum Signal Source",{_this call FUNC(removeSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
-		["Add Sound",{_this call FUNC(addSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
-		["Remove Sound",{_this call FUNC(removeSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
-		["Play Sound",{_this call FUNC(playSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
-		["Fire EMP",{_this call FUNC(fireEMPZeus)}, QPATHTOF(data\EMP_Icon.paa)], 
-		["Add Immune to EMP",{_this call FUNC(setImmuneEMPZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)], 
-		["Add Radio Tracking Chatter",{_this call FUNC(addRandomRadioTrackingChatterZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)], 
-		["Remove Radio Tracking Chatter",{_this call FUNC(removeRandomRadioTrackingChatterZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)], 
-		["Set Unit Jammable",{_this call FUNC(setUnitJammableZeus)}, QPATHTOF(data\spectrum_signal.paa)],
-		["Add Jammer",{_this call FUNC(addJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
-		["Remove Jammer",{_this call FUNC(removeJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
+		[localize "STR_CROWSEW_Zeus_modules_spectrumsignal_add",{_this call FUNC(addSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
+		[localize "STR_CROWSEW_Zeus_modules_spectrumsignal_remove",{_this call FUNC(removeSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
+		[localize "STR_CROWSEW_Zeus_modules_addsound",{_this call FUNC(addSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
+		[localize "STR_CROWSEW_Zeus_modules_removesound",{_this call FUNC(removeSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
+		[localize "STR_CROWSEW_Zeus_modules_playsound",{_this call FUNC(playSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
+		[localize "STR_CROWSEW_Zeus_modules_fireemp",{_this call FUNC(fireEMPZeus)}, QPATHTOF(data\EMP_Icon.paa)], 
+		[localize "STR_CROWSEW_Zeus_modules_immuneemp",{_this call FUNC(setImmuneEMPZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)], 
+		[localize "STR_CROWSEW_Zeus_modules_radiochatter_add",{_this call FUNC(addRandomRadioTrackingChatterZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)], 
+		[localize "STR_CROWSEW_Zeus_modules_radiochatter_remove",{_this call FUNC(removeRandomRadioTrackingChatterZeus)}, QPATHTOF(data\EMP_Icon_IMU.paa)], 
+		[localize "STR_CROWSEW_Zeus_modules_jammable",{_this call FUNC(setUnitJammableZeus)}, QPATHTOF(data\spectrum_signal.paa)],
+		[localize "STR_CROWSEW_Zeus_modules_jammer_add",{_this call FUNC(addJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"],
+		[localize "STR_CROWSEW_Zeus_modules_jammer_remove",{_this call FUNC(removeJammerZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
 	];
 	private _tfarModules = [
-		["Toggle Radio Tracking",{_this call FUNC(setRadioTrackingZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
+		[localize "STR_CROWSEW_Zeus_modules_radiotracking",{_this call FUNC(setRadioTrackingZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"]
 	];
 	private _radioModules = [
-		["Add SATCOM",{_this call FUNC(addSatcomZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"], //TODO SATELLITE DISH ICON
-		["Remove SATCOM",{_this call FUNC(removeSatcomZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"] //TODO SATELLITE DISH ICON
+		[localize "STR_CROWSEW_Zeus_modules_addsatcom",{_this call FUNC(addSatcomZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"], //TODO SATELLITE DISH ICON
+		[localize "STR_CROWSEW_Zeus_modules_removesatcom",{_this call FUNC(removeSatcomZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"] //TODO SATELLITE DISH ICON
 	];
 
 	// return the ones to load		
@@ -69,8 +69,8 @@ private _moduleList = [GVAR(hasTFAR), GVAR(hasACRE)] call {
 private _contextActionList = [
     // Action name, Display name, Icon and Icon colour, code, Condition to show, arguments, dynamic children, modifier functions
     [
-        [QGVAR(context_menu_jammer),"Jammer","\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa", {}, {!isNull _hoveredEntity && {_hoveredEntity getVariable[QEGVAR(main,isJammer), false]}}, [], {[
-			[[QGVAR(context_menu_toggle_jammer_on_off),"Toggle On/off","\a3\modules_f\data\portraitmodule_ca.paa", {[null, null, null, [netId _hoveredEntity]] call EFUNC(main,actionJamToggle)}] call zen_context_menu_fnc_createAction, [], 0]
+        [QGVAR(context_menu_jammer),localize "STR_CROWSEW_Zeus_contextmenu_jammer","\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa", {}, {!isNull _hoveredEntity && {_hoveredEntity getVariable[QEGVAR(main,isJammer), false]}}, [], {[
+			[[QGVAR(context_menu_toggle_jammer_on_off),localize "STR_CROWSEW_Zeus_contextmenu_on_off","\a3\modules_f\data\portraitmodule_ca.paa", {[null, null, null, [netId _hoveredEntity]] call EFUNC(main,actionJamToggle)}] call zen_context_menu_fnc_createAction, [], 0]
 		]}] call zen_context_menu_fnc_createAction,
         [],
         0

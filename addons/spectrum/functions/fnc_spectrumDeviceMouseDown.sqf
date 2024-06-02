@@ -160,7 +160,7 @@ GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed, _
 		if (_failAction) exitWith {
 			// systemChat "Exit due to low signal strength";
 			playSound "spectrumjamerror";
-			[parseText format["<t size='0.9'>&lt;-- min %1dBm required for jamming</t>",GVAR(minJamSigStrength)],-1,[0.85, 0.2],5,1,1,789] spawn BIS_fnc_dynamicText;
+			[parseText format["<t size='0.9'>&lt;-- %2 %1%3</t>",GVAR(minJamSigStrength), localize "STR_CROWSEW_Spectrum_error_jam_strength_min", localize "STR_CROWSEW_Spectrum_error_jam_strength"],-1,[0.85, 0.2],5,1,1,789] spawn BIS_fnc_dynamicText;
 			missionNamespace setVariable ["#EM_Transmit",false];
 			missionNamespace setVariable ["#EM_Progress",0];
 			GVAR(isJammingDrone) = objNull;
@@ -184,7 +184,7 @@ GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed, _
 				GVAR(isJammingDrone) = objNull;
 				// show error 
 				playSound "spectrumjamerror";
-				[parseText format["<t size='0.9'>&lt;-- min %1dBm required for jamming</t>",GVAR(minJamSigStrength)],-1,[0.85, 0.2],5,1,1,789] spawn BIS_fnc_dynamicText;
+				[parseText format["<t size='0.9'>&lt;-- %2 %1%3</t>",GVAR(minJamSigStrength), localize "STR_CROWSEW_Spectrum_error_jam_strength_min", localize "STR_CROWSEW_Spectrum_error_jam_strength"],-1,[0.85, 0.2],5,1,1,789] spawn BIS_fnc_dynamicText;
 				missionNamespace setVariable ["#EM_Transmit",false];
 				missionNamespace setVariable ["#EM_Progress",0];
 			};

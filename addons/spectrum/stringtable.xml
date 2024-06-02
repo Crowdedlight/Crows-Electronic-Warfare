@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project name="Crows Electronic Warfare">
+	<Package name="spectrum">
+        <Key ID="STR_CROWSEW_Spectrum_settings_enable_device_name">
+            <English>Enable Spectrum Device</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_radio_track_name">
+            <English>Track Friendly with Radio Tracking</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_radio_track_tooltip">
+            <English>Do you want your own side's radio transmissions to show on the spectrum device if Radio tracking is enabled?</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_self_tracking">
+            <English>Self-Tracking</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_self_tracking_tooltip">
+            <English>Should you be able to see your own signal sources on the spectrum Device, or should they be hidden from view. If Tfar SideTrack setting is disabled, you won't see your own TFAR signal even if this setting is turned on</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_min_jam_strength">
+            <English>Minimum signal strength required for jamming</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_min_jam_strength_tooltip">
+            <English>Spectrum Device can not jam signals that are weaker than this value (in dBm).</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_default_jammable_drones">
+            <English>Default Jammable Drones</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_default_jammable_drones_tooltip">
+            <English>The classnames that by default will spawn with spectrum signal and can be jammed. Change require mission restart. Comma seperated</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_jamming">
+            <English>Jamming</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voiceline_british">
+            <English>British</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voiceline_morse">
+            <English>Morse Code</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voiceline_electronic">
+            <English>Electronic</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voiceline_alien_electronic">
+            <English>Alien Electronic</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voiceline_police_radio">
+            <English>Police Radio</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_catageory">
+            <English>Spectrum Autoline</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_enable">
+            <English>Spectrum Autoline</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_enable_tooltip">
+            <English>Allow players to automatically draw map lines from their position in the direction they're facing, when aiming the Spectrum Device.&lt;br/&gt;Player must have a GPS equipped.</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_length">
+            <English>Spectrum Autoline Length</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_length_tooltip">
+            <English>How long should the drawn autoline be, in meters.</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_color1">
+            <English>Spectrum Autoline Colour 1</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_color1_tooltip">
+            <English>Colour that should be associated with autoline hotkey 1.</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_color2">
+            <English>Spectrum Autoline Colour 2</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_color2_tooltip">
+            <English>Colour that should be associated with autoline hotkey 2.</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_color3">
+            <English>Spectrum Autoline Colour 3</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_color3_tooltip">
+            <English>Colour that should be associated with autoline hotkey 3.</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_color4">
+            <English>Spectrum Autoline Colour 4</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_color4_tooltip">
+            <English>Colour that should be associated with autoline hotkey 4.</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_deviation">
+            <English>Spectrum Autoline Start Deviation</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_deviation_tooltip">
+            <English>How much the start of the autoline should differ from the player's actual position, in meters.&lt;br/&gt;0 is perfectly accurate; 100 is (up to) a 100m deviation.</English>
+        </Key>        
+        <Key ID="STR_CROWSEW_Spectrum_keybinds_autoline_tooltip">
+            <English>Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device.&lt;br/&gt;Player must have a GPS equipped.</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_keybinds_autoline_color1">
+            <English>Spectrum Autoline (Colour 1)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_keybinds_autoline_color2">
+            <English>Spectrum Autoline (Colour 2)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_keybinds_autoline_color3">
+            <English>Spectrum Autoline (Colour 3)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_keybinds_autoline_color4">
+            <English>Spectrum Autoline (Colour 4)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_antenna_military_name">
+            <English>SD Military Antenna (30-513 MHz)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_antenna_experimental_name">
+            <English>SD Experimental Antenna (520-1090 MHz)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_antenna_jammer_name">
+            <English>SD Jammer Antenna (433-445 MHz)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_icom_name">
+            <English>Icom</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_icom_description">
+            <English>Radio used together with Spectrum Device to listen to tracked TFAR signals</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_ctrack_name">
+            <English>C-TRACK (3km)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_ctrack_description">
+            <English>Tracking device that can be put on objects to make them trackable with spectrum device</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_cmotion_name">
+            <English>C-MOTION</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_cmotion_description">
+            <English>Tracking device that gets triggered by motion and sends signals that can be seen with the spectrum device</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_1">
+            <English>Calling all units I need a 10-45</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_2">
+            <English>We saw him drinking in the car, and drugs in the car too</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_3">
+            <English>Give me a call on the dog and bone, it's a 10-21</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_4">
+            <English>Hold Hold Hold 10-23</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_5">
+            <English>I need some road advisory, give me a 10-13</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_6">
+            <English>Yeah I stopped a douche coming out of somerville</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_7">
+            <English>I'm starving, lets go for a code 4</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_8">
+            <English>It's an emergency 10-100</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_9">
+            <English>Loud and clear</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_10">
+            <English>Ok, you're breakin up there, I got a 10-62</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_11">
+            <English>Please hold, it's a 10-6</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_12">
+            <English>Recieving poorly</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_13">
+            <English>Okay, we need to stop at the station, it's a 10-33</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_14">
+            <English>okay, there is too much traffic on this channel, It's a 10-75</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_15">
+            <English>This guy is from medford, drinking beer in his car. I'm gonna take him in</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_16">
+            <English>Two went off the 10-5</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_17">
+            <English>We got a cat up in a tree up in Jamaica plain can we get an officer to look at it?</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_18">
+            <English>We got too much static here, lets do a 10-27</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_19">
+            <English>We need it quick, 10-17 please</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_police_20">
+            <English>Where are you?</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_british_1">
+            <English>Ah fuck, I stepped in something</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_british_2">
+            <English>Baseplate, this is hammer 2-4, we have visual on the target. ETA 60 seconds</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_british_3">
+            <English>So, Do you think the lieutenant hates me?</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_british_4">
+            <English>Fan out. 3 meter spread</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_british_5">
+            <English>This is Hammer 2-4, we got tangos on the second floor</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_british_6">
+            <English>HQ this is Xray. We have nothing to report on our patrol. over</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_british_7">
+            <English>Kirk97, Kirk97, This is Slasher03, Say when ready to copy 8 figure grid reference</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_british_8">
+            <English>Stop lagging behind Karl!</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_voicepack_british_9">
+            <English>yeah</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_sounds_garbled">
+            <English>Garbled radio sound</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_sounds_jammer_charging">
+            <English>Drone jammer charging</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_sounds_jam_loop">
+            <English>Drone jam loop</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_sounds_jam_error">
+            <English>Drone jam error</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_sounds_jam_error_title">
+            <English>ERROR: Too weak Signal</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_sounds_radio_error">
+            <English>ERROR: Missing Icom radio in inventory</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_sounds_ugv_motor">
+            <English>UGV motor sound</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_sounds_drone_heli_motor">
+            <English>Helicopter drone motor</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_hints_jammed_drone">
+            <English>Drone is jammed. Connection lost.</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_error_jam_strength">
+            <English>dBm required for jamming</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_error_jam_strength_min">
+            <English>min</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_ctrack_no_ace_freq">
+            <English>Frequency for Tracker</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_ctrack_no_ace_freq_slider">
+            <English>Frequency (Unique)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_ctrack_no_ace_attach_self">
+            <English>&lt;t color=""#7fd7f5""&gt;Attach Ctrack to self</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_ctrack_no_ace_detach_self">
+            <English>&lt;t color=""#7fd7f5""&gt;Detach Ctrack from self</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_ctrack_no_ace_attach_vic">
+            <English>&lt;t color=""#30f0a9""&gt;Attach Ctrack to Vehicle</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_ctrack_no_ace_detach_vic">
+            <English>&lt;t color=""#30f0a9""&gt;Detach Ctrack from Vehicle</English>
+        </Key>
+	</Package>
+</Project>

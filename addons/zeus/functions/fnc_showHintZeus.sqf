@@ -10,7 +10,7 @@ Return:
 params ["_message"];
 
 if (call FUNC(isZeus)) then {
-	hint _message;
-	systemChat _message;
+	hint (_message call BIS_fnc_localize);
+	systemChat (_message call BIS_fnc_localize);
 	diag_log "CrowsEW: " + _message;
 };

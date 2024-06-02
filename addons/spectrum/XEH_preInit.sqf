@@ -7,7 +7,7 @@ ADDON = true;
 [
     QGVAR(spectrumEnable), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
-    "Enable Spectrum Device", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+    localize "STR_CROWSEW_Spectrum_settings_enable_device_name", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "Crows Electronic Warfare", // Pretty name of the category where the setting can be found. Can be stringtable entry.
     true, // data for this setting: [min, max, default, number of shown trailing decimals]
     nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
@@ -17,7 +17,7 @@ ADDON = true;
 [
     QGVAR(tfarSideTrack), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
-    ["Track Friendly with Radio Tracking", "Do you want your own side's radio transmissions to show on the spectrum device if Radio tracking is enabled?"], 
+    [localize "STR_CROWSEW_Spectrum_settings_radio_track_name", localize "STR_CROWSEW_Spectrum_settings_radio_track_tooltip"], 
     "Crows Electronic Warfare", 
     false, 
     nil
@@ -26,7 +26,7 @@ ADDON = true;
 [
     QGVAR(selfTracking), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
-    ["Self-Tracking", "Should you be able to see your own signal sources on the spectrum Device, or should they be hidden from view. If Tfar SideTrack setting is disabled, you won't see your own TFAR signal even if this setting is turned on"], 
+    [localize "STR_CROWSEW_Spectrum_settings_self_tracking", localize "STR_CROWSEW_Spectrum_settings_self_tracking_tooltip"], 
     "Crows Electronic Warfare",
     false,	// bool, disabled by default to stay with current behaviour
     nil
@@ -35,7 +35,7 @@ ADDON = true;
 [
     QGVAR(minJamSigStrength), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "SLIDER", // setting type
-    ["Minimum signal strength required for jamming", "Spectrum Device can not jam signals that are weaker than this value (in dBm)."], 
+    [localize "STR_CROWSEW_Spectrum_settings_min_jam_strength", localize "STR_CROWSEW_Spectrum_settings_min_jam_strength_tooltip"], 
     ["Crows Electronic Warfare"],
     [-100, 0, -40, 0],	// [_min, _max, _default, _trailingDecimals, _isPercentage]
     nil
@@ -45,8 +45,8 @@ ADDON = true;
 [
     QGVAR(defaultClassForJammingSignal), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "EDITBOX", // setting type
-    ["Default Jammable Drones", "The classnames that by default will spawn with spectrum signal and can be jammed. Change require mission restart. Comma seperated"], 
-    ["Crows Electronic Warfare", "Jamming"],
+    [localize "STR_CROWSEW_Spectrum_settings_default_jammable_drones", localize "STR_CROWSEW_Spectrum_settings_default_jammable_drones_tooltip"], 
+    ["Crows Electronic Warfare", localize "STR_CROWSEW_Spectrum_settings_jamming"],
     "UGV_01_base_F,UGV_02_Base_F,UAV_01_base_F,UAV_02_base_F,UAV_03_base_F,UAV_04_base_F,UAV_05_Base_F,UAV_06_base_F", // all drones & UGV by default
     true, // is global, gotta be equal for all
 	FUNC(jammableDronesInit),
@@ -219,11 +219,11 @@ GVAR(voiceLinesBritishWeights) = [
 // each pack in combined hashmap, key -> [list, weights, displayname]
 GVAR(voiceLinePacks) = createHashMap;
 // add packs
-GVAR(voiceLinePacks) set ["british", 			[GVAR(voiceLinesBritishList), GVAR(voiceLinesBritishWeights), "British"]];
-GVAR(voiceLinePacks) set ["morsecode", 			[GVAR(voiceLinesMorseCodeList), GVAR(voiceLinesMorseCodeWeights), "Morse Code"]];
-GVAR(voiceLinePacks) set ["electronic", 		[GVAR(voiceLinesElectronicList), GVAR(voiceLinesElectronicWeights), "Electronic"]];
-GVAR(voiceLinePacks) set ["alienElectronic", 	[GVAR(voiceLinesAlienElectronicList), GVAR(voiceLinesAlienElectronicWeights), "Alien Electronic"]];
-GVAR(voiceLinePacks) set ["police", 			[GVAR(voiceLinesPoliceList), GVAR(voiceLinesPoliceWeights), "Police Radio"]];
+GVAR(voiceLinePacks) set ["british", 			[GVAR(voiceLinesBritishList), GVAR(voiceLinesBritishWeights), localize "STR_CROWSEW_Spectrum_voiceline_british"]];
+GVAR(voiceLinePacks) set ["morsecode", 			[GVAR(voiceLinesMorseCodeList), GVAR(voiceLinesMorseCodeWeights), localize "STR_CROWSEW_Spectrum_voiceline_morse"]];
+GVAR(voiceLinePacks) set ["electronic", 		[GVAR(voiceLinesElectronicList), GVAR(voiceLinesElectronicWeights), localize "STR_CROWSEW_Spectrum_voiceline_electronic"]];
+GVAR(voiceLinePacks) set ["alienElectronic", 	[GVAR(voiceLinesAlienElectronicList), GVAR(voiceLinesAlienElectronicWeights), localize "STR_CROWSEW_Spectrum_voiceline_alien_electronic"]];
+GVAR(voiceLinePacks) set ["police", 			[GVAR(voiceLinesPoliceList), GVAR(voiceLinesPoliceWeights), localize "STR_CROWSEW_Spectrum_voiceline_police_radio"]];
 
 
 // Spectrum autoline settings
@@ -249,8 +249,8 @@ private _autolineColourLabels = GVAR(spectrumAutolineColours) apply { _x select 
 [
     QGVAR(spectrumAutoline), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
-    ["Spectrum Autoline", "Allow players to automatically draw map lines from their position in the direction they're facing, when aiming the Spectrum Device."+endl+"Player must have a GPS equipped."],
-    ["Crows Electronic Warfare", "Spectrum Autoline"],
+    [localize "STR_CROWSEW_Spectrum_settings_autoline_enable", parseText localize "STR_CROWSEW_Spectrum_settings_autoline_enable_tooltip"],
+    ["Crows Electronic Warfare", localize "STR_CROWSEW_Spectrum_settings_autoline_catageory"],
     true,
     nil
 ] call CBA_fnc_addSetting;
@@ -259,8 +259,8 @@ private _autolineColourLabels = GVAR(spectrumAutolineColours) apply { _x select 
 [
     QGVAR(spectrumAutolineLength), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "SLIDER", // setting type
-    ["Spectrum Autoline Length", "How long should the drawn autoline be, in meters."], 
-    ["Crows Electronic Warfare", "Spectrum Autoline"],
+    [localize "STR_CROWSEW_Spectrum_settings_autoline_length", localize "STR_CROWSEW_Spectrum_settings_autoline_length_tooltip"], 
+    ["Crows Electronic Warfare", localize "STR_CROWSEW_Spectrum_settings_autoline_catageory"],
     [200, 15000, 6000, 0],
     nil
 ] call CBA_fnc_addSetting;
@@ -268,8 +268,8 @@ private _autolineColourLabels = GVAR(spectrumAutolineColours) apply { _x select 
 [
     QGVAR(spectrumAutolineColor1), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "LIST", // setting type
-    ["Spectrum Autoline Colour 1", "Colour that should be associated with autoline hotkey 1."],
-    ["Crows Electronic Warfare", "Spectrum Autoline"],
+    [localize "STR_CROWSEW_Spectrum_settings_autoline_color1", localize "STR_CROWSEW_Spectrum_settings_autoline_color1_tooltip"],
+    ["Crows Electronic Warfare", localize "STR_CROWSEW_Spectrum_settings_autoline_catageory"],
     [_autolineColourIndexes, _autolineColourLabels, 2],
     nil
 ] call CBA_fnc_addSetting;
@@ -277,8 +277,8 @@ private _autolineColourLabels = GVAR(spectrumAutolineColours) apply { _x select 
 [
     QGVAR(spectrumAutolineColor2), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "LIST", // setting type
-    ["Spectrum Autoline Colour 2", "Colour that should be associated with autoline hotkey 2."],
-    ["Crows Electronic Warfare", "Spectrum Autoline"],
+    [localize "STR_CROWSEW_Spectrum_settings_autoline_color2", localize "STR_CROWSEW_Spectrum_settings_autoline_color2_tooltip"],
+    ["Crows Electronic Warfare", localize "STR_CROWSEW_Spectrum_settings_autoline_catageory"],
     [_autolineColourIndexes, _autolineColourLabels, 7],
     nil
 ] call CBA_fnc_addSetting;
@@ -286,8 +286,8 @@ private _autolineColourLabels = GVAR(spectrumAutolineColours) apply { _x select 
 [
     QGVAR(spectrumAutolineColor3), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "LIST", // setting type
-    ["Spectrum Autoline Colour 3", "Colour that should be associated with autoline hotkey 3."],
-    ["Crows Electronic Warfare", "Spectrum Autoline"],
+    [localize "STR_CROWSEW_Spectrum_settings_autoline_color3", localize "STR_CROWSEW_Spectrum_settings_autoline_color3_tooltip"],
+    ["Crows Electronic Warfare", localize "STR_CROWSEW_Spectrum_settings_autoline_catageory"],
     [_autolineColourIndexes, _autolineColourLabels, 8],
     nil
 ] call CBA_fnc_addSetting;
@@ -295,8 +295,8 @@ private _autolineColourLabels = GVAR(spectrumAutolineColours) apply { _x select 
 [
     QGVAR(spectrumAutolineColor4), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "LIST", // setting type
-    ["Spectrum Autoline Colour 4", "Colour that should be associated with autoline hotkey 4."],
-    ["Crows Electronic Warfare", "Spectrum Autoline"],
+    [localize "STR_CROWSEW_Spectrum_settings_autoline_color4", localize "STR_CROWSEW_Spectrum_settings_autoline_color4_tooltip"],
+    ["Crows Electronic Warfare", localize "STR_CROWSEW_Spectrum_settings_autoline_catageory"],
     [_autolineColourIndexes, _autolineColourLabels, 5],
     nil
 ] call CBA_fnc_addSetting;
@@ -304,8 +304,8 @@ private _autolineColourLabels = GVAR(spectrumAutolineColours) apply { _x select 
 [
     QGVAR(spectrumAutolineNoise), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "SLIDER", // setting type
-    ["Spectrum Autoline Start Deviation", "How much the start of the autoline should differ from the player's actual position, in meters."+endl+"0 is perfectly accurate; 100 is (up to) a 100m deviation."], 
-    ["Crows Electronic Warfare", "Spectrum Autoline"],
+    [localize "STR_CROWSEW_Spectrum_settings_autoline_deviation", parseText localize "STR_CROWSEW_Spectrum_settings_autoline_deviation_tooltip"], 
+    ["Crows Electronic Warfare", localize "STR_CROWSEW_Spectrum_settings_autoline_catageory"],
     [0, 100, 0, 0],
     nil
 ] call CBA_fnc_addSetting;
@@ -315,7 +315,7 @@ private _autolineColourLabels = GVAR(spectrumAutolineColours) apply { _x select 
 GVAR(spectrumAutolineC1Keybind) = [
     ["Crows Electronic Warfare", "Spectrum"],
     "spectrum_autoline_c1", 
-    ["Spectrum Autoline (Colour 1)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
+    [localize "STR_CROWSEW_Spectrum_keybinds_autoline_color1", parseText localize "STR_CROWSEW_Spectrum_keybinds_autoline_tooltip"], 
     { [GVAR(spectrumAutolineColor1)] call FUNC(drawSpectrumLine); }, 
     "", 
     [DIK_SPACE, [false, false, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
@@ -325,7 +325,7 @@ GVAR(spectrumAutolineC1Keybind) = [
 GVAR(spectrumAutolineC2Keybind) = [
     ["Crows Electronic Warfare", "Spectrum"],
     "spectrum_autoline_c2", 
-    ["Spectrum Autoline (Colour 2)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
+    [localize "STR_CROWSEW_Spectrum_keybinds_autoline_color2", parseText localize "STR_CROWSEW_Spectrum_keybinds_autoline_tooltip"], 
     { [GVAR(spectrumAutolineColor2)] call FUNC(drawSpectrumLine); }, 
     "", 
     [DIK_SPACE, [false, true, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
@@ -335,7 +335,7 @@ GVAR(spectrumAutolineC2Keybind) = [
 GVAR(spectrumAutolineC3Keybind) = [
     ["Crows Electronic Warfare", "Spectrum"],
     "spectrum_autoline_c3", 
-    ["Spectrum Autoline (Colour 3)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
+    [localize "STR_CROWSEW_Spectrum_keybinds_autoline_color3", parseText localize "STR_CROWSEW_Spectrum_keybinds_autoline_tooltip"], 
     { [GVAR(spectrumAutolineColor3)] call FUNC(drawSpectrumLine); }, 
     "", 
     [DIK_SPACE, [true, false, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
@@ -345,7 +345,7 @@ GVAR(spectrumAutolineC3Keybind) = [
 GVAR(spectrumAutolineC4Keybind) = [
     ["Crows Electronic Warfare", "Spectrum"],
     "spectrum_autoline_c4", 
-    ["Spectrum Autoline (Colour 4)", "Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device."+endl+"Player must have a GPS equipped."], 
+    [localize "STR_CROWSEW_Spectrum_keybinds_autoline_color4", parseText localize "STR_CROWSEW_Spectrum_keybinds_autoline_tooltip"], 
     { [GVAR(spectrumAutolineColor4)] call FUNC(drawSpectrumLine); }, 
     "", 
     [DIK_SPACE, [false, false, true]], // [DIK code, [Shift?, Ctrl?, Alt?]]

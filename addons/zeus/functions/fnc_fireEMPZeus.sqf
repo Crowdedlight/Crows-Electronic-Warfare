@@ -29,12 +29,12 @@ private _onConfirm =
 	[QEGVAR(emp,eventFireEMP), [_pos, _unit, _range, _spawnDevice, _scopeMode, _binoMode]] call CBA_fnc_serverEvent;		
 };
 [
-	"Fire EMP", 
+	localize "STR_CROWSEW_Zeus_fireemp_name", 
 	[
-		["SLIDER","Range [m]",[50,2500,500,0]],
-		["CHECKBOX",["Spawn EMP Object?", "Spawn 'the device' object as EMP source?"],[false]],
-		["TOOLBOX:wide", ["NV/Thermal Scopes", "How should scopes with built-in thermal and NV be handled"], [1, 1, 3, ["No Removal", "Replace with base-game item", "Removal"]]],
-		["TOOLBOX:WIDE", ["Binoculars", "How should binoculars with built-in thermal and NV be handled"], [1, 1, 3, ["No Removal", "Replace with base-game item", "Removal"]]]
+		["SLIDER",localize "STR_CROWSEW_Zeus_fireemp_range",[50,2500,500,0]],
+		["CHECKBOX",[localize "STR_CROWSEW_Zeus_fireemp_spawn_device", localize "STR_CROWSEW_Zeus_fireemp_spawn_device_tooltip"],[false]],
+		["TOOLBOX:wide", [localize "STR_CROWSEW_Editormodules_emp_scopes_name", localize "STR_CROWSEW_Editormodules_emp_scopes_tooltip"], [1, 1, 3, [localize "STR_CROWSEW_Editormodules_emp_options_no_removal", localize "STR_CROWSEW_Editormodules_emp_options_replace_basegame", localize "STR_CROWSEW_Editormodules_emp_options_removal"]]],
+		["TOOLBOX:WIDE", [localize "STR_CROWSEW_Editormodules_emp_bino_name", localize "STR_CROWSEW_Editormodules_emp_bino_tooltip"], [1, 1, 3, [localize "STR_CROWSEW_Editormodules_emp_options_no_removal", localize "STR_CROWSEW_Editormodules_emp_options_replace_basegame", localize "STR_CROWSEW_Editormodules_emp_options_removal"]]]
 	],
 	_onConfirm,
 	{},

@@ -31,9 +31,9 @@ GVAR(AskFreqCtrack) = {
 	private _signalRange = GVAR(spectrumDeviceFrequencyRange)#1;
 	private _half = _signalRange#0 + _signalRange#2/2;
 	[
-		"Frequency for Tracker", 
+		localize "STR_CROWSEW_Spectrum_ctrack_no_ace_freq", 
 		[
-			["SLIDER","Frequency (Unique)",[_signalRange#0,_signalRange#1,_half,1]] //min freq to max, default midpoint and showing 1 decimal
+			["SLIDER",localize "STR_CROWSEW_Spectrum_ctrack_no_ace_freq_slider",[_signalRange#0,_signalRange#1,_half,1]] //min freq to max, default midpoint and showing 1 decimal
 		],
 		GVAR(ctrackAskFreqOnConfirmNoAce),
 		{},
@@ -120,12 +120,12 @@ GVAR(ctrackDetachFromTarget) = {
 };
 
 // add scroll wheel for "attaching ctrack to target" and "attaching ctrack to self". 
-player addAction ["<t color=""#7fd7f5"">Attach Ctrack to self", {_this call GVAR(ctrackAttachToSelf);}, nil, 1, false, true, "", QUOTE(([_this] call GVAR(hasCtrackCondition)) && {!([_this] call GVAR(hasBeaconAlreadyCondition))})];
+player addAction [localize "STR_CROWSEW_Spectrum_ctrack_no_ace_attach_self", {_this call GVAR(ctrackAttachToSelf);}, nil, 1, false, true, "", QUOTE(([_this] call GVAR(hasCtrackCondition)) && {!([_this] call GVAR(hasBeaconAlreadyCondition))})];
 // add scroll wheel for "detaching ctrack from self"
-player addAction ["<t color=""#7fd7f5"">Detach Ctrack from self", {_this call GVAR(ctrackDetachFromSelf);}, nil, 1, false, true, "", QUOTE([_this] call GVAR(hasBeaconAlreadyCondition))];
+player addAction [localize "STR_CROWSEW_Spectrum_ctrack_no_ace_detach_self", {_this call GVAR(ctrackDetachFromSelf);}, nil, 1, false, true, "", QUOTE([_this] call GVAR(hasBeaconAlreadyCondition))];
 
 // add scroll wheel for adding ctrack to vehicles/objects
-player addAction ["<t color=""#30f0a9"">Attach Ctrack to Vehicle", {_this call GVAR(ctrackAttachToTarget);}, nil, 1, false, true, "", QUOTE(([_this] call GVAR(hasCtrackCondition)) && { ([_this] call GVAR(hasVehicleInFrontCondition)) && {!([_this] call GVAR(targetHasBeaconAlreadyCondition))}})];
+player addAction [localize "STR_CROWSEW_Spectrum_ctrack_no_ace_attach_vic", {_this call GVAR(ctrackAttachToTarget);}, nil, 1, false, true, "", QUOTE(([_this] call GVAR(hasCtrackCondition)) && { ([_this] call GVAR(hasVehicleInFrontCondition)) && {!([_this] call GVAR(targetHasBeaconAlreadyCondition))}})];
 // add scroll wheel for detaching ctrack to vehicles/objects
-player addAction ["<t color=""#30f0a9"">Detach Ctrack from Vehicle", {_this call GVAR(ctrackDetachFromTarget);}, nil, 1, false, true, "", QUOTE(([_this] call GVAR(hasVehicleInFrontCondition)) && {([_this] call GVAR(targetHasBeaconAlreadyCondition))})];
+player addAction [localize "STR_CROWSEW_Spectrum_ctrack_no_ace_detach_vic", {_this call GVAR(ctrackDetachFromTarget);}, nil, 1, false, true, "", QUOTE(([_this] call GVAR(hasVehicleInFrontCondition)) && {([_this] call GVAR(targetHasBeaconAlreadyCondition))})];
 

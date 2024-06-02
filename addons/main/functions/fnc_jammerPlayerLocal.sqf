@@ -95,7 +95,7 @@ if (!isNull _drone) then {
 	if (_distDroneToJammer < _radEffective) then {
 		// hardest actions to take when being inside the jammer area
 		player connectTerminalToUAV objNull; // disconnect player from drone
-		hint parseText "Drone is jammed<br/><t color='#ff0000'>Connection lost</t>";	// notify player why this happened
+		hint parseText localize "STR_CROWSEW_Main_jammer_drone_jammed";	// notify player why this happened
 		// jamming of non player controlled drones is handled in fnc_jammerServerLoop.sqf.
 	} else {
 		// less intense actions when drone is only approaching the jammer area (gives pilot time to react to the presence of the jammer)

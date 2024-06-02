@@ -31,9 +31,9 @@ private _onConfirm =
 // get current value and set default value of toggle based on that
 private _empImmune = _unit getVariable [QEGVAR(emp,immuneEMP), false];
 [
-	"Set Immune to EMP", 
+	localize "STR_CROWSEW_Zeus_emp_immune_name", 
 	[
-		["TOOLBOX:YESNO", ["Immunity to EMP", "Makes the unit immune to EMPs"], [_empImmune], true]
+		["TOOLBOX:YESNO", [localize "STR_CROWSEW_Zeus_emp_immune_displayname", localize "STR_CROWSEW_Zeus_emp_immune_tooltip"], [_empImmune], true]
 	],
 	_onConfirm,
 	{},

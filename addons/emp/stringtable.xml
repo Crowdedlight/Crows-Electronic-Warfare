@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project name="Crows Electronic Warfare">
+	<Package name="EMP">
+        <Key ID="STR_CROWSEW_EMP_device_name">
+            <English>Device (EMP)</English>
+        </Key>
+	</Package>
+</Project>

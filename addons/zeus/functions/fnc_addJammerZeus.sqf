@@ -53,22 +53,22 @@ private _onConfirm =
 	[QEGVAR(sounds,setSoundEnable), [_unit, _isActiveAtMissionStart]] call CBA_fnc_serverEvent;
 };
 [
-	"Jammer", 
+	localize "STR_CROWSEW_Zeus_addjammer_name", 
 	[
-		["CHECKBOX","Start jamming as soon as placed",[true]], // defaults to true because this is a well established feature
-		["CHECKBOX","Jam voice communication signals",[true]], // defaults to true because this is a well established feature
-		["CHECKBOX","Jam drone signals",[false]], // defaults to false because this feature is new and might be unexpected
+		["CHECKBOX",localize "STR_CROWSEW_Zeus_addjammer_start_when_placed",[true]], // defaults to true because this is a well established feature
+		["CHECKBOX",localize "STR_CROWSEW_Zeus_addjammer_jam_radio",[true]], // defaults to true because this is a well established feature
+		["CHECKBOX",localize "STR_CROWSEW_Zeus_addjammer__jam_drones",[false]], // defaults to false because this feature is new and might be unexpected
 		["SLIDER",
 		[
-			"Jamming Effective Radius", 
-			"The area that will have 100% jamming"	
+			localize "STR_CROWSEW_Zeus_addjammer__effective_radius", 
+			localize "STR_CROWSEW_Zeus_addjammer_effective_radius_tooltip"	
 		],
 		[10,5000,200,0] //10 to 5000, default 200 and showing 0 decimal
 		],
 		["SLIDER",
 			[
-				"Jamming Falloff Radius", 
-				"Linear buffer where there will be 0 jamming at start, and when it meet effective radius its fully jammed"
+				localize "STR_CROWSEW_Zeus_addjammer_falloff_radius", 
+				localize "STR_CROWSEW_Zeus_addjammer_falloff_radius_tooltip"
 			],
 			[10,5000,400,0] //10 to 5000, default 300 and showing 0 decimal.
 		]

@@ -18,7 +18,7 @@ _units = param [1,[],[[]]];
 _activated = param [2,true,[true]];
 
 if (count _units < 1) exitWith {
-	[QEGVAR(zeus,showHintZeus), ["AddSignalSource editor module requires one unit/object synced to it as signal source"]] call CBA_fnc_globalEvent;
+	[QEGVAR(zeus,showHintZeus), ["STR_CROWSEW_Editormodules_addsignal_error"]] call CBA_fnc_globalEvent;
 };
 
 // Module specific behavior. Function can extract arguments from logic and use them.
@@ -26,8 +26,9 @@ if (_activated) then {
 	// Attribute values are saved in module's object space under their class names
 	private _freq = _logic getVariable ["Frequency",0];
 	private _range = _logic getVariable ["Range",0];
-	[QEGVAR(spectrum,addBeacon), [_units#0, _freq, _range, "zeus"]] call CBA_fnc_serverEvent;
+	{
+		[QEGVAR(spectrum,addBeacon), [_x, _freq, _range, "zeus"]] call CBA_fnc_serverEvent;
+	} forEach _units;
 };
 // Module function is executed by spawn command, so returned value is not necessary, but it is good practice.
-
 true;

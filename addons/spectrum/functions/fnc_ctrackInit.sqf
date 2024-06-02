@@ -66,9 +66,9 @@ private _onConfirm =
 private _signalRange = GVAR(spectrumDeviceFrequencyRange)#1;
 private _half = _signalRange#0 + _signalRange#2/2;
 [
-	"Frequency for Tracker", 
+	localize "STR_CROWSEW_Spectrum_ctrack_no_ace_freq", 
 	[
-		["SLIDER","Frequency (Unique)",[_signalRange#0,_signalRange#1,_half,1]] //min freq to max, default midpoint and showing 1 decimal
+		["SLIDER",localize "STR_CROWSEW_Spectrum_ctrack_no_ace_freq_slider",[_signalRange#0,_signalRange#1,_half,1]] //min freq to max, default midpoint and showing 1 decimal
 	],
 	_onConfirm,
 	{},

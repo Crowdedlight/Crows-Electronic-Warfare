@@ -25,9 +25,9 @@ private _onConfirm =
 };
 
 [
-	"Radio Tracking", 
+	localize "STR_CROWSEW_Zeus_radiotracking_name", 
 	[
-		["TOOLBOX:YESNO", ["Enable Radio Tracking", "Makes Radio transmission trackable with spectrum analyzer"], [EGVAR(spectrum,radioTrackingEnabled)], true]
+		["TOOLBOX:YESNO", [localize "STR_CROWSEW_Zeus_radiotracking_enable", localize "STR_CROWSEW_Zeus_radiotracking_enable_tooltip"], [EGVAR(spectrum,radioTrackingEnabled)], true]
 	],
 	_onConfirm,
 	{},

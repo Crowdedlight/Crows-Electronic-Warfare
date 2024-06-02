@@ -19,7 +19,7 @@ _activated = param [2,true,[true]];
 sleep 1;
 
 if (count _units < 1) exitWith {
-	[QEGVAR(zeus,showHintZeus), ["AddRadioTrackerChatter editor module requires one unit/object synced to it as source"]] call CBA_fnc_globalEvent;
+	[QEGVAR(zeus,showHintZeus), ["STR_CROWSEW_Editormodules_radiochatter_error"]] call CBA_fnc_globalEvent;
 };
 
 // Module specific behavior. Function can extract arguments from logic and use them.

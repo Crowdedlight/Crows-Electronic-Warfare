@@ -95,7 +95,7 @@ if (_enableJam) then {
 			private _droneUsers = (UAVControl _unit) select { !(_x isEqualType "String") };	 // leave only player objects
 			{
 				[QGVAR(disconnectPlayerUAV), [_x], _x] call CBA_fnc_targetEvent;
-				["zen_common_hint", ["Drone is jammed. Connection lost."], _x] call CBA_fnc_targetEvent; // notify player why this happened 
+				[QEGVAR(zeus,hintPlayer), ["STR_CROWSEW_Spectrum_hints_jammed_drone"], _x] call CBA_fnc_targetEvent; // notify player why this happened 
 				/* NOTE: Don't use Structured Text for the remote executed hint or the server will show "Performance warning" messages in RPT log.
 				         (see https://community.bistudio.com/wiki/Structured_Text for details)  */
 			} forEach _droneUsers;

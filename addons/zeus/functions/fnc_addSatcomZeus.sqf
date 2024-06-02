@@ -23,15 +23,15 @@ private _onConfirm =
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 	
 	// if object is null, we exit
-	if (isNull _unit) exitWith { hint "Have to be placed on object!"};
+	if (isNull _unit) exitWith { hint localize "STR_CROWSEW_Zeus_error_on_object"};
 
 	// broadcast event to all clients and JIP
 	[QEGVAR(main,addSatcom), [_unit, round _rad]] call CBA_fnc_serverEvent;
 };
 [
-	"TFAR Set SATCOM", 
+	localize "STR_CROWSEW_Zeus_addsatcom_name", 
 	[
-		["SLIDER","SATCOM Radius",[1,50,20,0]] //10 to 5000, default 500 and showing 0 decimal.
+		["SLIDER",localize "STR_CROWSEW_Zeus_addsatcom_radius",[1,50,20,0]] //10 to 5000, default 500 and showing 0 decimal.
 	],
 	_onConfirm,
 	{},
