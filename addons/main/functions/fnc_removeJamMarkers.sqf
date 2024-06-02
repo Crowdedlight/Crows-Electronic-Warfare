@@ -13,4 +13,5 @@ params ["_netIDs"];
 
 {
 	deletemarkerLocal _x;
+	deletemarkerLocal _x + "_effective";
 } foreach _netIDs;
