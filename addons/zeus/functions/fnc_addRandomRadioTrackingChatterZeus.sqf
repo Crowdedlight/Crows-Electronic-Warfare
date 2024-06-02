@@ -30,7 +30,7 @@ private _onConfirm =
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 	
 	// if object is null, we can't start the jamming
-	if (_unit == objNull) exitWith {hint "You have to select a unit";};
+	if (_unit == objNull) exitWith {hint localize "STR_CROWSEW_Zeus_error_select_unit";};
 
 	// broadcast event to all clients and JIP
 	[QEGVAR(spectrum,addRandomRadioTrackingChatter), [_unit, _range, [_pauseMin, _pauseMax], [_durationMin, _durationMax], [_freqMin, _freqMax], _voicePack]] call CBA_fnc_serverEvent;
@@ -50,16 +50,16 @@ private _signalRange = EGVAR(spectrum,spectrumDeviceFrequencyRange)#0;
 private _half = _signalRange#0 + _signalRange#2/2;
 
 [
-	"Set Spectrum Signal Source", 
+	localize "STR_CROWSEW_Zeus_setsignal_name", 
 	[
-		["COMBO",["VoicePack", "Select what voicepack to use when people listen to the transmitted signal"],[_keyNameArr, _displayNameArr, 0]],
-		["SLIDER",["Frequency min.", "The minimum frequency used. Recommend small interval"],[_signalRange#0,_signalRange#1,_half-10,1]], //60 to 250, default 220 and showing 1 decimal
-		["SLIDER",["Frequency max.", "The maximum frequency used. Recommend small interval"],[_signalRange#0,_signalRange#1,_half+10,1]], //60 to 250, default 221 and showing 1 decimal
-		["SLIDER","Range",[1,10000,2000,0]], //1 to 10000, default 2000 and showing 0 decimal
-		["SLIDER",["Duration min.", "The minimum duration of each chatter broadcast"],[4,40,5,0]], //1 to 40, default 5 and showing 0 decimal
-		["SLIDER",["Duration max.", "The maximum duration of each chatter broadcast"],[4,100,30,0]], //1 to 100, default 30 and showing 0 decimal
-		["SLIDER",["Pause min.", "The minimum time between chatter broadcasts"],[1,40,5,0]], //1 to 40, default 5 and showing 0 decimal
-		["SLIDER",["Pause max.", "The minimum time between chatter broadcasts"],[1,100,10,0]] //1 to 100, default 30 and showing 0 decimal
+		["COMBO",[localize "STR_CROWSEW_Zeus_addradiochatter_voicepack", localize "STR_CROWSEW_Zeus_addradiochatter_voicepack_tooltip"],[_keyNameArr, _displayNameArr, 0]],
+		["SLIDER",[localize "STR_CROWSEW_Zeus_addradiochatter_freq_min", localize "STR_CROWSEW_Zeus_addradiochatter_freq_min_tooltip"],[_signalRange#0,_signalRange#1,_half-10,1]], //60 to 250, default 220 and showing 1 decimal
+		["SLIDER",[localize "STR_CROWSEW_Zeus_addradiochatter_freq_max", localize "STR_CROWSEW_Zeus_addradiochatter_freq_max_tooltip"],[_signalRange#0,_signalRange#1,_half+10,1]], //60 to 250, default 221 and showing 1 decimal
+		["SLIDER",localize "STR_CROWSEW_Zeus_addradiochatter_range",[1,10000,2000,0]], //1 to 10000, default 2000 and showing 0 decimal
+		["SLIDER",[localize "STR_CROWSEW_Zeus_addradiochatter_duration_min", localize "STR_CROWSEW_Zeus_addradiochatter_duration_min_tooltip"],[4,40,5,0]], //1 to 40, default 5 and showing 0 decimal
+		["SLIDER",[localize "STR_CROWSEW_Zeus_addradiochatter_duration_max", localize "STR_CROWSEW_Zeus_addradiochatter_duration_max_tooltip"],[4,100,30,0]], //1 to 100, default 30 and showing 0 decimal
+		["SLIDER",[localize "STR_CROWSEW_Zeus_addradiochatter_pause_min", localize "STR_CROWSEW_Zeus_addradiochatter_pause_min_tooltip"],[1,40,5,0]], //1 to 40, default 5 and showing 0 decimal
+		["SLIDER",[localize "STR_CROWSEW_Zeus_addradiochatter_pause_max", localize "STR_CROWSEW_Zeus_addradiochatter_pause_max_tooltip"],[1,100,10,0]] //1 to 100, default 30 and showing 0 decimal
 	],
 	_onConfirm,
 	{},

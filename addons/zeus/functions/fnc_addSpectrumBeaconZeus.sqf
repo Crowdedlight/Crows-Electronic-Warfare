@@ -24,7 +24,7 @@ private _onConfirm =
 	_in params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 	
 	// if object is null, we can't start the jamming
-	if (_unit == objNull) exitWith {hint "You have to select a object as signal source";};
+	if (_unit == objNull) exitWith {hint localize "STR_CROWSEW_Zeus_error_signal";};
 
 	// broadcast event to all clients and JIP
 	[QEGVAR(spectrum,addBeacon), [_unit, _freq, _range, "zeus"]] call CBA_fnc_serverEvent;
@@ -37,8 +37,8 @@ private _half = _signalRange#0 + _signalRange#2/2;
 [
 	"Set Spectrum Signal Source", 
 	[
-		["SLIDER","Frequency (Unique)",[_signalRange#0,_signalRange#1,_half,1]], //520 to 1090, default half and showing 1 decimal
-		["SLIDER","Range it can be seen from",[1,5000,300,0]] //1 to 5000, default 300 and showing 0 decimal
+		["SLIDER",localize "STR_CROWSEW_Spectrum_ctrack_no_ace_freq_slider",[_signalRange#0,_signalRange#1,_half,1]], //520 to 1090, default half and showing 1 decimal
+		["SLIDER",localize "STR_CROWSEW_Editormodules_addsignalsource_range_tooltip",[1,5000,300,0]] //1 to 5000, default 300 and showing 0 decimal
 	],
 	_onConfirm,
 	{},

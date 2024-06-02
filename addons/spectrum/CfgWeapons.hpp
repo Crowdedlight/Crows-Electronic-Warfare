@@ -8,7 +8,7 @@
 		author = "Bohemia Interactive";
 		_generalMacro = "muzzle_antenna_01_f";
 		scope = PUBLIC;
-		displayName = "SD Military Antenna (30-513 MHz)";
+		displayName = "$STR_CROWSEW_Spectrum_antenna_military_name";
 		picture = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_01_ca.paa";
 		model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_01_F";
 		class EM
@@ -21,7 +21,7 @@
 		author = "Bohemia Interactive";
 		_generalMacro = "muzzle_antenna_02_f";
 		scope = PUBLIC;
-		displayName = "SD Experimental Antenna (520-1090 MHz)";
+		displayName = "$STR_CROWSEW_Spectrum_antenna_experimental_name";
 		picture = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_02_ca.paa";
 		model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_02_F";
 		class EM
@@ -34,7 +34,7 @@
 		author = "Bohemia Interactive";
 		_generalMacro = "muzzle_antenna_03_f";
 		scope = PUBLIC;
-		displayName = "SD Jammer Antenna (433-445 MHz)";
+		displayName = "$STR_CROWSEW_Spectrum_antenna_jammer_name";
 		picture = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_03_ca.paa";
 		model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_03_F";
 		class EM
@@ -48,8 +48,8 @@
 	class CBA_MiscItem_ItemInfo;
 	class crowsew_tfar_icom: CBA_MiscItem {
 		author = "Crowdedlight";
-		displayName = "Icom";
-		descriptionShort = "Radio used together with Spectrum Device to listen to tracked TFAR signals";
+		displayName = "$STR_CROWSEW_Spectrum_icom_name";
+		descriptionShort = "$STR_CROWSEW_Spectrum_icom_description";
 		scope = PUBLIC;
 		scopeCurator = PUBLIC;
 		model = "\a3\Weapons_F\Ammo\mag_radio.p3d";
@@ -72,8 +72,8 @@
 	// C-TRACK
 	class crowsew_ctrack: CBA_MiscItem {
 		author = "Crowdedlight";
-		displayName = "C-TRACK (3km)";
-		descriptionShort = "Tracking device that can be put on objects to make them trackable with spectrum device";
+		displayName = "$STR_CROWSEW_Spectrum_ctrack_name";
+		descriptionShort = "$STR_CROWSEW_Spectrum_ctrack_description";
 		scope = PUBLIC;
 		scopeCurator = PUBLIC;
 		model = QPATHTOF(data\c_track\c_track.p3d);
@@ -93,8 +93,8 @@
 	// C-MOTION
 	class crowsew_cmotion: CBA_MiscItem {
 		author = "Crowdedlight";
-		displayName = "C-MOTION";
-		descriptionShort = "Tracking device that gets triggered by motion and sends signals that can be seen with the spectrum device";
+		displayName = "$STR_CROWSEW_Spectrum_cmotion_name";
+		descriptionShort = "$STR_CROWSEW_Spectrum_cmotion_description";
 		scope = HIDDEN;
 		scopeCurator = HIDDEN;
 		model = QPATHTOF(data\c_motion\c_motion.p3d);

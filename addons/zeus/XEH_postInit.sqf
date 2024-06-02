@@ -9,11 +9,17 @@ call FUNC(zeusRegister);
 // register hint to zeus callback
 [QGVAR(showHintZeus), FUNC(showHintZeus)] call CBA_fnc_addEventHandler;
 
+// show hint player
+[QGVAR(hintPlayer), {
+    params ["_message"];
+	hint (_message call BIS_fnc_localize);
+}] call CBA_fnc_addEventHandler;
+
 // register CBA keybinding to toggle zeus-drawn text
 GVAR(zeusTextDisplayKeybind) = [
 	["Crows Electronic Warfare", "Zeus"],
 	"zeus_text_display", 
-	["Show help display text", "Shows text in zeus view for units with applied modules"], 
+	[localize "STR_CROWSEW_Zeus_keybind_text_name", localise "STR_CROWSEW_Zeus_keybind_text_tooltip"], 
 	{GVAR(zeusTextDisplay) = !GVAR(zeusTextDisplay)}, 
 	"", 
 	[DIK_I, [true, true, false]], // [DIK code, [Shift?, Ctrl?, Alt?]] => default: ctrl + shift + i

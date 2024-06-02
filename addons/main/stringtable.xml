@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project name="Crows Electronic Warfare">
+	<Package name="main">
+        <Key ID="STR_CROWSEW_Main_device_name">
+            <English>Device (EMP)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Main_jammer_activate_action_name">
+            <English>Activate jammer</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Main_jammer_deactivate_action_name">
+            <English>De-activate jammer</English>
+        </Key>        
+        <Key ID="STR_CROWSEW_Main_jammer_drone_jammed">
+            <English>Drone is jammed&lt;br/&gt;&lt;t color='#ff0000'&gt;Connection lost&lt;/t&gt;</English>
+        </Key>
+	</Package>
+</Project>

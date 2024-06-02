@@ -19,7 +19,7 @@ _activated = param [2,true,[true]];
 sleep 1;
 
 if (EGVAR(zeus,hasTFAR) == false) exitWith {
-	[QEGVAR(zeus,showHintZeus), ["EnableTrackingTFAR editor module requires TFAR to be loaded to work"]] call CBA_fnc_globalEvent;
+	[QEGVAR(zeus,showHintZeus), ["STR_CROWSEW_Editormodules_trackingtfar_error"]] call CBA_fnc_globalEvent;
 };
 
 // Module specific behavior. Function can extract arguments from logic and use them.

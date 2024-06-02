@@ -34,7 +34,7 @@ class CfgVehicles
 	{
 		// Standard object definitions:
 		scope = 2;										// Editor visibility; 2 will show it in the menu, 1 will hide it.
-		displayName = "Add Signal Source";				// Name displayed in the menu
+		displayName = "$STR_CROWSEW_Editormodules_addsignalsource";				// Name displayed in the menu
 		icon = QPATHTOEF(zeus,data\spectrum_signal.paa);	// Map icon. Delete this entry to use the default icon.
 		vehicleClass = "Modules";
 		category = "crowsEW_modules";
@@ -55,18 +55,18 @@ class CfgVehicles
 			// Module-specific arguments:
 			class Frequency: Edit
 			{
-				property = QGVAR(addsignalsource_freq);							// Unique property (use "<tag>_<moduleClass>_<attributeClass>" format to ensure that the name is unique)
-				displayName = "Frequency (520Mhz to 1090Mhz)";					// Argument label
-				tooltip = "What frequency the Signal source will broadcast on";	// Tooltip description
-				typeName = "NUMBER";											// Value type, can be "NUMBER", "STRING" or "BOOL"
-				defaultValue = "805";											// Default attribute value. Warning: This is an expression, and its returned value will be used (50 in this case).
+				property = QGVAR(addsignalsource_freq);												// Unique property (use "<tag>_<moduleClass>_<attributeClass>" format to ensure that the name is unique)
+				displayName = "$STR_CROWSEW_Editormodules_addsignalsource_frequency_displayname";	// Argument label
+				tooltip = "$STR_CROWSEW_Editormodules_addsignalsource_frequency_tooltip";			// Tooltip description
+				typeName = "NUMBER";																// Value type, can be "NUMBER", "STRING" or "BOOL"
+				defaultValue = "805";																// Default attribute value. Warning: This is an expression, and its returned value will be used (50 in this case).
 			};
 
 			class Range: Edit
 			{
 				property = QGVAR(addsignalsource_range);
-				displayName = "Range (1m to 5000m)";
-				tooltip = "Range it can be seen from";
+				displayName = "$STR_CROWSEW_Editormodules_addsignalsource_range_displayname";
+				tooltip = "$STR_CROWSEW_Editormodules_addsignalsource_range_tooltip";
 				typeName = "NUMBER";
 				defaultValue = "300";
 			};			
@@ -76,7 +76,7 @@ class CfgVehicles
 
 		class ModuleDescription: ModuleDescription 
 		{
-			description = "Sets a signal source to the synced object with the chosen range and frequency.";	// Short description, will be formatted as structured text
+			description = "$STR_CROWSEW_Editormodules_addsignalsource_description";	// Short description, will be formatted as structured text
 		};
 	};
 
@@ -85,7 +85,7 @@ class CfgVehicles
 	{
 		// Standard object definitions:
 		scope = 2;										
-		displayName = "Add Jammer";				
+		displayName = "$STR_CROWSEW_Editormodules_jammer_displayname";				
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa";	
 		vehicleClass = "Modules";
 		category = "crowsEW_modules";
@@ -106,8 +106,8 @@ class CfgVehicles
 			class IsActiveAtMissionStart: Checkbox
 			{
 				property = QGVAR(addjammer_isActiveAtMissionStart);
-				displayName = "Jammer active at mission start";
-				tooltip = "Should this jammer start working right from the start of the mission?";
+				displayName = "$STR_CROWSEW_Editormodules_jammer_missionstart_name";
+				tooltip = "$STR_CROWSEW_Editormodules_jammer_missionstart_tooltip";
 				typeName = "BOOL";
 				defaultValue = "true";
 			};
@@ -115,8 +115,8 @@ class CfgVehicles
 			class IsVoiceCommsJammer: Checkbox
 			{
 				property = QGVAR(addjammer_isVoiceCommsJammer);
-				displayName = "Jam voice communication signals";
-				tooltip = "Should this jammer effect players voice communication (e.g. via TFAR)?";
+				displayName = "$STR_CROWSEW_Editormodules_jammer_voicecomms_name";
+				tooltip = "$STR_CROWSEW_Editormodules_jammer_voicecomms_tooltip";
 				typeName = "BOOL";
 				defaultValue = "true";
 			};
@@ -124,8 +124,8 @@ class CfgVehicles
 			class IsDroneJammer: Checkbox
 			{
 				property = QGVAR(addjammer_isDroneJammer);
-				displayName = "Jam drone signals";
-				tooltip = "Should this jammer effect drones?";
+				displayName = "$STR_CROWSEW_Editormodules_jammer_drones_name";
+				tooltip = "$STR_CROWSEW_Editormodules_jammer_drones_tooltip";
 				typeName = "BOOL";
 				defaultValue = "false";
 			};
@@ -133,8 +133,8 @@ class CfgVehicles
 			class EffectiveRadius: Edit
 			{
 				property = QGVAR(addjammer_radius);							
-				displayName = "Effective Radius (10 to 5000m)";					
-				tooltip = "The area that will have 100% jamming, which will also be indicated on map";	
+				displayName = "$STR_CROWSEW_Editormodules_jammer_effective_radius_name";					
+				tooltip = "$STR_CROWSEW_Editormodules_jammer_effective_radius_tooltip";	
 				typeName = "NUMBER";											
 				defaultValue = "200";											
 			};
@@ -142,8 +142,8 @@ class CfgVehicles
 			class FalloffRadius: Edit
 			{
 				property = QGVAR(addjammer_strength);
-				displayName = "Falloff Radius (10 to 5000m)";
-				tooltip = "Linear buffer where there will be 0 jamming at start, and when it meet effective radius its fully jammed.";
+				displayName = "$STR_CROWSEW_Editormodules_jammer_falloff_name";
+				tooltip = "$STR_CROWSEW_Editormodules_jammer_falloff_tooltip";
 				typeName = "NUMBER";
 				defaultValue = "400";
 			};			
@@ -153,7 +153,7 @@ class CfgVehicles
 
 		class ModuleDescription: ModuleDescription 
 		{
-			description = "Sets the synced object as a jammer with set radius and strength. If no unit is synced to it, it will spawn a data-terminal and use that as jammer object.";	
+			description = "$STR_CROWSEW_Editormodules_jammer_description";	
 		};
 	};
 	// Fire EMP
@@ -161,7 +161,7 @@ class CfgVehicles
 	{
 		// Standard object definitions:
 		scope = 2;										
-		displayName = "Fire EMP";				
+		displayName = "$STR_CROWSEW_Editormodules_emp_name";				
 		icon = QPATHTOEF(zeus,data\EMP_Icon.paa);	
 		vehicleClass = "Modules";
 		category = "crowsEW_modules";
@@ -182,8 +182,8 @@ class CfgVehicles
 			class Range: Edit
 			{
 				property = QGVAR(fireEMP_range);							
-				displayName = "Range of EMP blast (50 to 2500m)";					
-				tooltip = "How far will the EMP blast effect objects/people";	
+				displayName = "$STR_CROWSEW_Editormodules_emp_range_name";					
+				tooltip = "$STR_CROWSEW_Editormodules_emp_range_tooltip";	
 				typeName = "NUMBER";											
 				defaultValue = "500";											
 			};
@@ -191,8 +191,8 @@ class CfgVehicles
 			class SpawnDevice: Checkbox
 			{
 				property = QGVAR(fireEMP_spawndevice);
-				displayName = "Spawn device";
-				tooltip = "Should a device be spawned to appear as center of EMP, or just the EMP effect";
+				displayName = "$STR_CROWSEW_Editormodules_emp_spawn_device_name";
+				tooltip = "$STR_CROWSEW_Editormodules_emp_spawn_device_tooltip";
 				typeName = "BOOL";
 				defaultValue = "false";
 			};
@@ -200,8 +200,8 @@ class CfgVehicles
 			{
 				control = "combo";
 				property = QGVAR(fireEMP_scopeoptions);
-				displayName = "NV/Thermal Scopes";
-				tooltip = "How should scopes with built-in thermal and NV be handled";
+				displayName = "$STR_CROWSEW_Editormodules_emp_scopes_name";
+				tooltip = "$STR_CROWSEW_Editormodules_emp_scopes_tooltip";
 				expression = "_this setVariable ['%s', _value];";
 				defaultValue = 2;
 				typeName = "NUMBER";
@@ -209,16 +209,16 @@ class CfgVehicles
 				{
 					class None
 					{
-						name = "No Removal";
+						name = "$STR_CROWSEW_Editormodules_emp_options_no_removal";
 						// tooltip = "Some tooltip";
 						value = 0;
 					};
 					class Replace {
-						name = "Replace with base-game item";
+						name = "$STR_CROWSEW_Editormodules_emp_options_replace_basegame";
 						value = 1;
 					};
 					class Remove {
-						name = "Removal";
+						name = "$STR_CROWSEW_Editormodules_emp_options_removal";
 						value = 2;
 					};
 				};
@@ -227,8 +227,8 @@ class CfgVehicles
 			{
 				control = "combo";
 				property = QGVAR(fireEMP_binooptions);
-				displayName = "Binoculars";
-				tooltip = "How should binoculars with built-in thermal and NV be handled";
+				displayName = "$STR_CROWSEW_Editormodules_emp_bino_name";
+				tooltip = "$STR_CROWSEW_Editormodules_emp_bino_tooltip";
 				expression = "_this setVariable ['%s', _value];";
 				defaultValue = 2;
 				typeName = "NUMBER";
@@ -236,16 +236,16 @@ class CfgVehicles
 				{
 					class None
 					{
-						name = "No Removal";
+						name = "$STR_CROWSEW_Editormodules_emp_options_no_removal";
 						// tooltip = "Some tooltip";
 						value = 0;
 					};
 					class Replace {
-						name = "Replace with base-game item";
+						name = "$STR_CROWSEW_Editormodules_emp_options_replace_basegame";
 						value = 1;
 					};
 					class Remove {
-						name = "Removal";
+						name = "$STR_CROWSEW_Editormodules_emp_options_removal";
 						value = 2;
 					};
 				};
@@ -255,7 +255,7 @@ class CfgVehicles
 
 		class ModuleDescription: ModuleDescription 
 		{
-			description = "Fires EMP at position, can be used with triggers. If spawn option is set, it will spawn a Device at center of EMP";	
+			description = "$STR_CROWSEW_Editormodules_emp_description";	
 		};
 	};
 	// Set Immune EMP
@@ -263,7 +263,7 @@ class CfgVehicles
 	{
 		// Standard object definitions:
 		scope = 2;										
-		displayName = "Set Immune to EMP";				
+		displayName = "$STR_CROWSEW_Editormodules_immune_emp_name";				
 		icon = QPATHTOEF(zeus,data\EMP_Icon_IMU.paa);	
 		vehicleClass = "Modules";
 		category = "crowsEW_modules";
@@ -284,8 +284,8 @@ class CfgVehicles
 			class Immune: Checkbox
 			{
 				property = QGVAR(immuneemp_immune);							
-				displayName = "Set Immune to EMP";					
-				tooltip = "Makes EMP have no effect on the object/unit";	
+				displayName = "$STR_CROWSEW_Editormodules_immune_emp_name";					
+				tooltip = "$STR_CROWSEW_Editormodules_immune_emp_tooltip";	
 				typeName = "BOOL";											
 				defaultValue = "true";											
 			};	
@@ -294,7 +294,7 @@ class CfgVehicles
 
 		class ModuleDescription: ModuleDescription 
 		{
-			description = "Sets the synced objects immune to the effects from EMPs. Will work on all units synced to it";	
+			description = "$STR_CROWSEW_Editormodules_immune_emp_description";	
 		};
 	};
 	// Set Radio Tracker Chatter
@@ -302,7 +302,7 @@ class CfgVehicles
 	{
 		// Standard object definitions:
 		scope = 2;										
-		displayName = "Add Radio Tracking Chatter";				
+		displayName = "$STR_CROWSEW_Editormodules_radio_chatter_name";				
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa";	
 		vehicleClass = "Modules";
 		category = "crowsEW_modules";
@@ -324,8 +324,8 @@ class CfgVehicles
 			{
 				control = "combo";
 				property = QGVAR(radiochatter_voicepack);
-				displayName = "VoicePack";
-				tooltip = "What pack of sounds should be used for the broadcasts";
+				displayName = "$STR_CROWSEW_Editormodules_radio_chatter_voicepack_name";
+				tooltip = "$STR_CROWSEW_Editormodules_radio_chatter_voicepack_tooltip";
 				expression = "_this setVariable ['%s', _value];";
 				defaultValue = 0;
 				typeName = "STRING";
@@ -333,27 +333,27 @@ class CfgVehicles
 				{
 					class british
 					{
-						name = "British";
+						name = "$STR_CROWSEW_Editormodules_radio_chatter_british";
 						value = "british";
 					};
 					class morsecode
 					{
-						name = "Morse Code";
+						name = "$STR_CROWSEW_Editormodules_radio_chatter_morsecode";
 						value = "morsecode";
 					};
 					class electronic
 					{
-						name = "Electronic";
+						name = "$STR_CROWSEW_Editormodules_radio_chatter_electronic";
 						value = "electronic";
 					};
 					class alienElectronic
 					{
-						name = "Alien Electronic";
+						name = "$STR_CROWSEW_Editormodules_radio_chatter_alien_electronic";
 						value = "alienElectronic";
 					};
 					class police
 					{
-						name = "Police Radio";
+						name = "$STR_CROWSEW_Editormodules_radio_chatter_police_radio";
 						value = "police";
 					};
 				};
@@ -362,56 +362,56 @@ class CfgVehicles
 			class FrequencyMin: Edit
 			{
 				property = QGVAR(radiochatter_frequency_minimum);							
-				displayName = "Frequency min (60 to 250mhz)";					
-				tooltip = "The minimum frequency used. Recommend small interval";	
+				displayName = "$STR_CROWSEW_Editormodules_radio_chatter_frequency_min_name";					
+				tooltip = "$STR_CROWSEW_Editormodules_radio_chatter_frequency_min_tooltip";	
 				typeName = "NUMBER";											
 				defaultValue = "220";											
 			};	
 			class FrequencyMax: Edit
 			{
 				property = QGVAR(radiochatter_frequency_max);							
-				displayName = "Frequency Max (60 to 250mhz)";					
-				tooltip = "The maximum frequency used. Recommend small interval";	
+				displayName = "$STR_CROWSEW_Editormodules_radio_chatter_frequency_max_name";					
+				tooltip = "$STR_CROWSEW_Editormodules_radio_chatter_frequency_max_tooltip";	
 				typeName = "NUMBER";											
 				defaultValue = "221";											
 			};	
 			class Range: Edit 
 			{
 				property = QGVAR(radiochatter_range);							
-				displayName = "Range (1 to 10000)";					
-				tooltip = "Range of the signal";	
+				displayName = "$STR_CROWSEW_Editormodules_radio_chatter_range_name";					
+				tooltip = "$STR_CROWSEW_Editormodules_radio_chatter_range_tooltip";	
 				typeName = "NUMBER";											
 				defaultValue = "2000";	
 			};
 			class DurationMin: Edit
 			{
 				property = QGVAR(radiochatter_duration_minimum);							
-				displayName = "Duration min (1 to 40s)";					
-				tooltip = "The minimum duration of each chatter broadcast";	
+				displayName = "$STR_CROWSEW_Editormodules_radio_chatter_duration_min_name";					
+				tooltip = "$STR_CROWSEW_Editormodules_radio_chatter_duration_min_tooltip";	
 				typeName = "NUMBER";											
 				defaultValue = "5";											
 			};	
 			class DurationMax: Edit
 			{
 				property = QGVAR(radiochatter_duration_max);							
-				displayName = "Duration max (1 to 100s)";					
-				tooltip = "The maximum duration of each chatter broadcast";	
+				displayName = "$STR_CROWSEW_Editormodules_radio_chatter_duration_max_name";					
+				tooltip = "$STR_CROWSEW_Editormodules_radio_chatter_duration_max_tooltip";	
 				typeName = "NUMBER";											
 				defaultValue = "30";											
 			};	
 			class PauseMin: Edit
 			{
 				property = QGVAR(radiochatter_pause_min);							
-				displayName = "Pause min (1 to 40s)";					
-				tooltip = "The minimum time between chatter broadcasts";	
+				displayName = "$STR_CROWSEW_Editormodules_radio_chatter_pause_min_name";					
+				tooltip = "$STR_CROWSEW_Editormodules_radio_chatter_pause_min_tooltip";	
 				typeName = "NUMBER";											
 				defaultValue = "5";											
 			};	
 			class PauseMax: Edit
 			{
 				property = QGVAR(radiochatter_pause_max);							
-				displayName = "Pause max (1 to 100s)";					
-				tooltip = "The maximum time between chatter broadcasts";	
+				displayName = "$STR_CROWSEW_Editormodules_radio_chatter_pause_max_name";					
+				tooltip = "$STR_CROWSEW_Editormodules_radio_chatter_pause_max_tooltip";	
 				typeName = "NUMBER";											
 				defaultValue = "30";											
 			};	
@@ -420,7 +420,7 @@ class CfgVehicles
 
 		class ModuleDescription: ModuleDescription 
 		{
-			description = "Sets the synced unit to randomly broadcast radio chatter with the given parameters. The broadcasts can be tracked and listened to by Spectrum Devices. The editor module does not support dynamically added voicepacks, but the zeus module for this function does.";	
+			description = "$STR_CROWSEW_Editormodules_radio_chatter_description";	
 		};
 	};
 	// Set Jammable
@@ -428,7 +428,7 @@ class CfgVehicles
 	{
 		// Standard object definitions:
 		scope = 2;										
-		displayName = "Set Unit Jammable";				
+		displayName = "$STR_CROWSEW_Editormodules_jammable_name";				
 		icon = QPATHTOEF(zeus,data\spectrum_signal.paa);
 		vehicleClass = "Modules";
 		category = "crowsEW_modules";
@@ -449,8 +449,8 @@ class CfgVehicles
 			class Classname: Checkbox
 			{
 				property = QGVAR(jammable_classnames);							
-				displayName = "Apply to Classnames";					
-				tooltip = "Make all spawned units of the synced units type jammable by default. (CANNOT BE UNDONE DURING MISSION)";	
+				displayName = "$STR_CROWSEW_Editormodules_jammable_classnames_name";					
+				tooltip = "$STR_CROWSEW_Editormodules_jammable_classnames_tooltip";	
 				typeName = "BOOL";											
 				defaultValue = "false";											
 			};	
@@ -459,7 +459,7 @@ class CfgVehicles
 
 		class ModuleDescription: ModuleDescription 
 		{
-			description = "Sets all synced object able to be jammed by spectrum device. Select to apply to synced objects classname or only on specific instance of the synced objects. Applying to classnames can NOT be undone during mission!";	
+			description = "$STR_CROWSEW_Editormodules_jammable_description";	
 		};
 	};
 	// Set TFAR Radio Tracking - Only works if TFAR is loaded...
@@ -467,7 +467,7 @@ class CfgVehicles
 	{
 		// Standard object definitions:
 		scope = 2;										
-		displayName = "Enable TFAR Radio Tracking";				
+		displayName = "$STR_CROWSEW_Editormodules_radio_tracking_name";				
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa";
 		vehicleClass = "Modules";
 		category = "crowsEW_modules";
@@ -488,7 +488,7 @@ class CfgVehicles
 
 		class ModuleDescription: ModuleDescription 
 		{
-			description = "Enables TFAR radio tracking and ICOM functionality. Requires TFAR is loaded and enabled!";	
+			description = "$STR_CROWSEW_Editormodules_radio_tracking_description";	
 		};
 	};
 };

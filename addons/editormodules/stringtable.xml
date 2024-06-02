@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project name="Crows Electronic Warfare">
+	<Package name="Editormodules">
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource">
+            <English>Add Signal Source</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_frequency_displayname">
+            <English>Frequency (520Mhz to 1090Mhz)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_frequency_tooltip">
+            <English>What frequency the Signal source will broadcast on</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_range_displayname">
+            <English>Range (1m to 5000m)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_range_tooltip">
+            <English>Range it can be seen from</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_description">
+            <English>Sets a signal source to the synced object with the chosen range and frequency.</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammer_displayname">
+            <English>Add Jammer</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammer_missionstart_name">
+            <English>Jammer active at mission start</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammer_missionstart_tooltip">
+            <English>Should this jammer start working right from the start of the mission?</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammer_voicecomms_name">
+            <English>Jam voice communication signals</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammer_voicecomms_tooltip">
+            <English>Should this jammer effect players voice communication (e.g. via TFAR)?</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammer_drones_name">
+            <English>Jam drone signals</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammer_drones_tooltip">
+            <English>Should this jammer effect drones?</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammer_effective_radius_name">
+            <English>Effective Radius (10 to 5000m)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammer_effective_radius_tooltip">
+            <English>The area that will have 100% jamming, which will also be indicated on map</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammer_falloff_name">
+            <English>Falloff Radius (10 to 5000m)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammer_falloff_tooltip">
+            <English>Linear buffer where there will be 0 jamming at start, and when it meet effective radius its fully jammed.</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammer_description">
+            <English>Sets the synced object as a jammer with set radius and strength. If no unit is synced to it, it will spawn a data-terminal and use that as jammer object.</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_emp_name">
+            <English>Fire EMP</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_emp_range_name">
+            <English>Range of EMP blast (50 to 2500m)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_emp_range_tooltip">
+            <English>How far will the EMP blast effect objects/people</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_emp_spawn_device_name">
+            <English>Spawn device</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_emp_spawn_device_tooltip">
+            <English>Should a device be spawned to appear as center of EMP, or just the EMP effect</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_emp_scopes_name">
+            <English>NV/Thermal Scopes</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_emp_scopes_tooltip">
+            <English>How should scopes with built-in thermal and NV be handled</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_emp_options_no_removal">
+            <English>No Removal</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_emp_options_replace_basegame">
+            <English>Replace with base-game item</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_emp_options_removal">
+            <English>Removal</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_emp_bino_name">
+            <English>Binoculars</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_emp_bino_tooltip">
+            <English>How should binoculars with built-in thermal and NV be handled</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_emp_description">
+            <English>Fires EMP at position, can be used with triggers. If spawn option is set, it will spawn a Device at center of EMP</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_immune_emp_name">
+            <English>Set Immune to EMP</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_immune_emp_tooltip">
+            <English>Makes EMP have no effect on the object/unit</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_immune_emp_description">
+            <English>Sets the synced objects immune to the effects from EMPs. Will work on all units synced to it</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_name">
+            <English>Add Radio Tracking Chatter</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_voicepack_name">
+            <English>VoicePack</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_voicepack_tooltip">
+            <English>What pack of sounds should be used for the broadcasts</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_british">
+            <English>British</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_morsecode">
+            <English>Morse Code</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_electronic">
+            <English>Electronic</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_alien_electronic">
+            <English>Alien Electronic</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_frequency_min_name">
+            <English>Frequency min (60 to 250mhz)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_frequency_min_tooltip">
+            <English>The minimum frequency used. Recommend small interval</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_frequency_max_name">
+            <English>Frequency Max (60 to 250mhz)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_frequency_max_tooltip">
+            <English>The maximum frequency used. Recommend small interval</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_range_name">
+            <English>Range (1 to 10000)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_range_tooltip">
+            <English>Range of the signal</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_duration_min_name">
+            <English>Duration min (1 to 40s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_duration_min_tooltip">
+            <English>The minimum duration of each chatter broadcast</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_duration_max_name">
+            <English>Duration max (1 to 100s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_duration_max_tooltip">
+            <English>The maximum duration of each chatter broadcast</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_pause_min_name">
+            <English>Pause min (1 to 40s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_pause_min_tooltip">
+            <English>The minimum time between chatter broadcasts</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_pause_max_name">
+            <English>Pause max (1 to 100s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_pause_max_tooltip">
+            <English>The maximum time between chatter broadcasts</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_chatter_description">
+            <English>Sets the synced unit to randomly broadcast radio chatter with the given parameters. The broadcasts can be tracked and listened to by Spectrum Devices. The editor module does not support dynamically added voicepacks, but the zeus module for this function does.</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammable_classnames_name">
+            <English>Apply to Classnames</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammable_classnames_tooltip">
+            <English>Make all spawned units of the synced units type jammable by default. (CANNOT BE UNDONE DURING MISSION)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammable_description">
+            <English>Sets all synced object able to be jammed by spectrum device. Select to apply to synced objects classname or only on specific instance of the synced objects. Applying to classnames can NOT be undone during mission!</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_tracking_name">
+            <English>Enable Radio Tracking</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radio_tracking_description">
+            <English>Enables TFAR radio tracking and ICOM functionality. Requires TFAR is loaded and enabled!</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignal_error">
+            <English>AddSignalSource editor module requires one unit/object synced to it as signal source</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_trackingtfar_error">
+            <English>EnableTrackingTFAR editor module requires TFAR to be loaded to work</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_radiochatter_error">
+            <English>AddRadioTrackerChatter editor module requires one unit/object synced to it as source</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_setjammable_error">
+            <English>SetUnitJammable editor module requires at least one unit/object synced to it</English>
+        </Key>
+	</Package>
+</Project>

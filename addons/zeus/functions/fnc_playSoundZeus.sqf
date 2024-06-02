@@ -69,15 +69,15 @@ private _onConfirm =
 };
 
 [
-	"Play Sound (Can't be stopped if targeted, be aware of long sounds)", 
+	localize "STR_CROWSEW_Zeus_playsound_name", 
 	[
-		["OWNERS",["Targets to play sound. If none is selected it will play globally for all", "If none selected it will play globally, otherwise it will play local only for selected players"],[[],[],[],2], true], //no preselected defaults, and default tab open is players. Forcing defaults to deselect tp selection.
-		["COMBO","Sound",[
+		["OWNERS",[localize "STR_CROWSEW_Zeus_playsound_targets", localize "STR_CROWSEW_Zeus_playsound_targets_tooltip"],[[],[],[],2], true], //no preselected defaults, and default tab open is players. Forcing defaults to deselect tp selection.
+		["COMBO",localize "STR_CROWSEW_Zeus_playsound_sound",[
 			EGVAR(sounds,soundZeusDisplayKeys),
 			EGVAR(sounds,soundZeusDisplay)
 			,0]], // list of possible sounds, ideally we would like to preview them when selected.... but that is custom gui right?
-		["SLIDER",["Range it can be heard [m]", "0 range is unlimited distance"],[0,1000,0,0]], //0 to 500, default 50 and showing 0 decimal
-		["SLIDER","Volume",[1,5,2,0]] //1 to 5, default 2 and showing 0 decimal
+		["SLIDER",[localize "STR_CROWSEW_Zeus_playsound_range", localize "STR_CROWSEW_Zeus_playsound_range_tooltip"],[0,1000,0,0]], //0 to 500, default 50 and showing 0 decimal
+		["SLIDER",localize "STR_CROWSEW_Zeus_playsound_volume",[1,5,2,0]] //1 to 5, default 2 and showing 0 decimal
 	],
 	_onConfirm,
 	{stopSound GVAR(soundPreview); GVAR(soundPreviewSelected) = nil; GVAR(soundPreview) = nil;},

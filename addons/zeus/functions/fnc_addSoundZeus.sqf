@@ -11,7 +11,7 @@ Zeus dialog to add sound to object
 *///////////////////////////////////////////////
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
-if (isNull _unit) exitWith {hint "Have to select an object to put sound on"};
+if (isNull _unit) exitWith {hint localize "STR_CROWSEW_Zeus_error_sound"};
 
 private _onConfirm =
 {
@@ -38,18 +38,18 @@ private _onConfirm =
 };
 
 [
-	"Set Sound", 
+	localize "STR_CROWSEW_Zeus_setsound_name", 
 	[
-		["COMBO","Sound",[
+		["COMBO",localize "STR_CROWSEW_Zeus_playsound_sound",[
 			EGVAR(sounds,soundZeusDisplayKeys),
 			EGVAR(sounds,soundZeusDisplay)
 			,0]], // list of possible sounds, ideally we would like to preview them when selected.... but that is custom gui right?
-		["SLIDER","Delay between repeats [s]",[0,120,0,1]], //0 to 120, default 0 and showing 1 decimal.
-		["SLIDER",["Range it can be heard [m]", "0 range is unlimited distance"],[0,1000,50,0]], //0 to 500, default 50 and showing 0 decimal
-		["SLIDER","Start Delay [s]",[0,500,0,1]], //0 to 500, default 0 and showing 0 decimal
-		["SLIDER","Volume",[1,5,2,0]], //1 to 5, default 2 and showing 0 decimal
-		["CHECKBOX","Should it repeat the sound?",[true]],
-		["CHECKBOX","Remove sound when dead?",[true]]
+		["SLIDER",localize "STR_CROWSEW_Zeus_addsound_delay",[0,120,0,1]], //0 to 120, default 0 and showing 1 decimal.
+		["SLIDER",[localize "STR_CROWSEW_Zeus_playsound_range", localize "STR_CROWSEW_Zeus_playsound_range_tooltip"],[0,1000,50,0]], //0 to 500, default 50 and showing 0 decimal
+		["SLIDER",localize "STR_CROWSEW_Zeus_addsound_start_delay",[0,500,0,1]], //0 to 500, default 0 and showing 0 decimal
+		["SLIDER",localize "STR_CROWSEW_Zeus_playsound_volume",[1,5,2,0]], //1 to 5, default 2 and showing 0 decimal
+		["CHECKBOX",localize "STR_CROWSEW_Zeus_addsound_repeat",[true]],
+		["CHECKBOX",localize "STR_CROWSEW_Zeus_addsound_remove_when_dead",[true]]
 	],
 	_onConfirm,
 	{stopSound GVAR(soundPreview); GVAR(soundPreviewSelected) = nil; GVAR(soundPreview) = nil;},

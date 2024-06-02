@@ -10,7 +10,7 @@ File: fnc_setUnitJammableZeus.sqf
 params [["_pos",[0,0,0],[[]],3], ["_unit",objNull,[objNull]]];
 
 if (isNull _unit) exitWith {
-	[QGVAR(showHintZeus), ["SetUnitJammable must be placed on a unit"]] call CBA_fnc_globalEvent;
+	[QGVAR(showHintZeus), ["STR_CROWSEW_Zeus_jammable_error"]] call CBA_fnc_globalEvent;
 };
 
 [QEGVAR(spectrum,setUnitJammable), [_unit]] call CBA_fnc_serverEvent;

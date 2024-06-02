@@ -9,7 +9,7 @@ class CBA_Extended_EventHandlers_base;
 			init = QUOTE([(_this select 0)] call FUNC(initTriggerEMP););
 			class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
 		};
-		displayName = "Device (EMP)";
+		displayName = "$STR_CROWSEW_EMP_device_name";
 		scope = 2; // available in editor
 		scopeCurator = 2; // available in zeus
 		author = "Crowdedlight";

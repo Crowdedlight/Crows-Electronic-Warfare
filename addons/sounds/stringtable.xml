@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project name="Crows Electronic Warfare">
+	<Package name="sounds">
+        <Key ID="STR_CROWSEW_Sounds_not_found">
+            <English>Sound Not Found</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_jam_loop">
+            <English>Jammer Loop Sound</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_jam_start">
+            <English>Computer Startup Sound</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_air_raid_1">
+            <English>Air Raid Siren (2.5min)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_air_raid_2">
+            <English>Air Raid Siren 2 (2min)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_angry_mob">
+            <English>Angry Mob (12s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_bird_robin">
+            <English>Bird Whistle Robin (3s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_caralarm">
+            <English>Car Alarm (12s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_church_bells">
+            <English>Cathedral Bells (20s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_crow">
+            <English>Crow Call (2s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_dino_roar">
+            <English>Dinosaur Roar (1.2s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_footsteps_gravel">
+            <English>Footsteps Gravel (11.4s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_footsteps_twigs">
+            <English>Footsteps Twigs (5.2s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_fox">
+            <English>Fox Cry (1s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_heartbeat">
+            <English>Heartbeat (2s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_dino_footsteps">
+            <EnglishHeavy Dino Footsteps (3s)></English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_mech_turn_off">
+            <English>Mechanical Turn Off (1.5s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_prayer_call">
+            <English>Prayer Call Turkey (2.5min)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_red_alert">
+            <English>Red alert Alarm (8s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_rooster">
+            <English>Rooster Call (2s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_sad_song">
+            <English>Woman singing sad song (1.1min)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_spaceship_radar">
+            <English>Space Ship Radar (8s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_trex_growl">
+            <English>T-REX Growl (5s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_trex_roar">
+            <English>T-REX Roar (4s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_spooky_sentence">
+            <English>Spooky. This Statement Is False (6s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_tripod_horn_1">
+            <English>Tripod Horn 1 (8s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_tripod_horn_blast">
+            <English>Tripos Horn Blast (10s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_wilhelm">
+            <English>Wilhelm Scream (1.2s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_zombie_growl">
+            <English>Zombie Growling (8s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_zombie_sound">
+            <English>Zombie Sound (6s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_stuka">
+            <English>Stuka Siren Diving (15s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_dog_bark">
+            <English>Dog Barking (12s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_dog_german_barking">
+            <English>Dog, German Shepard, Barking (19s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_slap">
+            <English>Slap (1s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_telephone_ringing">
+            <English>Telephone Ringing (12s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_old_telephone_ringing">
+            <English>Old Telephone Ringing (13s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_chainsaw">
+            <English>Chainsaw Cutting (14s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_fire_sequence">
+            <English>Fire Sequence Init. 5min (5s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_device_armed">
+            <English>Device Armed (1s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_device_disarmed">
+            <English>Device Disarmed (2s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_throat_singing">
+            <English>Throat Singing (35s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_machine_open">
+            <English>Machine Open (4s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_footsteps_mud">
+            <English>Footsteps Mud (11s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_spooky_background_hum">
+            <English>Spooky Background Hum (15s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_foliage_rustling">
+            <English>Foliage Rustling (7.5s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_ghostly_whisper">
+            <English>Whisper Ghostly (2.5s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_things_shadows">
+            <English>Sometimes the things you see in the shadows... (6.5s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_spooky_whisper">
+            <English>Whisper Spooky (8s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_ghost_kid_sigh">
+            <English>Ghost Kid Sigh (3s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_ghost_child_noise">
+            <English>Ghost Child Noise (5s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_ghost_horror_noise">
+            <English>Ghost Horror Noise (11.5s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_tiger_growl">
+            <English>Tiger Growling (5.3s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_tiger_roar">
+            <English>Tiger Roar (2s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_predator_clicking">
+            <English>Predator Clicking Sound (2s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_morse">
+            <English>Morse code - SOS (6s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_morse_first">
+            <English>Morse code - What Hath God Wrought (12s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_dial_up">
+            <English>Dial Up Modem (23s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_spaceship_alarm">
+            <English>Spaceship Alarm (3s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_electricity_buzzing">
+            <English>Electricity With Buzzing (6s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_arcane_blast">
+            <English>Arcane Blast Hit (3s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_reaper_horn">
+            <English>Reaper Horn (4s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_machine_off">
+            <English>Futuristic Machine Turn Off (3s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_machine_on">
+            <English>Futuristic Machine Turn On (2s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_large_machine_call">
+            <English>Large Alien Machine Call (7s)</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_transformer_malfunction">
+            <English>Transformer Malfunction (5s)</English>
+        </Key>
+	</Package>
+</Project>
