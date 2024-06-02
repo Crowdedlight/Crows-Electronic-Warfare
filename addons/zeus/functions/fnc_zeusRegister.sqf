@@ -42,7 +42,7 @@ private _moduleList = [GVAR(hasTFAR), GVAR(hasACRE)] call {
 	];
 	private _radioModules = [
 		[localize "STR_CROWSEW_Zeus_modules_addsatcom",{_this call FUNC(addSatcomZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"], //TODO SATELLITE DISH ICON
-		[localise "STR_CROWSEW_Zeus_modules_removesatcom",{_this call FUNC(removeSatcomZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"] //TODO SATELLITE DISH ICON
+		[localize "STR_CROWSEW_Zeus_modules_removesatcom",{_this call FUNC(removeSatcomZeus)}, "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"] //TODO SATELLITE DISH ICON
 	];
 
 	// return the ones to load		

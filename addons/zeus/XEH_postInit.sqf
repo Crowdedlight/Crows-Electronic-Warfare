@@ -19,7 +19,7 @@ call FUNC(zeusRegister);
 GVAR(zeusTextDisplayKeybind) = [
 	["Crows Electronic Warfare", "Zeus"],
 	"zeus_text_display", 
-	[localize "STR_CROWSEW_Zeus_keybind_text_name", localise "STR_CROWSEW_Zeus_keybind_text_tooltip"], 
+	[localize "STR_CROWSEW_Zeus_keybind_text_name", localize "STR_CROWSEW_Zeus_keybind_text_tooltip"], 
 	{GVAR(zeusTextDisplay) = !GVAR(zeusTextDisplay)}, 
 	"", 
 	[DIK_I, [true, true, false]], // [DIK code, [Shift?, Ctrl?, Alt?]] => default: ctrl + shift + i
