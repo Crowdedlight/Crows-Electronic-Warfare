@@ -50,7 +50,7 @@ private _signalRange = EGVAR(spectrum,spectrumDeviceFrequencyRange)#0;
 private _half = _signalRange#0 + _signalRange#2/2;
 
 [
-	localize "STR_CROWSEW_Zeus_setsignal_name", 
+	localize "STR_CROWSEW_Zeus_addradiochatter_name", 
 	[
 		["COMBO",[localize "STR_CROWSEW_Zeus_addradiochatter_voicepack", localize "STR_CROWSEW_Zeus_addradiochatter_voicepack_tooltip"],[_keyNameArr, _displayNameArr, 0]],
 		["SLIDER",[localize "STR_CROWSEW_Zeus_addradiochatter_freq_min", localize "STR_CROWSEW_Zeus_addradiochatter_freq_min_tooltip"],[_signalRange#0,_signalRange#1,_half-10,1]], //60 to 250, default 220 and showing 1 decimal

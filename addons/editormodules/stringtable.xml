@@ -169,6 +169,9 @@
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_description">
             <English>Sets the synced unit to randomly broadcast radio chatter with the given parameters. The broadcasts can be tracked and listened to by Spectrum Devices. The editor module does not support dynamically added voicepacks, but the zeus module for this function does.</English>
         </Key>
+        <Key ID="STR_CROWSEW_Editormodules_jammable_name">
+            <English>Set Unit Jammable</English>
+        </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammable_classnames_name">
             <English>Apply to Classnames</English>
         </Key>

@@ -26,8 +26,9 @@ if (_activated) then {
 	// Attribute values are saved in module's object space under their class names
 	private _freq = _logic getVariable ["Frequency",0];
 	private _range = _logic getVariable ["Range",0];
-	[QEGVAR(spectrum,addBeacon), [_units#0, _freq, _range, "zeus"]] call CBA_fnc_serverEvent;
+	{
+		[QEGVAR(spectrum,addBeacon), [_x, _freq, _range, "zeus"]] call CBA_fnc_serverEvent;
+	} forEach _units;
 };
 // Module function is executed by spawn command, so returned value is not necessary, but it is good practice.
-
 true;

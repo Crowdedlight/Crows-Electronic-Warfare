@@ -66,8 +66,8 @@ GVAR(soundAttributes) set ["predator_clicking_sound", [2, "z\crowsEW\addons\soun
 
 
 // sound configs from voice-pack sounds
-GVAR(soundAttributes) set ["sos_morse_code", [6, "z\crowsEW\addons\spectrum\data\voice\morse_code\sos_morse.ogg", localize "STR_CROWSEW_Spectrum_voicepacks_morse"]];
-GVAR(soundAttributes) set ["what_hath_god_wrought_morse_code", [11.4, "z\crowsEW\addons\spectrum\data\voice\morse_code\what_hath_god_wrought.ogg", localize "STR_CROWSEW_Spectrum_voicepacks_morse_first"]];
+GVAR(soundAttributes) set ["sos_morse_code", [6, "z\crowsEW\addons\spectrum\data\voice\morse_code\sos_morse.ogg", localize "STR_CROWSEW_Sounds_voicepacks_morse"]];
+GVAR(soundAttributes) set ["what_hath_god_wrought_morse_code", [11.4, "z\crowsEW\addons\spectrum\data\voice\morse_code\what_hath_god_wrought.ogg", localize "STR_CROWSEW_Sounds_voicepacks_morse_first"]];
 GVAR(soundAttributes) set ["dial_up_modem", [23, "z\crowsEW\addons\spectrum\data\voice\electronic\modem_done.ogg", localize "STR_CROWSEW_Sounds_voicepacks_dial_up"]];
 GVAR(soundAttributes) set ["spaceship_alarm", [3, "z\crowsEW\addons\spectrum\data\voice\electronic\spaceship_alarm_siren.ogg", localize "STR_CROWSEW_Sounds_voicepacks_spaceship_alarm"]];
 GVAR(soundAttributes) set ["electricity_with_buzzing", [5.5, "z\crowsEW\addons\spectrum\data\voice\electronic\electricity_with_buzzing.ogg", localize "STR_CROWSEW_Sounds_voicepacks_electricity_buzzing"]];
