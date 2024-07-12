@@ -83,4 +83,4 @@ private _contextActionList = [
     ] call zen_context_menu_fnc_addAction;
 } forEach _contextActionList;
 
-diag_log format ["CrowsEW:fnc_zeusRegister: Zeus initialization complete. Zeus Enhanced Detected: %2",_hasZen];
+diag_log format ["CrowsEW:fnc_zeusRegister: Zeus initialization complete. Zeus Enhanced Detected: %1",_hasZen];
