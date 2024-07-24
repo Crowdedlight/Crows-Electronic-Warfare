@@ -35,11 +35,13 @@ All logging made to the .RPT file will start with CrowsEW-module: where the modu
 
 ### Contributors
 Crowdedlight (Main Author)  
-b-mayr-1984 (Dev Work)  
-Landric (Dev Work)  
-MonkeyBadger (Voice-line work)    
-Technovibegames (Voice-line work)      
-WindWalker (Voice-line work)  
+b-mayr-1984 (Dev Work)
+Landric (Dev Work)
+OverlordZorn (Dev Work)
+MonkeyBadger (Voice-line work)
+Technovibegames (Voice-line work)
+WindWalker (Voice-line work)
+Huzy1018 (Translation)
 
 ### License 
 Crows Electronic Warfare is licensed under the Arma Public License Share Alike. Please do not reupload to the Steam Workshop without permission!
