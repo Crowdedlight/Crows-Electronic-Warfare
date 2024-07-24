@@ -14,7 +14,7 @@ class CfgPatches {
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"crowsEW_main"};
+        requiredAddons[] = {"crowsEW_main", "crowsEW_spectrum"};
         author = "Crowdedlight";
         VERSION_CONFIG;
     };

@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=148;
+		nextID=149;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={10446.476,111.38757,6736.6826};
-		dir[]={-0.63440722,-0.51398951,0.57735598};
-		up[]={-0.38013613,0.85779428,0.34595037};
-		aside[]={0.67306924,-7.2643161e-08,0.73958033};
+		pos[]={11079.616,75.440712,6389.8926};
+		dir[]={0.40965366,-0.36727458,-0.83504808};
+		up[]={0.16175966,0.93011111,-0.32973489};
+		aside[]={-0.89779043,-7.4331183e-08,-0.44043294};
 	};
 };
 binarizationWanted=0;
@@ -293,7 +293,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=36;
+		items=37;
 		class Item0
 		{
 			dataType="Group";
@@ -952,8 +952,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={11093,67.989594,6377};
-				angles[]={0.043171391,0,0.071874976};
+				position[]={11092,68.01519,6375};
+				angles[]={0.049559005,0,0.065505132};
 			};
 			id=114;
 			type="crowsEW_editormodules_moduleAddJammer";
@@ -1477,7 +1477,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={10425.173,99.571503,6743.1128};
+				position[]={10422,99.571503,6741.0308};
 			};
 			side="Empty";
 			flags=4;
@@ -1761,16 +1761,57 @@ class Mission
 			id=146;
 			type="Item_B_UavTerminal";
 		};
+		class Item36
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10425.445,97.959999,6745.1318};
+			};
+			name="asd";
+			id=148;
+			type="crowsEW_editormodules_moduleAddSignalSource";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="crowsEW_editormodules_addsignalsource_range";
+					expression="_this setVariable ['Range',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=50;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="crowsEW_editormodules_addsignalsource_freq";
+					expression="_this setVariable ['Frequency',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=810;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=11;
+			nextID=12;
 		};
 		class Links
 		{
-			items=11;
+			items=12;
 			class Item0
 			{
 				linkID=0;
@@ -1876,6 +1917,16 @@ class Mission
 				linkID=10;
 				item0=139;
 				item1=138;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item11
+			{
+				linkID=11;
+				item0=148;
+				item1=133;
 				class CustomData
 				{
 					type="Sync";
