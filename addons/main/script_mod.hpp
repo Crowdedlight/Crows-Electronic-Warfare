@@ -9,3 +9,6 @@
 
 // Minimum compatible version. When the game's version is lower, pop-up warning will appear when launching the game.
 #define REQUIRED_VERSION 2.10
+
+// for disabling cache for all modules
+// #define DISABLE_COMPILE_CACHE
