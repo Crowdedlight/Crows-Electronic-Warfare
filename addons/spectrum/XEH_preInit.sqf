@@ -249,7 +249,7 @@ private _autolineColourLabels = GVAR(spectrumAutolineColours) apply { _x select 
 [
     QGVAR(spectrumAutoline), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
-    [localize "STR_CROWSEW_Spectrum_settings_autoline_enable", parseText localize "STR_CROWSEW_Spectrum_settings_autoline_enable_tooltip"],
+    [localize "STR_CROWSEW_Spectrum_settings_autoline_enable", [localize "STR_CROWSEW_Spectrum_settings_autoline_enable_tooltip", "<br/>", endl] call CBA_fnc_replace],
     ["Crows Electronic Warfare", localize "STR_CROWSEW_Spectrum_settings_autoline_catageory"],
     true,
     nil
@@ -304,7 +304,7 @@ private _autolineColourLabels = GVAR(spectrumAutolineColours) apply { _x select 
 [
     QGVAR(spectrumAutolineNoise), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "SLIDER", // setting type
-    [localize "STR_CROWSEW_Spectrum_settings_autoline_deviation", parseText localize "STR_CROWSEW_Spectrum_settings_autoline_deviation_tooltip"], 
+    [localize "STR_CROWSEW_Spectrum_settings_autoline_deviation", [localize "STR_CROWSEW_Spectrum_settings_autoline_deviation_tooltip", "<br/>", endl] call CBA_fnc_replace],  
     ["Crows Electronic Warfare", localize "STR_CROWSEW_Spectrum_settings_autoline_catageory"],
     [0, 100, 0, 0],
     nil
@@ -315,7 +315,7 @@ private _autolineColourLabels = GVAR(spectrumAutolineColours) apply { _x select 
 GVAR(spectrumAutolineC1Keybind) = [
     ["Crows Electronic Warfare", "Spectrum"],
     "spectrum_autoline_c1", 
-    [localize "STR_CROWSEW_Spectrum_keybinds_autoline_color1", parseText localize "STR_CROWSEW_Spectrum_keybinds_autoline_tooltip"], 
+    [localize "STR_CROWSEW_Spectrum_keybinds_autoline_color1", [localize "STR_CROWSEW_Spectrum_keybinds_autoline_tooltip", "<br/>", endl] call CBA_fnc_replace], 
     { [GVAR(spectrumAutolineColor1)] call FUNC(drawSpectrumLine); }, 
     "", 
     [DIK_SPACE, [false, false, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
@@ -325,7 +325,7 @@ GVAR(spectrumAutolineC1Keybind) = [
 GVAR(spectrumAutolineC2Keybind) = [
     ["Crows Electronic Warfare", "Spectrum"],
     "spectrum_autoline_c2", 
-    [localize "STR_CROWSEW_Spectrum_keybinds_autoline_color2", parseText localize "STR_CROWSEW_Spectrum_keybinds_autoline_tooltip"], 
+    [localize "STR_CROWSEW_Spectrum_keybinds_autoline_color2", [localize "STR_CROWSEW_Spectrum_keybinds_autoline_tooltip", "<br/>", endl] call CBA_fnc_replace], 
     { [GVAR(spectrumAutolineColor2)] call FUNC(drawSpectrumLine); }, 
     "", 
     [DIK_SPACE, [false, true, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
@@ -335,7 +335,7 @@ GVAR(spectrumAutolineC2Keybind) = [
 GVAR(spectrumAutolineC3Keybind) = [
     ["Crows Electronic Warfare", "Spectrum"],
     "spectrum_autoline_c3", 
-    [localize "STR_CROWSEW_Spectrum_keybinds_autoline_color3", parseText localize "STR_CROWSEW_Spectrum_keybinds_autoline_tooltip"], 
+    [localize "STR_CROWSEW_Spectrum_keybinds_autoline_color3", [localize "STR_CROWSEW_Spectrum_keybinds_autoline_tooltip", "<br/>", endl] call CBA_fnc_replace],
     { [GVAR(spectrumAutolineColor3)] call FUNC(drawSpectrumLine); }, 
     "", 
     [DIK_SPACE, [true, false, false]], // [DIK code, [Shift?, Ctrl?, Alt?]]
@@ -345,7 +345,7 @@ GVAR(spectrumAutolineC3Keybind) = [
 GVAR(spectrumAutolineC4Keybind) = [
     ["Crows Electronic Warfare", "Spectrum"],
     "spectrum_autoline_c4", 
-    [localize "STR_CROWSEW_Spectrum_keybinds_autoline_color4", parseText localize "STR_CROWSEW_Spectrum_keybinds_autoline_tooltip"], 
+    [localize "STR_CROWSEW_Spectrum_keybinds_autoline_color4", [localize "STR_CROWSEW_Spectrum_keybinds_autoline_tooltip", "<br/>", endl] call CBA_fnc_replace],
     { [GVAR(spectrumAutolineColor4)] call FUNC(drawSpectrumLine); }, 
     "", 
     [DIK_SPACE, [false, false, true]], // [DIK code, [Shift?, Ctrl?, Alt?]]
