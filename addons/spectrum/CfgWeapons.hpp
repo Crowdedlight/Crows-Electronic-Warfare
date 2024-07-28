@@ -1,5 +1,3 @@
- class CBA_Extended_EventHandlers_base;
- 
  class CfgWeapons {
 	class CBA_MiscItem_ItemInfo;
 	class muzzle_antenna_base_01_F;
@@ -45,7 +43,6 @@
 	// TFAR radio for listening to TFAR traffic 
 	// credit to TFAR for base-class and dialog asset. Uses the TFAR dialog/model: https://github.com/michail-nikolaev/task-force-arma-3-radio/blob/master/addons/handhelds/anprc148jem/CfgWeapons.hpp
 	class CBA_MiscItem;
-	class CBA_MiscItem_ItemInfo;
 	class crowsew_tfar_icom: CBA_MiscItem {
 		author = "Crowdedlight";
 		displayName = "$STR_CROWSEW_Spectrum_icom_name";
@@ -84,9 +81,6 @@
 		};
 		ACE_Attachable = "crowsew_ctrack_effect_3km";
 		ace_attach_orientation[] = {0,180}; // roll, yaw
-		class EventHandlers {
-            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
-        };
 	};
 	// TODO when first iteration works, make a few versions that has different ranges. Just reuse the 3D model. Something like 0.5km, 2k, 5k ?
 
@@ -105,9 +99,6 @@
 		};
 		// ACE_Attachable = "crowsew_ctrack_effect_3km";
 		// ace_attach_orientation[] = {0,180}; // roll, yaw
-		class EventHandlers {
-            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
-        };
 	};
  };
 
