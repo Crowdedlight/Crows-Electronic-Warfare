@@ -64,7 +64,7 @@ if (count _frequenciesSorted > 0) then {
 			// only real radio line if signal strength is better than -60
 			if (_sigStrength < -60) then {
 				// not strong enough signal, so we play garbled radio
-				_sound = "garbled"; 
+				_sound = "crowsEW_garbled"; 
 				_timeActive = 4.3;
 			} else {
 				// get voicepack - default to british
@@ -93,7 +93,7 @@ if (count _frequenciesSorted > 0) then {
 				};
 				
 				// play charge up jamming sound
-				GVAR(radioChatterVoiceSound) = playSound "jamcharging";
+				GVAR(radioChatterVoiceSound) = playSound "crowsEW_jamcharging";
 
 				// set jamming var
 				GVAR(isJammingDrone) = _unit;
@@ -106,15 +106,15 @@ if (count _frequenciesSorted > 0) then {
 
 				if (_sigStrength < -60) then {
 					// play garbled
-					GVAR(radioChatterVoiceSound) = playSound "garbled";
+					GVAR(radioChatterVoiceSound) = playSound "crowsEW_garbled";
 					_timeActive = 4.3;
 				} else {
 					// just play electronic sounds, as we don't have jammer on
 					if (_unit isKindOf "UAV_03_dynamicLoadout_base_F") then {
-						GVAR(radioChatterVoiceSound) = playSound "dronehelimotor";
+						GVAR(radioChatterVoiceSound) = playSound "crowsEW_dronehelimotor";
 						_timeActive = 4;
 					} else {
-						GVAR(radioChatterVoiceSound) = playSound "ugvmotor";
+						GVAR(radioChatterVoiceSound) = playSound "crowsEW_ugvmotor";
 						_timeActive = 3;
 					};
 				}
@@ -159,7 +159,7 @@ GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed, _
 		// if we failed, we exit with the resetting of jam unit, progress and error sound
 		if (_failAction) exitWith {
 			// systemChat "Exit due to low signal strength";
-			playSound "spectrumjamerror";
+			playSound "crowsEW_spectrumjamerror";
 			[parseText format["<t size='0.9'>&lt;-- %2 %1%3</t>",GVAR(minJamSigStrength), localize "STR_CROWSEW_Spectrum_error_jam_strength_min", localize "STR_CROWSEW_Spectrum_error_jam_strength"],-1,[0.85, 0.2],5,1,1,789] spawn BIS_fnc_dynamicText;
 			missionNamespace setVariable ["#EM_Transmit",false];
 			missionNamespace setVariable ["#EM_Progress",0];
@@ -174,7 +174,7 @@ GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed, _
 
 		while {!isNull GVAR(isJammingDrone) && alive player} do {
 			// play sound
-			GVAR(radioChatterVoiceSound) = playSound "spectrumjamloop";
+			GVAR(radioChatterVoiceSound) = playSound "crowsEW_spectrumjamloop";
 
 			// check if signal strength goes below ??, then we stop the jamming
 			private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
@@ -183,7 +183,7 @@ GVAR(radioChatterProgressHandle) = [_timeActive, _jam, _unit, _range, _failed, _
 				[QGVAR(toggleJammingOnUnit), [GVAR(isJammingDrone), false, player]] call CBA_fnc_serverEvent;
 				GVAR(isJammingDrone) = objNull;
 				// show error 
-				playSound "spectrumjamerror";
+				playSound "crowsEW_spectrumjamerror";
 				[parseText format["<t size='0.9'>&lt;-- %2 %1%3</t>",GVAR(minJamSigStrength), localize "STR_CROWSEW_Spectrum_error_jam_strength_min", localize "STR_CROWSEW_Spectrum_error_jam_strength"],-1,[0.85, 0.2],5,1,1,789] spawn BIS_fnc_dynamicText;
 				missionNamespace setVariable ["#EM_Transmit",false];
 				missionNamespace setVariable ["#EM_Progress",0];

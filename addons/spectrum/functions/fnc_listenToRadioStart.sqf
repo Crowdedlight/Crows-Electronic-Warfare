@@ -30,7 +30,7 @@ private _icom = "";
 
 // if no Icom we exit
 if (_icom == "") exitWith {
-	playSound "radioError";
+	playSound "crowsEW_radioError";
 };
 
 // if radio is present, set settings on it identical to signal. (frequency and radioCode). Save default, as we reset when we are not listening. (To stop people from using that radio to broadcast now)

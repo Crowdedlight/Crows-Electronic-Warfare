@@ -23,11 +23,6 @@ PRELOAD_ADDONS;
 
 #include "CfgEventhandlers.hpp"
 #include "CfgSounds.hpp"
-#include "CfgSoundsPolice.hpp"
-#include "CfgSoundsAlienElectronic.hpp"
-#include "CfgSoundsElectronic.hpp"
-#include "CfgSoundsMorseCode.hpp"
-#include "CfgSoundsBritish.hpp"
 
 #include "radio_ids.hpp"
 #include "CfgWeapons.hpp"

@@ -22,11 +22,11 @@ if (typeof _jamObj == "Land_DataTerminal_01_F") then {
 	
 	// if enabled == true, then we are closing the jammer, so do close animation, otherwise do open
 	if (_enabled) then {
-		[getPosASL _jamObj, 50, "mechanical_turn_off", 3] call EFUNC(sounds,playSoundPos);
+		[getPosASL _jamObj, 50, "crowsEW_mechanical_turn_off", 3] call EFUNC(sounds,playSoundPos);
 		[_jamObj,0] call BIS_fnc_dataTerminalAnimate;
 	} else {
 		// play sound and start open animation
-		[getPosASL _jamObj, 50, "jam_start", 3] call EFUNC(sounds,playSoundPos);
+		[getPosASL _jamObj, 50, "crowsEW_jam_start", 3] call EFUNC(sounds,playSoundPos);
 		[_jamObj,3] call BIS_fnc_dataTerminalAnimate;
 	};
 };
