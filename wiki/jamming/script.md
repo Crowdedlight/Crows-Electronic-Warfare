@@ -13,7 +13,7 @@ Be advised that this does not handle adding the sound effect to the jammer. This
 ```c
 // _unit: jammer object
 // _isActiveAtMissionStart: bool that decides if sound effect is active from start
-[getPosATL _unit, 50, "jam_start", 3] call EFUNC(sounds,playSoundPos);
-["crowsEW_sounds_addSound", [_unit, 0.5, 50, true, true, "jam_loop", 3, 3]] call CBA_fnc_serverEvent;
+[getPosATL _unit, 50, "crowsEW_jam_start", 3] call EFUNC(sounds,playSoundPos);
+["crowsEW_sounds_addSound", [_unit, 0.5, 50, true, true, "crowsEW_jam_loop", 3, 3]] call CBA_fnc_serverEvent;
 ["crowsEW_sounds_setSoundEnable", [_unit, _isActiveAtMissionStart]] call CBA_fnc_serverEvent;
 ```
