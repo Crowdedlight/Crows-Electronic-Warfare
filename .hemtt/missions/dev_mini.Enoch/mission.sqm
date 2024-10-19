@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={11042.033,78.38382,6248.2026};
-		dir[]={-0.82295811,-0.55706942,0.11145071};
-		up[]={-0.55203199,0.83046329,0.074759975};
-		aside[]={0.13420223,8.3877239e-008,0.99095654};
+		pos[]={11040.016,140.61026,6200.2036};
+		dir[]={0.40754133,-0.57606882,-0.7085641};
+		up[]={0.2872166,0.81739849,-0.49936441};
+		aside[]={-0.8668474,1.1967495e-07,-0.49858028};
 	};
 };
 binarizationWanted=0;
@@ -53,7 +53,6 @@ addons[]=
 	"A3_Props_F_Enoch_Military_Equipment",
 	"crowsEW_editormodules",
 	"A3_Soft_F_Gamma_Truck_01",
-	"A3_Soft_F_Exp_Truck_01",
 	"ace_cargo",
 	"A3_Characters_F_Common",
 	"A3_Air_F_Orange_UAV_06",
@@ -65,7 +64,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=28;
+		items=27;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -166,7 +165,7 @@ class AddonsMetaData
 		class Item14
 		{
 			className="ace_chemlights";
-			name="ace_chemlights";
+			name="ACE3 - Chemlights";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
@@ -220,40 +219,33 @@ class AddonsMetaData
 		};
 		class Item22
 		{
-			className="A3_Soft_F_Exp";
-			name="Arma 3 Apex - Unarmored Land Vehicles";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item23
-		{
 			className="ace_cargo";
 			name="ACE3 - Cargo";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item24
+		class Item23
 		{
 			className="A3_Air_F_Orange";
 			name="Arma 3 Orange - Aircraft";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item25
+		class Item24
 		{
 			className="A3_Soft_F";
 			name="Arma 3 Alpha - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item26
+		class Item25
 		{
 			className="A3_Drones_F";
 			name="Arma 3 Beta - Drones";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item27
+		class Item26
 		{
 			className="A3_Props_F_Exp_A";
 			name="Arma 3 Nexus Update - Decorative and Mission Objects";
@@ -580,7 +572,7 @@ class Mission
 			};
 			id=85;
 			type="Land_PortableDesk_01_olive_F";
-			atlOffset=-1.5258789e-005;
+			atlOffset=-1.5258789e-05;
 		};
 		class Item4
 		{
@@ -772,14 +764,14 @@ class Mission
 					};
 					id=107;
 					type="B_support_AMG_F";
-					atlOffset=-1.5258789e-005;
+					atlOffset=-1.5258789e-05;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=106;
-			atlOffset=-1.5258789e-005;
+			atlOffset=-1.5258789e-05;
 		};
 		class Item9
 		{
@@ -801,7 +793,7 @@ class Mission
 			};
 			id=109;
 			type="crowsEW_editormodules_moduleFireEMP";
-			atlOffset=7.6293945e-006;
+			atlOffset=7.6293945e-06;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -908,7 +900,7 @@ class Mission
 					};
 					id=113;
 					type="B_Soldier_F";
-					atlOffset=9.1552734e-005;
+					atlOffset=9.1552734e-05;
 				};
 			};
 			class Attributes
@@ -936,7 +928,7 @@ class Mission
 				};
 			};
 			id=111;
-			atlOffset=9.1552734e-005;
+			atlOffset=9.1552734e-05;
 		};
 		class Item13
 		{
@@ -953,7 +945,7 @@ class Mission
 			};
 			id=112;
 			type="B_Truck_01_mover_F";
-			atlOffset=9.1552734e-005;
+			atlOffset=9.1552734e-05;
 		};
 		class Item14
 		{
@@ -1044,7 +1036,7 @@ class Mission
 			};
 			id=115;
 			type="crowsEW_editormodules_moduleAddSignalSource";
-			atlOffset=1.5258789e-005;
+			atlOffset=1.5258789e-05;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1098,7 +1090,7 @@ class Mission
 					};
 					id=118;
 					type="B_Soldier_F";
-					atlOffset=-7.6293945e-006;
+					atlOffset=-7.6293945e-06;
 				};
 			};
 			class Attributes
@@ -1126,7 +1118,7 @@ class Mission
 				};
 			};
 			id=116;
-			atlOffset=-7.6293945e-006;
+			atlOffset=-7.6293945e-06;
 		};
 		class Item17
 		{
@@ -1143,7 +1135,7 @@ class Mission
 			};
 			id=117;
 			type="B_Truck_01_box_F";
-			atlOffset=-7.6293945e-006;
+			atlOffset=-7.6293945e-06;
 		};
 		class Item18
 		{
@@ -1154,7 +1146,7 @@ class Mission
 			};
 			id=119;
 			type="crowsEW_editormodules_moduleSetJammable";
-			atlOffset=1.5258789e-005;
+			atlOffset=1.5258789e-05;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1195,7 +1187,7 @@ class Mission
 					};
 					id=122;
 					type="B_Soldier_F";
-					atlOffset=7.6293945e-006;
+					atlOffset=7.6293945e-06;
 				};
 			};
 			class Attributes
@@ -1223,7 +1215,7 @@ class Mission
 				};
 			};
 			id=120;
-			atlOffset=7.6293945e-006;
+			atlOffset=7.6293945e-06;
 		};
 		class Item20
 		{
@@ -1240,7 +1232,7 @@ class Mission
 			};
 			id=121;
 			type="B_Truck_01_medical_F";
-			atlOffset=7.6293945e-006;
+			atlOffset=7.6293945e-06;
 		};
 		class Item21
 		{
@@ -1388,7 +1380,7 @@ class Mission
 					};
 					id=129;
 					type="B_UAV_AI_F";
-					atlOffset=2.2888184e-005;
+					atlOffset=2.2888184e-05;
 				};
 			};
 			class Attributes
@@ -1416,7 +1408,7 @@ class Mission
 				};
 			};
 			id=127;
-			atlOffset=2.2888184e-005;
+			atlOffset=2.2888184e-05;
 		};
 		class Item25
 		{
@@ -1433,7 +1425,7 @@ class Mission
 			};
 			id=128;
 			type="B_UAV_06_medical_F";
-			atlOffset=2.2888184e-005;
+			atlOffset=2.2888184e-05;
 		};
 		class Item26
 		{
@@ -1571,7 +1563,7 @@ class Mission
 			};
 			id=138;
 			type="OmniDirectionalAntenna_01_black_F";
-			atlOffset=-9.1552734e-005;
+			atlOffset=-9.1552734e-05;
 		};
 		class Item32
 		{
@@ -1983,7 +1975,7 @@ class Mission
 			};
 			id=151;
 			type="EmptyDetectorArea10x10";
-			atlOffset=7.6293945e-006;
+			atlOffset=7.6293945e-06;
 		};
 		class Item40
 		{
@@ -2000,7 +1992,7 @@ class Mission
 			};
 			id=152;
 			type="Land_DataTerminal_01_F";
-			atlOffset=-1.5258789e-005;
+			atlOffset=-1.5258789e-05;
 		};
 	};
 	class Connections
