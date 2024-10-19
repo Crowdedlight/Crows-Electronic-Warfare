@@ -26,13 +26,13 @@ if (_buttonDown) then {
 		case 0: {
 			_radio = call TFAR_fnc_ActiveSwRadio;
 			_freq = parseNumber (_radio call TFAR_fnc_getSwFrequency);
-			_range = getNumber(configfile >> "CfgWeapons" >> _radio >> "tf_range");
+			_range = getNumber(configFile >> "CfgWeapons" >> _radio >> "tf_range");
 			_radioCode = _radio call TFAR_fnc_getSwRadioCode;
 		};
 		case 1: {
 			_radio = call TFAR_fnc_ActiveLrRadio;
 			_freq = parseNumber (_radio call TFAR_fnc_getLrFrequency);
-			_range = getNumber(configfile >> "CfgVehicles" >> typeOf(_radio select 0) >> "tf_range");
+			_range = getNumber(configFile >> "CfgVehicles" >> typeOf(_radio select 0) >> "tf_range");
 			_radioCode = _radio call TFAR_fnc_getLrRadioCode;
 		};
 	};

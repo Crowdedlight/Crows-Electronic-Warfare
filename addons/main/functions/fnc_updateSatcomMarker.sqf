@@ -12,7 +12,7 @@ updates local markers
 params ["_obj", "_netId", "_radius", "_updating"];
 
 private _marker = _netId;
-private _not_exists = (getMarkerSize _marker) IsEqualTo [0,0];
+private _not_exists = (getMarkerSize _marker) isEqualTo [0,0];
 
 // if marker does not exist, we create it, otherwise we just update pos
 if (_not_exists) then {

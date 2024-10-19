@@ -67,7 +67,7 @@ private _vehicleSpawn = [_delay, _vehicles] spawn {
 				// set as destroyed, Global effect, but local argument, so we execute where the unit is local
 				[_v, [_forEachIndex, 1]] remoteExec ["setHitIndex", _v];
 			};
-		} foreach (getAllHitPointsDamage _v select 0);
+		} forEach (getAllHitPointsDamage _v select 0);
 
 		// disable TI and NV
 		_v disableTIEquipment true; 
@@ -112,7 +112,7 @@ private _lightEffectArr = _lightList;
 [[_lightEffectArr],QPATHTOF(functions\fnc_lampEffect.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
 
 // play radio static sound
-["electro_static"] remoteExec ["playsound", [0,-2] select isDedicated];
+["electro_static"] remoteExec ["playSound", [0,-2] select isDedicated];
 
 private _unitSpawn = [_delay, _men, _scopeMode, _binoMode] spawn {
 	params ["_delay", "_units", "_scopeMode", "_binoMode"];

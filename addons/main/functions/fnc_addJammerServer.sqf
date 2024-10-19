@@ -18,7 +18,7 @@ if (isNull _unit || !isServer) exitWith {};
 private _netId = netId _unit;
 
 // if dataterminal do animation 
-if (typeof _unit == "Land_DataTerminal_01_F") then {
+if (typeOf _unit == "Land_DataTerminal_01_F") then {
 	
 	// set texture of left screen to custom 
 	_unit setObjectTextureGlobal [0, QPATHTOF(data\data_terminal_screen_CO.paa)];

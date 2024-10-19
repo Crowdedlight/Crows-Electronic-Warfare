@@ -15,7 +15,7 @@ private _radioItems = [player] call TFAR_fnc_getRadioItems;
 private _icom = "";
 {
 	// try and get config
-	private _config = getNumber(configfile >> "CfgWeapons" >> _x >> "crowsEW_icom");
+	private _config = getNumber(configFile >> "CfgWeapons" >> _x >> "crowsEW_icom");
 	if (_config == 1) exitWith {_icom = _x;};
 
 } forEach _radioItems;

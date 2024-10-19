@@ -11,4 +11,4 @@ removes local marker for the jammer to show on map. Only called for zeus, so onl
 *///////////////////////////////////////////////
 params ["_netID"];
 
-deletemarkerLocal _netId;
+deleteMarkerLocal _netId;

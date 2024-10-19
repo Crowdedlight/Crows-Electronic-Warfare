@@ -18,7 +18,7 @@ _activated = param [2,true,[true]];
 // we seem to run before postInit is done, so got to sleep otherwise eventhandlers and functions in other modules aren't setup
 sleep 1;
 
-if (EGVAR(zeus,hasTFAR) == false) exitWith {
+if (!EGVAR(zeus,hasTFAR)) exitWith {
 	[QEGVAR(zeus,showHintZeus), ["STR_CROWSEW_Editormodules_trackingtfar_error"]] call CBA_fnc_globalEvent;
 };
 
