@@ -27,8 +27,8 @@ private _distance = _tracker distance _target;
 // distance strength. 0 is outside range, 1 is right next to the signal
 private _distStrength = 1 - linearConversion [0, _scanRange, _distance, 0, 1, true];
 
-// direction strength, 1 is max value when looking straight at it
-private _dirStrength = 1 - linearConversion [0, 2, _dirDiff, 0, 1, true];
+// direction strength, 1 is max value when looking straight at it. Keeping backlope effect by capping at 0.1, with 0.9 max. 
+private _dirStrength = 1 - linearConversion [0, 2, _dirDiff, 0, 0.85, true];
 // private _dirStrength = round([1,0,_dirDiff/2] call BIS_fnc_easeOut);	// BIS_fnc_easeOut is an interpolation that changes quickly at first and then flattens
 // for a selection of other interpolation functions (e.g. progressive or degressive curves) visit:
 // https://community.bistudio.com/wiki/Category:Function_Group:_Interpolation
@@ -36,7 +36,6 @@ private _dirStrength = 1 - linearConversion [0, 2, _dirDiff, 0, 1, true];
 // Max signal is 0, lowest signal is -100, as given in dBm. Strength and Direction is given as contributing factors between 0 and 1 each
 private _sigStrength = -100 + (100 * _distStrength * _dirStrength);
 
-// TODO remove
-systemChat format ["Sig strength: %1, dist_factor: %2, dir_factor: %3, _distance: %4, _dirdiff: %5", _sigStrength, _distStrength, _dirStrength, _distance, _dirDiff];
+// systemChat format ["Sig strength: %1, dist_factor: %2, dir_factor: %3, _distance: %4, _dirdiff: %5", _sigStrength, _distStrength, _dirStrength, _distance, _dirDiff];
 
 _sigStrength
