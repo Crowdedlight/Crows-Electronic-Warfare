@@ -17,7 +17,7 @@ if (!hasInterface) exitWith {};
 
 // emp sound and shake, but only if close enough
 if ((player distance _pos) < (_range*2)) then {
-	playSound "emp_blast";
+	playSound "crowsew_emp_blast";
 	
 	// cam shake
 	enableCamShake true;
@@ -79,7 +79,7 @@ sleep 0.1;
 titleCut ["", "WHITE IN", 0.5];
 
 // play tinnitus sound
-playSound "tinnitus";
+playSound "crowsew_tinnitus";
 
 // blue a bit, then slightly less, then none to simulate getting hit effect
 "dynamicBlur" ppEffectEnable true;   

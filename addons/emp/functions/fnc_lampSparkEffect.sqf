@@ -26,7 +26,7 @@ private _maxHeight = abs ((_point2 select 2) - (_point1 select 2));
 
 private _spark_pos_relative = (_maxHeight/2)-0.45;
 
-private _spark_sound = ["spark1","spark2","spark3"] call BIS_fnc_selectRandom;
+private _spark_sound = ["crowsew_spark1","crowsew_spark2","crowsew_spark3"] call BIS_fnc_selectRandom;
 private _spark_type = ["white","orange"] call BIS_fnc_selectRandom;
 
 private _drop = 0.003+(random 0.05);

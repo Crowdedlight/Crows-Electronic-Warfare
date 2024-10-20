@@ -112,7 +112,7 @@ private _lightEffectArr = _lightList;
 [[_lightEffectArr],QPATHTOF(functions\fnc_lampEffect.sqf)] remoteExec ["execVM", [0,-2] select isDedicated];
 
 // play radio static sound
-["electro_static"] remoteExec ["playSound", [0,-2] select isDedicated];
+["crowsew_electro_static"] remoteExec ["playSound", [0,-2] select isDedicated];
 
 private _unitSpawn = [_delay, _men, _scopeMode, _binoMode] spawn {
 	params ["_delay", "_units", "_scopeMode", "_binoMode"];
