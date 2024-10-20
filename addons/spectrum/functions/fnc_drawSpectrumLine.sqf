@@ -22,7 +22,7 @@ if(!(
 
 _colour = GVAR(spectrumAutolineColours) # _colour;
 
-private _freq = ((missionnamespace getVariable ["#EM_SelMin", 141.6]) + (missionnamespace getVariable ["#EM_SelMax", 141.9]))/2;
+private _freq = ((missionNamespace getVariable ["#EM_SelMin", 141.6]) + (missionNamespace getVariable ["#EM_SelMax", 141.9]))/2;
 _freq = _freq toFixed 1;
 
 private _startPos = [[[position player, GVAR(spectrumAutolineNoise)]]] call BIS_fnc_randomPos;

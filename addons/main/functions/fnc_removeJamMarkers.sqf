@@ -12,6 +12,6 @@ removes local marker for the jammer to show on map. Only called for zeus, so onl
 params ["_netIDs"];
 
 {
-	deletemarkerLocal _x;
-	deletemarkerLocal _x + "_effective";
-} foreach _netIDs;
+	deleteMarkerLocal _x;
+	deleteMarkerLocal _x + "_effective";
+} forEach _netIDs;

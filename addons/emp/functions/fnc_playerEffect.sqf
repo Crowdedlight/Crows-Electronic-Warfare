@@ -17,7 +17,7 @@ if (!hasInterface) exitWith {};
 
 // emp sound and shake, but only if close enough
 if ((player distance _pos) < (_range*2)) then {
-	playsound "emp_blast";
+	playSound "crowsew_emp_blast";
 	
 	// cam shake
 	enableCamShake true;
@@ -47,7 +47,7 @@ _explosion setDropInterval 50;
 [_explosion] spawn {params ["_obj"];sleep 1.1;deleteVehicle _obj};
 
 // emp colour - Set 0 brightness then turn it up as effect
-private _empEffect = "#lightpoint" createVehiclelocal _pos; 
+private _empEffect = "#lightpoint" createVehicleLocal _pos; 
 _empEffect setLightAmbient [0.34,0.72,1];  
 _empEffect setLightColor [0.34,0.72,1];
 _empEffect setLightBrightness 0;
@@ -79,7 +79,7 @@ sleep 0.1;
 titleCut ["", "WHITE IN", 0.5];
 
 // play tinnitus sound
-playsound "tinnitus";
+playSound "crowsew_tinnitus";
 
 // blue a bit, then slightly less, then none to simulate getting hit effect
 "dynamicBlur" ppEffectEnable true;   
@@ -97,7 +97,7 @@ sleep 3;
 // effect testing 
 // [_this, 500] spawn {
 // params ["_empObj", "_range"];
-// playsound "emp_blast";
+// playSound "emp_blast";
 
 // enableCamShake true;
 // addCamShake [6,5,24];
@@ -135,7 +135,7 @@ sleep 3;
 // _explosion setDropInterval 50;
 // [_explosion] spawn {params ["_obj"];sleep 1.1;deleteVehicle _obj};
 
-// private _empEffect = "#lightpoint" createVehiclelocal getposatl _empObj; 
+// private _empEffect = "#lightpoint" createVehicleLocal getposatl _empObj; 
 // _empEffect lightAttachObject [_empObj, [0,0,3]];
 // _empEffect setLightAmbient [0.34,0.72,1];  
 // _empEffect setLightColor [0.34,0.72,1];
@@ -154,7 +154,7 @@ sleep 3;
 // cutText ["", "WHITE OUT", 0.5];
 // sleep 0.1;
 // titleCut ["", "WHITE IN", 0.5];
-// playsound "tinnitus";
+// playSound "tinnitus";
 // "dynamicBlur" ppEffectEnable true;   
 // "dynamicBlur" ppEffectAdjust [7];   
 // "dynamicBlur" ppEffectCommit 0.5;     

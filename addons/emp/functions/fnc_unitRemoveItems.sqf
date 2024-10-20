@@ -47,7 +47,7 @@ if (_scopeMode != 0 && count _mainWep > 0) then {
     private _scope = _mainWep select 3;
 
     // get the configs for the scope to check for thermal or NVG. This way we don't have to hardcode list of items
-    private _opticsModes = ("true" configClasses (ConfigFile >> "CfgWeapons" >> _scope >> "ItemInfo" >> "OpticsModes")) apply {
+    private _opticsModes = ("true" configClasses (configFile >> "CfgWeapons" >> _scope >> "ItemInfo" >> "OpticsModes")) apply {
         private _visionMode = getArray (_x >> "visionMode");
         [
             "NVG" in _visionMode, //Integrated NVG
@@ -73,7 +73,7 @@ if (_scopeMode != 0 && count _pistol > 0) then {
     private _scope = _pistol select 3;
 
     // get the configs for the scope to check for thermal or NVG. This way we don't have to hardcode list of items
-    _opticsModes = ("true" configClasses (ConfigFile >> "CfgWeapons" >> _scope >> "ItemInfo" >> "OpticsModes")) apply {
+    _opticsModes = ("true" configClasses (configFile >> "CfgWeapons" >> _scope >> "ItemInfo" >> "OpticsModes")) apply {
         private _visionMode = getArray (_x >> "visionMode");
         [
             "NVG" in _visionMode, //Integrated NVG

@@ -14,8 +14,8 @@ params ["_jammer", "_netID", "_radFalloff", "_radEffective", "_enabled"];
 private _marker_falloff = _netID;
 private _marker_effective = _netID + "_effective";
 
-private _not_exists_falloff = (getMarkerSize _marker_falloff) IsEqualTo [0,0];
-private _not_exists_effective = (getMarkerSize _marker_effective) IsEqualTo [0,0];
+private _not_exists_falloff = (getMarkerSize _marker_falloff) isEqualTo [0,0];
+private _not_exists_effective = (getMarkerSize _marker_effective) isEqualTo [0,0];
 
 // if marker doesn't exist, create it, otherwise just update pos
 if (_not_exists_falloff) then {

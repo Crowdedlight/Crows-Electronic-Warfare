@@ -26,7 +26,7 @@ private _sparkCount = 1 + floor (random 3);
 	// do the effect
 	for "_i" from 0 to _sparkCount do {
 		private _randomDelay = 0.5 + (random 1);
-		[_unit,_randomDelay] execvm QPATHTOF(functions\fnc_lampSparkEffect.sqf);
+		[_unit,_randomDelay] execVM QPATHTOF(functions\fnc_lampSparkEffect.sqf);
 		sleep _randomDelay;
 	};
 
