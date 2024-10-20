@@ -25,10 +25,10 @@ private _dirDiff = vectorMagnitude (_trackerFacingDir vectorDiff _dirTargetFromT
 private _distance = _tracker distance _target;
 
 // distance strength. 0 is outside range, 1 is right next to the signal
-private _distStrength = 1 - linearConversion [0, _scanRange, _distance, 0, 1, true];
+private _distStrength = linearConversion [0, _scanRange, _distance, 1, 0, true];
 
 // direction strength, 1 is max value when looking straight at it. Keeping backlope effect by capping at 0.1, with 0.9 max. 
-private _dirStrength = 1 - linearConversion [0, 2, _dirDiff, 0, 0.85, true];
+private _dirStrength = [1, 0.15, _dirDiff/2] call BIS_fnc_easeOut; 
 // private _dirStrength = round([1,0,_dirDiff/2] call BIS_fnc_easeOut);	// BIS_fnc_easeOut is an interpolation that changes quickly at first and then flattens
 // for a selection of other interpolation functions (e.g. progressive or degressive curves) visit:
 // https://community.bistudio.com/wiki/Category:Function_Group:_Interpolation
