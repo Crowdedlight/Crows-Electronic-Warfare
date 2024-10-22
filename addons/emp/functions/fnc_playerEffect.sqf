@@ -17,11 +17,7 @@ if (!hasInterface) exitWith {};
 
 // emp sound and shake, but only if close enough
 if ((player distance _pos) < (_range*2)) then {
-<<<<<<< HEAD
 	playSound "crowsew_emp_blast";
-=======
-	playSound "emp_blast";
->>>>>>> d0923b2 (linting fixes from hemtt)
 	
 	// cam shake
 	enableCamShake true;
