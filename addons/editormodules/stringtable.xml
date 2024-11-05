@@ -165,6 +165,10 @@
                   <English>Alien Electronic</English>
                   <Chinesesimp>陌生的电子</Chinesesimp>
             </Key>
+            <Key ID="STR_CROWSEW_Editormodules_radio_chatter_police_radio">
+                  <English>Police Radio</English>
+                  <Chinesesimp>警察无线电</Chinesesimp>
+            </Key>
             <Key ID="STR_CROWSEW_Editormodules_radio_chatter_frequency_min_name">
                   <English>Frequency min (60 to 250mhz)</English>
                   <Chinesesimp>最小频率 (60 ~ 250mhz)</Chinesesimp>
