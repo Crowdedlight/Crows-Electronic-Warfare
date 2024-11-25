@@ -20,3 +20,5 @@ PREP(removeSatcomMarker);
 PREP(applyInterferenceTFAR);
 PREP(applyInterferenceACRE);
 PREP(signalHandlerACRE);
+PREP(settingChangedZeusMapMarkers);
+PREP(settingChangedZeusJamImmunity);
