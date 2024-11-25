@@ -32,7 +32,7 @@ private _newJammers = (keys _jamMap) - (keys GVAR(jamMap));
 
 // reset effects if 0, as 0 == no logic being run in local PFH
 if (count _jamMap == 0) then {
-	[player] call FUNC(resetTfarIfDegraded);
+	[player] call FUNC(resetRadioIfDegraded);
 
 	// reset jamming effect on video signal if updated to be empty
 	private _PP_film = GVAR(FilmGrain_jamEffect);
