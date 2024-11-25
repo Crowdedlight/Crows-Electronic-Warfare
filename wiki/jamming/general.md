@@ -21,7 +21,7 @@ This should make it more clear and easier to apply for mission makers to get the
 Zeus will not be radio jammed, but might not be able to hear TFAR players transmitting inside jamming area, if that player is totally jammed. 
 Zeus has two mapmarkers for each jammer. Outer one shows the `falloff` radius, and the inner one shows the `effective` radius. Thus zeus can see the position of all jammers and their area of effect. The markers will update if jammer is moved. If the jammer is active the `falloff`marker will be yellow and the `effective` radius will be red. 
 
-
+Zeus' immunity and the ability to see the map-markers of jammers can be disabled through CBA settings. By default zeus will see all jammers map-markers and be immune. 
 
 
 ## Zeus Context Actions - Toggle Jammer on/off

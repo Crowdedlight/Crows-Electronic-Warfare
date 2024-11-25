@@ -13,8 +13,8 @@ main script that handles the jamming whenever there is at least 1 active jammer
 // if no jammers exit
 if (count GVAR(jamMap) == 0) exitWith {};
 
-//IF ZEUS, update markers and skip.
-if (call EFUNC(zeus,isZeus)) then {
+//IF ZEUS, and markers enabled, update markers and skip.
+if (call EFUNC(zeus,isZeus) && GVAR(zeus_jam_marker_show)) then {
 	// update markers 
 	{
 		_y params ["_jamObj", "_radFalloff", "_radEffective", "_enabled", "_capabilities"];
@@ -23,8 +23,8 @@ if (call EFUNC(zeus,isZeus)) then {
 	} forEach GVAR(jamMap);
 };
 
-// TFAR Jamming logic - do not run if zeus, as zeus is immune to TFAR jamming only
-if (!(call EFUNC(zeus,isZeus))) then {
+// TFAR Jamming logic - if zeus, and immunity option is disabled, jam anyway
+if (!(call EFUNC(zeus,isZeus)) || {(call EFUNC(zeus,isZeus)) && !GVAR(zeus_jam_immune)}) then {
 	// find nearest jammer within range
 	private _nearestJammer = [objNull];
 	private _distJammer = -1;
