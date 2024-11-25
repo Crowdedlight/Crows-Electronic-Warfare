@@ -17,7 +17,4 @@ if (_value) exitWith {};
 // otherwise if disabled, we got to clear all existing map markers
 private _netIDs = keys GVAR(jamMap);
 
-{
-	deleteMarkerLocal _x;
-	deleteMarkerLocal _x + "_effective";
-} forEach _netIDs;
+[_netIDs] call FUNC(removeJamMarkers); 
