@@ -13,5 +13,6 @@ hemtt
 *.bat
 *.dll
 .hemttout/*
+.hemtt/missions/~*
 .vscode/sqfvm-lsp/
 target
