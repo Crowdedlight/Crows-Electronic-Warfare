@@ -6,7 +6,7 @@ if (isServer) then {
 };
 
 if (hasInterface) then {
-    [QGVAR(playerEffect), FUNC(playerEffect)] call CBA_fnc_addEventHandler;
-    [QGVAR(sparkEffect), FUNC(targetSparkSFXSpawner)] call CBA_fnc_addEventHandler;
-    [QGVAR(lightEffect), FUNC(lampEffect)] call CBA_fnc_addEventHandler;
+    [QGVAR(playerEffect), {_this spawn FUNC(playerEffect)}] call CBA_fnc_addEventHandler;
+    [QGVAR(sparkEffect), {_this spawn FUNC(targetSparkSFXSpawner)}] call CBA_fnc_addEventHandler;
+    [QGVAR(lightEffect), {_this spawn FUNC(lampEffect)}] call CBA_fnc_addEventHandler;
 };
