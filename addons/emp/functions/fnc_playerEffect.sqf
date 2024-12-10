@@ -10,7 +10,9 @@ plays the visual effect for the emp.
 Credit to ALIAS for the initial base template of the particle effect: https://www.youtube.com/user/aliascartoons/videos
 
 *///////////////////////////////////////////////
-params ["_pos", "_range", "_player"];
+params ["_pos", "_range"];
+
+private _player = [] call CBA_fnc_currentUnit;
 
 // only for players
 if (!hasInterface) exitWith {};

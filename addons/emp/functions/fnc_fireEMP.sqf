@@ -26,7 +26,7 @@ if (isNull _object && _spawnDevice) then
 	["zen_common_addObjects", [[_object], objNull]] call CBA_fnc_serverEvent;
 };
 
-[QGVAR(playerEffect), [_pos, _range, [] call CBA_fnc_currentUnit]] call CBA_fnc_globalEvent;
+[QGVAR(playerEffect), [_pos, _range]] call CBA_fnc_globalEvent;
 
 // get close units, cars, static launchers, lights
 private _nearestArray = [_pos, _range] call FUNC(getNearestElements);
