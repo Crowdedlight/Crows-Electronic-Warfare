@@ -1,337 +1,337 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Crows Electronic Warfare">
-      <Package name="zeus">
-            <Key ID="STR_CROWSEW_Zeus_keybind_text_name">
-                  <English>Show help display text</English>
-                  <Chinesesimp>显示帮助文本</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_keybind_text_tooltip">
-                  <English>Shows text in zeus view for units with applied modules</English>
-                  <Chinesesimp>已应用模块的单位在 Zeus 视图中显示文本</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_spectrumsignal_add">
-                  <English>Add Spectrum Signal Source</English>
-                  <Chinesesimp>添加 - 频谱信号源</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_spectrumsignal_remove">
-                  <English>Remove Spectrum Signal Source</English>
-                  <Chinesesimp>移除 - 频谱信号源</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_addsound">
-                  <English>Add Sound</English>
-                  <Chinesesimp>添加 - 声音</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_removesound">
-                  <English>Remove Sound</English>
-                  <Chinesesimp>移除 - 声音</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_playsound">
-                  <English>Play Sound</English>
-                  <Chinesesimp>播放声音</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_fireemp">
-                  <English>Fire EMP</English>
-                  <Chinesesimp>发射电磁脉冲</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_immuneemp">
-                  <English>Add Immune to EMP</English>
-                  <Chinesesimp>给对象添加电磁脉冲免疫</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_radiochatter_add">
-                  <English>Add Radio Tracking Chatter</English>
-                  <Chinesesimp>添加 - 无线电跟踪</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_radiochatter_remove">
-                  <English>Remove Radio Tracking Chatter</English>
-                  <Chinesesimp>移除 - 无线电跟踪</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_jammable">
-                  <English>Set Unit Jammable</English>
-                  <Chinesesimp>设置可干扰单元</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_jammer_add">
-                  <English>Add Jammer</English>
-                  <Chinesesimp>添加 - 干扰器</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_jammer_remove">
-                  <English>Remove Jammer</English>
-                  <Chinesesimp>移除 - 干扰器</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_radiotracking">
-                  <English>Toggle Radio Tracking</English>
-                  <Chinesesimp>是否启用无线电跟踪</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_addsatcom">
-                  <English>Add SATCOM</English>
-                  <Chinesesimp>添加 - 卫星通信</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_modules_removesatcom">
-                  <English>Remove SATCOM</English>
-                  <Chinesesimp>移除 - 卫星通信</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_contextmenu_jammer">
-                  <English>Jammer</English>
-                  <Chinesesimp>设置干扰器菜单</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_contextmenu_on_off">
-                  <English>Toggle On/off</English>
-                  <Chinesesimp>切换 开/关</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_jammable_error">
-                  <English>SetUnitJammable must be placed on a unit</English>
-                  <Chinesesimp>SetUnitJammable 必须放在一个单元上</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_radiotracking_name">
-                  <English>Radio Tracking</English>
-                  <Chinesesimp>无线电跟踪菜单</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_radiotracking_enable">
-                  <English>Enable Radio Tracking</English>
-                  <Chinesesimp>启用无线电跟踪</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_radiotracking_enable_tooltip">
-                  <English>Makes Radio transmission trackable with spectrum analyzer</English>
-                  <Chinesesimp>使无线电传输可跟踪和被频谱分析仪分析</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_emp_immune_name">
-                  <English>Set Immune to EMP</English>
-                  <Chinesesimp>设置免疫电磁脉冲菜单</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_emp_immune_displayname">
-                  <English>Immunity to EMP</English>
-                  <Chinesesimp>对电磁脉冲的免疫力</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_emp_immune_tooltip">
-                  <English>Makes the unit immune to EMPs</English>
-                  <Chinesesimp>使单位对电磁脉冲免疫</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_remove_signal_error">
-                  <English>You have to select a unit to remove signal source from</English>
-                  <Chinesesimp>您必须选择一个单元来移除信号源</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_remove_sound_error">
-                  <English>You have to select a unit to remove sound from</English>
-                  <Chinesesimp>您必须选择一个单元来移除声音</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_remove_satcom_error">
-                  <English>You have to select a object to remove satcom from!</English>
-                  <Chinesesimp>您必须选择一个对象来移除卫星通信!</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_remove_chatter_error">
-                  <English>You have to select a unit to remove chatter from</English>
-                  <Chinesesimp>您必须选择一个单元来移除无线电跟踪</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_removejammer_error">
-                  <English>You have to select a unit to remove jammer from</English>
-                  <Chinesesimp>你必须选择一个单元来移除干扰器</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_playsound_name">
-                  <English>Play Sound (Can't be stopped if targeted, be aware of long sounds)</English>
-                  <Chinesesimp>播放声音菜单 (一但开始便无法停止, 注意长时间声音)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_playsound_sound">
-                  <English>Sound</English>
-                  <Chinesesimp>声音</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_playsound_targets">
-                  <English>Targets to play sound. If none is selected it will play globally for all</English>
-                  <Chinesesimp>选择播放声音的目标.如果没有选择,则会在全局范围内为所有目标播放声音.</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_playsound_targets_tooltip">
-                  <English>If none selected it will play globally, otherwise it will play local only for selected players</English>
-                  <Chinesesimp>如果选择无,则全局范围内播放, 否则将只在选定的单位上播放</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_playsound_range">
-                  <English>Range it can be heard [m]</English>
-                  <Chinesesimp>可以听到的范围 [m]</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_playsound_range_tooltip">
-                  <English>0 range is unlimited distance</English>
-                  <Chinesesimp>选择 0 则为无限距离</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_playsound_volume">
-                  <English>Volume</English>
-                  <Chinesesimp>音量</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_fireemp_name">
-                  <English>Fire EMP</English>
-                  <Chinesesimp>发射电磁脉冲</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_fireemp_range">
-                  <English>Range [m]</English>
-                  <Chinesesimp>范围 [m]</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_fireemp_spawn_device">
-                  <English>Spawn EMP Object?</English>
-                  <Chinesesimp>生成 EMP 对象?</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_fireemp_spawn_device_tooltip">
-                  <English>Spawn 'the device' object as EMP source?</English>
-                  <Chinesesimp>生成 '设备' 对象作为 EMP 源?</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_textdisplay_radiochatter">
-                  <English>RadioChatter</English>
-                  <Chinesesimp>无线电喋喋不休</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_textdisplay_signalsource">
-                  <English>SignalSource</English>
-                  <Chinesesimp>信号源</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_jammer">
-                  <English>Jammer</English>
-                  <Chinesesimp>干扰器</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_sound">
-                  <English>Sound</English>
-                  <Chinesesimp>声音</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_jammed">
-                  <English>JAMMED</English>
-                  <Chinesesimp>干扰</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_satcom">
-                  <English>SATCOM</English>
-                  <Chinesesimp>卫星通信</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_error_signal">
-                  <English>You have to select a object as signal source</English>
-                  <Chinesesimp>您必须选择一个对象作为信号源</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_error_sound">
-                  <English>Have to select an object to put sound on</English>
-                  <Chinesesimp>必须选择一个对象来发出声音</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_setsound_name">
-                  <English>Set Sound</English>
-                  <Chinesesimp>设置声音菜单</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addsound_delay">
-                  <English>Delay between repeats [s]</English>
-                  <Chinesesimp>循环播放的延迟 [s]</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addsound_start_delay">
-                  <English>Start Delay [s]</English>
-                  <Chinesesimp>启动延迟 [s]</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addsound_repeat">
-                  <English>Should it repeat the sound?</English>
-                  <Chinesesimp>是否重复声音?</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addsound_remove_when_dead">
-                  <English>Remove sound when dead?</English>
-                  <Chinesesimp>死亡时移除声音?</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addsatcom_name">
-                  <English>Set SATCOM</English>
-                  <Chinesesimp>设定卫星通讯菜单</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addsatcom_radius">
-                  <English>SATCOM Radius</English>
-                  <Chinesesimp>卫星通信半径</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_error_on_object">
-                  <English>Have to be placed on object!</English>
-                  <Chinesesimp>必须放置在物体上!</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_error_select_unit">
-                  <English>You have to select a unit</English>
-                  <Chinesesimp>您必须选择一个单元</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_name">
-                  <English>Add Radio Chatter</English>
-                  <Chinesesimp>添加无线电喋喋不休</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_voicepack">
-                  <English>Voicepack</English>
-                  <Chinesesimp>语音包</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_voicepack_tooltip">
-                  <English>Select what voicepack to use when people listen to the transmitted signal</English>
-                  <Chinesesimp>选择人们收听传输信号时使用的语音包</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_freq_min">
-                  <English>Frequency min.</English>
-                  <Chinesesimp>最小频率.</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_freq_min_tooltip">
-                  <English>The minimum frequency used. Recommend small interval</English>
-                  <Chinesesimp>使用的最小频率. 建议小间隔</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_freq_max">
-                  <English>Frequency max.</English>
-                  <Chinesesimp>最大频率.</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_freq_max_tooltip">
-                  <English>The maximum frequency used. Recommend small interval</English>
-                  <Chinesesimp>使用的最大频率. 建议小间隔</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_range">
-                  <English>range</English>
-                  <Chinesesimp>范围</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_duration_min">
-                  <English>Duration min.</English>
-                  <Chinesesimp>最小持续时间.</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_duration_min_tooltip">
-                  <English>The minimum duration of each chatter broadcast</English>
-                  <Chinesesimp>每次聊天广播的最短持续时间</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_duration_max">
-                  <English>Duration max.</English>
-                  <Chinesesimp>最大持续时间.</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_duration_max_tooltip">
-                  <English>The maximum duration of each chatter broadcast</English>
-                  <Chinesesimp>每次聊天广播的最长持续时间</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_pause_min">
-                  <English>Pause min.</English>
-                  <Chinesesimp>最小暂停时间.</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_pause_min_tooltip">
-                  <English>The minimum time between chatter broadcasts</English>
-                  <Chinesesimp>聊天广播之间的最短时间</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_pause_max">
-                  <English>Pause max.</English>
-                  <Chinesesimp>最大暂停时间.</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addradiochatter_pause_max_tooltip">
-                  <English>The maximum time between chatter broadcasts</English>
-                  <Chinesesimp>聊天广播之间的最长时间</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addjammer_name">
-                  <English>Jammer</English>
-                  <Chinesesimp>设置干扰器菜单</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addjammer_start_when_placed">
-                  <English>Start jamming as soon as placed</English>
-                  <Chinesesimp>放置后立即开始干扰</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addjammer_jam_radio">
-                  <English>Jam radio communication signals</English>
-                  <Chinesesimp>干扰无线电通信信号</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addjammer__jam_drones">
-                  <English>Jam drone signals</English>
-                  <Chinesesimp>干扰无人机信号</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addjammer__effective_radius">
-                  <English>Jamming Effective Radius</English>
-                  <Chinesesimp>干扰有效半径</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addjammer_effective_radius_tooltip">
-                  <English>The area that will have 100% jamming</English>
-                  <Chinesesimp>将产生 100% 干扰的区域</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addjammer_falloff_radius">
-                  <English>Jamming Falloff Radius</English>
-                  <Chinesesimp>干扰衰减半径</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Zeus_addjammer_falloff_radius_tooltip">
-                  <English>Linear buffer where there will be 0 jamming at start, and when it meet effective radius its fully jammed</English>
-                  <Chinesesimp>线性缓冲区, 开始时无干扰, 当达到有效半径时完全干扰</Chinesesimp>
-            </Key>
-      </Package>
+    <Package name="zeus">
+        <Key ID="STR_CROWSEW_Zeus_addjammer__effective_radius">
+            <English>Jamming Effective Radius</English>
+            <Chinesesimp>干扰有效半径</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addjammer__jam_drones">
+            <English>Jam drone signals</English>
+            <Chinesesimp>干扰无人机信号</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addjammer_effective_radius_tooltip">
+            <English>The area that will have 100% jamming</English>
+            <Chinesesimp>将产生 100% 干扰的区域</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addjammer_falloff_radius">
+            <English>Jamming Falloff Radius</English>
+            <Chinesesimp>干扰衰减半径</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addjammer_falloff_radius_tooltip">
+            <English>Linear buffer where there will be 0 jamming at start, and when it meet effective radius its fully jammed</English>
+            <Chinesesimp>线性缓冲区, 开始时无干扰, 当达到有效半径时完全干扰</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addjammer_jam_radio">
+            <English>Jam radio communication signals</English>
+            <Chinesesimp>干扰无线电通信信号</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addjammer_name">
+            <English>Jammer</English>
+            <Chinesesimp>设置干扰器菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addjammer_start_when_placed">
+            <English>Start jamming as soon as placed</English>
+            <Chinesesimp>放置后立即开始干扰</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_duration_max">
+            <English>Duration max.</English>
+            <Chinesesimp>最大持续时间.</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_duration_max_tooltip">
+            <English>The maximum duration of each chatter broadcast</English>
+            <Chinesesimp>每次聊天广播的最长持续时间</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_duration_min">
+            <English>Duration min.</English>
+            <Chinesesimp>最小持续时间.</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_duration_min_tooltip">
+            <English>The minimum duration of each chatter broadcast</English>
+            <Chinesesimp>每次聊天广播的最短持续时间</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_freq_max">
+            <English>Frequency max.</English>
+            <Chinesesimp>最大频率.</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_freq_max_tooltip">
+            <English>The maximum frequency used. Recommend small interval</English>
+            <Chinesesimp>使用的最大频率. 建议小间隔</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_freq_min">
+            <English>Frequency min.</English>
+            <Chinesesimp>最小频率.</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_freq_min_tooltip">
+            <English>The minimum frequency used. Recommend small interval</English>
+            <Chinesesimp>使用的最小频率. 建议小间隔</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_name">
+            <English>Add Radio Chatter</English>
+            <Chinesesimp>添加无线电喋喋不休</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_pause_max">
+            <English>Pause max.</English>
+            <Chinesesimp>最大暂停时间.</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_pause_max_tooltip">
+            <English>The maximum time between chatter broadcasts</English>
+            <Chinesesimp>聊天广播之间的最长时间</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_pause_min">
+            <English>Pause min.</English>
+            <Chinesesimp>最小暂停时间.</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_pause_min_tooltip">
+            <English>The minimum time between chatter broadcasts</English>
+            <Chinesesimp>聊天广播之间的最短时间</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_range">
+            <English>range</English>
+            <Chinesesimp>范围</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_voicepack">
+            <English>Voicepack</English>
+            <Chinesesimp>语音包</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addradiochatter_voicepack_tooltip">
+            <English>Select what voicepack to use when people listen to the transmitted signal</English>
+            <Chinesesimp>选择人们收听传输信号时使用的语音包</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addsatcom_name">
+            <English>Set SATCOM</English>
+            <Chinesesimp>设定卫星通讯菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addsatcom_radius">
+            <English>SATCOM Radius</English>
+            <Chinesesimp>卫星通信半径</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addsound_delay">
+            <English>Delay between repeats [s]</English>
+            <Chinesesimp>循环播放的延迟 [s]</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addsound_remove_when_dead">
+            <English>Remove sound when dead?</English>
+            <Chinesesimp>死亡时移除声音?</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addsound_repeat">
+            <English>Should it repeat the sound?</English>
+            <Chinesesimp>是否重复声音?</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_addsound_start_delay">
+            <English>Start Delay [s]</English>
+            <Chinesesimp>启动延迟 [s]</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_contextmenu_jammer">
+            <English>Jammer</English>
+            <Chinesesimp>设置干扰器菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_contextmenu_on_off">
+            <English>Toggle On/off</English>
+            <Chinesesimp>切换 开/关</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_emp_immune_displayname">
+            <English>Immunity to EMP</English>
+            <Chinesesimp>对电磁脉冲的免疫力</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_emp_immune_name">
+            <English>Set Immune to EMP</English>
+            <Chinesesimp>设置免疫电磁脉冲菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_emp_immune_tooltip">
+            <English>Makes the unit immune to EMPs</English>
+            <Chinesesimp>使单位对电磁脉冲免疫</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_error_on_object">
+            <English>Have to be placed on object!</English>
+            <Chinesesimp>必须放置在物体上!</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_error_select_unit">
+            <English>You have to select a unit</English>
+            <Chinesesimp>您必须选择一个单元</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_error_signal">
+            <English>You have to select a object as signal source</English>
+            <Chinesesimp>您必须选择一个对象作为信号源</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_error_sound">
+            <English>Have to select an object to put sound on</English>
+            <Chinesesimp>必须选择一个对象来发出声音</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_fireemp_name">
+            <English>Fire EMP</English>
+            <Chinesesimp>发射电磁脉冲</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_fireemp_range">
+            <English>Range [m]</English>
+            <Chinesesimp>范围 [m]</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_fireemp_spawn_device">
+            <English>Spawn EMP Object?</English>
+            <Chinesesimp>生成 EMP 对象?</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_fireemp_spawn_device_tooltip">
+            <English>Spawn 'the device' object as EMP source?</English>
+            <Chinesesimp>生成 '设备' 对象作为 EMP 源?</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_jammable_error">
+            <English>SetUnitJammable must be placed on a unit</English>
+            <Chinesesimp>SetUnitJammable 必须放在一个单元上</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_jammed">
+            <English>JAMMED</English>
+            <Chinesesimp>干扰</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_jammer">
+            <English>Jammer</English>
+            <Chinesesimp>干扰器</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_keybind_text_name">
+            <English>Show help display text</English>
+            <Chinesesimp>显示帮助文本</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_keybind_text_tooltip">
+            <English>Shows text in zeus view for units with applied modules</English>
+            <Chinesesimp>已应用模块的单位在 Zeus 视图中显示文本</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_addsatcom">
+            <English>Add SATCOM</English>
+            <Chinesesimp>添加 - 卫星通信</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_addsound">
+            <English>Add Sound</English>
+            <Chinesesimp>添加 - 声音</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_fireemp">
+            <English>Fire EMP</English>
+            <Chinesesimp>发射电磁脉冲</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_immuneemp">
+            <English>Add Immune to EMP</English>
+            <Chinesesimp>给对象添加电磁脉冲免疫</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_jammable">
+            <English>Set Unit Jammable</English>
+            <Chinesesimp>设置可干扰单元</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_jammer_add">
+            <English>Add Jammer</English>
+            <Chinesesimp>添加 - 干扰器</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_jammer_remove">
+            <English>Remove Jammer</English>
+            <Chinesesimp>移除 - 干扰器</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_playsound">
+            <English>Play Sound</English>
+            <Chinesesimp>播放声音</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_radiochatter_add">
+            <English>Add Radio Tracking Chatter</English>
+            <Chinesesimp>添加 - 无线电跟踪</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_radiochatter_remove">
+            <English>Remove Radio Tracking Chatter</English>
+            <Chinesesimp>移除 - 无线电跟踪</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_radiotracking">
+            <English>Toggle Radio Tracking</English>
+            <Chinesesimp>是否启用无线电跟踪</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_removesatcom">
+            <English>Remove SATCOM</English>
+            <Chinesesimp>移除 - 卫星通信</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_removesound">
+            <English>Remove Sound</English>
+            <Chinesesimp>移除 - 声音</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_spectrumsignal_add">
+            <English>Add Spectrum Signal Source</English>
+            <Chinesesimp>添加 - 频谱信号源</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_spectrumsignal_remove">
+            <English>Remove Spectrum Signal Source</English>
+            <Chinesesimp>移除 - 频谱信号源</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_playsound_name">
+            <English>Play Sound (Can't be stopped if targeted, be aware of long sounds)</English>
+            <Chinesesimp>播放声音菜单 (一但开始便无法停止, 注意长时间声音)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_playsound_range">
+            <English>Range it can be heard [m]</English>
+            <Chinesesimp>可以听到的范围 [m]</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_playsound_range_tooltip">
+            <English>0 range is unlimited distance</English>
+            <Chinesesimp>选择 0 则为无限距离</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_playsound_sound">
+            <English>Sound</English>
+            <Chinesesimp>声音</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_playsound_targets">
+            <English>Targets to play sound. If none is selected it will play globally for all</English>
+            <Chinesesimp>选择播放声音的目标.如果没有选择,则会在全局范围内为所有目标播放声音.</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_playsound_targets_tooltip">
+            <English>If none selected it will play globally, otherwise it will play local only for selected players</English>
+            <Chinesesimp>如果选择无,则全局范围内播放, 否则将只在选定的单位上播放</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_playsound_volume">
+            <English>Volume</English>
+            <Chinesesimp>音量</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_radiotracking_enable">
+            <English>Enable Radio Tracking</English>
+            <Chinesesimp>启用无线电跟踪</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_radiotracking_enable_tooltip">
+            <English>Makes Radio transmission trackable with spectrum analyzer</English>
+            <Chinesesimp>使无线电传输可跟踪和被频谱分析仪分析</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_radiotracking_name">
+            <English>Radio Tracking</English>
+            <Chinesesimp>无线电跟踪菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_remove_chatter_error">
+            <English>You have to select a unit to remove chatter from</English>
+            <Chinesesimp>您必须选择一个单元来移除无线电跟踪</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_remove_satcom_error">
+            <English>You have to select a object to remove satcom from!</English>
+            <Chinesesimp>您必须选择一个对象来移除卫星通信!</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_remove_signal_error">
+            <English>You have to select a unit to remove signal source from</English>
+            <Chinesesimp>您必须选择一个单元来移除信号源</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_remove_sound_error">
+            <English>You have to select a unit to remove sound from</English>
+            <Chinesesimp>您必须选择一个单元来移除声音</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_removejammer_error">
+            <English>You have to select a unit to remove jammer from</English>
+            <Chinesesimp>你必须选择一个单元来移除干扰器</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_satcom">
+            <English>SATCOM</English>
+            <Chinesesimp>卫星通信</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_setsound_name">
+            <English>Set Sound</English>
+            <Chinesesimp>设置声音菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_sound">
+            <English>Sound</English>
+            <Chinesesimp>声音</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_textdisplay_radiochatter">
+            <English>RadioChatter</English>
+            <Chinesesimp>无线电喋喋不休</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_textdisplay_signalsource">
+            <English>SignalSource</English>
+            <Chinesesimp>信号源</Chinesesimp>
+        </Key>
+    </Package>
 </Project>

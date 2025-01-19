@@ -1,265 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Crows Electronic Warfare">
-      <Package name="sounds">
-            <Key ID="STR_CROWSEW_Sounds_not_found">
-                  <English>Sound Not Found</English>
-                  <Chinesesimp>找不到声音</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_jam_loop">
-                  <English>Jammer Loop Sound</English>
-                  <Chinesesimp>干扰器循环声音</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_jam_start">
-                  <English>Computer Startup Sound</English>
-                  <Chinesesimp>电脑启动声音</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_air_raid_1">
-                  <English>Air Raid Siren (2.5min)</English>
-                  <Chinesesimp>空袭警报 (2.5min)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_air_raid_2">
-                  <English>Air Raid Siren 2 (2min)</English>
-                  <Chinesesimp>空袭警报 2 (2min)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_angry_mob">
-                  <English>Angry Mob (12s)</English>
-                  <Chinesesimp>愤怒的暴徒 (12s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_bird_robin">
-                  <English>Bird Whistle Robin (3s)</English>
-                  <Chinesesimp>鸟叫声 (3s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_caralarm">
-                  <English>Car Alarm (12s)</English>
-                  <Chinesesimp>汽车防盗报警器 (12s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_church_bells">
-                  <English>Cathedral Bells (20s)</English>
-                  <Chinesesimp>教堂背景声 (20s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_crow">
-                  <English>Crow Call (2s)</English>
-                  <Chinesesimp>乌鸦的叫声 (2s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_dino_roar">
-                  <English>Dinosaur Roar (1.2s)</English>
-                  <Chinesesimp>恐龙咆哮声 (1.2s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_footsteps_gravel">
-                  <English>Footsteps Gravel (11.4s)</English>
-                  <Chinesesimp>走在碎石上的声音 (11.4s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_footsteps_twigs">
-                  <English>Footsteps Twigs (5.2s)</English>
-                  <Chinesesimp>走在树枝上的声音 (5.2s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_fox">
-                  <English>Fox Cry (1s)</English>
-                  <Chinesesimp>狐狸的叫声 (1s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_heartbeat">
-                  <English>Heartbeat (2s)</English>
-                  <Chinesesimp>心跳声 (2s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_dino_footsteps">
-                  <English>Heavy Dino Footsteps (3s)</English>
-                  <Chinesesimp>沉重的恐龙脚步声 (3s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_mech_turn_off">
-                  <English>Mechanical Turn Off (1.5s)</English>
-                  <Chinesesimp>机械关闭声 (1.5s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_prayer_call">
-                  <English>Prayer Call Turkey (2.5min)</English>
-                  <Chinesesimp>土耳其祈祷会背景声 (2.5min)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_red_alert">
-                  <English>Red alert Alarm (8s)</English>
-                  <Chinesesimp>红色警报声 (8s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_rooster">
-                  <English>Rooster Call (2s)</English>
-                  <Chinesesimp>公鸡的叫声 (2s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_sad_song">
-                  <English>Woman singing sad song (1.1min)</English>
-                  <Chinesesimp>女人唱着悲伤的歌 (1.1min)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_spaceship_radar">
-                  <English>Space Ship Radar (8s)</English>
-                  <Chinesesimp>飞船雷达声 (8s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_trex_growl">
-                  <English>T-REX Growl (5s)</English>
-                  <Chinesesimp>T-REX 咆哮声 (5s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_trex_roar">
-                  <English>T-REX Roar (4s)</English>
-                  <Chinesesimp>T-REX 怒吼声 (4s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_spooky_sentence">
-                  <English>Spooky. This Statement Is False (6s)</English>
-                  <Chinesesimp>幽灵声 (6s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_tripod_horn_1">
-                  <English>Tripod Horn 1 (8s)</English>
-                  <Chinesesimp>三重奏号角声 1 (8s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_tripod_horn_blast">
-                  <English>Tripos Horn Blast (10s)</English>
-                  <Chinesesimp>三重奏号角高音 (10s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_wilhelm">
-                  <English>Wilhelm Scream (1.2s)</English>
-                  <Chinesesimp>威廉的尖叫声 (1.2s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_zombie_growl">
-                  <English>Zombie Growling (8s)</English>
-                  <Chinesesimp>僵尸的咆哮声 (8s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_zombie_sound">
-                  <English>Zombie Sound (6s)</English>
-                  <Chinesesimp>僵尸的声音 (6s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_stuka">
-                  <English>Stuka Siren Diving (15s)</English>
-                  <Chinesesimp>斯图卡警笛声(未知) (15s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_dog_bark">
-                  <English>Dog Barking (12s)</English>
-                  <Chinesesimp>狗吠声 (12s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_dog_german_barking">
-                  <English>Dog, German Shepard, Barking (19s)</English>
-                  <Chinesesimp>德国牧羊犬的狗吠声 (19s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_slap">
-                  <English>Slap (1s)</English>
-                  <Chinesesimp>耳光声 (1s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_telephone_ringing">
-                  <English>Telephone Ringing (12s)</English>
-                  <Chinesesimp>电话铃声 (12s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_old_telephone_ringing">
-                  <English>Old Telephone Ringing (13s)</English>
-                  <Chinesesimp>老式电话铃声 (13s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_chainsaw">
-                  <English>Chainsaw Cutting (14s)</English>
-                  <Chinesesimp>油锯切割声 (14s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_fire_sequence">
-                  <English>Fire Sequence Init. 5min (5s)</English>
-                  <Chinesesimp>消防序列启动:5分钟 (5s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_device_armed">
-                  <English>Device Armed (1s)</English>
-                  <Chinesesimp>设备已布防 (1s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_device_disarmed">
-                  <English>Device Disarmed (2s)</English>
-                  <Chinesesimp>设备已解除 (2s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_throat_singing">
-                  <English>Throat Singing (35s)</English>
-                  <Chinesesimp>喉咙歌唱声 (35s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_machine_open">
-                  <English>Machine Open (4s)</English>
-                  <Chinesesimp>机器打开声 (4s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_footsteps_mud">
-                  <English>Footsteps Mud (11s)</English>
-                  <Chinesesimp>走在泥里的声音 (11s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_spooky_background_hum">
-                  <English>Spooky Background Hum (15s)</English>
-                  <Chinesesimp>诡异的背景嗡嗡声 (15s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_foliage_rustling">
-                  <English>Foliage Rustling (7.5s)</English>
-                  <Chinesesimp>树叶沙沙作响 (7.5s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_ghostly_whisper">
-                  <English>Whisper Ghostly (2.5s)</English>
-                  <Chinesesimp>轻声细语的鬼声 (2.5s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_things_shadows">
-                  <English>Sometimes the things you see in the shadows... (6.5s)</English>
-                  <Chinesesimp>有时,你在阴影中看到的东西... (6.5s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_spooky_whisper">
-                  <English>Whisper Spooky (8s)</English>
-                  <Chinesesimp>轻声细语的幽灵声 (8s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_ghost_kid_sigh">
-                  <English>Ghost Kid Sigh (3s)</English>
-                  <Chinesesimp>鬼魂叹息声 (3s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_ghost_child_noise">
-                  <English>Ghost Child Noise (5s)</English>
-                  <Chinesesimp>鬼魂声 (5s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_ghost_horror_noise">
-                  <English>Ghost Horror Noise (11.5s)</English>
-                  <Chinesesimp>鬼魂恐怖噪音 (11.5s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_tiger_growl">
-                  <English>Tiger Growling (5.3s)</English>
-                  <Chinesesimp>老虎咆哮声 (5.3s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_tiger_roar">
-                  <English>Tiger Roar (2s)</English>
-                  <Chinesesimp>老虎的怒吼声 (2s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_predator_clicking">
-                  <English>Predator Clicking Sound (2s)</English>
-                  <Chinesesimp>捕食者点击声 (2s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_voicepacks_morse">
-                  <English>Morse code - SOS (6s)</English>
-                  <Chinesesimp>摩斯电码 - SOS (6s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_voicepacks_morse_first">
-                  <English>Morse code - What Hath God Wrought (12s)</English>
-                  <Chinesesimp>摩斯电码 - 上帝创造了什么 (12s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_voicepacks_dial_up">
-                  <English>Dial Up Modem (23s)</English>
-                  <Chinesesimp>拨号按键声 (23s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_voicepacks_spaceship_alarm">
-                  <English>Spaceship Alarm (3s)</English>
-                  <Chinesesimp>飞船警报声 (3s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_voicepacks_electricity_buzzing">
-                  <English>Electricity With Buzzing (6s)</English>
-                  <Chinesesimp>嗡嗡作响的电流声 (6s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_voicepacks_arcane_blast">
-                  <English>Arcane Blast Hit (3s)</English>
-                  <Chinesesimp>奥术轰击声(不确定)(3s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_voicepacks_reaper_horn">
-                  <English>Reaper Horn (4s)</English>
-                  <Chinesesimp>死神号角声 (4s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_voicepacks_machine_off">
-                  <English>Futuristic Machine Turn Off (3s)</English>
-                  <Chinesesimp>未来机器关闭声 (3s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_voicepacks_machine_on">
-                  <English>Futuristic Machine Turn On (2s)</English>
-                  <Chinesesimp>未来机器开启声 (2s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_voicepacks_large_machine_call">
-                  <English>Large Alien Machine Call (7s)</English>
-                  <Chinesesimp>大型外星机器呼叫声 (7s)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Sounds_voicepacks_transformer_malfunction">
-                  <English>Transformer Malfunction (5s)</English>
-                  <Chinesesimp>未来机器失灵声 (5s)</Chinesesimp>
-            </Key>
-      </Package>
+    <Package name="sounds">
+        <Key ID="STR_CROWSEW_Sounds_air_raid_1">
+            <English>Air Raid Siren (2.5min)</English>
+            <Chinesesimp>空袭警报 (2.5min)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_air_raid_2">
+            <English>Air Raid Siren 2 (2min)</English>
+            <Chinesesimp>空袭警报 2 (2min)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_angry_mob">
+            <English>Angry Mob (12s)</English>
+            <Chinesesimp>愤怒的暴徒 (12s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_bird_robin">
+            <English>Bird Whistle Robin (3s)</English>
+            <Chinesesimp>鸟叫声 (3s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_caralarm">
+            <English>Car Alarm (12s)</English>
+            <Chinesesimp>汽车防盗报警器 (12s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_chainsaw">
+            <English>Chainsaw Cutting (14s)</English>
+            <Chinesesimp>油锯切割声 (14s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_church_bells">
+            <English>Cathedral Bells (20s)</English>
+            <Chinesesimp>教堂背景声 (20s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_crow">
+            <English>Crow Call (2s)</English>
+            <Chinesesimp>乌鸦的叫声 (2s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_device_armed">
+            <English>Device Armed (1s)</English>
+            <Chinesesimp>设备已布防 (1s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_device_disarmed">
+            <English>Device Disarmed (2s)</English>
+            <Chinesesimp>设备已解除 (2s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_dino_footsteps">
+            <English>Heavy Dino Footsteps (3s)</English>
+            <Chinesesimp>沉重的恐龙脚步声 (3s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_dino_roar">
+            <English>Dinosaur Roar (1.2s)</English>
+            <Chinesesimp>恐龙咆哮声 (1.2s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_dog_bark">
+            <English>Dog Barking (12s)</English>
+            <Chinesesimp>狗吠声 (12s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_dog_german_barking">
+            <English>Dog, German Shepard, Barking (19s)</English>
+            <Chinesesimp>德国牧羊犬的狗吠声 (19s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_fire_sequence">
+            <English>Fire Sequence Init. 5min (5s)</English>
+            <Chinesesimp>消防序列启动:5分钟 (5s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_foliage_rustling">
+            <English>Foliage Rustling (7.5s)</English>
+            <Chinesesimp>树叶沙沙作响 (7.5s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_footsteps_gravel">
+            <English>Footsteps Gravel (11.4s)</English>
+            <Chinesesimp>走在碎石上的声音 (11.4s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_footsteps_mud">
+            <English>Footsteps Mud (11s)</English>
+            <Chinesesimp>走在泥里的声音 (11s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_footsteps_twigs">
+            <English>Footsteps Twigs (5.2s)</English>
+            <Chinesesimp>走在树枝上的声音 (5.2s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_fox">
+            <English>Fox Cry (1s)</English>
+            <Chinesesimp>狐狸的叫声 (1s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_ghost_child_noise">
+            <English>Ghost Child Noise (5s)</English>
+            <Chinesesimp>鬼魂声 (5s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_ghost_horror_noise">
+            <English>Ghost Horror Noise (11.5s)</English>
+            <Chinesesimp>鬼魂恐怖噪音 (11.5s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_ghost_kid_sigh">
+            <English>Ghost Kid Sigh (3s)</English>
+            <Chinesesimp>鬼魂叹息声 (3s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_ghostly_whisper">
+            <English>Whisper Ghostly (2.5s)</English>
+            <Chinesesimp>轻声细语的鬼声 (2.5s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_heartbeat">
+            <English>Heartbeat (2s)</English>
+            <Chinesesimp>心跳声 (2s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_jam_loop">
+            <English>Jammer Loop Sound</English>
+            <Chinesesimp>干扰器循环声音</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_jam_start">
+            <English>Computer Startup Sound</English>
+            <Chinesesimp>电脑启动声音</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_machine_open">
+            <English>Machine Open (4s)</English>
+            <Chinesesimp>机器打开声 (4s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_mech_turn_off">
+            <English>Mechanical Turn Off (1.5s)</English>
+            <Chinesesimp>机械关闭声 (1.5s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_not_found">
+            <English>Sound Not Found</English>
+            <Chinesesimp>找不到声音</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_old_telephone_ringing">
+            <English>Old Telephone Ringing (13s)</English>
+            <Chinesesimp>老式电话铃声 (13s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_prayer_call">
+            <English>Prayer Call Turkey (2.5min)</English>
+            <Chinesesimp>土耳其祈祷会背景声 (2.5min)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_predator_clicking">
+            <English>Predator Clicking Sound (2s)</English>
+            <Chinesesimp>捕食者点击声 (2s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_red_alert">
+            <English>Red alert Alarm (8s)</English>
+            <Chinesesimp>红色警报声 (8s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_rooster">
+            <English>Rooster Call (2s)</English>
+            <Chinesesimp>公鸡的叫声 (2s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_sad_song">
+            <English>Woman singing sad song (1.1min)</English>
+            <Chinesesimp>女人唱着悲伤的歌 (1.1min)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_slap">
+            <English>Slap (1s)</English>
+            <Chinesesimp>耳光声 (1s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_spaceship_radar">
+            <English>Space Ship Radar (8s)</English>
+            <Chinesesimp>飞船雷达声 (8s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_spooky_background_hum">
+            <English>Spooky Background Hum (15s)</English>
+            <Chinesesimp>诡异的背景嗡嗡声 (15s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_spooky_sentence">
+            <English>Spooky. This Statement Is False (6s)</English>
+            <Chinesesimp>幽灵声 (6s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_spooky_whisper">
+            <English>Whisper Spooky (8s)</English>
+            <Chinesesimp>轻声细语的幽灵声 (8s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_stuka">
+            <English>Stuka Siren Diving (15s)</English>
+            <Chinesesimp>斯图卡警笛声(未知) (15s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_telephone_ringing">
+            <English>Telephone Ringing (12s)</English>
+            <Chinesesimp>电话铃声 (12s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_things_shadows">
+            <English>Sometimes the things you see in the shadows... (6.5s)</English>
+            <Chinesesimp>有时,你在阴影中看到的东西... (6.5s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_throat_singing">
+            <English>Throat Singing (35s)</English>
+            <Chinesesimp>喉咙歌唱声 (35s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_tiger_growl">
+            <English>Tiger Growling (5.3s)</English>
+            <Chinesesimp>老虎咆哮声 (5.3s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_tiger_roar">
+            <English>Tiger Roar (2s)</English>
+            <Chinesesimp>老虎的怒吼声 (2s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_trex_growl">
+            <English>T-REX Growl (5s)</English>
+            <Chinesesimp>T-REX 咆哮声 (5s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_trex_roar">
+            <English>T-REX Roar (4s)</English>
+            <Chinesesimp>T-REX 怒吼声 (4s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_tripod_horn_1">
+            <English>Tripod Horn 1 (8s)</English>
+            <Chinesesimp>三重奏号角声 1 (8s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_tripod_horn_blast">
+            <English>Tripos Horn Blast (10s)</English>
+            <Chinesesimp>三重奏号角高音 (10s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_arcane_blast">
+            <English>Arcane Blast Hit (3s)</English>
+            <Chinesesimp>奥术轰击声(不确定)(3s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_dial_up">
+            <English>Dial Up Modem (23s)</English>
+            <Chinesesimp>拨号按键声 (23s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_electricity_buzzing">
+            <English>Electricity With Buzzing (6s)</English>
+            <Chinesesimp>嗡嗡作响的电流声 (6s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_large_machine_call">
+            <English>Large Alien Machine Call (7s)</English>
+            <Chinesesimp>大型外星机器呼叫声 (7s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_machine_off">
+            <English>Futuristic Machine Turn Off (3s)</English>
+            <Chinesesimp>未来机器关闭声 (3s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_machine_on">
+            <English>Futuristic Machine Turn On (2s)</English>
+            <Chinesesimp>未来机器开启声 (2s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_morse">
+            <English>Morse code - SOS (6s)</English>
+            <Chinesesimp>摩斯电码 - SOS (6s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_morse_first">
+            <English>Morse code - What Hath God Wrought (12s)</English>
+            <Chinesesimp>摩斯电码 - 上帝创造了什么 (12s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_reaper_horn">
+            <English>Reaper Horn (4s)</English>
+            <Chinesesimp>死神号角声 (4s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_spaceship_alarm">
+            <English>Spaceship Alarm (3s)</English>
+            <Chinesesimp>飞船警报声 (3s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_voicepacks_transformer_malfunction">
+            <English>Transformer Malfunction (5s)</English>
+            <Chinesesimp>未来机器失灵声 (5s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_wilhelm">
+            <English>Wilhelm Scream (1.2s)</English>
+            <Chinesesimp>威廉的尖叫声 (1.2s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_zombie_growl">
+            <English>Zombie Growling (8s)</English>
+            <Chinesesimp>僵尸的咆哮声 (8s)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Sounds_zombie_sound">
+            <English>Zombie Sound (6s)</English>
+            <Chinesesimp>僵尸的声音 (6s)</Chinesesimp>
+        </Key>
+    </Package>
 </Project>
