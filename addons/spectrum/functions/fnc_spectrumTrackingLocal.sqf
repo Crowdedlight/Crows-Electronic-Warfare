@@ -65,6 +65,9 @@ private _sigsArray = [];
 // apply changes - only local
 missionNamespace setVariable ["#EM_Values", _sigsArray];
 
+// TODO call hud icons as they might as well update with same frequency as signals? 
+
+
 // //Debugging
 // if (true) then {	
 // 	systemChat format ["Sigs: %1", _sigsArray];
