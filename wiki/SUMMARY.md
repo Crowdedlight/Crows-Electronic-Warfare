@@ -30,4 +30,4 @@
 -   [Editor Modules](eden-editor/eden-editor-modules.md)
 
 # Contribute
-[Get Started](contribute/get-started.md)
+- [Get Started](contribute/get-started.md)
