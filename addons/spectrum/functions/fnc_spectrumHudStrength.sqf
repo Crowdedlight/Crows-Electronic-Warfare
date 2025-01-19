@@ -33,150 +33,109 @@ private _freqMax = 	missionNamespace getVariable["#EM_FMax",-1];
 private _senMin = 	missionNamespace getVariable["#EM_SMin",-1];
 private _senMax = 	missionNamespace getVariable["#EM_SMax",-1];
 
-private _sigs = [];
-
 private _commit = 0.1;
 
-// get signals from _sigsArray
-// private _strongestSignalStrength = 0;
-for "_i" from 1 to (count _sigsArray) step 2 do { 
-
-    private _freq = _sigsArray select (_i - 1);
-    private _strength = _sigsArray select _i;
-
-    _sigs pushBack [_freq, _strength];
-
-    // systemChat format["freq: %1, strength: %2", _freq, _strength];
-
-    // if (_freq < _selectedFreqMin || _freq > _selectedFreqMax) then {
-    //     continue;
-    // };
-
-    // if (_strength < _strongestSignalStrength) then {
-    //     _strongestSignalStrength = _strength;
-    // };
-};
-
-
-// get all controls of the spectrum device, then we can target the individual control of where we want to edit
-// IDD of spectrum is 300
-
-// private _idcs = [configfile >> "RscInGameUI" >> "RscWeaponSpectrumAnalyzerGeneric", 1, true] call BIS_fnc_displayControls;
-// diag_log _idcs;
-
-// private _display = uiNamespace getVariable ["RscWeaponSpectrumAnalyzerGeneric", displayNull];
-
-// add dialog to display?
-// private _text = _display ctrlCreate ["RscSpectrumSignalText", -1];
-// _text ctrlSetText "Hel";
-// _text ctrlSetPosition [(0.266 * 1 + 0), (0.044 * 1.05 + 0), (0.466 * 1), (0.064 * 1.05)];
-// _text ctrlCommit 0;
-
-// todo check for null
-
-
-// #define IDC_RSCWEAPONSPECTRUMANALYZER_LINES			1999
-// private _ctrlSpectrum = _display displayctrl 1999;
-
+// get display that is the spectrum gui display
 private _display = uiNamespace getVariable ["RscWeaponSpectrumAnalyzerGeneric", displayNull];
-private _ctrlSpectrum = _display displayctrl 1999;
-private _icons = _ctrlSpectrum getvariable ["bin_icons",[]];
+// get the control for the display. This is the IDC as basegame use
+private _ctrlSpectrum = _display displayCtrl 1999;
+// get the icon controls
+private _icons = _ctrlSpectrum getVariable ["bin_icons",[]];
+// get the spectrum gui position and size
+(ctrlPosition _ctrlSpectrum) params ["_posX","_posY","_posW","_posH"];
 
-(ctrlposition _ctrlSpectrum) params ["_posX","_posY","_posW","_posH"];
-// diag_log _icons;
-//23:14:31 [Control #5000,Control #5001,Control #5002,Control #5003,Control #5004,Control #5005,Control #5006,Control #5007,Control #5008,Control #5009,Control #5010,Control #5011,Control #5012,Control #5013,Control #5014,Control #5015,Control #5016,Control #5017,Control #5018,Control #5019,No control]
-
+// get max icons available. I think the gui has a maximum of less than 20.
 private _iconsMax = count _icons;
 private _iconID = 0;
 
+// size variables to fit the icon, same size as in contact
 private _ctrlIconW = 0.08;
 private _ctrlIconH = _ctrlIconW * 4/3;
 
-private _highlightedStrength = 100;
+// segment width, where we divide the gui width up into 100 sections. Same approach as in contact
+private _segmentW = _posW / 100;
+
+// vars to get the strongest signal within the selection, to highlight. Our strength is from -120 to 0, with 0 being strongest
+private _highlightedStrength = -1000;
 private _highlightedFrequency = [];
-private _segmentW = _posW / 100; //ANALYZER_LEVELS;
 
 
-{
-    _x params ["_freq", "_strength"];
+// go through all signals, as they are in combined array we step 2 and lookback
+for "_i" from 1 to (count _sigsArray) step 2 do {
+    // get variables
+    private _freq = _sigsArray select (_i - 1);
+    private _strength = _sigsArray select _i;
+
+    // var to check if focused
+    private _isFocused = false;
 
     if (_iconID > _iconsMax - 1) then {continue;};
 
-    // private _params = _frequencyData param [_foreachindex,[]];
-    // private _fAvg = GET_FREQUENCY_DATA_AVG(_params);
+    // transform frequency into 0 to 100, to get the horizontal position based on the 100 segments
+    private _valueID = round linearConversion [_freqMin,_freqMax,_freq,0,100];
+    
+    // transform the strength from dBm into 0-1, so it can be used to set the y-pos of the icon 
+    private _valueStrength = linearConversion [_senMin,_senMax,_strength,0,1];
 
-
-    private _valueID = round linearConversion [_freqMin,_freqMax,_freq,0,100];   //ANALYZER_LEVELS];
-    private _valueStrength = linearConversion [_senMin,_senMax,_strength,0,1];   //ANALYZER_LEVELS];
-
+    // sanity check segment position is within range, as we do not force clipping
     if (_valueID >= 0 && _valueID <= 100) then {
-        // check if focused
-        private _isFocused = false;
-        if (_strength < _highlightedStrength && {_freq >= _selectedFreqMin && _freq <= _selectedFreqMax}) then {
+        // check if stronger signal and within focus selection
+        if (_strength > _highlightedStrength && {_freq >= _selectedFreqMin && _freq <= _selectedFreqMax}) then {
 			_highlightedStrength = _strength;
+            // save the vars needed to display text
 			_highlightedFrequency = [_valueID, _valueStrength, _strength, _freq];
 			_isFocused = true;
 		};
 
+        // get control for the icon
         private _ctrlIcon = _icons # _iconID;
 
+        // calculate x/y pos. Based on id in the segment and height offset from the gui height. Almost same calculations as in Contact
         private _iconPos = [
             (_valueID) * _segmentW - (_ctrlIconW / 2),
-            // (_posH * (1 - (_valuesGhost # _valueID)) - _ctrlIconH * 1.25) max -(_ctrlIconH / 2) max ([0,0.05] select _isFocused),
             (_posH * (1 - (_valueStrength)) - _ctrlIconH * 1.35) max -(_ctrlIconH / 2) max ([0,0.05] select _isFocused),
             _ctrlIconW,
             _ctrlIconH
         ];
-        // systemChat format ["posX: %1, posY: %2, iconX: %3, iconY: %4, SegmentW: %5, ValueID: %6, Strength: %7", _posX, _posY, _iconPos#0, _iconPos#1, _segmentW, _valueID, _strength];
 
-        // private _iconPos = [_posX, _posY, _ctrlIconW, _ctrlIconH];
-
-        if (ctrlfade _ctrlIcon > 0) then {
-            _ctrlIcon ctrlsetposition _iconPos;
-            _ctrlIcon ctrlcommit 0;
+        // hide/show, 0 == showing
+        if (ctrlFade _ctrlIcon > 0) then {
+            _ctrlIcon ctrlSetPosition _iconPos;
+            _ctrlIcon ctrlCommit 0;
             _ctrlIcon ctrlSetFade FADE_SHOW;
         };
-        _ctrlIcon ctrlsetposition _iconPos;
-        _ctrlIcon ctrlcommit _commit;
+        _ctrlIcon ctrlSetPosition _iconPos;
+        _ctrlIcon ctrlCommit _commit;
+        // increment icon ID to use different icon control per signal
         _iconID = _iconID + 1;
     };
-} forEach _sigs;
+};
 
-//--- Highlighted signal
-
-(_ctrlSpectrum getvariable ["bin_focusedTexts",[]]) params ["_ctrlFocusedFrequency","_ctrlFocusedNameFrequency"];
+//--- Focused signal
+// get gui controls for focused signal label and name. We are not using "antenna" option here, but it does exist in gui
+(_ctrlSpectrum getVariable ["bin_focusedTexts",[]]) params ["_ctrlFocusedFrequency","_ctrlFocusedNameFrequency"];
+// set defaults for hiding text
 private _fadeFrequency = FADE_HIDE;
 private _fadeNameFrequency = FADE_HIDE;
 private _fadeCommit = 0.1;
-if !(_highlightedFrequency isequalto []) then {
+
+// check if we got a focused signal
+if (_highlightedFrequency isNotEqualTo []) then {
 
 	_highlightedFrequency params ["_valueID","_valueStrength", "_strength", "_freq"];
 	
-
-    // set text for focused signals
-    // _ctrlFocusedNameAntenna ctrlsettext (toupper _antennaName);
-
-	// private _frameTime = 1 / diag_fps;
-	// _fadeNameFrequency = ctrlfade _ctrlFocusedNameFrequency;
-	// _fadeNameAntenna = ctrlfade _ctrlFocusedNameAntenna;
-
-	// _fadeNameAntenna = (_fadeNameAntenna + _frameTime) min 1;//FADE_HIDE;
-	// _fadeNameFrequency = linearconversion [0.75,1,_fadeNameAntenna,1,0,true];
-	// private _fadeStatus = (_fadeNameFrequency + _frameTime) min 1;
-	// _fadeNameFrequency = linearconversion [0.5,1,_fadeStatus,1,0,true];
-	// _fadeFrequency = linearconversion [0.5,1,_fadeStatus,1,0,true];
-    systemChat "Showing text";
+    // we got a signal, update fade value
     _fadeNameFrequency = FADE_SHOW;
 	_fadeFrequency = FADE_SHOW;
 
-    // systemChat format["frametime: %1, fadeStatus: %2, fadeFreq: %3", _frameTime, _fadeStatus, _fadeFrequency];
+    // set text
+	_ctrlFocusedFrequency ctrlSetText format["\n %1 dBm", _strength toFixed 1];
+	_ctrlFocusedNameFrequency ctrlSetText format["%1 MHz", _freq toFixed 1];
 
-	_ctrlFocusedFrequency ctrlsettext format["\n %1 dBm", _strength toFixed 1];
-	_ctrlFocusedNameFrequency ctrlsettext format["%1 MHz", _freq toFixed 1];
-
+    // calculate y position of text
     private _textPosY = (_posH * (1 - (_valueStrength)) - 0.07 - _ctrlIconH) max 0;
 
-	//--- Get desired width
+	// Get desired width, final position and set it for each text
 	{
 		private _width = ctrlTextWidth _x;
 		private _textPos = [
@@ -188,7 +147,7 @@ if !(_highlightedFrequency isequalto []) then {
 		_x ctrlSetPosition _textPos;
 		_x ctrlCommit 0; //_xCommit
 
-	} foreach [_ctrlFocusedFrequency,_ctrlFocusedNameFrequency];
+	} forEach [_ctrlFocusedFrequency,_ctrlFocusedNameFrequency];
 
 	// _fadeIn = _valueID != (_ctrlFocusedFrequency getvariable ["id",-1]);
 	// if (_fadeIn) then {
@@ -197,25 +156,24 @@ if !(_highlightedFrequency isequalto []) then {
 	// 	_fadeNameFrequency = FADE_SHOW;
 	// };
 } else {
-	// _ctrlFocusedFrequency setvariable ["id",-1];
-    _fadeFrequency = FADE_SHOW;
+    // we got no focused signal, so hide text with longer fade and no text
+    _fadeFrequency = FADE_HIDE;
     _fadeNameFrequency = FADE_HIDE;
-    _fadeCommit = 0.5;
-    _ctrlFocusedFrequency ctrlsettext "";
-	_ctrlFocusedNameFrequency ctrlsettext "";
+    _fadeCommit = 1;
+    _ctrlFocusedFrequency ctrlSetText "";
+	_ctrlFocusedNameFrequency ctrlSetText "";
 };
 
-// systemChat format["fadefreq: %1, iconID: %2", _fadeFrequency, _iconID];
-
-_ctrlFocusedFrequency ctrlsetfade _fadeFrequency;
-_ctrlFocusedFrequency ctrlcommit _fadeCommit;
-_ctrlFocusedNameFrequency ctrlsetfade _fadeNameFrequency;
-_ctrlFocusedNameFrequency ctrlcommit _fadeCommit;
+// apply focused signal values
+_ctrlFocusedFrequency ctrlSetFade _fadeFrequency;
+_ctrlFocusedFrequency ctrlCommit _fadeCommit;
+_ctrlFocusedNameFrequency ctrlSetFade _fadeNameFrequency;
+_ctrlFocusedNameFrequency ctrlCommit _fadeCommit;
 
 //--- Hide unused icons
 for "_j" from _iconID to _iconsMax do {
 	private _ctrlIcon = _icons # _j;
-	_ctrlIcon ctrlsetfade 1;
-	_ctrlIcon ctrlcommit 0; //_commit
+	_ctrlIcon ctrlSetFade 1;
+	_ctrlIcon ctrlCommit 0; //_commit
 };
 
