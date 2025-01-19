@@ -2,7 +2,7 @@
 /*/////////////////////////////////////////////////
 Author: Crowdedlight
 			   
-File: fnc_spectrumGUI.sqf.sqf
+File: fnc_spectrumGUI.sqf
 Parameters: 
 Return: 
 
@@ -10,7 +10,7 @@ Script being called by PFH to draw text for signal strength
 
 *///////////////////////////////////////////////
 
-params [["_sigsArray",[]]]
+params [["_sigsArray",[]]];
 
 #define FADE_SHOW	0
 #define FADE_HIDE	1
