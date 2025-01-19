@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Crows Electronic Warfare">
-      <Package name="main">
-            <Key ID="STR_CROWSEW_Main_device_name">
-                  <English>Device (EMP)</English>
-                  <Chinesesimp>设备 (EMP)</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Main_jammer_activate_action_name">
-                  <English>Activate jammer</English>
-                  <Chinesesimp>激活 干扰器</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Main_jammer_deactivate_action_name">
-                  <English>De-activate jammer</English>
-                  <Chinesesimp>取消 干扰器</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Main_jammer_drone_jammed">
-                  <English>Drone is jammed&lt;br/&gt;&lt;t color='#ff0000'&gt;Connection lost&lt;/t&gt;</English>
-                  <Chinesesimp>无人机被卡住&lt;br/&gt;&lt;t color='#ff0000'&gt;连接丢失&lt;/t&gt;</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Main_cba_jamming">
-                  <English>Jamming</English>
-                  <Chinesesimp>干扰</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Main_cba_jamming_zeus_immune">
-                  <English>Zeus immune to radio jamming</English>
-                  <Chinesesimp>宙斯不受无线电干扰</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Main_cba_jamming_zeus_immune_tooltip">
-                  <English>If enabled zeus is immune to radio jamming</English>
-                  <Chinesesimp>如果启用宙斯，它将不受无线电干扰</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Main_cba_jamming_zeus_mapmarker">
-                  <English>Show jam map markers for zeus</English>
-                  <Chinesesimp>显示宙斯的 jam 地图标记</Chinesesimp>
-            </Key>
-            <Key ID="STR_CROWSEW_Main_cba_jamming_zeus_mapmarker_tooltip">
-                  <English>If enabled zeus will have map markers showing the jammers range and status at all times</English>
-                  <Chinesesimp>如果启用，宙斯将有地图标记，随时显示干扰器的范围和状态</Chinesesimp>
-            </Key>
-      </Package>
+    <Package name="main">
+        <Key ID="STR_CROWSEW_Main_cba_jamming">
+            <English>Jamming</English>
+            <Chinesesimp>干扰</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Main_cba_jamming_zeus_immune">
+            <English>Zeus immune to radio jamming</English>
+            <Chinesesimp>宙斯不受无线电干扰</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Main_cba_jamming_zeus_immune_tooltip">
+            <English>If enabled zeus is immune to radio jamming</English>
+            <Chinesesimp>如果启用宙斯，它将不受无线电干扰</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Main_cba_jamming_zeus_mapmarker">
+            <English>Show jam map markers for zeus</English>
+            <Chinesesimp>显示宙斯的 jam 地图标记</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Main_cba_jamming_zeus_mapmarker_tooltip">
+            <English>If enabled zeus will have map markers showing the jammers range and status at all times</English>
+            <Chinesesimp>如果启用，宙斯将有地图标记，随时显示干扰器的范围和状态</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Main_device_name">
+            <English>Device (EMP)</English>
+            <Chinesesimp>设备 (EMP)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Main_jammer_activate_action_name">
+            <English>Activate jammer</English>
+            <Chinesesimp>激活 干扰器</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Main_jammer_deactivate_action_name">
+            <English>De-activate jammer</English>
+            <Chinesesimp>取消 干扰器</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Main_jammer_drone_jammed">
+            <English>Drone is jammed&lt;br/&gt;&lt;t color='#ff0000'&gt;Connection lost&lt;/t&gt;</English>
+            <Chinesesimp>无人机被卡住&lt;br/&gt;&lt;t color='#ff0000'&gt;连接丢失&lt;/t&gt;</Chinesesimp>
+        </Key>
+    </Package>
 </Project>

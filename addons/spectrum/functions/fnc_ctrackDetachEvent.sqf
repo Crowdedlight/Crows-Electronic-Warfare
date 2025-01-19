@@ -12,7 +12,7 @@ Return: none
 params ["_attachedObject", "_itemName", "_temporary"];
 
 // only handle my items
-if (!(_itemName isEqualTo "crowsew_ctrack")) exitWith {};
+if (_itemName != "crowsew_ctrack") exitWith {};
 
 // get object its attached to
 private _attachedToObj = attachedTo _attachedObject;
