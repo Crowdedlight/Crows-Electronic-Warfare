@@ -35,11 +35,11 @@ Hemtt (<3) makes it easy to launch the game with filepatching. It is actually ju
 1. To enable filepatching to work in a addon, you need to uncomment a line in the ``script_component.hpp`` to disable the caching mode
 
 As an example, if I wanted to work on the ``spectrum`` part, then I would change ``addons/spectrum/script_component.hpp`` from:
-```sqf
+```cpp
 // #define DISABLE_COMPILE_CACHE
 ```
 to 
-```sqf
+```cpp
 #define DISABLE_COMPILE_CACHE
 ```
 
@@ -73,7 +73,7 @@ There is a bunch of other macros available. You can read about them on ACEs wiki
 
 # Adding new functions
 To add a new function in a component, you make the new file in the component choices ``functions`` folder. Each function requires to have this start:
-```sqf
+```cpp
 #include "script_component.hpp"
 /*/////////////////////////////////////////////////
 Author: <insert author>
@@ -89,12 +89,12 @@ Return:
 Make sure to fill out author, filename, and a short description
 
 Before the function will work ingame, you need to add it to the ``XEH_PREP.hpp`` file under the component you added it. If I added a file called ``fnc_halloworld.sqf`` under ``spectrum`` component then I would need to add this to the ``XEH_PREP.hpp`` file:
-```sqf
+```cpp
 PREP(halloworld);
 ```
 
 Then ingame or from another script, you could call your function with:
-```sqf
+```cpp
 // calling from same component
 [] call FUNC(halloworld);
 
