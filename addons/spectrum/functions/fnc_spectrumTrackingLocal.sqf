@@ -36,6 +36,9 @@ private _sigsArray = [];
     // if for safety and so we don't track ourself
     if (isNull _target || _frequency == 0 || (_target == _tracker && !GVAR(selfTracking))) then {continue};
 
+    // if player is outside range of signal, skip it 
+    if (player distance _target > _scanRange) then { continue; };
+
     // if frequency outside range of antenna skip it
     private _requiredAntennas = [_frequency] call FUNC(getAntennaFromFrequency);
     // if (!(GVAR(spectrumRangeAntenna) in _requiredAntennas)) then {systemChat format["antenna: %1 is not in %2", GVAR(spectrumRangeAntenna), _requiredAntennas]; continue; };
@@ -65,8 +68,8 @@ private _sigsArray = [];
 // apply changes - only local
 missionNamespace setVariable ["#EM_Values", _sigsArray];
 
-// TODO call hud icons as they might as well update with same frequency as signals? 
-
+// call hud icons as they might as well update with same frequency as signals? 
+[_sigsArray] call FUNC(spectrumGUI); 
 
 // //Debugging
 // if (true) then {	

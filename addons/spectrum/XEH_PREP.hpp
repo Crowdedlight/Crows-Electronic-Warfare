@@ -36,4 +36,4 @@ PREP(ctrackDetachEvent);
 PREP(ctrackHandleGetInVehicle);
 PREP(ctrackHandleGetOutVehicle);
 PREP(ctrackHandleKilled);
-PREP(spectrumHudStrength);
+PREP(spectrumGUI);

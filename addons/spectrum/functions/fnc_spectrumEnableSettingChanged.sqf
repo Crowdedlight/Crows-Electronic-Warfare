@@ -31,7 +31,6 @@ if (_value) then {
 	// due to best practices we are gonna put the track loop in unscheduled space. 
 	GVAR(PFH_beaconPlayer) = [FUNC(spectrumTrackingLocal), 0.1] call CBA_fnc_addPerFrameHandler; 
 	GVAR(PFH_SpectrumAttachmentPlayer) = [FUNC(spectrumAttachmentLocal), 1] call CBA_fnc_addPerFrameHandler; 
-	GVAR(PFH_SpectrumHUDPlayer) = [FUNC(spectrumHudStrength), 0] call CBA_fnc_addPerFrameHandler; 
 
 	// Spectrum event handler for "FIRE" spectrum analyzer 
 	GVAR(DEH_spectrumMouseDown) = ["MouseButtonDown", {_this call FUNC(spectrumDeviceMouseDown)}] call CBA_fnc_addDisplayHandler;
