@@ -6,7 +6,7 @@ File: fnc_spectrumGUI.sqf
 Parameters: 
 Return: 
 
-Script being called by PFH to draw text for signal strength
+Script being called by spectrumTrackingLocal.sqf to draw text for signal strength
 
 *///////////////////////////////////////////////
 
@@ -130,9 +130,18 @@ if (count _highlightedFrequency > 3) then {
 		// private _width = ctrlTextWidth _x;
 		private _width = 0.15; //hardcoded seemed to solve the bug where it would multiline on certain lengths...
 
+        // to right of signal
+        private _textPosX = (_valueID * _segmentW + 0.1 - _width / 2); // max 0 min (_posW - _width),
+
+        // if we are over 75 on x segment, we position text to left of icon
+        if (_valueID > 75) then {
+            _textPosX = (_valueID * _segmentW - 0.1 - _width / 2); // max 0 min (_posW - _width),
+        };
+
+
 		private _textPos = [
             // offset X so its to the right of the signal
-			(_valueID * _segmentW + 0.1 - _width / 2), // max 0 min (_posW - _width),
+			_textPosX,
 			_textPosY,
 			_width,
 			ctrlTextHeight _x

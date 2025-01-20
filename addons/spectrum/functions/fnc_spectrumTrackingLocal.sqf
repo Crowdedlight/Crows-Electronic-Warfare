@@ -68,7 +68,7 @@ private _sigsArray = [];
 // apply changes - only local
 missionNamespace setVariable ["#EM_Values", _sigsArray];
 
-// call hud icons as they might as well update with same frequency as signals? 
+// call hud icons as they might as well update with same frequency as signals
 [_sigsArray] call FUNC(spectrumGUI); 
 
 // //Debugging
