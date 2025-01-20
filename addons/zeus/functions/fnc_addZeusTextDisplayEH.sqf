@@ -116,6 +116,7 @@ GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 		private _pos = ASLToAGL getPosASL _x;
 		drawIcon3D ["", [1,0,0,1], [_pos#0, _pos#1, _pos#2+1], 0, 0, 0, _txt, 1, 0.03, "RobotoCondensed", "center", false];
 	} forEach GETMVAR(EGVAR(spectrum,activeJammedUnits),[]);
+	// SATCOM
 	{
 		_y params ["_obj", "_radius"];
 

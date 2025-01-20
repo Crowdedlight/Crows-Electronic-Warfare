@@ -80,6 +80,84 @@ class CfgVehicles
 		};
 	};
 
+	// module to add random signal sources within ranges, with option to apply to classnames
+	class GVAR(moduleAddRandomSignalSource): Module_F
+	{
+		// Standard object definitions:
+		scope = 2;										// Editor visibility; 2 will show it in the menu, 1 will hide it.
+		displayName = "$STR_CROWSEW_Editormodules_addrandomsignalsource";				// Name displayed in the menu
+		icon = QPATHTOEF(zeus,data\spectrum_signal.paa);	// Map icon. Delete this entry to use the default icon.
+		vehicleClass = "Modules";
+		category = "crowsEW_modules";
+		function = QFUNC(addRandomSignalSource);	// Name of function triggered once conditions are met
+		functionPriority = 1;				// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
+		isGlobal = 0;						// 0 for server only execution, 1 for global execution, 2 for persistent global execution
+		isTriggerActivated = 1;				// 1 for module waiting until all synced triggers are activated
+		isDisposable = 1;					// 1 if modules is to be disabled once it is activated (i.e. repeated trigger activation won't work)
+		is3DEN = 0;							// 1 to run init function in Eden Editor as well
+		// curatorInfoType = "RscDisplayAttributeModuleNuke"; // Menu displayed when the module is placed or double-clicked on by Zeus
+
+		// Module attributes (uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific):
+		class Attributes: AttributesBase 
+		{
+			// Arguments shared by specific module type (have to be mentioned in order to be present):
+			// class Units: Units{};
+
+			// Module-specific arguments:
+			class FrequencyMin: Edit
+			{
+				property = QGVAR(addsignalsource_random_freq_min);												// Unique property (use "<tag>_<moduleClass>_<attributeClass>" format to ensure that the name is unique)
+				displayName = "$STR_CROWSEW_Editormodules_addsignalsource_frequency_min_displayname";	// Argument label
+				tooltip = "$STR_CROWSEW_Editormodules_addsignalsource_frequency_min_tooltip";			// Tooltip description
+				typeName = "NUMBER";																// Value type, can be "NUMBER", "STRING" or "BOOL"
+				defaultValue = "520";																// Default attribute value. Warning: This is an expression, and its returned value will be used (50 in this case).
+			};
+
+			class FrequencyMax: Edit
+			{
+				property = QGVAR(addsignalsource_random_freq_max);												// Unique property (use "<tag>_<moduleClass>_<attributeClass>" format to ensure that the name is unique)
+				displayName = "$STR_CROWSEW_Editormodules_addsignalsource_frequency_max_displayname";	// Argument label
+				tooltip = "$STR_CROWSEW_Editormodules_addsignalsource_frequency_max_tooltip";			// Tooltip description
+				typeName = "NUMBER";																// Value type, can be "NUMBER", "STRING" or "BOOL"
+				defaultValue = "1090";																// Default attribute value. Warning: This is an expression, and its returned value will be used (50 in this case).
+			};
+
+			class RangeMin: Edit
+			{
+				property = QGVAR(addsignalsource_random_range_min);
+				displayName = "$STR_CROWSEW_Editormodules_addsignalsource_range_min_displayname";
+				tooltip = "$STR_CROWSEW_Editormodules_addsignalsource_range_min_tooltip";
+				typeName = "NUMBER";
+				defaultValue = "0";
+			};		
+			
+			class RangeMax: Edit
+			{
+				property = QGVAR(addsignalsource_random_range_max);
+				displayName = "$STR_CROWSEW_Editormodules_addsignalsource_range_max_displayname";
+				tooltip = "$STR_CROWSEW_Editormodules_addsignalsource_range_max_tooltip";
+				typeName = "NUMBER";
+				defaultValue = "1000";
+			};		
+
+			// class Classname: Checkbox
+			// {
+			// 	property = QGVAR(addsignalsource_random_classname);							
+			// 	displayName = "$STR_CROWSEW_Editormodules_addsignalsource_classnames_name";					
+			// 	tooltip = "$STR_CROWSEW_Editormodules_addsignalsource_classnames_tooltip";	
+			// 	typeName = "BOOL";											
+			// 	defaultValue = "false";											
+			// };	
+
+			class ModuleDescription: ModuleDescription {};
+		};
+
+		class ModuleDescription: ModuleDescription 
+		{
+			description = "$STR_CROWSEW_Editormodules_addsignalsource_description";	// Short description, will be formatted as structured text
+		};
+	};
+
 	// Jammer
 	class GVAR(moduleAddJammer): Module_F
 	{

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="Crows Electronic Warfare">
     <Package name="Editormodules">
+        <Key ID="STR_CROWSEW_Editormodules_addrandomsignalsource">
+            <English>Add Random Signal Source</English>
+            <Chinesesimp>添加随机信号源</Chinesesimp>
+        </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignal_error">
             <English>AddSignalSource editor module requires one unit/object synced to it as signal source</English>
             <Chinesesimp>AddSignalSource 编辑器模块需要一个同步到它的单元/对象作为信号源</Chinesesimp>
@@ -8,6 +12,14 @@
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource">
             <English>Add Signal Source</English>
             <Chinesesimp>添加信号源</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_classnames_name">
+            <English>Apply to Classnames</English>
+            <Chinesesimp>应用于类名</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_classnames_tooltip">
+            <English>Make all spawned units of the synced units type spawn with a random spectrum signal within the ranges provided. (CANNOT BE UNDONE DURING MISSION)</English>
+            <Chinesesimp>默认情况下,将所有生成的同步单元类型的单元设置为可阻塞的.(在任务期间不能撤消)</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_description">
             <English>Sets a signal source to the synced object with the chosen range and frequency.</English>
@@ -17,6 +29,22 @@
             <English>Frequency (520Mhz to 1090Mhz)</English>
             <Chinesesimp>频率 (520Mhz 至 1090Mhz)</Chinesesimp>
         </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_frequency_max_displayname">
+            <English>Max Frequency (520Mhz to 1090Mhz)</English>
+            <Chinesesimp>最大频率 (520Mhz 至 1090Mhz)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_frequency_max_tooltip">
+            <English>The maximum frequency the Signal source can be</English>
+            <Chinesesimp>信号源的最大频率</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_frequency_min_displayname">
+            <English>Min Frequency (520Mhz to 1090Mhz)</English>
+            <Chinesesimp>最小频率 (520Mhz 至 1090Mhz)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_frequency_min_tooltip">
+            <English>The minimum frequency the Signal source can be</English>
+            <Chinesesimp>信号源可以达到的最小频率</Chinesesimp>
+        </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_frequency_tooltip">
             <English>What frequency the Signal source will broadcast on</English>
             <Chinesesimp>信号源将在什么频率上广播</Chinesesimp>
@@ -24,6 +52,22 @@
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_range_displayname">
             <English>Range (1m to 5000m)</English>
             <Chinesesimp>范围 (1m 至 5000m)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_range_max_displayname">
+            <English>Maximum Range (1m to 5000m)</English>
+            <Chinesesimp>最大范围 (1m 至 5000m)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_range_max_tooltip">
+            <English>Maximum Range it can be seen from</English>
+            <Chinesesimp>最大可见范围</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_range_min_displayname">
+            <English>Minimum Range (1m to 5000m)</English>
+            <Chinesesimp>最小范围 (1m 至 5000m)</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_range_min_tooltip">
+            <English>Minimum Range it can be seen from</English>
+            <Chinesesimp>最小范围可见</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_range_tooltip">
             <English>Range it can be seen from</English>
