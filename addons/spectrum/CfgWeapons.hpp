@@ -8,7 +8,7 @@
 		scope = PUBLIC;
 		displayName = "$STR_CROWSEW_Spectrum_antenna_military_name";
 		picture = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_01_ca.paa";
-		model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_01_F";
+		model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_01_F.p3d";
 		class EM
 		{
 			antenna = "Antenna_01";
@@ -21,7 +21,7 @@
 		scope = PUBLIC;
 		displayName = "$STR_CROWSEW_Spectrum_antenna_experimental_name";
 		picture = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_02_ca.paa";
-		model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_02_F";
+		model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_02_F.p3d";
 		class EM
 		{
 			antenna = "Antenna_02";
@@ -34,7 +34,7 @@
 		scope = PUBLIC;
 		displayName = "$STR_CROWSEW_Spectrum_antenna_jammer_name";
 		picture = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_03_ca.paa";
-		model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_03_F";
+		model = "\a3\Weapons_F_Enoch\Pistols\ESD_01\muzzle_antenna_03_F.p3d";
 		class EM
 		{
 			antenna = "Antenna_03";
