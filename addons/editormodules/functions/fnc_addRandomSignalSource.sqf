@@ -28,7 +28,6 @@ if (_activated) then {
 	private _freqMax = _logic getVariable ["FrequencyMax",0];
 	private _rangeMin = _logic getVariable ["RangeMin",0];
 	private _rangeMax = _logic getVariable ["RangeMax",0];
-	private _applyToClass = _logic getVariable ["Classname",false];
 
 	//get random value
 	private _freqMid = round(((_freqMax - _freqMin)/2) + _freqMin);
