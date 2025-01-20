@@ -249,6 +249,10 @@
             <English>Add Spectrum Signal Source</English>
             <Chinesesimp>添加 - 频谱信号源</Chinesesimp>
         </Key>
+        <Key ID="STR_CROWSEW_Zeus_modules_spectrumsignal_randomized_add">
+            <English>Add Randomized Spectrum Signal</English>
+            <Chinesesimp>添加 - 随机频谱信号源</Chinesesimp>
+        </Key>
         <Key ID="STR_CROWSEW_Zeus_modules_spectrumsignal_remove">
             <English>Remove Spectrum Signal Source</English>
             <Chinesesimp>移除 - 频谱信号源</Chinesesimp>
@@ -292,6 +296,14 @@
         <Key ID="STR_CROWSEW_Zeus_radiotracking_name">
             <English>Radio Tracking</English>
             <Chinesesimp>无线电跟踪菜单</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_range_max">
+            <English>Max. Range</English>
+            <Chinesesimp>最大范围</Chinesesimp>
+        </Key>
+        <Key ID="STR_CROWSEW_Zeus_range_min">
+            <English>Min. Range</English>
+            <Chinesesimp>最小范围</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Zeus_remove_chatter_error">
             <English>You have to select a unit to remove chatter from</English>

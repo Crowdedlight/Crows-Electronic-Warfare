@@ -18,3 +18,4 @@ PREP(addSatcomZeus);
 PREP(removeSatcomZeus);
 PREP(showHintZeus);
 PREP(setUnitJammableZeus);
+PREP(addRandomizedSpectrumBeaconZeus);

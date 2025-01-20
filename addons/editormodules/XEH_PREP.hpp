@@ -5,3 +5,4 @@ PREP(setImmuneEMP);
 PREP(setRadioChatter);
 PREP(setUnitJammable);
 PREP(enableTrackingTfar);
+PREP(addRandomSignalSource);

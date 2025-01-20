@@ -25,6 +25,7 @@ private _moduleList = [GVAR(hasTFAR), GVAR(hasACRE)] call {
 	params ["_isTFARLoaded", "_isACRELoaded"];
 	private _modules = [
 		[localize "STR_CROWSEW_Zeus_modules_spectrumsignal_add",{_this call FUNC(addSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
+		[localize "STR_CROWSEW_Zeus_modules_spectrumsignal_randomized_add",{_this call FUNC(addRandomizedSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
 		[localize "STR_CROWSEW_Zeus_modules_spectrumsignal_remove",{_this call FUNC(removeSpectrumBeaconZeus)}, QPATHTOF(data\spectrum_signal.paa)],
 		[localize "STR_CROWSEW_Zeus_modules_addsound",{_this call FUNC(addSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
 		[localize "STR_CROWSEW_Zeus_modules_removesound",{_this call FUNC(removeSoundZeus)}, "\a3\modules_f_curator\Data\iconSound_ca.paa"],
