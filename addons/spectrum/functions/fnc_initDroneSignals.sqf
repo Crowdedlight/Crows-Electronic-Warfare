@@ -26,13 +26,13 @@ private _freq = 433.00 + (random _range);
 
 // get signal range from CBA settings
 private _signalRange = 300;
-private _defaultRanges = [GVAR(defaultRangesForJammingSignal) trim [",", 0], ","] call CBA_fnc_split;
+private _defaultRanges = [GVAR(defaultRangesForJammingSignal) trim [" ,", 0], ","] call CBA_fnc_split;
 {
 	if (_unit isKindOf _x) then {
 		if (count _defaultRanges < _forEachIndex+1) then {
 				diag_log format ["CrowsEW:fnc_initDroneSignals.sqf: '%1' is %2 elements long. You tried to access index %3. Range will use fallback value.", QGVAR(defaultRangesForJammingSignal), count _defaultRanges, _forEachIndex]; 
 		};
-		_signalRange = parseNumber (_defaultRanges#_forEachIndex);
+		_signalRange = parseNumber (trim (_defaultRanges#_forEachIndex));
 	};
 } forEach ([GVAR(defaultClassForJammingSignal), ","] call CBA_fnc_split);
 
