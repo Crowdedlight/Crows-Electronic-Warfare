@@ -161,6 +161,12 @@
             <English>The classnames that by default will spawn with spectrum signal and can be jammed. Change require mission restart. Comma seperated</English>
             <Chinesesimp>默认情况下将生成带有频谱信号并可被干扰的类名,更改需要重新启动任务.用逗号分隔</Chinesesimp>
         </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_default_signal_range_for_jammable_drones">
+            <English>Default Jammable Drone Range</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_default_signal_range_for_jammable_drones_tooltip">
+            <English>The default signal range that jammable drones spawn with. Change require mission restart. Comma seperated (same order as Default Jammable Drones)</English>
+        </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_enable_device_name">
             <English>Enable Spectrum Device</English>
             <Chinesesimp>启用频谱设备</Chinesesimp>
