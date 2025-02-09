@@ -24,8 +24,17 @@ if (GVAR(beacons) findIf { _x#0 == _unit } > -1) exitWith {};
 private _range = abs((GVAR(spectrumDeviceFrequencyRange)#2)#0 - (GVAR(spectrumDeviceFrequencyRange)#2)#1);
 private _freq = 433.00 + (random _range);
 
+// get signal range from CBA settings
+private _signalRange = 300;
+private _defaultRanges = [GVAR(defaultRangesForJammingSignal), ","] call CBA_fnc_split;
+{
+	if (_unit isKindOf _x) then {
+		_signalRange = parseNumber (_defaultRanges#_forEachIndex);
+	};
+} forEach ([GVAR(defaultClassForJammingSignal), ","] call CBA_fnc_split);
+
 // add beacon
-[_unit, _freq, 300, "drone"] call FUNC(addBeaconServer);
+[_unit, _freq, _signalRange, "drone"] call FUNC(addBeaconServer);
 
 // set empty array on unit var where the players currently jamming is listed 
 _unit setVariable [QGVAR(activeJammingObjects), []];
