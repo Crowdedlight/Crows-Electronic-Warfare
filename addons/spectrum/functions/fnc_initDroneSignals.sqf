@@ -26,7 +26,7 @@ private _freq = 433.00 + (random _range);
 
 // get signal range from CBA settings
 private _signalRange = 300;
-private _defaultRanges = [GVAR(defaultRangesForJammingSignal), ","] call CBA_fnc_split;
+private _defaultRanges = [GVAR(defaultRangesForJammingSignal) trim [",", 0], ","] call CBA_fnc_split;
 {
 	if (_unit isKindOf _x) then {
 		if (count _defaultRanges < _forEachIndex+1) then {
