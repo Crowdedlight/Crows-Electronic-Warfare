@@ -111,3 +111,30 @@ if (!isNull _drone) then {
 	};
 };
 _PP_film ppEffectCommit 0;	// commit what ever change has been made
+
+
+
+// make players connected to a drone via UAVterminal visible in the spectrum
+private _uav = getConnectedUAV player;
+if (!isNull _uav) then {
+	private _uavTerminalSignalIsSet = player getVariable ["UAVTerminalSignalIsSet", false];
+	if (!_uavTerminalSignalIsSet) then {
+		// randomize frequency 
+		private _range = abs((EGVAR(spectrum,spectrumDeviceFrequencyRange)#2)#0 - (EGVAR(spectrum,spectrumDeviceFrequencyRange)#2)#1);
+		private _freq = 433.00 + (random _range);
+
+		// determine signal range
+		private _sigRange = 300;	// default value
+		{			
+			if (_x#0 == _uav) exitWith { _sigRange = _x#2 };	// use same signal range as the connected UAV
+		} forEach EGVAR(spectrum,beacons);
+
+		// add signal source
+		[QEGVAR(spectrum,addBeacon), [player, _freq, _sigRange, "drone"]] call CBA_fnc_serverEvent;
+		player setVariable ["UAVTerminalSignalIsSet", true];	// remember signal state locally
+	};
+} else {
+	// remove signal source
+	[QEGVAR(spectrum,removeBeacon), [player]] call CBA_fnc_serverEvent;
+	player setVariable ["UAVTerminalSignalIsSet", false];	// remember signal state locally
+};
