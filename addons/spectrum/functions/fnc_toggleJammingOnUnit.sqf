@@ -93,6 +93,9 @@ if (_enableJam) then {
 
 			// disconnect any player that might control this drone
 			private _droneUsers = (UAVControl _unit) select { !(_x isEqualType "String") };	 // leave only player objects
+			if (isPlayer _unit) then {	// players with a UAV terminal connected to a drone
+				_droneUsers pushBack _unit;
+			};
 			{
 				[QGVAR(disconnectPlayerUAV), [_x], _x] call CBA_fnc_targetEvent;
 				[QEGVAR(zeus,hintPlayer), ["STR_CROWSEW_Spectrum_hints_jammed_drone"], _x] call CBA_fnc_targetEvent; // notify player why this happened 
