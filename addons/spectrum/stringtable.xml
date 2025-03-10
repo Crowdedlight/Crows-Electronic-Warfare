@@ -199,6 +199,12 @@
             <English>Should you be able to see your own signal sources on the spectrum Device, or should they be hidden from view. If Tfar SideTrack setting is disabled, you won't see your own TFAR signal even if this setting is turned on</English>
             <Chinesesimp>您是否应该能够在频谱设备上看到自己的信号源,或者它们应该被隐藏起来.如果 Tfar SideTrack 设置被禁用,即使打开了此设置,您也看不到自己的TFAR信号.</Chinesesimp>
         </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_uav_terminal_user_visible_in_spectrum">
+            <English>UAV terminal user visible in spectrum</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_uav_terminal_user_visible_in_spectrum_tooltip">
+            <English>Shall UAV terminal users be visible in the spectrum (given they are connected to a UAV)? This makes them susceptible to being jammed by players with a jamming antenna on their Spectrum Device.</English>
+        </Key>
         <Key ID="STR_CROWSEW_Spectrum_sounds_drone_heli_motor">
             <English>Helicopter drone motor</English>
             <Chinesesimp>直升机无人机马达声</Chinesesimp>
