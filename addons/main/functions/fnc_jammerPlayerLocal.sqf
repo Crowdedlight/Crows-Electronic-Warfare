@@ -135,7 +135,7 @@ if (EGVAR(spectrum,UAVterminalUserVisibleInSpectrum)) then {
 		};
 	} else {
 		// remove signal source
-		[QEGVAR(spectrum,removeBeacon), [player]] call CBA_fnc_serverEvent;
+		[QEGVAR(spectrum,removeBeacon), [player, "drone"]] call CBA_fnc_serverEvent;
 		player setVariable ["UAVTerminalSignalIsSet", false];	// remember signal state locally
 	};
  } else {
@@ -143,7 +143,7 @@ if (EGVAR(spectrum,UAVterminalUserVisibleInSpectrum)) then {
 	private _playerDroneSignals = EGVAR(spectrum,beacons) select { _x#0 == player && _x#3 == "drone" };	// keep drone signals/beacons
 	if (count _playerDroneSignals > 0) then {	
 		// remove signal source
-		[QEGVAR(spectrum,removeBeacon), [player]] call CBA_fnc_serverEvent;
+		[QEGVAR(spectrum,removeBeacon), [player, "drone"]] call CBA_fnc_serverEvent;
 		player setVariable ["UAVTerminalSignalIsSet", false];	// remember signal state locally
 	};
 };
