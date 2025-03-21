@@ -119,14 +119,16 @@ if (EGVAR(spectrum,UAVterminalUserVisibleInSpectrum)) then {
 	if (!isNull _uav) then {
 		private _uavTerminalSignalIsSet = player getVariable ["UAVTerminalSignalIsSet", false];
 		if (!_uavTerminalSignalIsSet) then {
-			// randomize frequency 
-			private _range = abs((EGVAR(spectrum,spectrumDeviceFrequencyRange)#2)#0 - (EGVAR(spectrum,spectrumDeviceFrequencyRange)#2)#1);
-			private _freq = 433.00 + (random _range);
 
-			// determine signal range
+			// determine signal range and frequency
 			private _sigRange = 300;	// default value
+			private _freq = 433;		// default value
 			{			
-				if (_x#0 == _uav) exitWith { _sigRange = _x#2 };	// use same signal range as the connected UAV
+				if (_x#0 == _uav) exitWith { 
+					_sigRange = _x#2;	// use same signal range as the connected UAV
+					private _droneToTerminalOffset = 2;		// duplex offest of drone and terminal signal in MHz
+					_freq = EGVAR(spectrum,spectrumDeviceFrequencyRange)#2#0 + ((_x#1 + _droneToTerminalOffset - EGVAR(spectrum,spectrumDeviceFrequencyRange)#2#0) mod EGVAR(spectrum,spectrumDeviceFrequencyRange)#2#2);
+				};
 			} forEach EGVAR(spectrum,beacons);
 
 			// add signal source
