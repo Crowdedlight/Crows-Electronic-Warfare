@@ -117,8 +117,9 @@ _PP_film ppEffectCommit 0;	// commit what ever change has been made
 if (EGVAR(spectrum,UAVterminalUserVisibleInSpectrum)) then {
 	private _uav = getConnectedUAV player;
 	if (!isNull _uav) then {
-		private _uavTerminalSignalIsSet = player getVariable ["UAVTerminalSignalIsSet", false];
-		if (!_uavTerminalSignalIsSet) then {
+		private _droneThatUavTerminalSignalIsSetFor = player getVariable ["DroneThatUavTerminalSignalIsSetFor", objNull];
+		if (_uav != _droneThatUavTerminalSignalIsSetFor) then {
+			[QEGVAR(spectrum,removeBeacon), [player, "drone"]] call CBA_fnc_serverEvent;	// remove signal source (if any)
 
 			// determine signal range and frequency
 			private _sigRange = 300;	// default value
@@ -133,15 +134,15 @@ if (EGVAR(spectrum,UAVterminalUserVisibleInSpectrum)) then {
 
 			// add signal source
 			[QEGVAR(spectrum,addBeacon), [player, _freq, _sigRange, "drone"]] call CBA_fnc_serverEvent;
-			player setVariable ["UAVTerminalSignalIsSet", true];	// remember signal state locally
+			player setVariable ["DroneThatUavTerminalSignalIsSetFor", _uav];	// remember signal state locally
 		};
 	} else {
 		// remove signal source
 		[QEGVAR(spectrum,removeBeacon), [player, "drone"]] call CBA_fnc_serverEvent;
-		player setVariable ["UAVTerminalSignalIsSet", false];	// remember signal state locally
+		player setVariable ["DroneThatUavTerminalSignalIsSetFor", objNull];	// remember signal state locally
 	};
  } else {
 	// remove signal source
 	[QEGVAR(spectrum,removeBeacon), [player, "drone"]] call CBA_fnc_serverEvent;
-	player setVariable ["UAVTerminalSignalIsSet", false];	// remember signal state locally
+	player setVariable ["DroneThatUavTerminalSignalIsSetFor", objNull];	// remember signal state locally
 };
