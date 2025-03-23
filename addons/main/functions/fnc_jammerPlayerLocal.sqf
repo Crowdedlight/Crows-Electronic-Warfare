@@ -77,9 +77,8 @@ if (!(call EFUNC(zeus,isZeus)) || {(call EFUNC(zeus,isZeus)) && !GVAR(zeus_jam_i
 private _PP_film = GVAR(FilmGrain_jamEffect);
 _PP_film ppEffectEnable false; // restore players view back to normal if no other logic decides otherwise
 private _drone = getConnectedUAV player;
-if (!isNull _drone) then {
-	// sort drone jammers by distance to drone not distance to player (which only makes sense for VoiceCommJammers)
-	private _sortingCode = { _input0 distance _x#0 };	// sort by distance between drone and jammer
+if (!isNull _drone) then {	
+	private _sortingCode = { (_input0 distance _x#0) min (player distance _x#0) };	// sort drone jammers by distance to drone and player (which ever is smaller)
 	private _filterCode = { _x#3  && { JAM_CAPABILITY_DRONE in _x#4 } };	// keep jammers that are enabled and have the JAM_CAPABILITY_DRONE capability
 	private _droneJammersSorted = [ values GVAR(jamMap), [_drone], _sortingCode, "ASCEND", _filterCode] call BIS_fnc_sortBy; 
 	
@@ -87,12 +86,12 @@ if (!isNull _drone) then {
 	
 	private _nearestDroneJammer = _droneJammersSorted#0;
 	_nearestDroneJammer params ["_jamObj", "_radFalloff", "_radEffective", "_enabled", "_capabilities"];
-	private _distDroneToJammer = _drone distance _jamObj;
+	private _distDroneOrPlayerToJammer = (_drone distance _jamObj) min (player distance _jamObj);
 
 	// to keep consistency, if we are outside effective + falloff range of jammer, then we don't get any interference
-	if (_distDroneToJammer > (_radEffective + _radFalloff)) exitWith {};
+	if (_distDroneOrPlayerToJammer > (_radEffective + _radFalloff)) exitWith {};
 	
-	if (_distDroneToJammer < _radEffective) then {
+	if (_distDroneOrPlayerToJammer < _radEffective) then {
 		// hardest actions to take when being inside the jammer area
 		player connectTerminalToUAV objNull; // disconnect player from drone
 		hint parseText localize "STR_CROWSEW_Main_jammer_drone_jammed";	// notify player why this happened
@@ -101,7 +100,7 @@ if (!isNull _drone) then {
 		// less intense actions when drone is only approaching the jammer area (gives pilot time to react to the presence of the jammer)
 		if (isRemoteControlling player && (isNull curatorCamera)) then {	// if player uses UAV camera currently (and did not step into Zeus mode)
 			// calculate video image distortion
-			private _distDrone2killRadius = abs(_distDroneToJammer - _radEffective);
+			private _distDrone2killRadius = abs(_distDroneOrPlayerToJammer - _radEffective);
 			private _sharpness = [0, 4, _distDrone2killRadius/_radFalloff] call BIS_fnc_lerp;
 			// systemChat format ["ratio %1, _sharpness %2", _distDrone2killRadius/_radFalloff, _sharpness];
 			
@@ -111,3 +110,39 @@ if (!isNull _drone) then {
 	};
 };
 _PP_film ppEffectCommit 0;	// commit what ever change has been made
+
+
+
+// make players connected to a drone via UAVterminal visible in the spectrum
+if (EGVAR(spectrum,UAVterminalUserVisibleInSpectrum)) then {
+	private _uav = getConnectedUAV player;
+	if (!isNull _uav) then {
+		private _droneThatUavTerminalSignalIsSetFor = player getVariable ["DroneThatUavTerminalSignalIsSetFor", objNull];
+		if (_uav != _droneThatUavTerminalSignalIsSetFor) then {
+			[QEGVAR(spectrum,removeBeacon), [player, "drone"]] call CBA_fnc_serverEvent;	// remove signal source (if any)
+
+			// determine signal range and frequency
+			private _sigRange = 300;	// default value
+			private _freq = 433;		// default value
+			{			
+				if (_x#0 == _uav) exitWith { 
+					_sigRange = _x#2;	// use same signal range as the connected UAV
+					private _droneToTerminalOffset = 2;		// duplex offest of drone and terminal signal in MHz
+					_freq = EGVAR(spectrum,spectrumDeviceFrequencyRange)#2#0 + ((_x#1 + _droneToTerminalOffset - EGVAR(spectrum,spectrumDeviceFrequencyRange)#2#0) mod EGVAR(spectrum,spectrumDeviceFrequencyRange)#2#2);
+				};
+			} forEach EGVAR(spectrum,beacons);
+
+			// add signal source
+			[QEGVAR(spectrum,addBeacon), [player, _freq, _sigRange, "drone"]] call CBA_fnc_serverEvent;
+			player setVariable ["DroneThatUavTerminalSignalIsSetFor", _uav];	// remember signal state locally
+		};
+	} else {
+		// remove signal source
+		[QEGVAR(spectrum,removeBeacon), [player, "drone"]] call CBA_fnc_serverEvent;
+		player setVariable ["DroneThatUavTerminalSignalIsSetFor", objNull];	// remember signal state locally
+	};
+ } else {
+	// remove signal source
+	[QEGVAR(spectrum,removeBeacon), [player, "drone"]] call CBA_fnc_serverEvent;
+	player setVariable ["DroneThatUavTerminalSignalIsSetFor", objNull];	// remember signal state locally
+};

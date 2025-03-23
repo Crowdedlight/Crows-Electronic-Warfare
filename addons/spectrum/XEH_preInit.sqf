@@ -33,6 +33,15 @@ ADDON = true;
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(UAVterminalUserVisibleInSpectrum), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "CHECKBOX", // setting type
+    [localize "STR_CROWSEW_Spectrum_settings_uav_terminal_user_visible_in_spectrum", localize "STR_CROWSEW_Spectrum_settings_uav_terminal_user_visible_in_spectrum_tooltip"], 
+    "Crows Electronic Warfare",
+    false,	// bool, disabled by default to stay with current behaviour
+    nil
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(minJamSigStrength), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "SLIDER", // setting type
     [localize "STR_CROWSEW_Spectrum_settings_min_jam_strength", localize "STR_CROWSEW_Spectrum_settings_min_jam_strength_tooltip"], 
