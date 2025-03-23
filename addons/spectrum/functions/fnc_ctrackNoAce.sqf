@@ -95,7 +95,7 @@ GVAR(ctrackDetachFromSelf) = {
 	params ["_target", "_caller", "_actionId", "_arguments"];
 
 	//detach from self by removing the beacon
-	[QGVAR(removeBeacon), [_caller]] call CBA_fnc_serverEvent;
+	[QGVAR(removeBeacon), [_caller, "ctrack"]] call CBA_fnc_serverEvent;
 
 	// add item back into inventory 
 	_caller addItem "crowsew_ctrack";
@@ -110,7 +110,7 @@ GVAR(ctrackDetachFromTarget) = {
 	_target = cursorTarget;
 
 	//detach from target by removing the beacon
-	[QGVAR(removeBeacon), [_target]] call CBA_fnc_serverEvent;
+	[QGVAR(removeBeacon), [_target, "ctrack"]] call CBA_fnc_serverEvent;
 
 	// add item back into inventory 
 	_caller addItem "crowsew_ctrack";

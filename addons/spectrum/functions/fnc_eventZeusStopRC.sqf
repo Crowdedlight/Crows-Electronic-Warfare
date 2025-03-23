@@ -18,7 +18,7 @@ GVAR(trackerUnit) = player;
 if (!GVAR(radioTrackingEnabled)) exitWith {};
 
 [QGVAR(radioTrackingBroadcastLocal), "OnTangent", _unit] call TFAR_fnc_removeEventHandler;
-[QGVAR(removeBeacon), [_unit]] call CBA_fnc_serverEvent;
+[QGVAR(removeBeacon), [_unit, "radio"]] call CBA_fnc_serverEvent;
 
 // reset eventhandler for player, as it gets removed when you RC 
 [QGVAR(radioTrackingBroadcastLocal), "OnTangent", FUNC(radioTrackingBroadcastLocal), player] call TFAR_fnc_addEventHandler;

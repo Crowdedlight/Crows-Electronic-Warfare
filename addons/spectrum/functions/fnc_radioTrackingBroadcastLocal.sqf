@@ -58,7 +58,7 @@ if (_buttonDown) then {
 } else {
 	// remove signal, shouldn't be a problem with JIP. As same unit would overwrite next transmission anyway, even if it gets stuck in either state
 	// systemChat format["Rm signal onTangent: btnDown: %1", _buttonDown];
-	[QGVAR(removeBeacon), [_unit]] call CBA_fnc_serverEvent;
+	[QGVAR(removeBeacon), [_unit, "radio"]] call CBA_fnc_serverEvent;
 	
 	// reset var for listening to
 	_unit setVariable [QGVAR(broadcastingRadio), [], true];

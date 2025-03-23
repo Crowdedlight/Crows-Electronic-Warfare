@@ -15,4 +15,4 @@ params ["_unit", "_role", "_vehicle", "_turret", "_isEject"];
 if (!local _unit) exitWith {};
 
 // if unit has ctrack attached
-[QGVAR(removeBeacon), [_vehicle]] call CBA_fnc_serverEvent;
+[QGVAR(removeBeacon), [_vehicle, "ctrack"]] call CBA_fnc_serverEvent;
