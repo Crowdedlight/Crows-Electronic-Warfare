@@ -27,7 +27,7 @@ if (_activated) then {
 	if (count _units < 1) then {
 		// no obj selected 
 		private _posAGL = ASLToAGL getPosASL _logic;
-		private _dataTerminal = createVehicle ["Land_DataTerminal_01_F", _posAGL, [], 0, "NONE"];
+		private _dataTerminal = createVehicle ["Crows_dataterminal", _posAGL, [], 0, "NONE"];
 
 		// set zeus editable 
 		["zen_common_addObjects", [[_dataTerminal], objNull]] call CBA_fnc_serverEvent;

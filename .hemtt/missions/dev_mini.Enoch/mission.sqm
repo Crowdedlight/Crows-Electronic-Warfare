@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=153;
+		nextID=155;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={11040.016,140.61026,6200.2036};
-		dir[]={0.40754133,-0.57606882,-0.7085641};
-		up[]={0.2872166,0.81739849,-0.49936441};
-		aside[]={-0.8668474,1.1967495e-07,-0.49858028};
+		pos[]={10448.218,110.15201,6736.4263};
+		dir[]={-0.69597781,-0.53716975,0.47651371};
+		up[]={-0.44323593,0.8434732,0.30346975};
+		aside[]={0.56494164,-9.057112e-08,0.82513124};
 	};
 };
 binarizationWanted=0;
@@ -35,16 +35,22 @@ addons[]=
 	"A3_Weapons_F",
 	"ace_smallarms",
 	"ace_ballistics",
+	"A3_Weapons_F_Exp_Launchers_RPG7",
+	"cba_jam",
+	"ace_overpressure",
+	"ace_reloadlaunchers",
+	"A3_Weapons_F_Exp",
 	"A3_Weapons_F_Enoch_Pistols_ESD",
 	"crowsEW_spectrum",
 	"ace_goggles",
 	"ace_nightvision",
 	"ace_hearing",
 	"A3_Weapons_F_Items",
-	"ace_medical_engine",
 	"ace_medical_treatment",
 	"ace_attach",
 	"ace_chemlights",
+	"A3_Weapons_F_Explosives",
+	"ace_explosives",
 	"A3_Modules_F_Curator_Curator",
 	"A3_Structures_F_Civ_InfoBoards",
 	"A3_Props_F_Enoch_Military_Camps",
@@ -64,7 +70,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=27;
+		items=31;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -109,143 +115,171 @@ class AddonsMetaData
 		};
 		class Item6
 		{
-			className="A3_Weapons_F_Enoch";
-			name="Arma 3 Contact Platform - Weapons and Accessories";
+			className="A3_Weapons_F_Exp";
+			name="Arma 3 Apex - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
 		class Item7
 		{
+			className="cba_jam";
+			name="Community Base Addons - Joint Ammo Magazines";
+			author="CBA Team";
+			url="https://www.github.com/CBATeam/CBA_A3";
+		};
+		class Item8
+		{
+			className="ace_overpressure";
+			name="ACE3 - Overpressure";
+			author="ACE-Team";
+			url="https://ace3.acemod.org/";
+		};
+		class Item9
+		{
+			className="ace_reloadlaunchers";
+			name="ACE3 - Reload Launchers";
+			author="ACE-Team";
+			url="https://ace3.acemod.org/";
+		};
+		class Item10
+		{
+			className="A3_Weapons_F_Enoch";
+			name="Arma 3 Contact Platform - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item11
+		{
 			className="crowsEW_spectrum";
 			name="spectrum";
 			author="Crowdedlight";
 		};
-		class Item8
+		class Item12
 		{
 			className="ace_goggles";
 			name="ACE3 - Goggles";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item9
+		class Item13
 		{
 			className="ace_nightvision";
 			name="ACE3 - Night Vision";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item10
+		class Item14
 		{
 			className="ace_hearing";
 			name="ACE3 - Hearing";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item11
-		{
-			className="ace_medical_engine";
-			name="ACE3 - Medical Engine";
-			author="ACE-Team";
-			url="https://ace3.acemod.org/";
-		};
-		class Item12
+		class Item15
 		{
 			className="ace_medical_treatment";
 			name="ACE3 - Medical Treatment";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item13
+		class Item16
 		{
 			className="ace_attach";
 			name="ACE3 - Attach";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item14
+		class Item17
 		{
 			className="ace_chemlights";
 			name="ACE3 - Chemlights";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item15
+		class Item18
+		{
+			className="ace_explosives";
+			name="ACE3 - Explosives";
+			author="ACE-Team";
+			url="https://ace3.acemod.org/";
+		};
+		class Item19
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item16
+		class Item20
 		{
 			className="A3_Structures_F";
 			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item17
+		class Item21
 		{
 			className="A3_Props_F_Enoch";
 			name="Arma 3 Contact Platform - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item18
+		class Item22
 		{
 			className="A3_Structures_F_Heli";
 			name="Arma 3 Helicopters - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item19
+		class Item23
 		{
 			className="A3_Props_F_Exp";
 			name="Arma 3 Apex - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item20
+		class Item24
 		{
 			className="crowsEW_editormodules";
 			name="editormodules";
 			author="Crowdedlight";
 		};
-		class Item21
+		class Item25
 		{
 			className="A3_Soft_F_Gamma";
 			name="Arma 3 - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item22
+		class Item26
 		{
 			className="ace_cargo";
 			name="ACE3 - Cargo";
 			author="ACE-Team";
 			url="https://ace3.acemod.org/";
 		};
-		class Item23
+		class Item27
 		{
 			className="A3_Air_F_Orange";
 			name="Arma 3 Orange - Aircraft";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item24
+		class Item28
 		{
 			className="A3_Soft_F";
 			name="Arma 3 Alpha - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item25
+		class Item29
 		{
 			className="A3_Drones_F";
 			name="Arma 3 Beta - Drones";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item26
+		class Item30
 		{
 			className="A3_Props_F_Exp_A";
 			name="Arma 3 Nexus Update - Decorative and Mission Objects";
@@ -293,7 +327,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=41;
+		items=42;
 		class Item0
 		{
 			dataType="Group";
@@ -326,6 +360,15 @@ class Mission
 								{
 									name="30Rnd_65x39_caseless_mag";
 									ammoLeft=30;
+								};
+							};
+							class secondaryWeapon
+							{
+								name="launch_RPG7_F";
+								class primaryMuzzleMag
+								{
+									name="RPG7_F";
+									ammoLeft=1;
 								};
 							};
 							class handgun
@@ -423,8 +466,33 @@ class Mission
 							};
 							class backpack
 							{
-								typeName="B_HMG_01_support_F";
+								typeName="B_FieldPack_oli";
 								isBackpack=1;
+								class MagazineCargo
+								{
+									items=2;
+									class Item0
+									{
+										name="DemoCharge_Remote_Mag";
+										count=5;
+										ammoLeft=1;
+									};
+									class Item1
+									{
+										name="SatchelCharge_Remote_Mag";
+										count=1;
+										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="ACE_Clacker";
+										count=1;
+									};
+								};
 							};
 							map="ItemMap";
 							compass="ItemCompass";
@@ -1993,6 +2061,85 @@ class Mission
 			id=152;
 			type="Land_DataTerminal_01_F";
 			atlOffset=-1.5258789e-05;
+		};
+		class Item41
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10435.076,97.966087,6749.9761};
+			};
+			id=153;
+			type="crowsEW_editormodules_moduleAddJammer";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="crowsEW_editormodules_addjammer_strength";
+					expression="_this setVariable ['FalloffRadius',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=400;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="crowsEW_editormodules_addjammer_isActiveAtMissionStart";
+					expression="_this setVariable ['IsActiveAtMissionStart',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="crowsEW_editormodules_addjammer_isVoiceCommsJammer";
+					expression="_this setVariable ['IsVoiceCommsJammer',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="crowsEW_editormodules_addjammer_isDroneJammer";
+					expression="_this setVariable ['IsDroneJammer',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="crowsEW_editormodules_addjammer_radius";
+					expression="_this setVariable ['EffectiveRadius',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=200;
+						};
+					};
+				};
+				nAttributes=5;
+			};
 		};
 	};
 	class Connections

@@ -21,6 +21,22 @@ if (isServer) then {
 	[QGVAR(requestJammers), FUNC(requestJammers)] call CBA_fnc_addEventHandler;
 }; 
 
+// Add class eventhandler for data terminals on all clients as they run locally
+["Crows_dataterminal", "HitPart", {
+	(_this select 0) params ["_target", "_shooter", "_projectile", "_position", "_velocity", "_selection", "_ammo", "_vector", "_radius", "_surfaceType", "_isDirect", "_instigator"];
+	_ammo params ["_hitVal", "_inHitVal", "_inHitRange", "_explosiveDmg", "_ammoClassName"];
+
+	// if over 0.5 in damage, so all explosives and even grenades if they are right next to it
+	if (_explosiveDmg > 0.5) then {
+		// if blown up with explosive. Don't remove the object, just disable it by killing it and turn it red. (don't have a destoryed texture)
+		_target setDamage [1, true, _instigator];
+		[_target, 1] call BIS_fnc_dataTerminalAnimate;
+		[_target, "red", "red", "red"] call BIS_fnc_dataTerminalColor;
+		_target setObjectTextureGlobal [0, QPATHTOF(data\data_terminal_screen_dead_CO.paa)];
+		_target setObjectMaterialGlobal [0, "\A3\Props_F_Exp_A\Military\Equipment\Data\DataTerminal_green.rvmat"];
+	};
+}, true, [], true] call CBA_fnc_addClassEventHandler;
+
 // last of this init is only for interfaces, so skipping if we don't have one... aka we are dedicated server
 if (!hasInterface) exitWith{};
 

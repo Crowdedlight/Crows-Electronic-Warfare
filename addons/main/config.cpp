@@ -3,7 +3,7 @@
 class CfgPatches {
     class ADDON {
         name = QUOTE(COMPONENT);
-        units[] = {};
+        units[] = {"Crows_dataterminal"};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"cba_main", "zen_main"};
@@ -17,3 +17,4 @@ PRELOAD_ADDONS;
 
 #include "CfgEventhandlers.hpp"
 #include "CfgUnitInsignia.hpp"
+#include "CfgVehicles.hpp"

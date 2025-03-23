@@ -18,7 +18,7 @@ if (isNull _unit || !isServer) exitWith {};
 private _netId = netId _unit;
 
 // if dataterminal do animation 
-if (typeOf _unit == "Land_DataTerminal_01_F") then {
+if (typeOf _unit == "Crows_dataterminal") then {
 	
 	// set texture of left screen to custom 
 	_unit setObjectTextureGlobal [0, QPATHTOF(data\data_terminal_screen_CO.paa)];
@@ -29,19 +29,6 @@ if (typeOf _unit == "Land_DataTerminal_01_F") then {
 	} else {
 		[_unit,0] call BIS_fnc_dataTerminalAnimate;	// keep data terminal closed
 	};
-
-	// add eventhandler to allow it to be blown up. Essential explosives
-	_unit addEventHandler ["HitPart",
-	{
-		(_this select 0) params ["_target", "_shooter", "_projectile", "_position", "_velocity", "_selection", "_ammo", "_vector", "_radius", "_surfaceType", "_isDirect"];
-		_ammo params ["_hitVal", "_inHitVal", "_inHitRange", "_explosiveDmg", "_ammoClassName"];
-
-		// if over 0.5 
-		if (_explosiveDmg > 0.5 && _hitVal > 100) then {
-			// if blown up with explosive, delete the vehicle
-			deleteVehicle _target; 
-		};
-	}];
 };
 
 // add to map, netId is key		jammer, _radFalloff, _radEffective, enabled and capabilities
