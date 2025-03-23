@@ -13,14 +13,14 @@
             <English>Add Signal Source</English>
             <Chinesesimp>添加信号源</Chinesesimp>
         </Key>
-        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_classnames_name">
+        <!-- <Key ID="STR_CROWSEW_Editormodules_addsignalsource_classnames_name">
             <English>Apply to Classnames</English>
             <Chinesesimp>应用于类名</Chinesesimp>
-        </Key>
-        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_classnames_tooltip">
+        </Key> -->
+        <!-- <Key ID="STR_CROWSEW_Editormodules_addsignalsource_classnames_tooltip">
             <English>Make all spawned units of the synced units type spawn with a random spectrum signal within the ranges provided. (CANNOT BE UNDONE DURING MISSION)</English>
             <Chinesesimp>默认情况下,将所有生成的同步单元类型的单元设置为可阻塞的.(在任务期间不能撤消)</Chinesesimp>
-        </Key>
+        </Key> -->
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_description">
             <English>Sets a signal source to the synced object with the chosen range and frequency.</English>
             <Chinesesimp>将信号源设置为具有所选范围和频率的同步对象</Chinesesimp>

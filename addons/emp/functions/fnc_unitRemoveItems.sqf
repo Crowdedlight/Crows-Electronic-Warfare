@@ -129,7 +129,7 @@ if ((secondaryWeapon _unit) != "") then {
     // get the parent base, as we have a collection of item-bases. This way we should cover all variants
     private _parentLauncher = str(inheritsFrom (configFile >> "CfgWeapons" >> secondaryWeapon _unit));
     _parentLauncher = ([_parentLauncher, "/"] call BIS_fnc_splitString);
-    _parentLauncher = _parentLauncher select (count _parentLauncher - 1);
+    _parentLauncher = _parentLauncher select -1;
     // remove if parent is in our array
     if (_parentLauncher in GVAR(electronicLaunchers)) then {_unit removeWeaponGlobal (secondaryWeapon _unit)};
 };

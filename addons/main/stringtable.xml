@@ -21,10 +21,6 @@
             <English>If enabled zeus will have map markers showing the jammers range and status at all times</English>
             <Chinesesimp>如果启用，宙斯将有地图标记，随时显示干扰器的范围和状态</Chinesesimp>
         </Key>
-        <Key ID="STR_CROWSEW_Main_device_name">
-            <English>Device (EMP)</English>
-            <Chinesesimp>设备 (EMP)</Chinesesimp>
-        </Key>
         <Key ID="STR_CROWSEW_Main_jammer_activate_action_name">
             <English>Activate jammer</English>
             <Chinesesimp>激活 干扰器</Chinesesimp>
