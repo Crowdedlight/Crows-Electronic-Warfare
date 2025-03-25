@@ -4,314 +4,392 @@
         <Key ID="STR_CROWSEW_Editormodules_addrandomsignalsource">
             <English>Add Random Signal Source</English>
             <Chinesesimp>添加随机信号源</Chinesesimp>
+            <French>Ajouter une source de signal aléatoire</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignal_error">
             <English>AddSignalSource editor module requires one unit/object synced to it as signal source</English>
             <Chinesesimp>AddSignalSource 编辑器模块需要一个同步到它的单元/对象作为信号源</Chinesesimp>
+            <French>Le module d'édition AddSignalSource nécessite une unité/un objet synchronisé(e) avec lui comme source de signal.</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource">
             <English>Add Signal Source</English>
             <Chinesesimp>添加信号源</Chinesesimp>
+            <French>Ajout d'une source de signal</French>
         </Key>
         <!-- <Key ID="STR_CROWSEW_Editormodules_addsignalsource_classnames_name">
             <English>Apply to Classnames</English>
             <Chinesesimp>应用于类名</Chinesesimp>
-        </Key> -->
-        <!-- <Key ID="STR_CROWSEW_Editormodules_addsignalsource_classnames_tooltip">
+            <French>Appliquer aux noms de classe</French>
+        </Key>
+        <Key ID="STR_CROWSEW_Editormodules_addsignalsource_classnames_tooltip">
             <English>Make all spawned units of the synced units type spawn with a random spectrum signal within the ranges provided. (CANNOT BE UNDONE DURING MISSION)</English>
             <Chinesesimp>默认情况下,将所有生成的同步单元类型的单元设置为可阻塞的.(在任务期间不能撤消)</Chinesesimp>
+            <French>Faire en sorte que toutes les unités synchronisées spawnent avec un signal de spectre aléatoire dans les plages fournies. (NE PEUT ÊTRE ANNULÉ EN COURS DE MISSION)</French>
         </Key> -->
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_description">
             <English>Sets a signal source to the synced object with the chosen range and frequency.</English>
             <Chinesesimp>将信号源设置为具有所选范围和频率的同步对象</Chinesesimp>
+            <French>Définit une source de signal pour l'objet synchronisé avec la plage et la fréquence choisies.</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_frequency_displayname">
             <English>Frequency (520Mhz to 1090Mhz)</English>
             <Chinesesimp>频率 (520Mhz 至 1090Mhz)</Chinesesimp>
+            <French>Fréquence (520Mhz à 1090Mhz)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_frequency_max_displayname">
             <English>Max Frequency (520Mhz to 1090Mhz)</English>
             <Chinesesimp>最大频率 (520Mhz 至 1090Mhz)</Chinesesimp>
+            <French>Fréquence maximale (520Mhz à 1090Mhz)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_frequency_max_tooltip">
             <English>The maximum frequency the Signal source can be</English>
             <Chinesesimp>信号源的最大频率</Chinesesimp>
+            <French>La fréquence maximale de la source du signal peut être</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_frequency_min_displayname">
             <English>Min Frequency (520Mhz to 1090Mhz)</English>
             <Chinesesimp>最小频率 (520Mhz 至 1090Mhz)</Chinesesimp>
+            <French>Fréquence minimale (520Mhz à 1090Mhz)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_frequency_min_tooltip">
             <English>The minimum frequency the Signal source can be</English>
             <Chinesesimp>信号源可以达到的最小频率</Chinesesimp>
+            <French>La fréquence minimale de la source de signal peut être</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_frequency_tooltip">
             <English>What frequency the Signal source will broadcast on</English>
             <Chinesesimp>信号源将在什么频率上广播</Chinesesimp>
+            <French>Fréquence sur laquelle la source du signal émettra</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_range_displayname">
             <English>Range (1m to 5000m)</English>
             <Chinesesimp>范围 (1m 至 5000m)</Chinesesimp>
+            <French>Portée (1m à 5000m)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_range_max_displayname">
             <English>Maximum Range (1m to 5000m)</English>
             <Chinesesimp>最大范围 (1m 至 5000m)</Chinesesimp>
+            <French>Portée maximale (1m à 5000m)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_range_max_tooltip">
             <English>Maximum Range it can be seen from</English>
             <Chinesesimp>最大可见范围</Chinesesimp>
+            <French>Portée maximale à partir de laquelle il peut être vu</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_range_min_displayname">
             <English>Minimum Range (1m to 5000m)</English>
             <Chinesesimp>最小范围 (1m 至 5000m)</Chinesesimp>
+            <French>Portée minimale (1m à 5000m)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_range_min_tooltip">
             <English>Minimum Range it can be seen from</English>
             <Chinesesimp>最小范围可见</Chinesesimp>
+            <French>Portée minimale à partir de laquelle il peut être vu</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_addsignalsource_range_tooltip">
             <English>Range it can be seen from</English>
             <Chinesesimp>可以看到的范围</Chinesesimp>
+            <French>Plage de mesure visible à partir de</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_emp_bino_name">
             <English>Binoculars</English>
             <Chinesesimp>双筒望远镜</Chinesesimp>
+            <French>Jumelles</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_emp_bino_tooltip">
             <English>How should binoculars with built-in thermal and NV be handled</English>
             <Chinesesimp>如何处理内置热成像和夜视仪的双筒望远镜</Chinesesimp>
+            <French>Comment utiliser des jumelles avec des dispositifs d'imagerie thermique et de vision nocturne intégrés ?</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_emp_description">
             <English>Fires EMP at position, can be used with triggers. If spawn option is set, it will spawn a Device at center of EMP</English>
             <Chinesesimp>在指定位置发射电磁脉冲,可与触发器一起使用.如果设置了刷出选项,它将在EMP的中心刷出一个设备</Chinesesimp>
+            <French>Déclenche une EMP sur une position, peut être utilisé avec des déclencheurs. Si l'option spawn est activée, un dispositif sera créé au centre de l'EMP.</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_emp_name">
             <English>Fire EMP</English>
             <Chinesesimp>发射电磁脉冲</Chinesesimp>
+            <French>Déclenche une EMP</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_emp_options_no_removal">
             <English>No Removal</English>
             <Chinesesimp>不移除</Chinesesimp>
+            <French>Aucun retrait</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_emp_options_removal">
             <English>Removal</English>
             <Chinesesimp>移除</Chinesesimp>
+            <French>Retrait</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_emp_options_replace_basegame">
             <English>Replace with base-game item</English>
             <Chinesesimp>替换为基础游戏道具</Chinesesimp>
+            <French>Remplacer par un élément du jeu de base</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_emp_range_name">
             <English>Range of EMP blast (50 to 2500m)</English>
             <Chinesesimp>电磁脉冲爆炸范围 (50至2500米)</Chinesesimp>
+            <French>Portée de l'explosion EMP (50 à 2500m)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_emp_range_tooltip">
             <English>How far will the EMP blast effect objects/people</English>
             <Chinesesimp>电磁脉冲爆炸对物体/人的影响有多远</Chinesesimp>
+            <French>Quelle est la distance à laquelle l'explosion EMP affecte les objets et les personnes ?</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_emp_scopes_name">
             <English>NV/Thermal Scopes</English>
             <Chinesesimp>夜视/热成像</Chinesesimp>
+            <French>Vision nocturne/imagerie thermique</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_emp_scopes_tooltip">
             <English>How should scopes with built-in thermal and NV be handled</English>
             <Chinesesimp>如何处理内置热成像和夜视仪的设备</Chinesesimp>
+            <French>Comment doit-on traiter les lunettes de vision nocturne et thermique intégrées ?</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_emp_spawn_device_name">
             <English>Spawn device</English>
             <Chinesesimp>生成设备</Chinesesimp>
+            <French>Génération d'un système EMP</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_emp_spawn_device_tooltip">
             <English>Should a device be spawned to appear as center of EMP, or just the EMP effect</English>
             <Chinesesimp>应该生成一个设备来显示为EMP的中心,还是只是EMP的效果</Chinesesimp>
+            <French>Faut-il générer un dispositif qui sera affiché comme le centre de l'EMP, ou seulement l'effet EMP ?</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_immune_emp_description">
             <English>Sets the synced objects immune to the effects from EMPs. Will work on all units synced to it</English>
             <Chinesesimp>设置同步对象不受电磁脉冲的影响.所有单位的工作都同步吗?</Chinesesimp>
+            <French>Immunise les objets synchronisés contre les effets des EMP. Cette mesure s'applique à toutes les unités synchronisées avec l'objet.</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_immune_emp_name">
             <English>Set Immune to EMP</English>
             <Chinesesimp>设置免疫电磁脉冲</Chinesesimp>
+            <French>Régler l'immunité sur l'EMP</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_immune_emp_tooltip">
             <English>Makes EMP have no effect on the object/unit</English>
             <Chinesesimp>使电磁脉冲对物体/单位无效</Chinesesimp>
+            <French>L'EMP n'a aucun effet sur l'objet/l'unité.</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammable_classnames_name">
             <English>Apply to Classnames</English>
             <Chinesesimp>应用于类名</Chinesesimp>
+            <French>Appliquer aux noms de classe</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammable_classnames_tooltip">
             <English>Make all spawned units of the synced units type jammable by default. (CANNOT BE UNDONE DURING MISSION)</English>
             <Chinesesimp>默认情况下,将所有生成的同步单元类型的单元设置为可阻塞的.(在任务期间不能撤消)</Chinesesimp>
+            <French>Rendre toutes les unités générées du type d'unités synchronisées brouillables par défaut. (NE PEUT ÊTRE ANNULÉ EN COURS DE MISSION)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammable_description">
             <English>Sets all synced object able to be jammed by spectrum device. Select to apply to synced objects classname or only on specific instance of the synced objects. Applying to classnames can NOT be undone during mission!</English>
             <Chinesesimp>设置所有同步对象能够被频谱设备干扰.选择应用于同步对象(类名)或仅应用于同步对象的特定实例.在任务期间不能取消对类名的应用!</Chinesesimp>
+            <French>Paramétrer tous les objets de synchronisation pour qu'ils puissent être perturbés par des appareils à spectre. Choisissez de l'appliquer à l'objet de synchronisation (nom de classe) ou seulement à des instances spécifiques de l'objet de synchronisation. L'application des noms de classe ne peut pas être annulée au cours d'une tâche !</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammable_name">
             <English>Set Unit Jammable</English>
             <Chinesesimp>设置可干扰单元</Chinesesimp>
+            <French>Réglage des unités de brouillage</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammer_description">
             <English>Sets the synced object as a jammer with set radius and strength. If no unit is synced to it, it will spawn a data-terminal and use that as jammer object.</English>
             <Chinesesimp>将同步对象设置为具有设置半径和强度的干扰器.如果没有单元与它同步,它将生成一个数据终端并将其用作干扰器对象.</Chinesesimp>
+            <French>Définit l'objet synchronisé comme un brouilleur avec le rayon et la force définis. Si aucune unité n'est synchronisée avec lui, il créera un terminal de données et l'utilisera comme objet de brouillage.</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammer_displayname">
             <English>Add Jammer</English>
             <Chinesesimp>添加干扰器</Chinesesimp>
+            <French>Ajouter un brouilleur</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammer_drones_name">
             <English>Jam drone signals</English>
             <Chinesesimp>干扰无人机信号</Chinesesimp>
+            <French>Brouiller les signaux des drones</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammer_drones_tooltip">
             <English>Should this jammer effect drones?</English>
             <Chinesesimp>这种干扰会影响无人机吗?</Chinesesimp>
+            <French>Ce brouilleur devrait-il avoir un effet sur les drones ?</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammer_effective_radius_name">
             <English>Effective Radius (10 to 5000m)</English>
             <Chinesesimp>有效半径 (10至5000米)</Chinesesimp>
+            <French>Rayon effectif (10 à 5000m)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammer_effective_radius_tooltip">
             <English>The area that will have 100% jamming, which will also be indicated on map</English>
             <Chinesesimp>有 100% 干扰的区域,也会在地图上标明</Chinesesimp>
+            <French>La zone où le brouillage sera de 100 %, qui sera également indiquée sur la carte</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammer_falloff_name">
             <English>Falloff Radius (10 to 5000m)</English>
             <Chinesesimp>下降半径 (10至5000米)</Chinesesimp>
+            <French>Rayon de chute (10 à 5000m)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammer_falloff_tooltip">
             <English>Linear buffer where there will be 0 jamming at start, and when it meet effective radius its fully jammed.</English>
             <Chinesesimp>线性缓冲区, 开始时无干扰, 当达到有效半径时完全干扰</Chinesesimp>
+            <French>Tampon linéaire où il n'y aura pas de blocage au départ, et où il y aura un blocage complet lorsqu'il atteindra le rayon d'action.</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammer_missionstart_name">
             <English>Jammer active at mission start</English>
             <Chinesesimp>任务开始时干扰器激活</Chinesesimp>
+            <French>Brouilleur actif au début de la mission</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammer_missionstart_tooltip">
             <English>Should this jammer start working right from the start of the mission?</English>
             <Chinesesimp>这个干扰器应该从任务一开始就开始工作吗?</Chinesesimp>
+            <French>Ce brouilleur doit-il commencer à fonctionner dès le début de la mission ?</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammer_voicecomms_name">
             <English>Jam voice communication signals</English>
             <Chinesesimp>干扰语音通信信号</Chinesesimp>
+            <French>Brouiller les signaux de communication vocale</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_jammer_voicecomms_tooltip">
             <English>Should this jammer effect players voice communication (e.g. via TFAR)?</English>
             <Chinesesimp>这个干扰器是否会影响玩家的语音交流(例如通过TFAR)?</Chinesesimp>
+            <French>Ce brouilleur doit-il avoir un effet sur les communications vocales des joueurs (par exemple via TFAR) ?</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_alien_electronic">
             <English>Alien Electronic</English>
             <Chinesesimp>陌生的电子</Chinesesimp>
+            <French>Alien Electronic</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_british">
             <English>British</English>
             <Chinesesimp>英国</Chinesesimp>
+            <French>Britannique</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_description">
             <English>Sets the synced unit to randomly broadcast radio chatter with the given parameters. The broadcasts can be tracked and listened to by Spectrum Devices. The editor module does not support dynamically added voicepacks, but the zeus module for this function does.</English>
             <Chinesesimp>设置同步单元随机广播无线电聊天与给定的参数.无线电广播可以被频谱设备跟踪和收听.编辑器模块不支持动态添加语音包,但是用于此函数的zeus模块支持.</Chinesesimp>
+            <French>Configure l'unité synchronisée pour qu'elle diffuse de manière aléatoire des messages radio avec les paramètres donnés. Les émissions peuvent être suivies et écoutées par les appareils Spectrum. Le module editor ne prend pas en charge les voicepacks ajoutés dynamiquement, mais le module zeus pour cette fonction le fait.</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_duration_max_name">
             <English>Duration max (1 to 100s)</English>
             <Chinesesimp>最大持续时间. (1到100秒)</Chinesesimp>
+            <French>Durée max (1 à 100s)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_duration_max_tooltip">
             <English>The maximum duration of each chatter broadcast</English>
             <Chinesesimp>每次聊天广播的最长持续时间</Chinesesimp>
+            <French>Durée maximale de chaque émission de chat</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_duration_min_name">
             <English>Duration min (1 to 40s)</English>
             <Chinesesimp>最小持续时间. (1到40s)</Chinesesimp>
+            <French>Durée min (1 à 40s)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_duration_min_tooltip">
             <English>The minimum duration of each chatter broadcast</English>
             <Chinesesimp>每次聊天广播的最短持续时间</Chinesesimp>
+            <French>Durée minimale de chaque émission de chat</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_electronic">
             <English>Electronic</English>
             <Chinesesimp>电子</Chinesesimp>
+            <French>Électronique</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_frequency_max_name">
             <English>Frequency Max (60 to 250mhz)</English>
             <Chinesesimp>频率最大值 (60 ~ 250mhz)</Chinesesimp>
+            <French>Fréquence maximale (60 à 250mhz)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_frequency_max_tooltip">
             <English>The maximum frequency used. Recommend small interval</English>
             <Chinesesimp>使用的最大频率.建议间隔小</Chinesesimp>
+            <French>La fréquence maximale utilisée. Recommander un petit intervalle</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_frequency_min_name">
             <English>Frequency min (60 to 250mhz)</English>
             <Chinesesimp>最小频率 (60 ~ 250mhz)</Chinesesimp>
+            <French>Fréquence min (60 à 250mhz)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_frequency_min_tooltip">
             <English>The minimum frequency used. Recommend small interval</English>
             <Chinesesimp>使用的最小频率.建议间隔小</Chinesesimp>
+            <French>La fréquence minimale utilisée. Recommander un petit intervalle</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_morsecode">
             <English>Morse Code</English>
             <Chinesesimp>摩斯电码</Chinesesimp>
+            <French>Code Morse</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_name">
             <English>Add Radio Tracking Chatter</English>
             <Chinesesimp>添加无线电跟踪聊天</Chinesesimp>
+            <French>Ajouter un chat de suivi radio</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_pause_max_name">
             <English>Pause max (1 to 100s)</English>
             <Chinesesimp>最大暂停时间. (1到40s)</Chinesesimp>
+            <French>Pause max (1 à 100s)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_pause_max_tooltip">
             <English>The maximum time between chatter broadcasts</English>
             <Chinesesimp>每次聊天广播的最长持续时间</Chinesesimp>
+            <French>Durée maximale entre chaque émission de chat</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_pause_min_name">
             <English>Pause min (1 to 40s)</English>
             <Chinesesimp>最小暂停时间. (1到40s)</Chinesesimp>
+            <French>Pause min (1 à 40s)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_pause_min_tooltip">
             <English>The minimum time between chatter broadcasts</English>
             <Chinesesimp>聊天广播之间的最短时间</Chinesesimp>
+            <French>Durée minimale entre chaque émission de chat</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_police_radio">
             <English>Police Radio</English>
             <Chinesesimp>警察无线电</Chinesesimp>
+            <French>Radio de la police</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_range_name">
             <English>Range (1 to 10000)</English>
             <Chinesesimp>范围 (1~10000)</Chinesesimp>
+            <French>Plage (1 à 10000)</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_range_tooltip">
             <English>Range of the signal</English>
             <Chinesesimp>信号范围</Chinesesimp>
+            <French>Portée du signal</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_voicepack_name">
             <English>VoicePack</English>
             <Chinesesimp>语音包</Chinesesimp>
+            <French>Pack de voix</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_chatter_voicepack_tooltip">
             <English>What pack of sounds should be used for the broadcasts</English>
             <Chinesesimp>广播应该使用哪一组声音</Chinesesimp>
+            <French>Quel pack de sons doit être utilisé pour les émissions ?</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_tracking_description">
             <English>Enables TFAR radio tracking and ICOM functionality. Requires TFAR is loaded and enabled!</English>
             <Chinesesimp>启用TFAR无线电跟踪和ICOM功能.需要加载并启用TFAR!</Chinesesimp>
+            <French>Permet le suivi radio TFAR et la fonctionnalité ICOM. TFAR doit être chargé et activé !</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radio_tracking_name">
             <English>Enable Radio Tracking</English>
             <Chinesesimp>启用无线电跟踪</Chinesesimp>
+            <French>Activer le suivi radio</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_radiochatter_error">
             <English>AddRadioTrackerChatter editor module requires one unit/object synced to it as source</English>
             <Chinesesimp>AddRadioTrackerChatter 编辑器模块需要一个单元/对象同步到它作为源</Chinesesimp>
+            <French>Le module de l'éditeur AddRadioTrackerChatter a besoin d'une unité ou d'un objet synchronisé avec lui comme source.</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_setjammable_error">
             <English>SetUnitJammable editor module requires at least one unit/object synced to it</English>
             <Chinesesimp>setunitjamable 编辑器模块要求至少有一个单元/对象与它同步</Chinesesimp>
+            <French>Le module d'édition SetUnitJammable doit être synchronisé avec au moins une unité/un objet</French>
         </Key>
         <Key ID="STR_CROWSEW_Editormodules_trackingtfar_error">
             <English>EnableTrackingTFAR editor module requires TFAR to be loaded to work</English>
             <Chinesesimp>EnableTrackingTFAR 编辑器模块需要加载TFAR才能工作</Chinesesimp>
+            <French>Le module d'édition EnableTrackingTFAR nécessite le chargement de TFAR pour fonctionner.</French>
         </Key>
     </Package>
 </Project>
