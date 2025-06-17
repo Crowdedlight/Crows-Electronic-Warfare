@@ -97,7 +97,7 @@ if (_enableJam) then {
 				_droneUsers pushBack _unit;
 			};
 			{
-				[QGVAR(disconnectPlayerUAV), [_x], _x] call CBA_fnc_targetEvent;
+				[QGVAR(disconnectPlayerUAV), [_x, _unit], _x] call CBA_fnc_targetEvent;
 				[QEGVAR(zeus,hintPlayer), ["STR_CROWSEW_Spectrum_hints_jammed_drone"], _x] call CBA_fnc_targetEvent; // notify player why this happened 
 				/* NOTE: Don't use Structured Text for the remote executed hint or the server will show "Performance warning" messages in RPT log.
 				         (see https://community.bistudio.com/wiki/Structured_Text for details)  */
