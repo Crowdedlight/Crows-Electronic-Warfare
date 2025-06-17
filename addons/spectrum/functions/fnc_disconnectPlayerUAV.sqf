@@ -24,7 +24,7 @@ _player connectTerminalToUAV objNull;	// disconnect player from any drone
 
 //detect a remote controlling Zeus
 if (isNull (getConnectedUAV _player)  &&  _player in (UAVControl _drone) ) then {
-    // systemChat "This player is remote controlling a unit as Zeus";
+	// systemChat "This player is remote controlling a unit as Zeus";
 
 	// display red JAMMED message sligthly above center of screen
 	[parseText "<t color='#ff0000'>JAMMED!</t>",-1,0.3,0.2,0.1,0,789] spawn BIS_fnc_dynamicText;
