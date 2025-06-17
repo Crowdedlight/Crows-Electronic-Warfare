@@ -32,7 +32,7 @@ if (!hasInterface) exitWith {};
 GVAR(trackerUnit) = player; // what unit is used as tracker. Nessecary for zeus RC support
 
 // EH for jamming disconnects
-[QGVAR(disconnectPlayerUAV), {_this#0 connectTerminalToUAV objNull;}] call CBA_fnc_addEventHandler;
+[QGVAR(disconnectPlayerUAV), FUNC(disconnectPlayerUAV) ] call CBA_fnc_addEventHandler;
 
 // event listener to enable/disable TFAR signal sourcing
 private _tfarTrackingId = [QGVAR(toggleRadioTracking), FUNC(toggleRadioTracking)] call CBA_fnc_addEventHandler;
