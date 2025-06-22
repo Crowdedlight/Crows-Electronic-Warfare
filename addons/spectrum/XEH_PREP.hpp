@@ -6,6 +6,7 @@ PREP(updateBeacons);
 PREP(beaconLoopServer);
 PREP(spectrumAttachmentLocal);
 PREP(getAntennaFromFrequency);
+PREP(disconnectPlayerUAV);
 PREP(toggleRadioTracking);
 PREP(radioTrackingBroadcastLocal);
 PREP(addRandomRadioTrackingChatterServer);
