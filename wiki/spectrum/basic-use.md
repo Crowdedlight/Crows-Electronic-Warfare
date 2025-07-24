@@ -27,6 +27,13 @@ Using the experimental or military antenna on frequencies that belongs to drones
 
 ## API
 An api has been added to allow to listen to local events on players for when they active or deactivate the spectrum device. It can be used to check what signal the player is either listening in to, or jamming. 
+
+```admonish warning
+NOTE: Different signals types have different thresholds to when they are deemed too weak to "activate" on. This event will fire even if a signal is deemed too weak and activation does not fully happen. It is up to the user of the event to take this into account and check if the signal strength is big enough for their usecase and over the threshold for the type of signal. 
+
+Jamming threshold is set as CBA variable, but the AI radio chatter module is hardcoded to -60.
+``` 
+
 ### Activation event
 ```cpp
 // _type: radio, sweep_drone, zeus, drone, chatter
