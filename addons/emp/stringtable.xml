@@ -3,8 +3,8 @@
     <Package name="EMP">
         <Key ID="STR_CROWSEW_EMP_device_name">
             <English>Device (EMP)</English>
-            <Chinesesimp>设备 (EMP)</Chinesesimp>
             <French>Dispositif (EMP)</French>
+            <Chinesesimp>设备 (EMP)</Chinesesimp>
         </Key>
     </Package>
 </Project>
