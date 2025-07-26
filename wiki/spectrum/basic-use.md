@@ -41,11 +41,22 @@ Jamming threshold is set as CBA variable, but the AI radio chatter module is har
 // _unit_: the object the signal originates from
 // _strength: the current signal strength to signal source 
 
-["crowsew_spectrum_activatedSpektrumDevice"), [_type, _frequency, _unit_, _strength]] call CBA_fnc_localEvent;
+["crowsew_spectrum_activatedSpectrumDevice", [_type, _frequency, _unit_, _strength]] call CBA_fnc_localEvent;
+
+// Listen to event with:
+["crowsew_spectrum_activatedSpectrumDevice", {
+    params ["_type", "_frequency", "_unit", "_strength"];
+	// Do something...
+}] call CBA_fnc_addEventHandler;
 ```
 
 ### Deactivation event
 ```cpp
 // As it is a deactivation there is no data, just the event saying the the player is no longer activating the device. 
-["crowsew_spectrum_deactivatedSpektrumDevice")] call CBA_fnc_localEvent;
+["crowsew_spectrum_deactivatedSpectrumDevice"] call CBA_fnc_localEvent;
+
+// Listen to event with:
+["crowsew_spectrum_activatedSpectrumDevice", {
+	// Do something...
+}] call CBA_fnc_addEventHandler;
 ```

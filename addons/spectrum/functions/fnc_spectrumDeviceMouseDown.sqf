@@ -58,7 +58,7 @@ if (count _frequenciesSorted > 0) then {
 	private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
 
 	// broadcast local event that we are now "active" on this signal
-	[QGVAR(activatedSpektrumDevice), [_type, _frequency, _unit, _sigStrength]] call CBA_fnc_localEvent;
+	[QGVAR(activatedSpectrumDevice), [_type, _frequency, _unit, _sigStrength]] call CBA_fnc_localEvent;
 
 	// switch case based on type
 	switch (_type) do {

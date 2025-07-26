@@ -39,5 +39,5 @@ missionNamespace setVariable ["#EM_Transmit",false];
 missionNamespace setVariable ["#EM_Progress",0];
 
 // Fire local event to notify we are no longer listening to a signal
-[QGVAR(deactivatedSpektrumDevice)] call CBA_fnc_localEvent;
+[QGVAR(deactivatedSpectrumDevice)] call CBA_fnc_localEvent;
 
