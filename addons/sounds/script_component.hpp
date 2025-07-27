@@ -1,4 +1,5 @@
 #define COMPONENT sounds
+#define COMPONENT_BEAUTIFIED Sounds
 #include "\z\crowsEW\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL

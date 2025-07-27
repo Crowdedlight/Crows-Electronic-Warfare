@@ -12,3 +12,9 @@
 
 // for disabling cache for all modules
 // #define DISABLE_COMPILE_CACHE
+
+#ifdef COMPONENT_BEAUTIFIED
+    #define COMPONENT_NAME QUOTE(Crows's EW - COMPONENT_BEAUTIFIED)
+#else
+    #define COMPONENT_NAME QUOTE(Crow's EW - COMPONENT)
+#endif
