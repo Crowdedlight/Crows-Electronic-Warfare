@@ -56,7 +56,7 @@ Jamming threshold is set as CBA variable, but the AI radio chatter module is har
 ["crowsew_spectrum_deactivatedSpectrumDevice"] call CBA_fnc_localEvent;
 
 // Listen to event with:
-["crowsew_spectrum_activatedSpectrumDevice", {
+["crowsew_spectrum_deactivatedSpectrumDevice", {
 	// Do something...
 }] call CBA_fnc_addEventHandler;
 ```
