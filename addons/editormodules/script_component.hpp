@@ -1,4 +1,5 @@
 #define COMPONENT editormodules
+#define COMPONENT_BEAUTIFIED Editor Modules
 #include "\z\crowsEW\addons\main\script_mod.hpp"
 
 // #define DEBUG_MODE_FULL

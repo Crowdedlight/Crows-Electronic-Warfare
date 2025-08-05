@@ -2,7 +2,7 @@
 
 class CfgPatches {
     class ADDON {
-        name = QUOTE(COMPONENT);
+        name = COMPONENT_NAME;
         units[] = {
             "crowsew_ctrack_effect",
             "crowsew_ctrack_effect_2km"

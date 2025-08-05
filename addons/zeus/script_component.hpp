@@ -1,4 +1,5 @@
 #define COMPONENT zeus
+#define COMPONENT_BEAUTIFIED Zeus Modules
 #include "\z\crowsEW\addons\main\script_mod.hpp"
 
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"

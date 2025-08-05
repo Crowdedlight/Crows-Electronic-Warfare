@@ -1,4 +1,6 @@
 #define COMPONENT spectrum
+#define COMPONENT_BEAUTIFIED Spectrum
+
 #include "\z\crowsEW\addons\main\script_mod.hpp"
 
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"
