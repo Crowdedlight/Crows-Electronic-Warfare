@@ -22,3 +22,4 @@ PREP(applyInterferenceACRE);
 PREP(signalHandlerACRE);
 PREP(settingChangedZeusMapMarkers);
 PREP(settingChangedZeusJamImmunity);
+PREP(initCrowsDataterminal);
