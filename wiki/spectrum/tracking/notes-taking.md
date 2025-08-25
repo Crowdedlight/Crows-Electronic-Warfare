@@ -14,7 +14,8 @@ You can use a different color for both the line and marker by additionally press
   - **Shift** 
   - **Alt** 
 
-To change the controls edit the CBA key bindings under `Controls > Configure Addons > Crows Electronic Warfare` (search for the term *Spectrum Autoline* there).
+To change the controls edit the CBA key bindings under `Controls > Configure Addons > Crows Electronic Warfare` (search for the term *Spectrum Autoline* there).  
+There is also an option for "Start Deviation" that controls how precise the autoline is. If there is a high deviation, then it is more likely that the point the line is going towards is not excatly where the signal is. This was added as a way to control how strong a tool the autoline and avoid just being able to spam the autoline and knowing exactly where the signal is. 
 
 
 
