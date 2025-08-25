@@ -17,9 +17,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={10448.218,110.15201,6736.4263};
-		dir[]={-0.69597781,-0.53716975,0.47651371};
-		up[]={-0.44323593,0.8434732,0.30346975};
-		aside[]={0.56494164,-9.057112e-08,0.82513124};
+		dir[]={-0.81626618,-0.33509734,0.47055233};
+		up[]={-0.29031351,0.94218349,0.16735682};
+		aside[]={0.49942744,-1.4901161e-08,0.86635584};
 	};
 };
 binarizationWanted=0;
@@ -347,6 +347,7 @@ class Mission
 					class Attributes
 					{
 						name="z";
+						description="Slot with Zeus";
 						isPlayer=1;
 						class Inventory
 						{
@@ -613,17 +614,18 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={10384.597,101.6378,6758.7544};
-				angles[]={0,5.1636133,0};
+				position[]={10384.597,101.63735,6758.7539};
+				angles[]={0,5.163609,0};
 			};
 			side="Empty";
 			flags=5;
 			class Attributes
 			{
+				name="billboard";
 			};
 			id=84;
 			type="Land_Billboard_F";
-			atlOffset=-0.016548157;
+			atlOffset=-0.016998291;
 		};
 		class Item3
 		{
@@ -1568,13 +1570,14 @@ class Mission
 					class PositionInfo
 					{
 						position[]={10418.372,97.999199,6753.3198};
-						angles[]={0,2.1893144,0};
+						angles[]={0,2.1893063,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
 						name="d2";
+						description="non-Zeus slot";
 						isPlayable=1;
 					};
 					id=135;
