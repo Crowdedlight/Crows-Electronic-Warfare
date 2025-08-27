@@ -3,38 +3,38 @@
     <Package name="spectrum">
         <Key ID="STR_CROWSEW_Spectrum_antenna_experimental_name">
             <English>SD Experimental Antenna (520-1090 MHz)</English>
-            <Chinesesimp>SD实验天线 (520 - 1090 MHz)</Chinesesimp>
             <French>Antenne expérimentale SD (520-1090 MHz)</French>
+            <Chinesesimp>SD实验天线 (520 - 1090 MHz)</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_antenna_jammer_name">
             <English>SD Jammer Antenna (433-445 MHz)</English>
-            <Chinesesimp>SD干扰天线 (433 - 445 MHz)</Chinesesimp>
             <French>Antenne de brouillage SD (433-445 MHz)</French>
+            <Chinesesimp>SD干扰天线 (433 - 445 MHz)</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_antenna_military_name">
             <English>SD Military Antenna (30-513 MHz)</English>
-            <Chinesesimp>SD军用天线 (30 - 513 MHz)</Chinesesimp>
             <French>Antenne militaire SD (30-513 MHz)</French>
+            <Chinesesimp>SD军用天线 (30 - 513 MHz)</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_cmotion_description">
             <English>Tracking device that gets triggered by motion and sends signals that can be seen with the spectrum device</English>
-            <Chinesesimp>一种由运动触发的追踪装置.可发出信号,并可用频谱仪进行观测</Chinesesimp>
             <French>Dispositif de repérage activé par le mouvement. Des signaux peuvent être émis et observés à l'aide d'un spectreur.</French>
+            <Chinesesimp>一种由运动触发的追踪装置.可发出信号,并可用频谱仪进行观测</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_cmotion_name">
             <English>C-MOTION</English>
-            <Chinesesimp>C-MOTION</Chinesesimp>
             <French>C-MOTION</French>
+            <Chinesesimp>C-MOTION</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_ctrack_description">
             <English>Tracking device that can be put on objects to make them trackable with spectrum device</English>
-            <Chinesesimp>可以放在物体上,使它们可用于频谱设备跟踪的跟踪设备</Chinesesimp>
             <French>Dispositif de repérage qui peut être placé sur des objets pour les rendre repérables à l'aide d'un spectreur.</French>
+            <Chinesesimp>可以放在物体上,使它们可用于频谱设备跟踪的跟踪设备</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_ctrack_name">
             <English>C-TRACK (3km)</English>
-            <Chinesesimp>C-TRACK (3km)</Chinesesimp>
             <French>C-TRACK (3km)</French>
+            <Chinesesimp>C-TRACK (3km)</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_ctrack_no_ace_attach_self">
             <English>&lt;t color=""#7fd7f5""&gt;Attach Ctrack to self</English>
@@ -54,38 +54,38 @@
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_ctrack_no_ace_freq">
             <English>Frequency for Tracker</English>
-            <Chinesesimp>追踪器的频率</Chinesesimp>
             <French>Fréquence des traqueurs</French>
+            <Chinesesimp>追踪器的频率</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_ctrack_no_ace_freq_slider">
             <English>Frequency (Unique)</English>
-            <Chinesesimp>(唯一) 频率</Chinesesimp>
             <French>Fréquence (unique)</French>
+            <Chinesesimp>(唯一) 频率</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_error_jam_strength">
             <English>dBm required for jamming</English>
-            <Chinesesimp>干扰所需的最小功率 (dBm)</Chinesesimp>
             <French>dBm requis pour le brouillage</French>
+            <Chinesesimp>干扰所需的最小功率 (dBm)</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_error_jam_strength_min">
             <English>min</English>
-            <Chinesesimp>最小值</Chinesesimp>
             <French>valeur minimale</French>
+            <Chinesesimp>最小值</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_hints_jammed_drone">
             <English>Drone is jammed. Connection lost.</English>
-            <Chinesesimp>无人机被干扰.连接中断</Chinesesimp>
             <French>Le drone est bloqué. Connexion perdue.</French>
+            <Chinesesimp>无人机被干扰.连接中断</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_icom_description">
             <English>Radio used together with Spectrum Device to listen to tracked TFAR signals</English>
-            <Chinesesimp>与频谱设备一起使用的收音机,用于收听跟踪的TFAR信号</Chinesesimp>
             <French>Radio utilisée avec le spectreur pour écouter les signaux TFAR suivis</French>
+            <Chinesesimp>与频谱设备一起使用的收音机,用于收听跟踪的TFAR信号</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_icom_name">
             <English>Icom</English>
-            <Chinesesimp>Icom</Chinesesimp>
             <French>Icom</French>
+            <Chinesesimp>Icom</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_keybinds_autoline_color1">
             <English>Spectrum Autoline (Colour 1)</English>
@@ -105,8 +105,8 @@
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_keybinds_autoline_tooltip">
             <English>Draw a line on the map from the player's position, in the direction they're facing, when aiming with the Spectrum Device.&lt;br/&gt;Player must have a GPS equipped.</English>
-            <Chinesesimp>在使用频谱设备瞄准时,从玩家的位置画一条线指向其所面对的方向.&lt;br/&gt;玩家必须装备GPS</Chinesesimp>
             <French>Tracer une ligne sur la carte à partir de la position du joueur, dans la direction à laquelle il fait face, lorsqu'il vise avec le dispositif à spectre.&lt;br/&gt;Le joueur doit être équipé d'un GPS.</French>
+            <Chinesesimp>在使用频谱设备瞄准时,从玩家的位置画一条线指向其所面对的方向.&lt;br/&gt;玩家必须装备GPS</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_autoline_catageory">
             <English>Spectrum Autoline</English>
@@ -158,8 +158,8 @@
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_autoline_enable_tooltip">
             <English>Allow players to automatically draw map lines from their position in the direction they're facing, when aiming the Spectrum Device.&lt;br/&gt;Player must have a GPS equipped.</English>
-            <Chinesesimp>允许玩家在使用频谱设备瞄准时自动在其位置朝向方向绘制地图线.&lt;br/&gt;玩家必须装备GPS</Chinesesimp>
             <French>Permettre aux joueurs de tracer automatiquement des lignes de carte à partir de leur position dans la direction à laquelle ils font face, lorsqu'ils visent le périphérique Spectrum.&lt;br/&gt;Le joueur doit être équipé d'un GPS.</French>
+            <Chinesesimp>允许玩家在使用频谱设备瞄准时自动在其位置朝向方向绘制地图线.&lt;br/&gt;玩家必须装备GPS</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_autoline_length">
             <English>Spectrum Autoline Length</English>
@@ -167,18 +167,18 @@
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_autoline_length_tooltip">
             <English>How long should the drawn autoline be, in meters.</English>
-            <Chinesesimp>绘制的自动线应为多长,以米为单位</Chinesesimp>
             <French>Quelle est la longueur, en mètres, de la ligne automatisée ?</French>
+            <Chinesesimp>绘制的自动线应为多长,以米为单位</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_default_jammable_drones">
             <English>Default Jammable Drones</English>
-            <Chinesesimp>默认 可干扰无人机</Chinesesimp>
             <French>Drones brouilleurs par défaut</French>
+            <Chinesesimp>默认 可干扰无人机</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_default_jammable_drones_tooltip">
             <English>The classnames that by default will spawn with spectrum signal and can be jammed. Change require mission restart. Comma seperated</English>
-            <Chinesesimp>默认情况下将生成带有频谱信号并可被干扰的类名,更改需要重新启动任务.用逗号分隔</Chinesesimp>
             <French>Par défaut, des noms de classes avec des signaux spectraux susceptibles d'être perturbés seront générés, et les changements nécessiteront un redémarrage de la tâche. Séparés par des virgules</French>
+            <Chinesesimp>默认情况下将生成带有频谱信号并可被干扰的类名,更改需要重新启动任务.用逗号分隔</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_default_signal_range_for_jammable_drones">
             <English>Default Jammable Drone Range</English>
@@ -190,43 +190,43 @@
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_enable_device_name">
             <English>Enable Spectrum Device</English>
-            <Chinesesimp>启用频谱设备</Chinesesimp>
             <French>Activer le spectreur</French>
+            <Chinesesimp>启用频谱设备</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_jamming">
             <English>Jamming</English>
-            <Chinesesimp>干扰</Chinesesimp>
             <French>Brouillage</French>
+            <Chinesesimp>干扰</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_min_jam_strength">
             <English>Minimum signal strength required for jamming</English>
-            <Chinesesimp>干扰所需的最小信号强度</Chinesesimp>
             <French>Puissance minimale du signal requise pour le brouillage</French>
+            <Chinesesimp>干扰所需的最小信号强度</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_min_jam_strength_tooltip">
             <English>Spectrum Device can not jam signals that are weaker than this value (in dBm).</English>
-            <Chinesesimp>频谱设备无法干扰比此值更弱的信号(以dBm为单位)</Chinesesimp>
             <French>Le spectreur ne peut pas brouiller les signaux qui sont plus faibles que cette valeur (en dBm).</French>
+            <Chinesesimp>频谱设备无法干扰比此值更弱的信号(以dBm为单位)</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_radio_track_name">
             <English>Track Friendly with Radio Tracking</English>
-            <Chinesesimp>与无线电跟踪兼容</Chinesesimp>
             <French>Suivi amical avec Radio Tracking</French>
+            <Chinesesimp>与无线电跟踪兼容</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_radio_track_tooltip">
             <English>Do you want your own side's radio transmissions to show on the spectrum device if Radio tracking is enabled?</English>
-            <Chinesesimp>如果启用了无线电跟踪,您是否希望在频谱设备上显示自己一方的无线电传输?</Chinesesimp>
             <French>Voulez-vous que les transmissions radio de votre propre camp s'affichent sur l'appareil à spectre si le suivi radio est activé ?</French>
+            <Chinesesimp>如果启用了无线电跟踪,您是否希望在频谱设备上显示自己一方的无线电传输?</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_self_tracking">
             <English>Self-Tracking</English>
-            <Chinesesimp>自我跟踪</Chinesesimp>
             <French>Auto-repérage</French>
+            <Chinesesimp>自我跟踪</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_self_tracking_tooltip">
             <English>Should you be able to see your own signal sources on the spectrum Device, or should they be hidden from view. If Tfar SideTrack setting is disabled, you won't see your own TFAR signal even if this setting is turned on</English>
-            <Chinesesimp>您是否应该能够在频谱设备上看到自己的信号源,或者它们应该被隐藏起来.如果 Tfar SideTrack 设置被禁用,即使打开了此设置,您也看不到自己的TFAR信号.</Chinesesimp>
             <French>Devriez-vous être en mesure de voir vos propres sources de signal sur l'appareil de spectre, ou devraient-elles être cachées de la vue. Si le paramètre Tfar SideTrack est désactivé, vous ne verrez pas votre propre signal TFAR même si ce paramètre est activé.</French>
+            <Chinesesimp>您是否应该能够在频谱设备上看到自己的信号源,或者它们应该被隐藏起来.如果 Tfar SideTrack 设置被禁用,即使打开了此设置,您也看不到自己的TFAR信号.</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_uav_terminal_user_visible_in_spectrum">
             <English>UAV terminal user visible in spectrum</English>
@@ -238,118 +238,118 @@
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_sounds_drone_heli_motor">
             <English>Helicopter drone motor</English>
-            <Chinesesimp>直升机无人机马达声</Chinesesimp>
             <French>Sons du moteur du drone de l'hélicoptère</French>
+            <Chinesesimp>直升机无人机马达声</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_sounds_garbled">
             <English>Garbled radio sound</English>
-            <Chinesesimp>加密无线电信号</Chinesesimp>
             <French>Son radio brouillé</French>
+            <Chinesesimp>加密无线电信号</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_sounds_jam_error">
             <English>Drone jam error</English>
-            <Chinesesimp>无人机干扰错误</Chinesesimp>
             <French>Erreur de brouillage du drone</French>
+            <Chinesesimp>无人机干扰错误</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_sounds_jam_error_title">
             <English>ERROR: Too weak Signal</English>
-            <Chinesesimp>错误:信号太弱</Chinesesimp>
             <French>ERREUR : Signal trop faible</French>
+            <Chinesesimp>错误:信号太弱</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_sounds_jam_loop">
             <English>Drone jam loop</English>
-            <Chinesesimp>无人机干扰回路</Chinesesimp>
             <French>Boucle de brouillage de drones</French>
+            <Chinesesimp>无人机干扰回路</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_sounds_jammer_charging">
             <English>Drone jammer charging</English>
-            <Chinesesimp>无人机干扰器充电中</Chinesesimp>
             <French>Chargement du brouilleur de drone</French>
+            <Chinesesimp>无人机干扰器充电中</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_sounds_radio_error">
             <English>ERROR: Missing Icom radio in inventory</English>
-            <Chinesesimp>错误:库存中缺少 Icom 无线电</Chinesesimp>
             <French>ERREUR : Radio Icom manquante dans l'inventaire</French>
+            <Chinesesimp>错误:库存中缺少 Icom 无线电</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_sounds_ugv_motor">
             <English>UGV motor sound</English>
-            <Chinesesimp>无人驾驶车辆马达声</Chinesesimp>
             <French>Son de moteurs de véhicules sans conducteur</French>
+            <Chinesesimp>无人驾驶车辆马达声</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voiceline_alien_electronic">
             <English>Alien Electronic</English>
-            <Chinesesimp>陌生的电子</Chinesesimp>
             <French>Extraterrestre électronique</French>
+            <Chinesesimp>陌生的电子</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voiceline_british">
             <English>British</English>
-            <Chinesesimp>英国</Chinesesimp>
             <French>Britannique</French>
+            <Chinesesimp>英国</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voiceline_electronic">
             <English>Electronic</English>
-            <Chinesesimp>电子</Chinesesimp>
             <French>Électronique</French>
+            <Chinesesimp>电子</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voiceline_morse">
             <English>Morse Code</English>
-            <Chinesesimp>摩斯密码</Chinesesimp>
             <French>Code Morse</French>
+            <Chinesesimp>摩斯密码</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voiceline_police_radio">
             <English>Police Radio</English>
-            <Chinesesimp>警察无线电</Chinesesimp>
             <French>Radio de la police</French>
+            <Chinesesimp>警察无线电</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_british_1">
             <English>Ah fuck, I stepped in something</English>
-            <Chinesesimp>操,我他妈踩到什么东西了</Chinesesimp>
             <French>Ah putain, j'ai marché dans quelque chose</French>
+            <Chinesesimp>操,我他妈踩到什么东西了</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_british_2">
             <English>Baseplate, this is hammer 2-4, we have visual on the target. ETA 60 seconds</English>
-            <Chinesesimp>Baseplate, 这是hammer 2-4, 我们看到了目标. 预计到达时间 60 秒</Chinesesimp>
             <French>Baseplate, ici Hammer 2-4, nous avons un visuel sur la cible. ETA 60 secondes.</French>
+            <Chinesesimp>Baseplate, 这是hammer 2-4, 我们看到了目标. 预计到达时间 60 秒</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_british_3">
             <English>So, Do you think the lieutenant hates me?</English>
-            <Chinesesimp>那么, 你觉得中尉讨厌我吗?</Chinesesimp>
             <French>Alors, tu crois que le lieutenant me déteste ?</French>
+            <Chinesesimp>那么, 你觉得中尉讨厌我吗?</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_british_4">
             <English>Fan out. 3 meter spread</English>
-            <Chinesesimp>扇形展开. 间距3米</Chinesesimp>
             <French>Déploiement en éventail. 3 mètres d'écart</French>
+            <Chinesesimp>扇形展开. 间距3米</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_british_5">
             <English>This is Hammer 2-4, we got tangos on the second floor</English>
-            <Chinesesimp>这是 Hammer 2-4, 我们在二楼发现了敌人</Chinesesimp>
             <French>Ici Hammer 2-4, nous avons des tangos au deuxième étage.</French>
+            <Chinesesimp>这是 Hammer 2-4, 我们在二楼发现了敌人</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_british_6">
             <English>HQ this is Xray. We have nothing to report on our patrol. over</English>
-            <Chinesesimp>总部.这里是 Xray. 我们巡逻没有发现任何需要报告的情况. 完毕</Chinesesimp>
             <French>QG, ici Xray. Nous n'avons rien à signaler sur notre patrouille. Terminé</French>
+            <Chinesesimp>总部.这里是 Xray. 我们巡逻没有发现任何需要报告的情况. 完毕</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_british_7">
             <English>Kirk97, Kirk97, This is Slasher03, Say when ready to copy 8 figure grid reference</English>
-            <Chinesesimp>Kirk97, Kirk97, 这里是 Slasher03,当你准备好接收8位数字网格坐标时请告知</Chinesesimp>
             <French>Kirk97, Kirk97, ici Slasher03, dites quand vous êtes prêt à copier la référence de grille à 8 chiffres</French>
+            <Chinesesimp>Kirk97, Kirk97, 这里是 Slasher03,当你准备好接收8位数字网格坐标时请告知</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_british_8">
             <English>Stop lagging behind Karl!</English>
-            <Chinesesimp>卡尔，别再落后了!</Chinesesimp>
             <French>Cessez d'être à la traîne, Karl !</French>
+            <Chinesesimp>卡尔，别再落后了!</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_british_9">
             <English>yeah</English>
-            <Chinesesimp>是的</Chinesesimp>
             <French>oui</French>
+            <Chinesesimp>是的</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_1">
             <English>Calling all units I need a 10-45</English>
-            <Chinesesimp>呼叫所有单位, 我们需要处理一起交通事故</Chinesesimp>
             <French>Appel à toutes les unités. Nous devons nous occuper d'un accident de la route.</French>
+            <Chinesesimp>呼叫所有单位, 我们需要处理一起交通事故</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_10">
             <English>Ok, you're breakin up there, I got a 10-62</English>
@@ -357,28 +357,28 @@
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_11">
             <English>Please hold, it's a 10-6</English>
-            <Chinesesimp>请稍等,我正在忙</Chinesesimp>
             <French>Un moment, s'il vous plaît. Je suis occupé. 10-6</French>
+            <Chinesesimp>请稍等,我正在忙</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_12">
             <English>Recieving poorly</English>
-            <Chinesesimp>接收不好</Chinesesimp>
             <French>Réception médiocre</French>
+            <Chinesesimp>接收不好</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_13">
             <English>Okay, we need to stop at the station, it's a 10-33</English>
-            <Chinesesimp>Okay, we need to stop at the station, it's a 10-33</Chinesesimp>
             <French>Ok, nous devons nous arrêter à la station, c'est un 10-33.</French>
+            <Chinesesimp>Okay, we need to stop at the station, it's a 10-33</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_14">
             <English>okay, there is too much traffic on this channel, It's a 10-75</English>
-            <Chinesesimp>okay, there is too much traffic on this channel, It's a 10-75</Chinesesimp>
             <French>ok, il y a trop de trafic sur ce canal, c'est un 10-75</French>
+            <Chinesesimp>okay, there is too much traffic on this channel, It's a 10-75</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_15">
             <English>This guy is from medford, drinking beer in his car. I'm gonna take him in</English>
-            <Chinesesimp>这个家伙来自梅德福, 他在车里喝啤酒. 我要抓他</Chinesesimp>
             <French>Ce type vient de Medford, il boit de la bière dans sa voiture. Je vais l'embarquer</French>
+            <Chinesesimp>这个家伙来自梅德福, 他在车里喝啤酒. 我要抓他</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_16">
             <English>Two went off the 10-5</English>
@@ -386,8 +386,8 @@
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_17">
             <English>We got a cat up in a tree up in Jamaica plain can we get an officer to look at it?</English>
-            <Chinesesimp>我们在牙买加平原的一棵树上有一只猫,可以派一名警官去看看吗?</Chinesesimp>
             <French>Nous avons un chat dans un arbre à Jamaica plain, est-ce qu'un officier peut l'examiner ?</French>
+            <Chinesesimp>我们在牙买加平原的一棵树上有一只猫,可以派一名警官去看看吗?</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_18">
             <English>We got too much static here, lets do a 10-27</English>
@@ -395,23 +395,23 @@
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_19">
             <English>We need it quick, 10-17 please</English>
-            <Chinesesimp>We need it quick, 10-17 please</Chinesesimp>
             <French>Nous en avons besoin rapidement, 10-17 s'il vous plaît</French>
+            <Chinesesimp>We need it quick, 10-17 please</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_2">
             <English>We saw him drinking in the car, and drugs in the car too</English>
-            <Chinesesimp>我们看到他在车里喝酒, 车里还有毒品</Chinesesimp>
             <French>Nous l'avons vu boire dans la voiture et y consommer de la drogue.</French>
+            <Chinesesimp>我们看到他在车里喝酒, 车里还有毒品</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_20">
             <English>Where are you?</English>
-            <Chinesesimp>你在哪里?</Chinesesimp>
             <French>Où êtes-vous ?</French>
+            <Chinesesimp>你在哪里?</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_3">
             <English>Give me a call on the dog and bone, it's a 10-21</English>
-            <Chinesesimp>给我打个电话, 有重要的事要说</Chinesesimp>
             <French>Appelez-moi, c'est important. 10-21</French>
+            <Chinesesimp>给我打个电话, 有重要的事要说</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_4">
             <English>Hold Hold Hold 10-23</English>
@@ -419,28 +419,28 @@
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_5">
             <English>I need some road advisory, give me a 10-13</English>
-            <Chinesesimp>我需要一些道路建议, 请提供信息</Chinesesimp>
             <French>J'ai besoin de conseils sur la route, merci de me fournir des informations. 10-13</French>
+            <Chinesesimp>我需要一些道路建议, 请提供信息</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_6">
             <English>Yeah I stopped a douche coming out of somerville</English>
-            <Chinesesimp>我拦住了一个来自萨默维尔的混蛋.</Chinesesimp>
             <French>Oui, j'ai arrêté un crétin qui sortait de Somerville.</French>
+            <Chinesesimp>我拦住了一个来自萨默维尔的混蛋.</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_7">
             <English>I'm starving, lets go for a code 4</English>
-            <Chinesesimp>我饿了, 我们去吃个4号餐</Chinesesimp>
             <French>Je suis affamé, allons-y pour un code 4</French>
+            <Chinesesimp>我饿了, 我们去吃个4号餐</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_8">
             <English>It's an emergency 10-100</English>
-            <Chinesesimp>这是一个紧急情况</Chinesesimp>
             <French>Il s'agit d'une urgence. 10-100</French>
+            <Chinesesimp>这是一个紧急情况</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_voicepack_police_9">
             <English>Loud and clear</English>
-            <Chinesesimp>声音清晰</Chinesesimp>
             <French>Clair et net</French>
+            <Chinesesimp>声音清晰</Chinesesimp>
         </Key>
     </Package>
 </Project>
