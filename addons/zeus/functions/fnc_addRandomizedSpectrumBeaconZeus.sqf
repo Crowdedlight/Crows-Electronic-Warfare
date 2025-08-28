@@ -33,7 +33,7 @@ private _onConfirm =
 	private _freq = floor(random[_freqMin, _freqMid, _freqMax]);
 	private _range = floor(random[_rangeMin, _rangeMid, _rangeMax]);
 
-	// broadcast event to all clients and JIP
+	// broadcast event to server
 	[QEGVAR(spectrum,addBeacon), [_unit, _freq, _range, "zeus"]] call CBA_fnc_serverEvent;
 };
 

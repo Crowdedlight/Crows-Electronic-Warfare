@@ -43,6 +43,7 @@ MonkeyBadger (Voice-line work)
 Technovibegames (Voice-line work)  
 WindWalker (Voice-line work)  
 Huzy1018 (Translation)  
+Alfred-Neuman (Translation)
 
 ### License 
 Crows Electronic Warfare is licensed under the Arma Public License Share Alike. Please do not reupload to the Steam Workshop without permission!
