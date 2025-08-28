@@ -24,6 +24,10 @@ A lot of antenna objects are not destructable and as such you cannot blow them u
 
 4. Sync the object (3D model) you have chosen as the area denial jammer to the object you just placed on the map.
 
+```admonish info
+If you want to use a Data Terminal object, search for the `Data Terminal (destructible)` version. Only the destructible version has animations enabled and is possible to blow up/destroy. If you use the basegame version that is just called "Data Terminal", then you will not get the animations and it is impossible to destroy. 
+```
+
 ![image](https://github.com/Crowdedlight/Crows-Electronic-Warfare/assets/76476468/9c4cfe5a-3de6-4e34-bff3-ffaa01b6c5ef)
 
 5. Once done you should see a blue line between the 3D model and the jammer module.

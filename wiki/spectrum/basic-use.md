@@ -24,3 +24,39 @@ Using the experimental or military antenna on frequencies that belongs to drones
 ![img1](https://user-images.githubusercontent.com/7889925/134808185-765b827f-780d-435e-a16e-6094ebca9990.jpg)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LZ4dyb8P7u8?si=oHuBcvXVnOw8Ob8V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## API
+An api has been added to allow to listen to local events on players for when they active or deactivate the spectrum device. It can be used to check what signal the player is either listening in to, or jamming. 
+
+```admonish warning
+NOTE: Different signals types have different thresholds to when they are deemed too weak to "activate" on. This event will fire even if a signal is deemed too weak and activation does not fully happen. It is up to the user of the event to take this into account and check if the signal strength is big enough for their usecase and over the threshold for the type of signal. 
+
+Jamming threshold is set as CBA variable, but the AI radio chatter module is hardcoded to -60.
+``` 
+
+### Activation event
+```cpp
+// _type: radio, sweep_drone, zeus, drone, chatter
+// _frequency: frequency used for the signal
+// _unit_: the object the signal originates from
+// _strength: the current signal strength to signal source 
+
+["crowsew_spectrum_activatedSpectrumDevice", [_type, _frequency, _unit_, _strength]] call CBA_fnc_localEvent;
+
+// Listen to event with:
+["crowsew_spectrum_activatedSpectrumDevice", {
+    params ["_type", "_frequency", "_unit", "_strength"];
+	// Do something...
+}] call CBA_fnc_addEventHandler;
+```
+
+### Deactivation event
+```cpp
+// As it is a deactivation there is no data, just the event saying the the player is no longer activating the device. 
+["crowsew_spectrum_deactivatedSpectrumDevice"] call CBA_fnc_localEvent;
+
+// Listen to event with:
+["crowsew_spectrum_deactivatedSpectrumDevice", {
+	// Do something...
+}] call CBA_fnc_addEventHandler;
+```
