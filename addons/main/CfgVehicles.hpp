@@ -10,7 +10,7 @@ class CBA_Extended_EventHandlers_base;
 		class EventHandlers {
 			class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers_base {};
 		};
-		displayName = "Data Terminal (destructible)"
+		displayName = "Data Terminal (destructible)";
 		scope = 2;          // 2 = class is available in the editor; 1 = class is unavailable in the editor, but can be accessed via a macro; 0 = class is unavailable (and used for inheritance only).
 		scopeCurator = 2;   // 2 = class is available in Zeus; 0 = class is unavailable in Zeus.
 		author = "Crowdedlight";
