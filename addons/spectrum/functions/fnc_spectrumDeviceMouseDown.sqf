@@ -51,16 +51,20 @@ if (count _frequenciesSorted > 0) then {
 	private _strongestSignal = _frequenciesSorted#0;
 	
 	// if type is "radioChatter", play sound and save beacon in gvar
-	_unit = _strongestSignal#0;
-	_range = _strongestSignal#2;
-	_type = _strongestSignal#3;
+	private _unit = _strongestSignal#0;
+	private _frequency = _strongestSignal#1;
+	private _range = _strongestSignal#2;
+	private _type = _strongestSignal#3;
+	private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
+
+	// broadcast local event that we are now "active" on this signal
+	[QGVAR(activatedSpectrumDevice), [_type, _frequency, _unit, _sigStrength]] call CBA_fnc_localEvent;
 
 	// switch case based on type
 	switch (_type) do {
 		case "chatter": {			
 			private _sound = "";
-			private _sigStrength = [_strongestSignal#0, player, _strongestSignal#2] call FUNC(calcSignalStrength);
-
+			
 			// only real radio line if signal strength is better than -60
 			if (_sigStrength < -60) then {
 				// not strong enough signal, so we play garbled radio
@@ -85,7 +89,6 @@ if (count _frequenciesSorted > 0) then {
 			// if Jam antenna do jam handling
 			if (GVAR(spectrumRangeAntenna) == 3) then {
 				// check if strong enough
-				private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
 				if (_sigStrength < GVAR(minJamSigStrength)) then {
 					//  do fail if not strong enough
 					// systemChat "too low signal, set failed = true";
@@ -102,8 +105,6 @@ if (count _frequenciesSorted > 0) then {
 				_timeActive = 1;
 			} else { // if non-jam antenna we can still listen to it
 				// check strength
-				private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
-
 				if (_sigStrength < -60) then {
 					// play garbled
 					GVAR(radioChatterVoiceSound) = playSound "crowsEW_garbled";

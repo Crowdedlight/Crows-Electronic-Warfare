@@ -76,6 +76,7 @@ if (!(call EFUNC(zeus,isZeus)) || {(call EFUNC(zeus,isZeus)) && !GVAR(zeus_jam_i
 // handle drone jammers
 private _PP_film = GVAR(FilmGrain_jamEffect);
 _PP_film ppEffectEnable false; // restore players view back to normal if no other logic decides otherwise
+private _pipEffectEnabled = false;
 private _drone = getConnectedUAV player;
 if (!isNull _drone) then {	
 	private _sortingCode = { (_input0 distance _x#0) min (player distance _x#0) };	// sort drone jammers by distance to drone and player (which ever is smaller)
@@ -98,18 +99,31 @@ if (!isNull _drone) then {
 		// jamming of non player controlled drones is handled in fnc_jammerServerLoop.sqf.
 	} else {
 		// less intense actions when drone is only approaching the jammer area (gives pilot time to react to the presence of the jammer)
+
+		// calculate video image distortion
+		private _distDrone2killRadius = abs(_distDroneOrPlayerToJammer - _radEffective);
+		private _sharpness = [0, 4, _distDrone2killRadius/_radFalloff] call BIS_fnc_lerp;
+		// systemChat format ["ratio %1, _sharpness %2", _distDrone2killRadius/_radFalloff, _sharpness];
+
 		if (isRemoteControlling player && (isNull curatorCamera)) then {	// if player uses UAV camera currently (and did not step into Zeus mode)
-			// calculate video image distortion
-			private _distDrone2killRadius = abs(_distDroneOrPlayerToJammer - _radEffective);
-			private _sharpness = [0, 4, _distDrone2killRadius/_radFalloff] call BIS_fnc_lerp;
-			// systemChat format ["ratio %1, _sharpness %2", _distDrone2killRadius/_radFalloff, _sharpness];
-			
 			_PP_film ppEffectAdjust [1,_sharpness,3.3,2,2,true]; 
 			_PP_film ppEffectEnable true; 
 		}; 
+
+		// set picture-in-picture effect 
+		"avterminalpip0"   setPiPEffect [6,1,1,_sharpness,3.3,2,2,true];
+		"avterminalpip1"   setPiPEffect [6,1,1,_sharpness,3.3,2,2,true];
+		"uavpipsingleview" setPiPEffect [6,1,1,_sharpness,3.3,2,2,true];
+		_pipEffectEnabled = true;	
 	};
 };
 _PP_film ppEffectCommit 0;	// commit what ever change has been made
+if (!_pipEffectEnabled) then {
+	// deactivate picture-in-picture effect
+	"avterminalpip0"   setPiPEffect [6,0,1,4,3.3,2,2,true];
+	"avterminalpip1"   setPiPEffect [6,0,1,4,3.3,2,2,true];
+	"uavpipsingleview" setPiPEffect [6,0,1,4,3.3,2,2,true];
+};
 
 
 

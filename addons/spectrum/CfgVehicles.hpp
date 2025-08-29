@@ -1,7 +1,7 @@
 class CBA_Extended_EventHandlers_base;
 
 class CfgVehicles {
-	class Thing;
+	//class Thing;
     class ThingX;
 
 	// The object that gets attached in ace, this way we can show and run the functions needed?
