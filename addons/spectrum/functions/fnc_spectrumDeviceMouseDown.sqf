@@ -51,10 +51,10 @@ if (count _frequenciesSorted > 0) then {
 	private _strongestSignal = _frequenciesSorted#0;
 	
 	// if type is "radioChatter", play sound and save beacon in gvar
-	private _unit = _strongestSignal#0;
-	private _frequency = _strongestSignal#1;
-	private _range = _strongestSignal#2;
+	_unit = _strongestSignal#0;
+	_range = _strongestSignal#2;
 	private _type = _strongestSignal#3;
+	private _frequency = _strongestSignal#1;
 	private _sigStrength = [_unit, player, _range] call FUNC(calcSignalStrength);
 
 	// broadcast local event that we are now "active" on this signal
