@@ -23,3 +23,4 @@ PREP(signalHandlerACRE);
 PREP(settingChangedZeusMapMarkers);
 PREP(settingChangedZeusJamImmunity);
 PREP(initCrowsDataterminal);
+PREP(handleCrowsDataterminalBlownUp);

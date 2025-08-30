@@ -29,6 +29,10 @@ private _allCrowsTerminals = allMissionObjects "Crows_dataterminal";
 // Note: 3den-placed terminals don't work for some reason with _applyInitRetroactively=true
 // see discussion at: https://discord.com/channels/976165959041679380/976228110078992456/1407346710425894912
 
+// add EH to handle locality of the data terminal
+[QGVAR(dataTerminalBlownupEvent), FUNC(handleCrowsDataterminalBlownUp)] call CBA_fnc_addEventHandler;
+
+
 // last of this init is only for interfaces, so skipping if we don't have one... aka we are dedicated server
 if (!hasInterface) exitWith{};
 
