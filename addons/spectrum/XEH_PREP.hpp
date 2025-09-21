@@ -38,3 +38,4 @@ PREP(ctrackHandleGetInVehicle);
 PREP(ctrackHandleGetOutVehicle);
 PREP(ctrackHandleKilled);
 PREP(spectrumGUI);
+PREP(lambsShareInformationHandler);
