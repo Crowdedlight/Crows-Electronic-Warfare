@@ -26,18 +26,6 @@ _entity addEventHandler ["HitPart", {
 
 	// if over 0.5 in damage, so all explosives and even grenades if they are right next to it
 	if (_explosiveDmg > 0.5) then {
-		// if blown up with explosive. Don't remove the object, just disable it by killing it and turn it red. (don't have a destroyed texture)
-		_target setDamage [1, true, _instigator];
-		[_target, 1] call BIS_fnc_dataTerminalAnimate;	// show lid open but antenna lowered and closed
-		[_target, "red", "red", "red"] call BIS_fnc_dataTerminalColor;	// make edges of data terminal red
-		_target setObjectTextureGlobal [0, QPATHTOF(data\data_terminal_screen_dead_CO.paa)];	// show screen with a malfunction
-		_target setObjectMaterialGlobal [0, "\A3\Props_F_Exp_A\Military\Equipment\Data\DataTerminal_green.rvmat"];	
-
-		// burry into the ground to some extent
-		private _target_pos = getPosATL _target;
-		if (_target_pos#2 < 0.1) then { // if terminal sits on the ground (or very near to it)
-			_target setPosATL [_target_pos#0, _target_pos#1, _target_pos#2 - 0.2];	// sink terminal into the ground
-			_target setVectorDirAndUp ([[vectorDirVisual _target, vectorUpVisual _target], getDir _target, -30, 10] call BIS_fnc_transformVectorDirAndUp);	// roll and pitch a bit	
-		};
+		[QGVAR(dataTerminalBlownupEvent), [_target], _target] call CBA_fnc_targetEvent;
 	};
 }];
