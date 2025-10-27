@@ -43,7 +43,8 @@ workshop = [
     "463939057",  # ACE
     "1645973522", # Intercept Minimal Dev
     "1585582292", # Arma Debug Engine
-    "1858075458", # LAMBS Danger
+    # "1858075458", # LAMBS Danger
+    "2434257231", # LAMBS Danger (Dev)
 ]
 mission = "dev_mini.Enoch" # Launch into existing Editor Mission
 parameters = [
