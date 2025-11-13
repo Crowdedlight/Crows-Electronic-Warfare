@@ -10,6 +10,7 @@ PREP(disconnectPlayerUAV);
 PREP(toggleRadioTracking);
 PREP(radioTrackingBroadcastLocal);
 PREP(addRandomRadioTrackingChatterServer);
+PREP(addSoundSequenceServer);
 PREP(removeRandomRadioTrackingChatterServer);
 PREP(spectrumDeviceMouseDown);
 PREP(spectrumDeviceMouseUp);

@@ -1,0 +1,89 @@
+#include "script_component.hpp"
+/*/////////////////////////////////////////////////
+Author: b-mayr-1984 - Bernhard Mayr
+		(leaning heavily on Crowdedlight's work in fnc_addRandomRadioTrackingChatterServer.sqf)
+			   
+File: fnc_addSoundSequenceServer.sqf
+
+Parameters:  
+	_unit		unit/object to attach the signal to
+	_freq		frequency to broadcast on
+	_range		range of the broadcasted signal
+	_sounds		array of sounds to be played/transmitted in sequence
+
+Return:  none
+
+Use this function 
+to add a list of sounds (CfgSounds or a sound file; see BIKI on playSoundUI for details)
+to be broadcast in the spectrum.
+
+Server only
+
+Example:
+	[_unit, _freq, _range, _sounds] call crowsew_spectrum_fnc_addsoundsequenceserver;
+
+*///////////////////////////////////////////////
+
+if (!isServer) exitWith {};
+
+params ["_unit", "_freq", "_range", "_sounds"];
+
+if (isNull _unit) exitWith {};
+
+
+// _sounds = ["\A3\Dubbing_Radio_F\Sfx\in2c.ogg", "\A3\Dubbing_Radio_F\data\ENG\Male01ENG\RadioProtocolENG\Normal\020_Names\adams.ogg", "Civilain_MarketExit_Merchant_A_01_Vincent"];
+
+// if the unit already plays a sound sequence stop it first
+private _existingHandle = _unit getVariable[QGVAR(radioSoundHandle), scriptNull];
+if (!isNull _existingHandle) then {
+	terminate _existingHandle;
+	// remove signal 
+	[_unit, "sound"] call FUNC(removeBeaconServer);
+
+	// remove from zeus draw list - We wait with publish update until end of script where we publish anyway for the new draws
+	// private _rmIndex = GVAR(radioTrackingAiUnits) findIf { (_x select 0) == _unit};
+	// GVAR(radioTrackingAiUnits) deleteAt _rmIndex;
+};
+
+private _handler = [_unit, _freq, _range, _sounds] spawn {
+	params ["_unit", "_freq", "_range", "_sounds"];
+
+	// loop through sounds and play them in sequence
+	{
+		if (!alive _unit) exitWith {};
+
+		private _sound = _x;
+		
+		// add signal to spectrum
+		[_unit, _freq, _range, "sound"] call FUNC(addBeaconServer);
+
+		// save currently played sound and when it started
+		_unit setVariable[QGVAR(currentRadioSound), _sound, true];
+		_unit setVariable[QGVAR(currentRadioSoundStartTime), serverTime, true];
+
+		// get sound length
+		private _soundId = playSoundUI [_sound, 0.0];	// zero volume, just to get the soundId
+		private _soundLength = (soundParams _soundId)#2;
+		stopSound _soundId;	// stop sound right away; we only wanted to get the length
+
+		// sleep for length
+		sleep _soundLength;
+
+		// remove signal
+		[_unit, "sound"] call FUNC(removeBeaconServer);
+
+		// reset sound variables
+		_unit setVariable[QGVAR(currentRadioSound), objNull, true];
+		_unit setVariable[QGVAR(currentRadioSoundStartTime), 0, true];
+
+	} forEach _sounds;
+};
+
+
+// save handler to loop or a way to stop it, on var on unit, as we are on server, we only save locally
+_unit setVariable[QGVAR(radioSoundHandle), _handler];
+
+
+// add to array for drawing indication of what AI units has it enabled
+// GVAR(radioTrackingAiUnits) pushBack [_unit, _voicePack];
+// publicVariable QGVAR(radioTrackingAiUnits);
