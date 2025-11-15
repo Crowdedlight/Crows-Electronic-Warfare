@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=155;
+		nextID=157;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={10448.218,110.15201,6736.4263};
-		dir[]={-0.81626618,-0.33509734,0.47055233};
-		up[]={-0.29031351,0.94218349,0.16735682};
-		aside[]={0.49942744,-1.4901161e-08,0.86635584};
+		pos[]={10448.718,110.51091,6728.6484};
+		dir[]={0.67976302,-0.43632403,0.58952838};
+		up[]={0.32962921,0.89978963,0.28587282};
+		aside[]={0.65518475,0,-0.75546885};
 	};
 };
 binarizationWanted=0;
@@ -64,13 +64,14 @@ addons[]=
 	"A3_Air_F_Orange_UAV_06",
 	"A3_Soft_F_Offroad_01",
 	"A3_Drones_F_Air_F_Gamma_UAV_01",
-	"A3_Props_F_Exp_A_Military_Equipment"
+	"A3_Props_F_Exp_A_Military_Equipment",
+	"A3_Structures_F_Ind_Transmitter_Tower"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=31;
+		items=32;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -151,7 +152,7 @@ class AddonsMetaData
 		class Item11
 		{
 			className="crowsEW_spectrum";
-			name="spectrum";
+			name="Crow's EW - Spectrum";
 			author="Crowdedlight";
 		};
 		class Item12
@@ -241,7 +242,7 @@ class AddonsMetaData
 		class Item24
 		{
 			className="crowsEW_editormodules";
-			name="editormodules";
+			name="Crow's EW - Editor Modules";
 			author="Crowdedlight";
 		};
 		class Item25
@@ -286,6 +287,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item31
+		{
+			className="A3_Structures_F_Ind";
+			name="Arma 3 - Industrial Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 dlcs[]=
@@ -327,7 +335,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=42;
+		items=43;
 		class Item0
 		{
 			dataType="Group";
@@ -2143,6 +2151,25 @@ class Mission
 				};
 				nAttributes=5;
 			};
+		};
+		class Item42
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10492,116.23174,6746};
+				angles[]={0,0.67652452,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+				init="[radio_tower, 98.5, 5000, [""News_depot_success_alone""], true] call crowsew_spectrum_fnc_addsoundsequenceserver; " \n "";
+				name="radio_tower";
+			};
+			id=155;
+			type="Land_TTowerBig_2_F";
+			atlOffset=0.80399323;
 		};
 	};
 	class Connections
