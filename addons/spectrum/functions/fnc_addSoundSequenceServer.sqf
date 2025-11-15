@@ -10,6 +10,7 @@ Parameters:
 	_freq		frequency to broadcast on
 	_range		range of the broadcasted signal
 	_sounds		array of sounds to be played/transmitted in sequence
+	_loop		boolean that tells if the sequence shall loop indefinately (default: false); useful for permanently active radio broadcasting stations
 
 Return:  none
 
@@ -20,16 +21,17 @@ to be broadcast in the spectrum.
 Server only
 
 Example:
-	[_unit, _freq, _range, _sounds] call crowsew_spectrum_fnc_addsoundsequenceserver;
+	[_myRadioTower, 98.5, 5000, ["News_idap", "News_depot_success_alone"], true] call crowsew_spectrum_fnc_addsoundsequenceserver;
 
 *///////////////////////////////////////////////
 
 if (!isServer) exitWith {};
 
-params ["_unit", "_freq", "_range", "_sounds"];
+params [["_unit", objNull, [objNull]], ["_freq", 123, [1337]], ["_range", 300, [1337]], ["_sounds", [], [[]]], ["_loop", false, [false]]];
 
-if (isNull _unit) exitWith {};
-
+if (isNull _unit || _sounds isEqualTo []) exitWith {
+	diag_log format ["CrowsEW:fnc_addSoundSequenceServer.sqf: Can not add sequence with _unit=%1 or _sounds=%2.", _unit, _sounds]; 
+};
 
 // _sounds = ["\A3\Dubbing_Radio_F\Sfx\in2c.ogg", "\A3\Dubbing_Radio_F\data\ENG\Male01ENG\RadioProtocolENG\Normal\020_Names\adams.ogg", "Civilain_MarketExit_Merchant_A_01_Vincent"];
 
@@ -45,38 +47,43 @@ if (!isNull _existingHandle) then {
 	// GVAR(radioTrackingAiUnits) deleteAt _rmIndex;
 };
 
-private _handler = [_unit, _freq, _range, _sounds] spawn {
-	params ["_unit", "_freq", "_range", "_sounds"];
+private _handler = [_unit, _freq, _range, _sounds, _loop] spawn {
+	params ["_unit", "_freq", "_range", "_sounds", "_loop"];
 
-	// loop through sounds and play them in sequence
-	{
-		if (!alive _unit) exitWith {};
+	private _firstSequence = true;	// Is this our first run through the sequence?
 
-		private _sound = _x;
-		
-		// add signal to spectrum
-		[_unit, _freq, _range, "sound"] call FUNC(addBeaconServer);
+	// add signal to spectrum
+	[_unit, _freq, _range, "sound"] call FUNC(addBeaconServer);
 
-		// save currently played sound and when it started
-		_unit setVariable[QGVAR(currentRadioSound), _sound, true];
-		_unit setVariable[QGVAR(currentRadioSoundStartTime), serverTime, true];
+	while {_firstSequence || _loop} do {
+		// loop through sounds and play them in sequence
+		{
+			if (!alive _unit) exitWith {};
 
-		// get sound length
-		private _soundId = playSoundUI [_sound, 0.0];	// zero volume, just to get the soundId
-		private _soundLength = (soundParams _soundId)#2;
-		stopSound _soundId;	// stop sound right away; we only wanted to get the length
+			private _sound = _x;
+			
+			// save currently played sound and when it started
+			_unit setVariable[QGVAR(currentRadioSound), _sound, true];
+			_unit setVariable[QGVAR(currentRadioSoundStartTime), serverTime, true];
 
-		// sleep for length
-		sleep _soundLength;
+			// get sound length
+			private _soundId = playSoundUI [_sound, 0.0];	// zero volume, just to get the soundId
+			private _soundLength = (soundParams _soundId)#2;
+			stopSound _soundId;	// stop sound right away; we only wanted to get the length
 
-		// remove signal
-		[_unit, "sound"] call FUNC(removeBeaconServer);
+			// sleep for length
+			sleep _soundLength;
 
-		// reset sound variables
-		_unit setVariable[QGVAR(currentRadioSound), objNull, true];
-		_unit setVariable[QGVAR(currentRadioSoundStartTime), 0, true];
+			// reset sound variables
+			_unit setVariable[QGVAR(currentRadioSound), objNull, true];
+			_unit setVariable[QGVAR(currentRadioSoundStartTime), 0, true];
 
-	} forEach _sounds;
+		} forEach _sounds;
+		_firstSequence = false;
+	};
+
+	// remove signal
+	[_unit, "sound"] call FUNC(removeBeaconServer);
 };
 
 
