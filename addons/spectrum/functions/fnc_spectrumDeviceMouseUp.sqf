@@ -31,6 +31,7 @@ if (GVAR(listeningToIcom)) then {
 if (!("hgun_esd_" in (currentWeapon player))) exitWith {}; 
 
 // use gvar to save the current selected frequency. So we can do different behaviour depending on type. (for future ugv jamming)
+stopSound GVAR(currentPlayerLocalRadioSoundId);
 deleteVehicle GVAR(radioChatterVoiceSound);
 terminate GVAR(radioChatterProgressHandle);
 

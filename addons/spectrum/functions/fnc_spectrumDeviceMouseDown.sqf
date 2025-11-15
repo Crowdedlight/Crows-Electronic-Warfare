@@ -62,6 +62,23 @@ if (count _frequenciesSorted > 0) then {
 
 	// switch case based on type
 	switch (_type) do {
+		case "sound": {			
+			private _sound = "";
+			private _offset = 0;
+			
+			// only real radio line if signal strength is better than -60
+			if (_sigStrength < -60) then {
+				// not strong enough signal, so we play garbled radio
+				_sound = "crowsEW_garbled"; 
+				_timeActive = 4.3;
+			} else {
+				_sound = _unit getVariable[QGVAR(currentRadioSound), ""];
+				_offset = serverTime - (_unit getVariable[QGVAR(currentRadioSoundStartTime), 0]);
+			};
+
+			// play sound
+			GVAR(currentPlayerLocalRadioSoundId) = playSoundUI [_sound, 1.0, 1.0, false, _offset];
+		};
 		case "chatter": {			
 			private _sound = "";
 			
