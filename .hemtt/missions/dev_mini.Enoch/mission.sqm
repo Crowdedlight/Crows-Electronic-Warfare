@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=157;
+		nextID=163;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={10448.718,110.51091,6728.6484};
-		dir[]={0.67976302,-0.43632403,0.58952838};
-		up[]={0.32962921,0.89978963,0.28587282};
-		aside[]={0.65518475,0,-0.75546885};
+		pos[]={10442.051,114.83122,6716.875};
+		dir[]={-0.30494398,-0.35473228,0.88384151};
+		up[]={-0.11569764,0.9349668,0.3353346};
+		aside[]={0.94531679,7.5378921e-09,0.32615459};
 	};
 };
 binarizationWanted=0;
@@ -2164,12 +2164,12 @@ class Mission
 			flags=1;
 			class Attributes
 			{
-				init="[radio_tower, 98.5, 5000, [""News_depot_success_alone""], true] call crowsew_spectrum_fnc_addsoundsequenceserver; " \n "";
+				init="[radio_tower, 98.5, 5000, [""News_Jingle"", ""News_idap"", ""News_Jingle"",  ""News_depot_success_alone""], true] call crowsew_spectrum_fnc_addsoundsequenceserver; " \n "";
 				name="radio_tower";
 			};
 			id=155;
 			type="Land_TTowerBig_2_F";
-			atlOffset=0.80399323;
+			atlOffset=0.80400085;
 		};
 	};
 	class Connections
