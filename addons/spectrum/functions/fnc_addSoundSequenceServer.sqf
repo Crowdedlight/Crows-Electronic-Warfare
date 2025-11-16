@@ -10,6 +10,7 @@ Parameters:
 	_freq		frequency to broadcast on
 	_range		range of the broadcasted signal
 	_sounds		array of sounds to be played/transmitted in sequence
+					alternatively, instead of a sound a number can be given (then no sound is played, just silence for that duration in seconds)
 	_loop		boolean that tells if the sequence shall loop indefinately (default: false); useful for permanently active radio broadcasting stations
 
 Return:  script handle of spawned loop (can be used to terminate the sound sequence by using "terminate _handle;")
@@ -20,8 +21,10 @@ to be broadcast in the spectrum.
 
 Server only
 
-Example:
-	[_myRadioTower, 98.5, 5000, ["News_idap", "News_depot_success_alone"], true] call crowsew_spectrum_fnc_addsoundsequenceserver;
+Examples:
+	[_myRadioTower, 98.5, 5000, ["News_Jingle", "News_idap"], true] call crowsew_spectrum_fnc_addsoundsequenceserver;
+
+	[_myRadioTower, 98.5, 5000, ["News_Jingle", 1.5, "News_idap", 1.1], true] call crowsew_spectrum_fnc_addsoundsequenceserver;
 
 *///////////////////////////////////////////////
 
@@ -57,6 +60,12 @@ private _handle = [_unit, _freq, _range, _sounds, _loop] spawn {
 		// loop through sounds and play them in sequence
 		{
 			if (!alive _unit) exitWith { _loop = false; };	// if unit is dead, exit
+
+			// if no sound is given but a delay number, sleep for that number in seconds
+			if (_x isEqualType 1337) then {				
+				sleep _x;
+				continue;	// just sleep and continue to next entry in the sequence
+			};
 
 			private _sound = _x;
 
