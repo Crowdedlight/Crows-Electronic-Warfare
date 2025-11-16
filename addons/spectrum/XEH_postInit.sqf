@@ -50,6 +50,9 @@ player addEventHandler ["Respawn", {
 	};
 }];
 
+GVAR(currentPlayerLocalRadioSoundIds) = []; // array of sound ids currently being played for this player (can be multiple in case of race-conditions)
+GVAR(newRadioSoundStartedEHid) = -1;	// invalid initial id, will be set dynamically when we start listening to a sound
+
 // eventhandler for RC'ing as zeus. To give new unit the TFAR EH. Gotta spawn it to wait for zeus to be registered
 // Set for all players, as this event can only be triggered by zeus' anyway
 private _zeusRcEventStartId = ["zen_remoteControlStarted", FUNC(eventZeusStartRC)] call CBA_fnc_addEventHandler;

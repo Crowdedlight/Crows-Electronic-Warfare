@@ -62,7 +62,7 @@ if (count _frequenciesSorted > 0) then {
 
 	// switch case based on type
 	switch (_type) do {
-		case "sound": {			
+		case "sound": {
 			private _sound = "";
 			private _offset = 0;
 			
@@ -77,7 +77,18 @@ if (count _frequenciesSorted > 0) then {
 			};
 
 			// play sound
-			GVAR(currentPlayerLocalRadioSoundId) = playSoundUI [_sound, 1.0, 1.0, false, _offset];
+			private _soundId = playSoundUI [_sound, 1.0, 1.0, false, _offset];
+			// systemChat format ["playSoundUI mouse %1", _sound];
+			GVAR(currentPlayerLocalRadioSoundIds) pushBack _soundId;
+
+			// register for new sounds starting
+			[QGVAR(newRadioSoundStarted), GVAR(newRadioSoundStartedEHid)] call CBA_fnc_removeEventHandler;
+			GVAR(newRadioSoundStartedEHid) = [QGVAR(newRadioSoundStarted), FUNC(handleNewRadioSoundStarted)] call CBA_fnc_addEventHandler;
+			private _listeners = _unit getVariable[QGVAR(currentRadioSoundListeners), []];
+			if !(clientOwner in _listeners) then {
+				_listeners pushBack clientOwner;		// add our client to list of listeners
+			};
+			_unit setVariable[QGVAR(currentRadioSoundListeners), _listeners, true];
 		};
 		case "chatter": {			
 			private _sound = "";

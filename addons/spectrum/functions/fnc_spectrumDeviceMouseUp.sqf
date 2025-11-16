@@ -31,7 +31,7 @@ if (GVAR(listeningToIcom)) then {
 if (!("hgun_esd_" in (currentWeapon player))) exitWith {}; 
 
 // use gvar to save the current selected frequency. So we can do different behaviour depending on type. (for future ugv jamming)
-stopSound GVAR(currentPlayerLocalRadioSoundId);
+{ stopSound _x; } forEach GVAR(currentPlayerLocalRadioSoundIds);
 deleteVehicle GVAR(radioChatterVoiceSound);
 terminate GVAR(radioChatterProgressHandle);
 
@@ -42,3 +42,15 @@ missionNamespace setVariable ["#EM_Progress",0];
 // Fire local event to notify we are no longer listening to a signal
 [QGVAR(deactivatedSpectrumDevice)] call CBA_fnc_localEvent;
 
+
+// unregister for new sounds starting
+[QGVAR(newRadioSoundStarted), GVAR(newRadioSoundStartedEHid)] call CBA_fnc_removeEventHandler;
+GVAR(newRadioSoundStartedEHid) = -1;	// reset to invalid id
+private _listeners = _unit getVariable[QGVAR(currentRadioSoundListeners), []];
+// remove our client from list of listeners
+private _rmIndex = _listeners find clientOwner;
+while{ _rmIndex != -1 } do {
+	_listeners deleteAt _rmIndex;
+	_rmIndex = _listeners find clientOwner;
+};
+_unit setVariable[QGVAR(currentRadioSoundListeners), _listeners, true];

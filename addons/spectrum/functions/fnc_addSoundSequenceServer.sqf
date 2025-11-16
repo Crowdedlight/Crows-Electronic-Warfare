@@ -64,6 +64,12 @@ private _handle = [_unit, _freq, _range, _sounds, _loop] spawn {
 			_unit setVariable[QGVAR(currentRadioSound), _sound, true];
 			_unit setVariable[QGVAR(currentRadioSoundStartTime), serverTime, true];
 
+			// notify all listeners that sound started
+			private _clientIDs = _unit getVariable[QGVAR(currentRadioSoundListeners), []];;
+			{				
+				[QGVAR(newRadioSoundStarted), [_unit], _x] call CBA_fnc_ownerEvent;				
+			} forEach _clientIDs;
+
 			// get sound length
 			private _soundId = playSoundUI [_sound, 0.0];	// zero volume, just to get the soundId
 			private _soundLength = (soundParams _soundId)#2;

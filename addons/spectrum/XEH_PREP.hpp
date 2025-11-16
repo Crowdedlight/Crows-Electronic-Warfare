@@ -11,6 +11,7 @@ PREP(toggleRadioTracking);
 PREP(radioTrackingBroadcastLocal);
 PREP(addRandomRadioTrackingChatterServer);
 PREP(addSoundSequenceServer);
+PREP(handleNewRadioSoundStarted);
 PREP(removeRandomRadioTrackingChatterServer);
 PREP(spectrumDeviceMouseDown);
 PREP(spectrumDeviceMouseUp);
