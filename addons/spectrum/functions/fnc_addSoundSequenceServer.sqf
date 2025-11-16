@@ -12,7 +12,7 @@ Parameters:
 	_sounds		array of sounds to be played/transmitted in sequence
 	_loop		boolean that tells if the sequence shall loop indefinately (default: false); useful for permanently active radio broadcasting stations
 
-Return:  none
+Return:  script handle of spawned loop (can be used to terminate the sound sequence by using "terminate _handle;")
 
 Use this function 
 to add a list of sounds (CfgSounds or a sound file; see BIKI on playSoundUI for details)
@@ -33,8 +33,6 @@ if (isNull _unit || _sounds isEqualTo []) exitWith {
 	diag_log format ["CrowsEW:fnc_addSoundSequenceServer.sqf: Can not add sequence with _unit=%1 or _sounds=%2.", _unit, _sounds]; 
 };
 
-// _sounds = ["\A3\Dubbing_Radio_F\Sfx\in2c.ogg", "\A3\Dubbing_Radio_F\data\ENG\Male01ENG\RadioProtocolENG\Normal\020_Names\adams.ogg", "Civilain_MarketExit_Merchant_A_01_Vincent"];
-
 // if the unit already plays a sound sequence stop it first
 private _existingHandle = _unit getVariable[QGVAR(radioSoundHandle), scriptNull];
 if (!isNull _existingHandle) then {
@@ -47,7 +45,7 @@ if (!isNull _existingHandle) then {
 	// GVAR(radioTrackingAiUnits) deleteAt _rmIndex;
 };
 
-private _handler = [_unit, _freq, _range, _sounds, _loop] spawn {
+private _handle = [_unit, _freq, _range, _sounds, _loop] spawn {
 	params ["_unit", "_freq", "_range", "_sounds", "_loop"];
 
 	private _firstSequence = true;	// Is this our first run through the sequence?
@@ -58,10 +56,10 @@ private _handler = [_unit, _freq, _range, _sounds, _loop] spawn {
 	while {_firstSequence || _loop} do {
 		// loop through sounds and play them in sequence
 		{
-			if (!alive _unit) exitWith {};
+			if (!alive _unit) exitWith { _loop = false; };	// if unit is dead, exit
 
 			private _sound = _x;
-			
+
 			// save currently played sound and when it started
 			_unit setVariable[QGVAR(currentRadioSound), _sound, true];
 			_unit setVariable[QGVAR(currentRadioSoundStartTime), serverTime, true];
@@ -88,9 +86,11 @@ private _handler = [_unit, _freq, _range, _sounds, _loop] spawn {
 
 
 // save handler to loop or a way to stop it, on var on unit, as we are on server, we only save locally
-_unit setVariable[QGVAR(radioSoundHandle), _handler];
+_unit setVariable[QGVAR(radioSoundHandle), _handle];
 
 
 // add to array for drawing indication of what AI units has it enabled
 // GVAR(radioTrackingAiUnits) pushBack [_unit, _voicePack];
 // publicVariable QGVAR(radioTrackingAiUnits);
+
+_handle;	// return handler so that caller can terminate if needed
