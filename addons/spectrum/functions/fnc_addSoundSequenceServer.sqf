@@ -89,6 +89,7 @@ private _handle = [_unit, _freq, _range, _sounds, _loop] spawn {
 
 			// reset sound variables
 			_unit setVariable[QGVAR(currentRadioSound), objNull, true];
+			_unit setVariable[QGVAR(currentRadioSound), "", true];
 			_unit setVariable[QGVAR(currentRadioSoundStartTime), 0, true];
 
 		} forEach _sounds;
