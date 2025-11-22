@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=163;
+		nextID=171;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={10442.051,114.83122,6716.875};
-		dir[]={-0.30494398,-0.35473228,0.88384151};
-		up[]={-0.11569764,0.9349668,0.3353346};
-		aside[]={0.94531679,7.5378921e-09,0.32615459};
+		pos[]={10424.881,118.06339,6716.9678};
+		dir[]={-0.15120782,-0.51871067,0.84147215};
+		up[]={-0.091740012,0.85494989,0.51053357};
+		aside[]={0.9842357,0,0.17686164};
 	};
 };
 binarizationWanted=0;
@@ -335,7 +335,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=43;
+		items=44;
 		class Item0
 		{
 			dataType="Group";
@@ -2170,6 +2170,131 @@ class Mission
 			id=155;
 			type="Land_TTowerBig_2_F";
 			atlOffset=0.80400085;
+		};
+		class Item43
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10394,98.529457,6748.0498};
+						angles[]={0,2.0735734,0};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						name="tx_soldier";
+					};
+					id=170;
+					type="B_Soldier_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male11ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1.03;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+				class Item1
+				{
+					dataType="Waypoint";
+					loiterAltitude=-3.4028235e+38;
+					position[]={10398,98.207222,6746};
+					expActiv="[this, 50.5, 2000,  [0.5,""\A3\Dubbing_Radio_F\data\ENG\Male01ENG\RadioProtocolENG\Normal\080_MoveAlphabet\alpha.ogg""]," \n " false] call crowsew_spectrum_fnc_addsoundsequenceserver;" \n "";
+					class Effects
+					{
+					};
+					showWP="ALWAYS";
+					id=165;
+					type="Move";
+					atlOffset=-7.6293945e-06;
+				};
+				class Item2
+				{
+					dataType="Waypoint";
+					loiterAltitude=-3.4028235e+38;
+					position[]={10424,97.959999,6733};
+					expActiv="[this, 50.5, 2000,  [0.5,""\A3\Dubbing_Radio_F\data\ENG\Male01ENG\RadioProtocolENG\Normal\080_MoveAlphabet\bravo.ogg""]," \n " false] call crowsew_spectrum_fnc_addsoundsequenceserver;" \n "";
+					class Effects
+					{
+					};
+					showWP="ALWAYS";
+					id=166;
+					type="Move";
+				};
+				class Item3
+				{
+					dataType="Waypoint";
+					loiterAltitude=-3.4028235e+38;
+					position[]={10439,97.962799,6744};
+					expActiv="[this, 50.5, 2000,  [0.5,""\A3\Dubbing_Radio_F\data\ENG\Male01ENG\RadioProtocolENG\Normal\080_MoveAlphabet\alpha.ogg""]," \n " false] call crowsew_spectrum_fnc_addsoundsequenceserver;" \n "";
+					class Effects
+					{
+					};
+					showWP="ALWAYS";
+					id=167;
+					type="Move";
+				};
+				class Item4
+				{
+					dataType="Waypoint";
+					loiterAltitude=-3.4028235e+38;
+					position[]={10424,97.959999,6736};
+					expActiv="[this, 50.5, 2000,  [0.5,""\A3\Dubbing_Radio_F\data\ENG\Male01ENG\RadioProtocolENG\Normal\080_MoveAlphabet\charlie.ogg""]," \n " false] call crowsew_spectrum_fnc_addsoundsequenceserver;" \n "";
+					class Effects
+					{
+					};
+					showWP="ALWAYS";
+					id=168;
+					type="Move";
+				};
+				class Item5
+				{
+					dataType="Waypoint";
+					loiterAltitude=-3.4028235e+38;
+					position[]={10398,98.277618,6748};
+					class Effects
+					{
+					};
+					showWP="ALWAYS";
+					id=169;
+					type="Cycle";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=163;
 		};
 	};
 	class Connections
