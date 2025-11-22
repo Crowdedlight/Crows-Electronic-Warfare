@@ -22,9 +22,13 @@ to be broadcast in the spectrum.
 Server only
 
 Examples:
-	[_myRadioTower, 98.5, 5000, ["News_Jingle", "News_idap"], true] call crowsew_spectrum_fnc_addsoundsequenceserver;
+	_audioSequenceLoop = [_myRadioTower, 98.5, 5000, ["News_Jingle", "News_idap"], true] call crowsew_spectrum_fnc_addsoundsequenceserver;
 
-	[_myRadioTower, 98.5, 5000, ["News_Jingle", 1.5, "News_idap", 1.1], true] call crowsew_spectrum_fnc_addsoundsequenceserver;
+	_audioSequenceLoop = [_myRadioTower, 98.5, 5000, ["News_Jingle", 1.5, "News_idap", 1.1], true] call addsoundsequenceserver;
+
+	// to stop the sequence later make these 2x calls:
+	terminate _audioSequenceLoop;
+	[_myRadioTower, "sound"] call crowsew_spectrum_fnc_removebeaconserver;
 
 *///////////////////////////////////////////////
 
