@@ -33,6 +33,7 @@ private _offset = serverTime - (_unit getVariable[QGVAR(currentRadioSoundStartTi
 private _soundId = playSoundUI [_sound, 1.0, 1.0, false, _offset];
 // systemChat format ["playSoundUI handle %1", _sound];
 GVAR(currentPlayerLocalRadioSoundIds) pushBack _soundId;
+GVAR(currentPlayerLocalRadioEmitter) = _unit;
 
 // TODO: 
 // Implement mechanism that checks for proper signal strength.

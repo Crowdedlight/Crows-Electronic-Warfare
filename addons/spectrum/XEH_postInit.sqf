@@ -51,6 +51,7 @@ player addEventHandler ["Respawn", {
 }];
 
 GVAR(currentPlayerLocalRadioSoundIds) = []; // array of sound ids currently being played for this player (can be multiple in case of race-conditions)
+GVAR(currentPlayerLocalRadioEmitter) = objNull; // unit that emits the sound currently being played for this player
 GVAR(newRadioSoundStartedEHid) = -1;	// invalid initial id, will be set dynamically when we start listening to a sound
 
 // eventhandler for RC'ing as zeus. To give new unit the TFAR EH. Gotta spawn it to wait for zeus to be registered

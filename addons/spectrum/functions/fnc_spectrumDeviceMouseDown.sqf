@@ -80,6 +80,7 @@ if (count _frequenciesSorted > 0) then {
 			private _soundId = playSoundUI [_sound, 1.0, 1.0, false, _offset];
 			// systemChat format ["playSoundUI mouse %1", _sound];
 			GVAR(currentPlayerLocalRadioSoundIds) pushBack _soundId;
+			GVAR(currentPlayerLocalRadioEmitter) = _unit;
 
 			// register for new sounds starting
 			[QGVAR(newRadioSoundStarted), GVAR(newRadioSoundStartedEHid)] call CBA_fnc_removeEventHandler;

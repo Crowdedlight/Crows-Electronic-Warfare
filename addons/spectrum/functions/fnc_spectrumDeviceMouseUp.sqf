@@ -46,6 +46,7 @@ missionNamespace setVariable ["#EM_Progress",0];
 // unregister for new sounds starting
 [QGVAR(newRadioSoundStarted), GVAR(newRadioSoundStartedEHid)] call CBA_fnc_removeEventHandler;
 GVAR(newRadioSoundStartedEHid) = -1;	// reset to invalid id
+_unit = GVAR(currentPlayerLocalRadioEmitter);
 private _listeners = _unit getVariable[QGVAR(currentRadioSoundListeners), []];
 // remove our client from list of listeners
 private _rmIndex = _listeners find clientOwner;
@@ -54,3 +55,4 @@ while{ _rmIndex != -1 } do {
 	_rmIndex = _listeners find clientOwner;
 };
 _unit setVariable[QGVAR(currentRadioSoundListeners), _listeners, true];
+GVAR(currentPlayerLocalRadioEmitter) = objNull;
