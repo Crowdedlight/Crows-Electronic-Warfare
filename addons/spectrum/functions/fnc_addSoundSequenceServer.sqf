@@ -24,7 +24,7 @@ Server only
 Examples:
 	_audioSequenceLoop = [_myRadioTower, 98.5, 5000, ["News_Jingle", "News_idap"], true] call crowsew_spectrum_fnc_addsoundsequenceserver;
 
-	_audioSequenceLoop = [_myRadioTower, 98.5, 5000, ["News_Jingle", 1.5, "News_idap", 1.1], true] call addsoundsequenceserver;
+	_audioSequenceLoop = [_myRadioTower, 98.5, 5000, ["News_Jingle", 1.5, "News_idap", 1.1], true] call crowsew_spectrum_fnc_addsoundsequenceserver;
 
 	// to stop the sequence later make these 2x calls:
 	terminate _audioSequenceLoop;
