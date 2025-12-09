@@ -48,6 +48,7 @@ if (!isNull _existingHandle) then {
 	[_unit, "sound"] call FUNC(removeBeaconServer);
 
 	// remove from zeus draw list - We wait with publish update until end of script where we publish anyway for the new draws
+        // TODO - Visual icon for zeus to see what units are broadcasting signals
 	// private _rmIndex = GVAR(radioTrackingAiUnits) findIf { (_x select 0) == _unit};
 	// GVAR(radioTrackingAiUnits) deleteAt _rmIndex;
 };
