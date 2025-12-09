@@ -49,10 +49,6 @@ GVAR(newRadioSoundStartedEHid) = -1;	// reset to invalid id
 _unit = GVAR(currentPlayerLocalRadioEmitter);
 private _listeners = _unit getVariable[QGVAR(currentRadioSoundListeners), []];
 // remove our client from list of listeners
-private _rmIndex = _listeners find clientOwner;
-while{ _rmIndex != -1 } do {
-	_listeners deleteAt _rmIndex;
-	_rmIndex = _listeners find clientOwner;
-};
+_listeners = _listeners - [clientOwner];
 _unit setVariable[QGVAR(currentRadioSoundListeners), _listeners, true];
 GVAR(currentPlayerLocalRadioEmitter) = objNull;
