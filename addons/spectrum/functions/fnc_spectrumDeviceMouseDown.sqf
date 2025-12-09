@@ -83,7 +83,6 @@ if (count _frequenciesSorted > 0) then {
 			GVAR(currentPlayerLocalRadioEmitter) = _unit;
 
 			// register for new sounds starting
-			[QGVAR(newRadioSoundStarted), GVAR(newRadioSoundStartedEHid)] call CBA_fnc_removeEventHandler;
 			GVAR(newRadioSoundStartedEHid) = [QGVAR(newRadioSoundStarted), FUNC(handleNewRadioSoundStarted)] call CBA_fnc_addEventHandler;
 			private _listeners = _unit getVariable[QGVAR(currentRadioSoundListeners), []];
 			if !(clientOwner in _listeners) then {
