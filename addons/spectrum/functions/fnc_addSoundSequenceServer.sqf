@@ -111,6 +111,7 @@ _unit setVariable[QGVAR(radioSoundHandle), _handle];
 
 
 // add to array for drawing indication of what AI units has it enabled
+// TODO - Visual icon for zeus to see what units are broadcasting signals
 // GVAR(radioTrackingAiUnits) pushBack [_unit, _voicePack];
 // publicVariable QGVAR(radioTrackingAiUnits);
 
