@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=155;
+		nextID=171;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={10448.218,110.15201,6736.4263};
-		dir[]={-0.81626618,-0.33509734,0.47055233};
-		up[]={-0.29031351,0.94218349,0.16735682};
-		aside[]={0.49942744,-1.4901161e-08,0.86635584};
+		pos[]={10424.881,118.06339,6716.9678};
+		dir[]={-0.15120782,-0.51871067,0.84147215};
+		up[]={-0.091740012,0.85494989,0.51053357};
+		aside[]={0.9842357,0,0.17686164};
 	};
 };
 binarizationWanted=0;
@@ -64,13 +64,14 @@ addons[]=
 	"A3_Air_F_Orange_UAV_06",
 	"A3_Soft_F_Offroad_01",
 	"A3_Drones_F_Air_F_Gamma_UAV_01",
-	"A3_Props_F_Exp_A_Military_Equipment"
+	"A3_Props_F_Exp_A_Military_Equipment",
+	"A3_Structures_F_Ind_Transmitter_Tower"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=31;
+		items=32;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -151,7 +152,7 @@ class AddonsMetaData
 		class Item11
 		{
 			className="crowsEW_spectrum";
-			name="spectrum";
+			name="Crow's EW - Spectrum";
 			author="Crowdedlight";
 		};
 		class Item12
@@ -241,7 +242,7 @@ class AddonsMetaData
 		class Item24
 		{
 			className="crowsEW_editormodules";
-			name="editormodules";
+			name="Crow's EW - Editor Modules";
 			author="Crowdedlight";
 		};
 		class Item25
@@ -286,6 +287,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item31
+		{
+			className="A3_Structures_F_Ind";
+			name="Arma 3 - Industrial Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 dlcs[]=
@@ -327,7 +335,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=42;
+		items=44;
 		class Item0
 		{
 			dataType="Group";
@@ -2143,6 +2151,150 @@ class Mission
 				};
 				nAttributes=5;
 			};
+		};
+		class Item42
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={10492,116.23174,6746};
+				angles[]={0,0.67652452,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+				init="[radio_tower, 98.5, 5000, [""News_Jingle"", ""News_idap"", ""News_Jingle"",  ""News_depot_success_alone""], true] call crowsew_spectrum_fnc_addsoundsequenceserver; " \n "";
+				name="radio_tower";
+			};
+			id=155;
+			type="Land_TTowerBig_2_F";
+			atlOffset=0.80400085;
+		};
+		class Item43
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10394,98.529457,6748.0498};
+						angles[]={0,2.0735734,0};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						name="tx_soldier";
+					};
+					id=170;
+					type="B_Soldier_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male11ENG";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1.03;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+				class Item1
+				{
+					dataType="Waypoint";
+					loiterAltitude=-3.4028235e+38;
+					position[]={10398,98.207222,6746};
+					expActiv="[this, 50.5, 2000,  [0.5,""\A3\Dubbing_Radio_F\data\ENG\Male01ENG\RadioProtocolENG\Normal\080_MoveAlphabet\alpha.ogg""]," \n " false] call crowsew_spectrum_fnc_addsoundsequenceserver;" \n "";
+					class Effects
+					{
+					};
+					showWP="ALWAYS";
+					id=165;
+					type="Move";
+					atlOffset=-7.6293945e-06;
+				};
+				class Item2
+				{
+					dataType="Waypoint";
+					loiterAltitude=-3.4028235e+38;
+					position[]={10424,97.959999,6733};
+					expActiv="[this, 50.5, 2000,  [0.5,""\A3\Dubbing_Radio_F\data\ENG\Male01ENG\RadioProtocolENG\Normal\080_MoveAlphabet\bravo.ogg""]," \n " false] call crowsew_spectrum_fnc_addsoundsequenceserver;" \n "";
+					class Effects
+					{
+					};
+					showWP="ALWAYS";
+					id=166;
+					type="Move";
+				};
+				class Item3
+				{
+					dataType="Waypoint";
+					loiterAltitude=-3.4028235e+38;
+					position[]={10439,97.962799,6744};
+					expActiv="[this, 50.5, 2000,  [0.5,""\A3\Dubbing_Radio_F\data\ENG\Male01ENG\RadioProtocolENG\Normal\080_MoveAlphabet\alpha.ogg""]," \n " false] call crowsew_spectrum_fnc_addsoundsequenceserver;" \n "";
+					class Effects
+					{
+					};
+					showWP="ALWAYS";
+					id=167;
+					type="Move";
+				};
+				class Item4
+				{
+					dataType="Waypoint";
+					loiterAltitude=-3.4028235e+38;
+					position[]={10424,97.959999,6736};
+					expActiv="[this, 50.5, 2000,  [0.5,""\A3\Dubbing_Radio_F\data\ENG\Male01ENG\RadioProtocolENG\Normal\080_MoveAlphabet\charlie.ogg""]," \n " false] call crowsew_spectrum_fnc_addsoundsequenceserver;" \n "";
+					class Effects
+					{
+					};
+					showWP="ALWAYS";
+					id=168;
+					type="Move";
+				};
+				class Item5
+				{
+					dataType="Waypoint";
+					loiterAltitude=-3.4028235e+38;
+					position[]={10398,98.277618,6748};
+					class Effects
+					{
+					};
+					showWP="ALWAYS";
+					id=169;
+					type="Cycle";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=163;
 		};
 	};
 	class Connections

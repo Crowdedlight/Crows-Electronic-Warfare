@@ -62,6 +62,34 @@ if (count _frequenciesSorted > 0) then {
 
 	// switch case based on type
 	switch (_type) do {
+		case "sound": {
+			private _sound = "";
+			private _offset = 0;
+			
+			// only real radio line if signal strength is better than -60
+			if (_sigStrength < -60) then {
+				// not strong enough signal, so we play garbled radio
+				_sound = "crowsEW_garbled"; 
+				_timeActive = 4.3;
+			} else {
+				_sound = _unit getVariable[QGVAR(currentRadioSound), ""];
+				_offset = serverTime - (_unit getVariable[QGVAR(currentRadioSoundStartTime), 0]);
+			};
+
+			// play sound
+			private _soundId = playSoundUI [_sound, 1.0, 1.0, false, _offset];
+			// systemChat format ["playSoundUI mouse %1", _sound];
+			GVAR(currentPlayerLocalRadioSoundIds) pushBack _soundId;
+			GVAR(currentPlayerLocalRadioEmitter) = _unit;
+
+			// register for new sounds starting
+			GVAR(newRadioSoundStartedEHid) = [QGVAR(newRadioSoundStarted), FUNC(handleNewRadioSoundStarted)] call CBA_fnc_addEventHandler;
+			private _listeners = _unit getVariable[QGVAR(currentRadioSoundListeners), []];
+			if !(clientOwner in _listeners) then {
+				_listeners pushBack clientOwner;		// add our client to list of listeners
+			};
+			_unit setVariable[QGVAR(currentRadioSoundListeners), _listeners, true];
+		};
 		case "chatter": {			
 			private _sound = "";
 			
