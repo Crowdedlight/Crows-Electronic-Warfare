@@ -1,7 +1,7 @@
 # Transmitting sound sequences
 Mission makers (who are famliar with scripting) can **make any object transmit any number of sounds in sequence**.
 
-Players can listen to those transmissions, when equipped with a [Spectrum Device and appropriate antenna](spectrum/basic-use.md).
+Players can listen to those transmissions, when equipped with a [Spectrum Device and appropriate antenna](basic-use.md).
 
 After reaching the end, the sequence can loop back to the beginning (if so desired). This is useful for creating never ending radio broadcasts (e.g. to simulate radio towers with music, news etc.).
 
