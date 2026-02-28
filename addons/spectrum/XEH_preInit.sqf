@@ -56,7 +56,7 @@ ADDON = true;
     "EDITBOX", // setting type
     [localize "STR_CROWSEW_Spectrum_settings_default_jammable_drones", localize "STR_CROWSEW_Spectrum_settings_default_jammable_drones_tooltip"], 
     ["Crows Electronic Warfare", localize "STR_CROWSEW_Spectrum_settings_jamming"],
-    "UGV_01_base_F,UGV_02_Base_F,UAV_01_base_F,UAV_02_base_F,UAV_03_base_F,UAV_04_base_F,UAV_05_Base_F,UAV_06_base_F", // all drones & UGV by default
+    "UGV_01_base_F,UGV_02_Base_F,UAV_01_base_F,UAV_02_base_F,UAV_03_base_F,UAV_04_base_F,UAV_05_Base_F,UAV_06_base_F,HMG_01_A_base_F,GMG_01_A_base_F,Static_Designator_01_base_F,Static_Designator_02_base_F,GX_DRONE40_UAV_BASE,GX_BLACKHORNET_UAV_BASE,GX_HONEYBADGER_UGV_BASE,GX_RQ11B_UAV_BASE,GX_MQ8B_UAV_BASE,ARMAFPV_Crocus_AT_Base,ua_drone_base_F", // all drones & UGV by default
     true, // is global, gotta be equal for all
 	FUNC(jammableDronesInit),
 	true // need mission restart - Required as I can't remove the existing class eventhandlers made on init
@@ -68,7 +68,7 @@ ADDON = true;
     "EDITBOX", // setting type
     [localize "STR_CROWSEW_Spectrum_settings_default_signal_range_for_jammable_drones", localize "STR_CROWSEW_Spectrum_settings_default_signal_range_for_jammable_drones_tooltip"], 
     ["Crows Electronic Warfare", localize "STR_CROWSEW_Spectrum_settings_jamming"],
-    "298,299,301,3002,3003,3004,3005,306", // all drones & UGV shall have a range of 3km by default
+    "298,299,301,3002,3003,3004,3005,306,307,308,309,310,311,312,313,314,3015,316,317", // all drones & UGV shall have a range of 3km by default
     true, // is global, gotta be equal for all
 	nil,  // no associated script because this is only a companion parameter to defaultClassForJammingSignal which will already trigger a script
 	true // need mission restart - Required as I can't remove the existing class eventhandlers made on init
