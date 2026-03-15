@@ -32,7 +32,7 @@ if (_buttonDown) then {
 		case 1: {
 			_radio = call TFAR_fnc_ActiveLrRadio;
 			_freq = parseNumber (_radio call TFAR_fnc_getLrFrequency);
-			_range = getNumber(configFile >> "CfgVehicles" >> typeOf(_radio select 0) >> "tf_range");
+			_range = getNumber(configOf(_radio select 0) >> "tf_range");
 			_radioCode = _radio call TFAR_fnc_getLrRadioCode;
 		};
 	};

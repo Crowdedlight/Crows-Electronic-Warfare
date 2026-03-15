@@ -14,7 +14,6 @@ Adds the drawEvent handlers to zeus to show the helper text for modules applied 
 GVAR(unit_icon_drawEH) = addMissionEventHandler ["Draw3D", {
 	// if zeus display is null, exit. Only drawing when zeus display is open
 	if (isNull(findDisplay 312)) exitWith {};
-	if (isNull _x) exitWith {};
 	if (!GVAR(zeusTextDisplay)) exitWith {};
 
 	// cam position

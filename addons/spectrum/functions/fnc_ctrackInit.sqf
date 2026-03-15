@@ -51,7 +51,7 @@ private _onConfirm =
 	if (_unit == objNull) exitWith {};
 
 	// get config value for range 
-	private _range = getNumber (configFile >> "CfgVehicles" >> typeOf _unit >> "range");
+	private _range = getNumber (configOf _unit >> "range");
 
 	// send event to server	
 	[QGVAR(addBeacon), [_unit, _freq, _range, "ctrack"]] call CBA_fnc_serverEvent;

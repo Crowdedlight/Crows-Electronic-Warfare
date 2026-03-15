@@ -42,9 +42,6 @@ if (!hasInterface) exitWith{};
 // EH for updating state of jammers
 [QGVAR(updateJammers), FUNC(updateJammers)] call CBA_fnc_addEventHandler;
 
-// register event callback, "actionToggleJam" so a disable/enable of a jammer by a player is sync'ed across the network
-private _toggleJamid = [QGVAR(actionToggleJam), FUNC(actionJamToggleListener)] call CBA_fnc_addEventHandler;
-
 // local jammer loop to handle jamming on the client. PFH running every 0.5s 
 GVAR(PFH_jamPlayer) = [FUNC(jammerPlayerLocal) , 0.5] call CBA_fnc_addPerFrameHandler; 
 GVAR(FilmGrain_jamEffect) = ppEffectCreate ["FilmGrain",2000]; 
@@ -77,7 +74,7 @@ private _waitZeus = [player] spawn
 		};
 		sleep 1;
 		_timeout = _timeout + 1;
-		if (count allCurators == 0 || {!isNull (getAssignedCuratorLogic _unit)}) exitWith {true};
+		if (allCurators isEqualTo [] || {!isNull (getAssignedCuratorLogic _unit)}) exitWith {true};
 		false;
 	};
 	// call function to set eventHandler - Zeus should be initialized by now, so we can check if zeus or not
