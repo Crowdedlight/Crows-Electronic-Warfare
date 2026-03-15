@@ -6,3 +6,5 @@ PREP(getSoundPath);
 PREP(removeSound);
 PREP(setSoundEnable);
 PREP(playSoundPos);
+PREP(refreshSoundArray);
+PREP(addCustomSounds);

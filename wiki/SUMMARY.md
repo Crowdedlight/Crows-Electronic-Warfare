@@ -23,6 +23,7 @@
 # Sound Modules
 -   [AddSound](sounds/addsound.md)
 -   [PlaySound](sounds/playsound.md)
+-   [Add Custom Sounds](sounds/addCustomSounds.md)
 
 # Other Features
 -   [EMP](emp/emp.md)
