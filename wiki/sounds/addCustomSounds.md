@@ -5,7 +5,7 @@ This allow mission makers or other modmakers to add sounds to the "AddSound" and
 API call
 ```sqf
 // input param is array consiting of array elements of format `[key, length, filepath, displayname]`
-// key: lowercase unique id for this sound, avoid spaces. Recommend using a personal prefix like: "myprefix_bell_tower"
+// key: unique id for this sound, avoid spaces. Recommend using a personal prefix like: "myprefix_bell_tower"
 // length: the length of the sound in seconds, provide in decimals format e.g. 0.4s
 // filepath: the filepath to the sound file IMPORTANT, this is the path in arma virtual system, e.g for this mod: "z\crowsEW\addons\sounds\data\soundfile.ogg"
 // displayname: the "pretty" name of the sound. So what the zeus will see when selecting it. can contains spaces. 
