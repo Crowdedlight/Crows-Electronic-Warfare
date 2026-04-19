@@ -60,7 +60,7 @@ private _deleteArr = [];
 } forEach GVAR(soundList);
 
 // update array if deletions
-if (count _deleteArr > 0) then {
+if (_deleteArr isEqualTo []) then {
 	GVAR(soundList) = GVAR(soundList) - _deleteArr;
 	// update for zeus' to see change
 	SETMVAR(GVAR(activeSounds),GVAR(soundList));

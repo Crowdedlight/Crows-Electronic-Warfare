@@ -17,8 +17,8 @@ private _currentEffect = player getVariable ["acre_receive_interference", 0];
 if (_currentEffect < -1) exitWith {};
 
 // If ACRE loaded, we return calculation for signal jamming
-private _distPercent = _distJammer / _distRad;
 
+private _distPercent = 0;
 private _rxInterference = 0;
 
 // if we are within effective radius, we are fully jammed, so set interference to value that fully jamms us
