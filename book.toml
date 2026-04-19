@@ -3,7 +3,6 @@ title = "Crows Electronic Warfare Wiki"
 description = "Wiki for Crows Electronic Warefare Mod for Arma3. Contains information about features and how to use them"
 authors = ["Crowdedlight"]
 language = "en"
-multilingual = false
 src = "wiki"
 
 [output.html]
