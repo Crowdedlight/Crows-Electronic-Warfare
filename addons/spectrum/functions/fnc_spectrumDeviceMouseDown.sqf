@@ -21,12 +21,6 @@ if (!("hgun_esd_" in (currentWeapon player))) exitWith {};
 // 602 == inventory open, 12 == map, 24 == chatbox, 160 == uavTerminal
 if (!isNull (findDisplay 602) || !isNull (findDisplay 24) || !isNull (findDisplay 160) || visibleMap) exitWith {};
 
-// if we are middle mouse down, handle that
-if (_button == 2) exitWith {
-	// call function to solve middle mouse behaviour
-	[_shift] call FUNC(spectrumDeviceMouseMiddleDown);
-};
-
 // mouse down, set firing as active
 missionNamespace setVariable ["#EM_Transmit",true];
 
