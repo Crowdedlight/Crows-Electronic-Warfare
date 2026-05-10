@@ -12,27 +12,31 @@ Called on event for mouse wheel
 *///////////////////////////////////////////////
 params ["_displayOrControl", "_scroll"];
 
-systemChat format ["scroll: %1", _scroll];
+// systemChat format ["scroll: %1", _scroll];	// debug output
 
 // only if spectrum display is open with right-click... figure out how to detect if that gui is active
 if (cameraView != "Gunner" || !GVAR(spectrumCtrlKeyDown)) exitWith {};
 
-// if reset we should reset values. 
-private _newMinFreq = 0;
-private _newMaxFreq = 0;
-
+private _zoomIncrement = 0.2;	// how much to zoom in or out with each scroll, as a percentage of the current span
 
 // get current selected freq
 private _fmin = missionNamespace getVariable ["#EM_FMin", 0];
 private _fmax = missionNamespace getVariable ["#EM_FMax", 0];
-private _span = _fmax - _fmin;
 private _selMin = missionNamespace getVariable ["#EM_SelMin", 0];
 private _selMax = missionNamespace getVariable ["#EM_SelMax", 0];
+private _selCenter = (_selMin + _selMax) / 2;	// center of selected frequencies
+private _leftOfSelection = (_selMin - _fmin) max 0;
+private _rightOfSelection = (_fmax - _selMax) max 0;
 
-// adjust min+max values
-_newMinFreq = _fmin + _span/20 * _scroll ;
-_newMaxFreq = _fmax - _span/20 * _scroll ;
+// adjust x-axis min+max values
+private _newMinFreq = _fmin + _leftOfSelection * _zoomIncrement * _scroll ;
+private _newMaxFreq = _fmax - _rightOfSelection * _zoomIncrement * _scroll ;
+private _newSpan = _newMaxFreq - _newMinFreq;
+private _newSelSpan = _newSpan/20;	// make selection span 1/20 of total span
 
+// adjust selection min+max values
+private _newSelMin = (_selCenter - _newSelSpan/2) max _fmin;
+private _newSelMax = (_selCenter + _newSelSpan/2) min _fmax;
 
 // don't zoom out beyond maximum range of antenna
 if (_scroll < 0) then {
@@ -49,3 +53,5 @@ if (_scroll < 0) then {
 // set new freqs
 missionNamespace setVariable ["#EM_FMin", _newMinFreq];
 missionNamespace setVariable ["#EM_FMax", _newMaxFreq];
+missionNamespace setVariable ["#EM_SelMin", _newSelMin];
+missionNamespace setVariable ["#EM_SelMax", _newSelMax];
