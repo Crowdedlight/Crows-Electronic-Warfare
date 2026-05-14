@@ -38,6 +38,7 @@ if (_value) then {
 	GVAR(DEH_spectrumMouseZChanged) = ["MouseZChanged", {_this call FUNC(spectrumDeviceMouseZChanged)}] call CBA_fnc_addDisplayHandler;		// mouse wheel event handler
 	GVAR(DEH_spectrumKeyDown) = ["KeyDown", {_this call FUNC(spectrumDeviceKeyDown)}] call CBA_fnc_addDisplayHandler;
 	GVAR(DEH_spectrumKeyUp) = ["KeyUp", {_this call FUNC(spectrumDeviceKeyUp)}] call CBA_fnc_addDisplayHandler;
+	GVAR(spectrumShiftKeyDown) = false;	// init as not pressed
 	GVAR(spectrumCtrlKeyDown) = false;	// init as not pressed
 
 } else { 

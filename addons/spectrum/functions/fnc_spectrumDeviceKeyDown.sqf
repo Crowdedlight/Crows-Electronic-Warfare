@@ -11,6 +11,10 @@ Called on event for key pressed
 *///////////////////////////////////////////////
 params ["_displayOrControl", "_key", "_shift", "_ctrl", "_alt"];
 
+if (_shift) then {
+	GVAR(spectrumShiftKeyDown) = true;	// set variable that shift key is down, used for zooming functions
+};
+
 if (_ctrl) then {
 	GVAR(spectrumCtrlKeyDown) = true;	// set variable that ctrl key is down, used for zooming functions
 };
