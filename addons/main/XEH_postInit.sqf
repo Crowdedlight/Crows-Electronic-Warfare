@@ -2,8 +2,10 @@
 
 //Don't do anything in Singleplayer, as TFAR isn't enabled in SP
 if (!isMultiplayer && !is3DENMultiplayer) exitWith {
-	systemChat "CrowsEW will not work properly in singleplayer mode!!! Please restart in multiplayer mode.";
 	diag_log "CrowsEW started in singleplayer mode. Some features will not work.";
+	if ((missionName select [0,5]) != "intro") then {	// suppress warning message if game is started without -skipIntro parameter
+		systemChat "CrowsEW will not work properly in singleplayer mode!!! Please restart in multiplayer mode.";		
+	};
 };
 
 // if not a player we don't do anything
