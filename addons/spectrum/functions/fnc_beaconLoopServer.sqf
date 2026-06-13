@@ -27,7 +27,7 @@ private _removeArr = [];
 } forEach GVAR(beacons);
 
 // if removeArr is empty we exit
-if (count _removeArr == 0) exitWith {};
+if (_removeArr isEqualTo []) exitWith {};
 
 // update list
 GVAR(beacons) = GVAR(beacons) - _removeArr;

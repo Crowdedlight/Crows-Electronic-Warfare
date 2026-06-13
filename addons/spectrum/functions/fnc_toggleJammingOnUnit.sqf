@@ -73,7 +73,7 @@ if (_enableJam) then {
 			_unit setVariable[QGVAR(activeJammingObjects), _activeJammers];
 
 			// if 0 jammers, we enable AI, and exit the loop
-			if (count _activeJammers == 0) exitWith {
+			if (_activeJammers isEqualTo []) exitWith {
 				// enable all AI 
 				[QGVAR(toggleAI), [_unit, true], _unit] call CBA_fnc_targetEvent;
 				// systemChat "Enabled AI";

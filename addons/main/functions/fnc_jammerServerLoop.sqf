@@ -40,11 +40,11 @@ private _removeList = [];
 
 // GVAR(jamMap) is made of [_netId, [_unit, _rad, _strength, _enabled, _capabilities]];
 private _allDroneJammers = (values GVAR(jamMap)) select { JAM_CAPABILITY_DRONE in _x#4 };	// keep jammers that have the JAM_CAPABILITY_DRONE capability
-if (count _allDroneJammers == 0) exitWith {};	// there are no "DroneJammers"
+if (_allDroneJammers isEqualTo []) exitWith {};	// there are no "DroneJammers"
 
 // QEGVAR(spectrum,beacons) is made of [_unit, _frequency, _scanRange, _type];
 private _jammableDrones = EGVAR(spectrum,beacons) select { _x#3 == "drone" };	// keep drone signals/beacons
-if (count _jammableDrones == 0) exitWith {};	// there are no drones to jam
+if (_jammableDrones isEqualTo []) exitWith {};	// there are no drones to jam
 
 // check every jammable drone against every DroneJammer
 {

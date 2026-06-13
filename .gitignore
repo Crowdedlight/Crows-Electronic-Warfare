@@ -16,3 +16,4 @@ hemtt
 .hemtt/missions/~*
 .vscode/sqfvm-lsp/
 target
+.hemttprivatekey

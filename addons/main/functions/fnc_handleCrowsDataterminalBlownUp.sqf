@@ -10,14 +10,14 @@ This function is called as an event handler when a `Crows_dataterminal` is blown
 It is necessary to handle locality issues.
 
 *///////////////////////////////////////////////
-params [["_target", objNull]];
+params [["_target", objNull], ["_instigator", objNull]];
 
 
-if !(_terminal isKindOf "Crows_dataterminal") exitWith {
+if !(_target isKindOf "Crows_dataterminal") exitWith {
 	diag_log format ["CrowsEW:fnc_handleCrowsDataterminalBlownUp.sqf: '%1' is not of type 'Crows_dataterminal'.", _target]; 
 };
 
-// if blown up with explosive. Don't remove the object, just disable it by killing it and turn it red. (don't have a destroyed texture)
+// if blown up with explosive. Don't remove the object, just disable it by killing it and turn it red. (don't have a destroyed texture). This event is only run on target, so just set instigator to target
 _target setDamage [1, true, _instigator];
 [_target, 1] call BIS_fnc_dataTerminalAnimate;	// show lid open but antenna lowered and closed
 [_target, "red", "red", "red"] call BIS_fnc_dataTerminalColor;	// make edges of data terminal red

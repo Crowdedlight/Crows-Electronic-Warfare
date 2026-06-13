@@ -25,16 +25,19 @@ _colour = GVAR(spectrumAutolineColours) # _colour;
 private _freq = ((missionNamespace getVariable ["#EM_SelMin", 141.6]) + (missionNamespace getVariable ["#EM_SelMax", 141.9]))/2;
 _freq = _freq toFixed 1;
 
-private _startPos = [[[position player, GVAR(spectrumAutolineNoise)]], []] call BIS_fnc_randomPos;
-private _endPos = _startPos getPos [GVAR(spectrumAutolineLength), getDir player];
+private _dirVector = player weaponDirection (currentWeapon player); 
+private _dirAzimuth = ( (_dirVector#0 atan2 _dirVector#1) + 360 ) % 360;	// convert vector to azimuth angle, and convert to 0° - 360° range
 
-private _marker_prefix = "_USER_DEFINED"+(getPlayerUID player)+str(getPos player)+str(getDir player)+_freq;
+private _startPos = [[[position player, GVAR(spectrumAutolineNoise)]], []] call BIS_fnc_randomPos;
+private _endPos = _startPos getPos [GVAR(spectrumAutolineLength), _dirAzimuth];
+
+private _marker_prefix = "_USER_DEFINED"+(getPlayerUID player)+str(getPos player)+str(_dirAzimuth)+_freq;
 private _marker = createMarkerLocal [_marker_prefix, player, currentChannel, player];
 _marker setMarkerShapeLocal "polyline";
 _marker setMarkerColorLocal _colour;
 _marker setMarkerPolyline [_startPos # 0, _startPos # 1, _endPos # 0, _endPos # 1];
 
-private _labelPos = _startPos getPos [50, (getDir player)+20];
+private _labelPos = _startPos getPos [50, (_dirAzimuth)+20];
 _marker = createMarkerLocal [_marker_prefix+"label", _labelPos, currentChannel, player];
 _marker setMarkerColorLocal _colour;
 _marker setMarkerTextLocal _freq + " MHz";

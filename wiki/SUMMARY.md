@@ -23,12 +23,14 @@
 # Sound Modules
 -   [AddSound](sounds/addsound.md)
 -   [PlaySound](sounds/playsound.md)
+-   [Add Custom Sounds](sounds/addCustomSounds.md)
 
 # Other Features
 -   [EMP](emp/emp.md)
     -   [Trigger by Script](emp/script-trigger.md)
 -   [Zeus Helping Text](Zeus/helping-text.md)
 -   [Editor Modules](eden-editor/eden-editor-modules.md)
+-   [Transmitting sound sequences](spectrum/sound-sequences.md)
 
 # Contribute
 - [Get Started](contribute/get-started.md)
