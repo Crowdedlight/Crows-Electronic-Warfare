@@ -34,6 +34,24 @@ private _removeList = [];
 // remove all jammers from remove list
 [_removeList] call FUNC(removeJammerArrayServer);
 
+
+/////////////////////////////////////////////////////
+/// garbage collector for players without beacons ///
+/////////////////////////////////////////////////////
+
+private _beaconsOnPlayers = EGVAR(spectrum,beacons) select { isPlayer (_x#0)  };	// find beacons added to players
+private _playersWithBeacons = call { 
+		private _ret = []; 
+		{ _ret pushBack (_x#0); } forEach _beaconsOnPlayers;
+		_ret;
+	};
+{
+	if !(_x in _playersWithBeacons) then {
+		_x setVariable [QEGVAR(spectrum,activeJammingObjects), []];		// reset JAMMED state on all players that don't have a beacon anymore, to avoid players being jammed forever if they lose their beacon	
+	};
+} forEach allPlayers;
+
+
 /////////////////////////////
 /// Drone AI Jamming part ///
 /////////////////////////////
