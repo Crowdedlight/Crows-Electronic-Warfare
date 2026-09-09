@@ -9,16 +9,13 @@ The spectrum device has three different antennas which covers different frequenc
 
 ## Controls
 ```admonish warning
-NOTE: With coming release of Arma v2.22, The control scheme is moving away from using middle-mouse click-button for zoom. Instead the controls described below will be the standard way and most likely feel more intuitive. The old control method with middle-mouse-click still works for now, but deprecated and will likely be removed in a future release. 
+NOTE: With the release of Arma v2.22, The control scheme has moved away from using middle-mouse click-button for zoom. Instead the controls described below is the only way and should likely feel more intuitive.
 ```
 
 **left-mouse:** Holding it down will activate either listening to a signal or the jammer depending on antenna type    
 **scroll-wheel:** Will move the selected frequencies around. Used to listen/jam the right signal.     
 **shift + scroll-wheel:** Pan the spectrum around. As in move the center of the visible spectrum without moving the highlighted region of interest   
 **ctrl + scroll-wheel:** Zoom in and out of the spectrum. Smoothly zoom in and out to easier declutter frequencies on top of eachothers.    
-
-**(Deprecated) middle-mouse:** ~~Clicking will zoom in and show the selected frequencies. Makes it easier to see if multiple signals are overlapping or right next to each other.   ~~  
-**(Deprecated)shift + middle-mouse:** ~~Resets the zoom to the frequencies visible to the equipped antenna. ~~  
 
 The following gif shows the zoom and pan controls in action:   
 ![GIF of zoom and pan mechanics](spectral_zoom_and_pan_with_mouse_wheel.gif)
