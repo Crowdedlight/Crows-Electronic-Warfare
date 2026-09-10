@@ -15,7 +15,7 @@ params ["_displayOrControl", "_scroll"];
 // only if spectrum display is open with right-click... figure out how to detect if that gui is active
 if (cameraView != "Gunner" || {!GVAR(spectrumCtrlKeyDown) && !GVAR(spectrumShiftKeyDown)}) exitWith {};
 
-systemChat format ["scroll: %1", _scroll];	// debug output
+// systemChat format ["scroll: %1", _scroll];	// debug output
 
 private _spanIncrement = 0.2;	// how much to zoom/pan with each scroll, as a percentage of the current span (before _scroll is multiplied in)
 
