@@ -1,5 +1,19 @@
 #include "script_component.hpp"
 
+
+// register a custom ShareInformationHandler at LAMBS danger (if available) for both server and clients
+private _lambsConfig = configFile >> "CfgPatches" >> "lambs_main";
+private _hasLAMBS = isClass(_lambsConfig);
+if (_hasLAMBS) then {
+	// check LAMBS for minimum required version
+	private _LAMBSversion = [_lambsConfig,"versionAr"] call BIS_fnc_returnConfigEntry;
+	diag_log format ["CrowsEW-spectrum: LAMBS version %1 detected", _LAMBSversion]; // debug output
+	// TODO: exitWith in case version is to low
+
+	[FUNC(lambsShareInformationHandler)] call lambs_main_fnc_addShareInformationHandler;
+};
+
+
 // if server, set eventhandlers for server 
 if (isServer) then {
 	// event listener for adding trackable random radio chatter on units - server only
@@ -69,3 +83,4 @@ if (!EGVAR(zeus,hasAce)) then {
 
 // request current state of beacons - for JIP/init
 [QGVAR(requestBeacons), [player]] call CBA_fnc_serverEvent;
+
