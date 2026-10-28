@@ -28,7 +28,7 @@ If ACRE is loaded we need to register custom function that handles applying inte
     // ensure _maxSignal does not get too low
     _maxSignal = _maxSignal max -110;
 
-    // only degrade signal if having a positive receive_interference. As negative recieve_interference means the signal is boosted
+    // only degrade signal if having a positive receive_interference. As negative receive_interference means the signal is boosted
     if (_rxInterference > 0) then {
         private _percentage = _rxInterference / 110;
         _Px = _Px - _percentage;
