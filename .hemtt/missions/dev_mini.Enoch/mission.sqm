@@ -16,10 +16,9 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={9402.8584,189.17065,7054.123};
-		dir[]={0.78546393,-0.44631019,0.42878994};
-		up[]={0.39174271,0.89487648,0.21385472};
-		aside[]={0.4791598,4.2375177e-08,-0.87773299};
+		pos[]={10431.385,122.96,6712.8882};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710671,0.70710683};
 	};
 };
 binarizationWanted=0;
@@ -2320,14 +2319,13 @@ class Mission
 						angles[]={6.2559929,0,6.0506725};
 					};
 					side="West";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						name="ar2D";
 					};
 					id=173;
 					type="B_UAV_AI";
-					atlOffset=30;
 				};
 				class Item1
 				{
@@ -2338,13 +2336,14 @@ class Mission
 						angles[]={6.2559929,0,6.0506725};
 					};
 					side="West";
+					flags=4;
 					class Attributes
 					{
 						name="ar2G";
 					};
 					id=174;
 					type="B_UAV_AI";
-					atlOffset=30;
+					atlOffset=0.15467072;
 				};
 				class Item2
 				{
@@ -2505,7 +2504,7 @@ class Mission
 					};
 					id=196;
 					type="B_UAV_AI";
-					atlOffset=30;
+					atlOffset=30.000008;
 				};
 				class Item1
 				{
@@ -2522,7 +2521,7 @@ class Mission
 					};
 					id=197;
 					type="B_UAV_AI";
-					atlOffset=30;
+					atlOffset=31.537697;
 				};
 				class Item2
 				{
