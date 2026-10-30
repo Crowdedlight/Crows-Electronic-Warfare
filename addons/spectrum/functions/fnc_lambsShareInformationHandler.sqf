@@ -14,8 +14,10 @@ Parameters:
 
 Return: false     in order to not suppress information sharing in LAMBS
 
-Script is primarily used to have an omni-directional C-UAS jammer 
-show up as a destinct shape in the Spectrum Device.
+This script implements an event handler for events send by LAMBS_Danger.fsm.
+see https://github.com/nk3nny/LambsDanger/blob/master/addons/main/functions/fnc_addShareInformationHandler.sqf
+
+It is used to let AI units send radio signals whenever they share information via radio.
 
 *///////////////////////////////////////////////
 
