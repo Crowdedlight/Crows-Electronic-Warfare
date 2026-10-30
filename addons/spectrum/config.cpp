@@ -5,7 +5,7 @@ class CfgPatches {
         name = COMPONENT_NAME;
         units[] = {
             "crowsew_ctrack_effect",
-            "crowsew_ctrack_effect_2km"
+            "crowsew_ctrack_effect_3km"
         };
         weapons[] = {
             "crowsew_tfar_icom", 

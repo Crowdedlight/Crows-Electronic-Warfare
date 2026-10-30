@@ -34,17 +34,35 @@ private _removeList = [];
 // remove all jammers from remove list
 [_removeList] call FUNC(removeJammerArrayServer);
 
+
+/////////////////////////////////////////////////////
+/// garbage collector for players without beacons ///
+/////////////////////////////////////////////////////
+
+private _beaconsOnPlayers = EGVAR(spectrum,beacons) select { isPlayer (_x#0)  };	// find beacons added to players
+private _playersWithBeacons = call { 
+		private _ret = []; 
+		{ _ret pushBack (_x#0); } forEach _beaconsOnPlayers;
+		_ret;
+	};
+{
+	if !(_x in _playersWithBeacons) then {
+		_x setVariable [QEGVAR(spectrum,activeJammingObjects), []];		// reset JAMMED state on all players that don't have a beacon anymore, to avoid players being jammed forever if they lose their beacon	
+	};
+} forEach allPlayers;
+
+
 /////////////////////////////
 /// Drone AI Jamming part ///
 /////////////////////////////
 
 // GVAR(jamMap) is made of [_netId, [_unit, _rad, _strength, _enabled, _capabilities]];
 private _allDroneJammers = (values GVAR(jamMap)) select { JAM_CAPABILITY_DRONE in _x#4 };	// keep jammers that have the JAM_CAPABILITY_DRONE capability
-if (count _allDroneJammers == 0) exitWith {};	// there are no "DroneJammers"
+if (_allDroneJammers isEqualTo []) exitWith {};	// there are no "DroneJammers"
 
 // QEGVAR(spectrum,beacons) is made of [_unit, _frequency, _scanRange, _type];
 private _jammableDrones = EGVAR(spectrum,beacons) select { _x#3 == "drone" };	// keep drone signals/beacons
-if (count _jammableDrones == 0) exitWith {};	// there are no drones to jam
+if (_jammableDrones isEqualTo []) exitWith {};	// there are no drones to jam
 
 // check every jammable drone against every DroneJammer
 {

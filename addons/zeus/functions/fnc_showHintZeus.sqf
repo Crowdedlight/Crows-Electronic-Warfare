@@ -12,5 +12,5 @@ params ["_message"];
 if (call FUNC(isZeus)) then {
 	hint (_message call BIS_fnc_localize);
 	systemChat (_message call BIS_fnc_localize);
-	diag_log "CrowsEW: " + _message;
+	diag_log format["CrowsEW:ShowHintZeus: %1", _message];
 };

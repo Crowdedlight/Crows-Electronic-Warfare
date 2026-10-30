@@ -26,6 +26,6 @@ _entity addEventHandler ["HitPart", {
 
 	// if over 0.5 in damage, so all explosives and even grenades if they are right next to it
 	if (_explosiveDmg > 0.5) then {
-		[QGVAR(dataTerminalBlownupEvent), [_target], _target] call CBA_fnc_targetEvent;
+		[QGVAR(dataTerminalBlownupEvent), [_target, _instigator], _target] call CBA_fnc_targetEvent;
 	};
 }];

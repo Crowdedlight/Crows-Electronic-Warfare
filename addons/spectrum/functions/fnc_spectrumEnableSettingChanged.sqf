@@ -35,6 +35,11 @@ if (_value) then {
 	// Spectrum event handler for "FIRE" spectrum analyzer 
 	GVAR(DEH_spectrumMouseDown) = ["MouseButtonDown", {_this call FUNC(spectrumDeviceMouseDown)}] call CBA_fnc_addDisplayHandler;
 	GVAR(DEH_spectrumMouseUp) = ["MouseButtonUp", {_this call FUNC(spectrumDeviceMouseUp)}] call CBA_fnc_addDisplayHandler;
+	GVAR(DEH_spectrumMouseZChanged) = ["MouseZChanged", {_this call FUNC(spectrumDeviceMouseZChanged)}] call CBA_fnc_addDisplayHandler;		// mouse wheel event handler
+	GVAR(DEH_spectrumKeyDown) = ["KeyDown", {_this call FUNC(spectrumDeviceKeyDown)}] call CBA_fnc_addDisplayHandler;
+	GVAR(DEH_spectrumKeyUp) = ["KeyUp", {_this call FUNC(spectrumDeviceKeyUp)}] call CBA_fnc_addDisplayHandler;
+	GVAR(spectrumShiftKeyDown) = false;	// init as not pressed
+	GVAR(spectrumCtrlKeyDown) = false;	// init as not pressed
 
 } else { 
 	// else if false, disable handlers
@@ -43,6 +48,9 @@ if (_value) then {
 	
 	["MouseButtonDown", GVAR(DEH_spectrumMouseDown)] call CBA_fnc_removeDisplayHandler;
 	["MouseButtonUp", GVAR(DEH_spectrumMouseUp)] call CBA_fnc_removeDisplayHandler;
+	["MouseZChanged", GVAR(DEH_spectrumMouseZChanged)] call CBA_fnc_removeDisplayHandler;
+	["KeyDown", GVAR(DEH_spectrumKeyDown)] call CBA_fnc_removeDisplayHandler;
+	["KeyUp", GVAR(DEH_spectrumKeyUp)] call CBA_fnc_removeDisplayHandler;
 
 	{missionNamespace setVariable _x} forEach [
 		["#EM_FMin",0], 					// Minimum of frequency in MHz

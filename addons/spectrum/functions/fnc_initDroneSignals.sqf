@@ -20,7 +20,7 @@ if (!isServer || isNull _unit) exitWith {};
 if (GVAR(beacons) findIf { _x#0 == _unit } > -1) exitWith {};
 
 // randomize frequency 
-// TODO randomize within a window that gives minimum seperation to existing signals. 
+// TODO randomize within a window that gives minimum separation to existing signals. 
 private _range = abs((GVAR(spectrumDeviceFrequencyRange)#2)#0 - (GVAR(spectrumDeviceFrequencyRange)#2)#1);
 private _freq = 433.00 + (random _range);
 

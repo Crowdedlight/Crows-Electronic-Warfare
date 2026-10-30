@@ -10,7 +10,8 @@ class CfgPatches {
             QGVAR(moduleImmuneEMP),
             QGVAR(moduleRadioTrackerChatter),
             QGVAR(moduleSetJammable),
-            QGVAR(moduleSetTrackingTfar)            
+            QGVAR(moduleSetTrackingTfar),            
+            QGVAR(moduleAddRandomSignalSource)            
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;

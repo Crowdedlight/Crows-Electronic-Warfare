@@ -83,7 +83,8 @@ if (!isNull _drone) then {
 	private _filterCode = { _x#3  && { JAM_CAPABILITY_DRONE in _x#4 } };	// keep jammers that are enabled and have the JAM_CAPABILITY_DRONE capability
 	private _droneJammersSorted = [ values GVAR(jamMap), [_drone], _sortingCode, "ASCEND", _filterCode] call BIS_fnc_sortBy; 
 	
-	if (count _droneJammersSorted == 0) exitWith {};	// there are no enabled "DroneJammers"
+	private _playerDroneNotJammable = ((EGVAR(spectrum,beacons) select { _x#0 == (getConnectedUAV player) && _x#3 == "drone" }) isEqualTo []);
+	if (_playerDroneNotJammable || count _droneJammersSorted == 0) exitWith {};	// player drone can not be jammed or there are no enabled "DroneJammers"
 	
 	private _nearestDroneJammer = _droneJammersSorted#0;
 	_nearestDroneJammer params ["_jamObj", "_radFalloff", "_radEffective", "_enabled", "_capabilities"];

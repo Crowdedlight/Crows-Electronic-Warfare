@@ -9,4 +9,4 @@ Return: bool - true if the (local!) player is in the "GUNNER" view of the Spectr
 *///////////////////////////////////////////////
 
 (currentWeapon player) isKindOf ["hgun_esd_01_F", configFile >> "CfgWeapons"] &&
-{cameraOn == player && {cameraView == "GUNNER"}}
+{focusOn == player && {cameraView == "GUNNER"}}
