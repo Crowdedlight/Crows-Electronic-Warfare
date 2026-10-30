@@ -108,7 +108,7 @@
             <French>Tracer une ligne sur la carte à partir de la position du joueur, dans la direction à laquelle il fait face, lorsqu'il vise avec le dispositif à spectre.&lt;br/&gt;Le joueur doit être équipé d'un GPS.</French>
             <Chinesesimp>在使用频谱设备瞄准时,从玩家的位置画一条线指向其所面对的方向.&lt;br/&gt;玩家必须装备GPS</Chinesesimp>
         </Key>
-        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_catageory">
+        <Key ID="STR_CROWSEW_Spectrum_settings_autoline_category">
             <English>Spectrum Autoline</English>
             <Chinesesimp>频谱自动线</Chinesesimp>
         </Key>
@@ -176,7 +176,7 @@
             <Chinesesimp>默认 可干扰无人机</Chinesesimp>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_default_jammable_drones_tooltip">
-            <English>The classnames that by default will spawn with spectrum signal and can be jammed. Change require mission restart. Comma seperated</English>
+            <English>The classnames that by default will spawn with spectrum signal and can be jammed. Change require mission restart. Comma separated</English>
             <French>Par défaut, des noms de classes avec des signaux spectraux susceptibles d'être perturbés seront générés, et les changements nécessiteront un redémarrage de la tâche. Séparés par des virgules</French>
             <Chinesesimp>默认情况下将生成带有频谱信号并可被干扰的类名,更改需要重新启动任务.用逗号分隔</Chinesesimp>
         </Key>
@@ -185,7 +185,7 @@
             <French>Portée par défaut du drone brouilleur de pistes</French>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_default_signal_range_for_jammable_drones_tooltip">
-            <English>The default signal range that jammable drones spawn with. Change require mission restart. Comma seperated (same order as Default Jammable Drones)</English>
+            <English>The default signal range that jammable drones spawn with. Change require mission restart. Comma separated (same order as Default Jammable Drones)</English>
             <French>La portée du signal par défaut avec lequel les drones brouilleurs apparaissent. Tout changement nécessite un redémarrage de la mission. Séparés par des virgules (dans le même ordre que les drones brouilleurs par défaut)</French>
         </Key>
         <Key ID="STR_CROWSEW_Spectrum_settings_enable_device_name">

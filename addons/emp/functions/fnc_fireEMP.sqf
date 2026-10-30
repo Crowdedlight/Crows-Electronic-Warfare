@@ -38,7 +38,7 @@ private _men = _nearestArray select 3;
 // start EMP effect
 private _delay = 0.01; // for processing purposes
 
-// spawn in scheduled enviroment so sleep is allowed.
+// spawn in scheduled environment so sleep is allowed.
 private _vehicleSpawn = [_delay, _vehicles] spawn {
 	params ["_delay", "_vehicles"];
 
