@@ -5,12 +5,23 @@
 private _lambsConfig = configFile >> "CfgPatches" >> "lambs_main";
 private _hasLAMBS = isClass(_lambsConfig);
 if (_hasLAMBS) then {
-	// check LAMBS for minimum required version
+	// get installed LAMBS version
 	private _LAMBSversion = [_lambsConfig,"versionAr"] call BIS_fnc_returnConfigEntry;
-	diag_log format ["CrowsEW-spectrum: LAMBS version %1 detected", _LAMBSversion]; // debug output
-	// TODO: exitWith in case version is to low
+	diag_log format ["CrowsEW-spectrum: LAMBS version %1 detected", _LAMBSversion];
 
-	[FUNC(lambsShareInformationHandler)] call lambs_main_fnc_addShareInformationHandler;
+	// check for minimum required version
+	private _minVersion = [2,6,2,1];
+	private _versionSufficient = false;
+	{ if (_x > _minVersion#_forEachIndex) exitWith { _versionSufficient = true } } forEach _LAMBSversion; 
+	_versionSufficient = _versionSufficient || _LAMBSversion isEqualTo _minVersion;	// this edge case the for-loop wouldn't catch properly
+
+	// install event handler if version is sufficient
+	if (_versionSufficient) then {
+		[FUNC(lambsShareInformationHandler)] call lambs_main_fnc_addShareInformationHandler;
+		diag_log "CrowsEW-spectrum: lambsShareInformationHandler added.";
+	} else {
+		diag_log format ["CrowsEW-spectrum: LAMBS version %1 is to low to be used. Minimum %2 is required.", _LAMBSversion, _minVersion];
+	};
 };
 
 

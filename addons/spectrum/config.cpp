@@ -27,4 +27,3 @@ PRELOAD_ADDONS;
 #include "radio_ids.hpp"
 #include "CfgWeapons.hpp"
 #include "CfgVehicles.hpp"
-#include "CfgSettings.hpp"
