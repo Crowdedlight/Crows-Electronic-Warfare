@@ -246,6 +246,21 @@ GVAR(voiceLinePacks) set ["electronic", 		[GVAR(voiceLinesElectronicList), GVAR(
 GVAR(voiceLinePacks) set ["alienElectronic", 	[GVAR(voiceLinesAlienElectronicList), GVAR(voiceLinesAlienElectronicWeights), localize "STR_CROWSEW_Spectrum_voiceline_alien_electronic"]];
 GVAR(voiceLinePacks) set ["police", 			[GVAR(voiceLinesPoliceList), GVAR(voiceLinesPoliceWeights), localize "STR_CROWSEW_Spectrum_voiceline_police_radio"]];
 
+// ambient radio sounds with unintelligible voice
+GVAR(garbledRadioCommsSounds) = [
+					"A3\Sounds_F\sfx\radio\ambient_radio2.wss", 
+					"A3\Sounds_F\sfx\radio\ambient_radio6.wss", 
+					"A3\Sounds_F\sfx\radio\ambient_radio8.wss",
+					"A3\Sounds_F\sfx\radio\ambient_radio9.wss",
+					"A3\Sounds_F\sfx\radio\ambient_radio12.wss",
+					"A3\Sounds_F\sfx\radio\ambient_radio13.wss",
+					"A3\Sounds_F\sfx\radio\ambient_radio16.wss",
+					"A3\Sounds_F\sfx\radio\ambient_radio18.wss",
+					"A3\Sounds_F\sfx\radio\ambient_radio20.wss",
+					"A3\Sounds_F\sfx\radio\ambient_radio21.wss",
+					"A3\Sounds_F\sfx\radio\ambient_radio22.wss",
+					"A3\Sounds_F\sfx\radio\ambient_radio29.wss"
+				];
 
 // Spectrum autoline settings
 GVAR(spectrumAutolineColours) = ["ColorBlack", "ColorGrey", "ColorRed", "ColorBrown", "ColorOrange", "ColorYellow", "ColorKhaki", "ColorGreen", "ColorBlue", "ColorPink", "ColorWhite", "ColorWEST", "ColorEAST", "ColorGUER", "ColorCIV"]; // Must only contain colours from CfgMarkerColors

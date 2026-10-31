@@ -45,13 +45,7 @@ if (_transmitEM) then {
 	private _frequency = _minFreq + ((_sideId + missionStart#5) random (_maxFreq-_minFreq));	// use side as seed to have transmit frequency be unique per side
 
 	// spawn function to start signal, wait and then stop signal
-	[_unit, _frequency, _newRange] spawn {
-		params ["_unit", "_frequency", "_newRange"];
-		[QEGVAR(spectrum,addBeacon), [_unit, _frequency, _newRange, "chatter"]] call CBA_fnc_serverEvent;	// start signal
-		private _transmitTime = 5 + (random 10);	// time it takes to transmit the information
-		sleep _transmitTime;	// transmit time in seconds
-		[QEGVAR(spectrum,removeBeacon), [_unit, "chatter"]] call CBA_fnc_serverEvent;	// stop signal
-	};
+	[_unit, _frequency, _newRange, [ 0.7, "\A3\Dubbing_Radio_F\Sfx\in2c.ogg", selectRandom GVAR(garbledRadioCommsSounds), "\A3\Dubbing_Radio_F\Sfx\out2c.ogg"], false] remoteExec [QFUNC(addsoundsequenceserver), 2];
 };
 
 false; // return false to not suppress information sharing in LAMBS
