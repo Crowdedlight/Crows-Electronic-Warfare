@@ -24,6 +24,12 @@ if (isServer) then {
 	[QGVAR(toggleJammer), FUNC(toggleJammerServer)] call CBA_fnc_addEventHandler;
 	// EH for requesting current jammer state (Init/JIP)
 	[QGVAR(requestJammers), FUNC(requestJammers)] call CBA_fnc_addEventHandler;
+
+	// server handlers are registered, tell scripts it is safe to raise events like addJammer. Public so clients can wait on it too
+	GVAR(ready) = true;
+	publicVariable QGVAR(ready);
+	// local event only for the server, as clients may not have their handlers registered yet when it arrives. They should check the variable
+	[QGVAR(ready)] call CBA_fnc_localEvent;
 }; 
 
 // init 3den-placed data terminals
