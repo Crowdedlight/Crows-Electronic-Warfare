@@ -40,5 +40,27 @@ if (count _jamMap == 0) then {
 	_PP_film ppEffectCommit 0;
 };
 
+// keep the old state so we can tell what changed once the local map is updated
+private _oldJamMap = GVAR(jamMap);
+
 // update local map
 GVAR(jamMap) = _jamMap;
+
+// raise local events for what changed. The server (and host) already raised them when it changed the map, as it shares the map with its own handler and would see no diff here
+if (!isServer) then {
+	{
+		[QGVAR(jammerRemoved), [_x, _oldJamMap get _x]] call CBA_fnc_localEvent;
+	} forEach ((keys _oldJamMap) - (keys _jamMap));
+
+	{
+		[QGVAR(jammerAdded), [_x, _jamMap get _x]] call CBA_fnc_localEvent;
+	} forEach _newJammers;
+
+	{
+		private _entry = _jamMap get _x;
+		// toggled if the jammer existed before and its enabled state differs
+		if (_x in _oldJamMap && {(_oldJamMap get _x)#3 isNotEqualTo _entry#3}) then {
+			[QGVAR(jammerToggled), [_x, _entry#3, _entry]] call CBA_fnc_localEvent;
+		};
+	} forEach (keys _jamMap);
+};
