@@ -42,6 +42,9 @@ if (isServer) then {
 	// EH for jamming
 	[QGVAR(toggleJammingOnUnit), FUNC(toggleJammingOnUnit)] call CBA_fnc_addEventHandler;
 	[QGVAR(setUnitJammable), FUNC(initDroneSignals)] call CBA_fnc_addEventHandler;
+
+	// sound sequences
+	[QGVAR(addSoundSequenceServer), FUNC(addSoundSequenceServer)] call CBA_fnc_addEventHandler;
 };
 
 // toggle AI function has to be available on all clients, as it only runs on whoever has the unit locally 
