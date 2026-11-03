@@ -29,11 +29,7 @@ params [["_unit",     objNull, [objNull]],
 		["_newRange", 350,     [1337]],
 		["_radio",    false,   [true]]];
 
-
-diag_log format ["%1, %2, %3", _unit, _newRange, _radio]; 	// debug output
-
-// private _inventoryRadio = "ItemRadio" in (assignedItems _unit);		// check if AI has has a SR radio equipped
-// private _hasRadio = _radio || _inventoryRadio;
+// diag_log format ["%1, %2, %3", _unit, _newRange, _radio]; 	// debug output
 
 private _transmitEM = (_newRange > 150);	// radio is assumed if communication range is larger than 150m
 if (_transmitEM) then {
