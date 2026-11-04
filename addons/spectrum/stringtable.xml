@@ -236,6 +236,12 @@
             <English>Shall UAV terminal users be visible in the spectrum (given they are connected to a UAV)? This makes them susceptible to being jammed by players with a jamming antenna on their Spectrum Device.</English>
             <French>Les utilisateurs de terminaux de drones doivent-ils être visibles dans le spectre (étant donné qu'ils sont connectés à un drone) ? Cela les rend susceptibles d'être brouillés par des joueurs disposant d'une antenne de brouillage sur leur spectreur.</French>
         </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_use_lambsShareInformationHandler">
+            <English>Radio transmission for LAMBS AI</English>
+        </Key>
+        <Key ID="STR_CROWSEW_Spectrum_settings_use_lambsShareInformationHandler_tooltip">
+            <English>Let LAMBS AI transmit a radio signal, when they share information with other units. Requires LAMBS_Danger.fsm v2.6.2 or higher.</English>
+        </Key>
         <Key ID="STR_CROWSEW_Spectrum_sounds_drone_heli_motor">
             <English>Helicopter drone motor</English>
             <French>Sons du moteur du drone de l'hélicoptère</French>

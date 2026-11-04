@@ -4,7 +4,7 @@
 // register a custom ShareInformationHandler at LAMBS danger (if available) for both server and clients
 private _lambsConfig = configFile >> "CfgPatches" >> "lambs_main";
 private _hasLAMBS = isClass(_lambsConfig);
-if (_hasLAMBS) then {
+if (_hasLAMBS  &&  GVAR(useLambsShareInformationHandler)) then {
 	// get installed LAMBS version
 	private _LAMBSversion = [_lambsConfig,"versionAr"] call BIS_fnc_returnConfigEntry;
 	diag_log format ["CrowsEW-spectrum: LAMBS version %1 detected", _LAMBSversion];

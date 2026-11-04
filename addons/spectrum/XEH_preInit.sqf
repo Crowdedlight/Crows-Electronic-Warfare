@@ -42,6 +42,15 @@ ADDON = true;
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(useLambsShareInformationHandler), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "CHECKBOX", // setting type
+    [localize "STR_CROWSEW_Spectrum_settings_use_lambsShareInformationHandler", [localize "STR_CROWSEW_Spectrum_settings_use_lambsShareInformationHandler_tooltip", "<br/>", endl] call CBA_fnc_replace],
+    "Crows Electronic Warfare",
+    true,	// default value
+    nil
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(minJamSigStrength), // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "SLIDER", // setting type
     [localize "STR_CROWSEW_Spectrum_settings_min_jam_strength", localize "STR_CROWSEW_Spectrum_settings_min_jam_strength_tooltip"], 
