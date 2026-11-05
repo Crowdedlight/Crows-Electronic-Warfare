@@ -9,6 +9,11 @@ You can add jammers with the following scripts executed on a single client. (It 
 ["crowsEW_main_addJammer", [_unit, _radFalloff, _radEffective, _isActiveAtMissionStart, _capabilities]] call CBA_fnc_serverEvent;
 ```
 
+To not add the activate/deactivate actions to a jammer, for example a vehicle that has its own switch, set this variable on the object. It can be set at any time, before or after the jammer is added, and can be changed later. The actions check it in their condition.
+```c
+_unit setVariable ["crowsEW_main_hideActions", true, true];
+```
+
 Be advised that this does not handle adding the sound effect to the jammer. This has to be done manually if wanted same effect as when using the zeus/editor module:
 ```c
 // _unit: jammer object
