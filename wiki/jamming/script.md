@@ -9,7 +9,7 @@ You can add jammers with the following scripts executed on a single client. (It 
 ["crowsEW_main_addJammer", [_unit, _radFalloff, _radEffective, _isActiveAtMissionStart, _capabilities]] call CBA_fnc_serverEvent;
 ```
 
-To not add the activate/deactivate actions to a jammer, for example a vehicle that has its own switch, set this variable on the object. It can be set at any time, before or after the jammer is added, and can be changed later. The actions check it in their condition.
+To hide the activate/deactivate actions of a jammer, for example on a vehicle that has its own switch, set this variable on the object. The actions check it in their condition, so it can be set before or after the jammer is added and changed at any time.
 ```c
 _unit setVariable ["crowsEW_main_hideActions", true, true];
 ```
