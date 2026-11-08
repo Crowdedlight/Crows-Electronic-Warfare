@@ -11,6 +11,7 @@
         -   [Trigger by script](spectrum/tracking/tfar_tracking_scripting.md)
     -   [Taking notes](spectrum/tracking/notes-taking.md)
 -   [Notes for Zeus](spectrum/notes-zeus.md)
+-   [LAMBS Compat](spectrum/lambs.md)
 
 # Jamming
 -   [General](jamming/general.md)
