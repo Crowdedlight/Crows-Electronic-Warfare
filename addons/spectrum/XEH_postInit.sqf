@@ -1,5 +1,30 @@
 #include "script_component.hpp"
 
+
+// register a custom ShareInformationHandler at LAMBS danger (if available) for both server and clients
+private _lambsConfig = configFile >> "CfgPatches" >> "lambs_main";
+private _hasLAMBS = isClass(_lambsConfig);
+if (_hasLAMBS  &&  GVAR(useLambsShareInformationHandler)) then {
+	// get installed LAMBS version
+	private _LAMBSversion = [_lambsConfig,"versionAr"] call BIS_fnc_returnConfigEntry;
+	diag_log format ["CrowsEW-spectrum: LAMBS version %1 detected", _LAMBSversion];
+
+	// check for minimum required version
+	private _minVersion = [2,6,2,1];
+	private _versionSufficient = false;
+	{ if (_x > _minVersion#_forEachIndex) exitWith { _versionSufficient = true } } forEach _LAMBSversion; 
+	_versionSufficient = _versionSufficient || _LAMBSversion isEqualTo _minVersion;	// this edge case the for-loop wouldn't catch properly
+
+	// install event handler if version is sufficient
+	if (_versionSufficient) then {
+		[FUNC(lambsShareInformationHandler)] call lambs_main_fnc_addShareInformationHandler;
+		diag_log "CrowsEW-spectrum: lambsShareInformationHandler added.";
+	} else {
+		diag_log format ["CrowsEW-spectrum: LAMBS version %1 is to low to be used. Minimum %2 is required.", _LAMBSversion, _minVersion];
+	};
+};
+
+
 // if server, set eventhandlers for server 
 if (isServer) then {
 	// event listener for adding trackable random radio chatter on units - server only
@@ -17,6 +42,9 @@ if (isServer) then {
 	// EH for jamming
 	[QGVAR(toggleJammingOnUnit), FUNC(toggleJammingOnUnit)] call CBA_fnc_addEventHandler;
 	[QGVAR(setUnitJammable), FUNC(initDroneSignals)] call CBA_fnc_addEventHandler;
+
+	// sound sequences
+	[QGVAR(addSoundSequenceServer), FUNC(addSoundSequenceServer)] call CBA_fnc_addEventHandler;
 };
 
 // toggle AI function has to be available on all clients, as it only runs on whoever has the unit locally 
@@ -69,3 +97,4 @@ if (!EGVAR(zeus,hasAce)) then {
 
 // request current state of beacons - for JIP/init
 [QGVAR(requestBeacons), [player]] call CBA_fnc_serverEvent;
+
