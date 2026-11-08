@@ -41,8 +41,8 @@ GVAR(jamMap) set [_netId, [_unit, _radFalloff, _radEffective, _enabled, _capabil
 //  So we have to add actions/markers to jammers here
 if (isServer && hasInterface) then {
 	// add actions to new jammers
-	_unit addAction [("<t color=""#FFFF00"">" + localize "STR_CROWSEW_Main_jammer_deactivate_action_name"), FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
-	_unit addAction [("<t color=""#FFFF00"">" + localize "STR_CROWSEW_Main_jammer_activate_action_name"), FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["!([%1] call %2)", str(_netId), FUNC(isJammerActive)], 6];
+	_unit addAction [("<t color=""#FFFF00"">" + localize "STR_CROWSEW_Main_jammer_deactivate_action_name"), FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["!(_target getVariable [%3, false]) && {[%1] call %2}", str(_netId), FUNC(isJammerActive), str QGVAR(hideActions)], 6];
+	_unit addAction [("<t color=""#FFFF00"">" + localize "STR_CROWSEW_Main_jammer_activate_action_name"), FUNC(actionJamToggle), [_netId], 7, true, true, "", format ["!(_target getVariable [%3, false]) && {!([%1] call %2)}", str(_netId), FUNC(isJammerActive), str QGVAR(hideActions)], 6];
 
 	// if zeus, add map marker for new ones
 	if (call EFUNC(zeus,isZeus) && GVAR(zeus_jam_marker_show)) then {
