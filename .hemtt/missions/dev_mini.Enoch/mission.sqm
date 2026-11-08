@@ -65,13 +65,14 @@ addons[]=
 	"A3_Soft_F_Offroad_01",
 	"A3_Drones_F_Air_F_Gamma_UAV_01",
 	"A3_Props_F_Exp_A_Military_Equipment",
-	"A3_Structures_F_Ind_Transmitter_Tower"
+	"A3_Structures_F_Ind_Transmitter_Tower",
+	"A3_Air_F_Exp_UAV_03"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=32;
+		items=33;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -291,6 +292,13 @@ class AddonsMetaData
 		{
 			className="A3_Structures_F_Ind";
 			name="Arma 3 - Industrial Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item32
+		{
+			className="A3_Air_F_Exp";
+			name="Arma 3 Apex - Aircraft";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -1584,7 +1592,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						name="d2";
+						name="non_zeus";
 						description="non-Zeus slot";
 						isPlayable=1;
 					};
@@ -2093,7 +2101,7 @@ class Mission
 						class data
 						{
 							singleType="SCALAR";
-							value=400;
+							value=1000;
 						};
 					};
 				};
@@ -2145,7 +2153,7 @@ class Mission
 						class data
 						{
 							singleType="SCALAR";
-							value=200;
+							value=500;
 						};
 					};
 				};
