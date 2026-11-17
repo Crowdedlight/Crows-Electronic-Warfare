@@ -48,14 +48,17 @@ GVAR(jamMap) = _jamMap;
 
 // raise local events for what changed. The server (and host) already raised them when it changed the map, as it shares the map with its own handler and would see no diff here
 if (!isServer) then {
+	// Removed Jammers
 	{
 		[QGVAR(jammerRemoved), [_x, _oldJamMap get _x]] call CBA_fnc_localEvent;
 	} forEach ((keys _oldJamMap) - (keys _jamMap));
 
+	// New Jammers
 	{
 		[QGVAR(jammerAdded), [_x, _jamMap get _x]] call CBA_fnc_localEvent;
 	} forEach _newJammers;
 
+	// Toggled Jammers
 	{
 		private _entry = _jamMap get _x;
 		// toggled if the jammer existed before and its enabled state differs

@@ -17,7 +17,6 @@ if (!(_netId in GVAR(jamMap)) || !isServer) exitWith {};
 
 // get value and update the enabled value
 private _jammer = GVAR(jamMap) get _netId;
-private _wasEnabled = _jammer#3;
 _jammer set [3, _enabled];
 
 // save changes to map
@@ -26,10 +25,8 @@ GVAR(jamMap) set [_netId, _jammer];
 // broadcast update
 [QGVAR(updateJammers), [GVAR(jamMap)]] call CBA_fnc_GlobalEvent;
 
-// notify local listeners on the server, only if the state actually changed
-if (_wasEnabled isNotEqualTo _enabled) then {
-	[QGVAR(jammerToggled), [_netId, _enabled, _jammer]] call CBA_fnc_localEvent;
-};
+// notify local listeners on the server
+[QGVAR(jammerToggled), [_netId, _enabled, _jammer]] call CBA_fnc_localEvent;
 
 // show jammers in the spectrum
 if (_enabled) then {
