@@ -25,6 +25,9 @@ GVAR(jamMap) set [_netId, _jammer];
 // broadcast update
 [QGVAR(updateJammers), [GVAR(jamMap)]] call CBA_fnc_GlobalEvent;
 
+// notify local listeners on the server
+[QGVAR(jammerToggled), [_netId, _enabled, _jammer]] call CBA_fnc_localEvent;
+
 // show jammers in the spectrum
 if (_enabled) then {
 	private _capabilities = _jammer#4;

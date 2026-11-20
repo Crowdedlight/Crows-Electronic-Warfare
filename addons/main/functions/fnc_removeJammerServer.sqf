@@ -15,8 +15,9 @@ params [["_netid", ""], ["_broadcast", true]];
 if (_netid == "" || !isServer) exitWith {};
 
 // get reference to object before deleting jamMap entry
-private _jammerObj = (GVAR(jamMap) get _netid) #0;
-private _capabilities = (GVAR(jamMap) get _netid) #4;
+private _entry = GVAR(jamMap) get _netid;
+private _jammerObj = _entry #0;
+private _capabilities = _entry #4;
 
 // delete key in hashmap with this netid 
 GVAR(jamMap) deleteAt _netId;
@@ -52,3 +53,6 @@ if (isServer && hasInterface) then {
 
 // remove jammer variable from object. For zeus context action
 _jammerObj setVariable[QGVAR(isJammer), false, true];
+
+// notify local listeners on the server, with the entry as it was before removal
+[QGVAR(jammerRemoved), [_netid, _entry]] call CBA_fnc_localEvent;
