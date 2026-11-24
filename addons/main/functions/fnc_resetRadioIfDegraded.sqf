@@ -26,6 +26,8 @@ if (EGVAR(zeus,hasTFAR)) then {
 		_unit setVariable ["tf_sendingDistanceMultiplicator", 1];
 	};
 } else {
-	// if not TFAR loaded, then it must be ACRE
-	_unit setVariable ["acre_receive_interference", 0];
+	// if not TFAR loaded, then it must be ACRE. Only reset if degraded, as negative values are a satcom boost
+	if ((_unit getVariable ["acre_receive_interference", 0]) > 0) then {
+		_unit setVariable ["acre_receive_interference", 0];
+	};
 };
